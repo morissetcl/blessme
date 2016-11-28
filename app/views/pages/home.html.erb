@@ -6,43 +6,40 @@
   </div>
 </div>
 
-<div class="cards-wrapper">
-  <div class="cards-description">
-    <h2>Comment ça marche</h2>
-    <p>Le premier réseau social basé sur la prière d'intercession</p>
+<div class="icons-container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag('sad.png', class:"card-icon") %>
+      <h3>Share</h3>
+      <p>Je partage les épreuves que je rencontre sur Bless me.</p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag('globe.png', class:"card-icon") %>
+      <h3>See</h3>
+      <p>Des croyants du monde entiers peuvent prier directement pour moi.</p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag('heart.png', class:"card-icon") %>
+      <h3>Love</h3>
+      <p>Je reçois ces prières, qui me donnent de la force et de l'amour.</p>
+    </div>
   </div>
+</div>
+
+<div class="cards-wrapper">
   <div class="cards-container">
-    <div class="row card-row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="col-md-4">
-          <%= image_tag('partager.webp', class:"image-card") %>
-        </div>
-        <div class="col-md-8 card-content">
-          <h3>[1] Partager les épreuves de la vie</h3>
-          <p>Je rencontre des difficultés face aux aléas de la vie. J'aimerai que d'autre croyants prie pour moi afin que je surmonte cette épreuve, je décide de poster ma demande de prière sur Bless Me.</p>
-        </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 card-content">
+        <a href="#">
+          <%= image_tag('voir.webp', class: "image-card") %>
+          <span class="card-text"><span>blablabla</span></span>
+        </a>
       </div>
-    </div>
-    <div class="row card-row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="col-md-4">
-          <%= image_tag('voir.webp', class:"image-card") %>
-        </div>
-        <div class="col-md-8 card-content">
-          <h3>[2] Voir et entendre la communauté se mobiliser</h3>
-          <p>Aussitôt des croyants du monde entier accède à ma demande de prière via Bless Me. Ils pourront prier directement pour moi. Soit par écrit, soit en m'envoyant une prière vocale.</p>
-        </div>
+      <div class="col-xs-12 col-sm-4 card-content">
+        <%= image_tag('recevoir.webp', class: "image-card") %>
       </div>
-    </div>
-    <div class="row card-row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="col-md-4">
-          <%= image_tag('recevoir.webp', class:"image-card") %>
-        </div>
-        <div class="col-md-8 card-content">
-          <h3>[3] Recevoir de l'amour et de la foi</h3>
-          <p>Je reçois sur mon ordinateur les prières des croyants qui ont été touché par ma demande, cela me donne de la force, de l'amour et me renforce dans ma foi.</p>
-        </div>
+      <div class="col-xs-12 col-sm-4 card-content">
+        <%= image_tag('partager.webp', class: "image-card") %>
       </div>
     </div>
   </div>
