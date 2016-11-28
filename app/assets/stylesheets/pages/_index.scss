@@ -1,11 +1,66 @@
 @import "home";
 
+html, body {
+  background-color: #f0f2fa;
+}
+
 .pain-wrapper-index {
-  background-color: black;
+
 }
 
 .pain-container-index {
   margin: 0 auto;
   width: 970px;
+  height: 175px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  border: 1px solid lightgrey;
   background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.08);
+  border-radius: 5px;
+}
+
+.pain-category {
+  position: relative;
+  top: 20px;
+  right: 140px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.pain-title {
+  position: relative;
+  top: -10px;
+  text-align: center;
+}
+
+.pain-title h2 {
+  font-size: 15px;
+}
+
+.pain-container-index-description {
+  position: relative;
+  width: 800px;
+  height: 100px;
+  background-color: lightgrey;
+  right: 130px !important;
+  bottom: 10px;
+  border-radius: 5px;
+}
+
+.pain-description {
+  position: relative;
+  left: 20px;
+  top: 10px;
+}
+
+.pain-avatar {
+  width: 40px;
+  border-radius: 50%
+}
+
+.pain-user {
+  position: relative;
+  left: 710px;
+  bottom: 130px;
 }
