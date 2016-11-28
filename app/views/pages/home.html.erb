@@ -1,2 +1,49 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" ">
+  <div class="banner-content">
+    <h1>Bless Me</h1>
+    <p>Votre foi est votre plus grande richesse, partagez-la</p>
+    <a class="btn btn-primary btn-lg">GET IT</a>
+  </div>
+</div>
+
+<div class="cards-wrapper">
+  <div class="cards-description">
+    <h2>Comment ça marche</h2>
+    <p>Le premier réseau social basé sur la prière d'intercession</p>
+  </div>
+  <div class="cards-container">
+    <div class="row card-row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-4">
+          <%= image_tag('partager.webp', class:"image-card") %>
+        </div>
+        <div class="col-md-8 card-content">
+          <h3>[1] Partager les épreuves de la vie</h3>
+          <p>Je rencontre des difficultés face aux aléas de la vie. J'aimerai que d'autre croyants prie pour moi afin que je surmonte cette épreuve, je décide de poster ma demande de prière sur Bless Me.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row card-row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-4">
+          <%= image_tag('voir.webp', class:"image-card") %>
+        </div>
+        <div class="col-md-8 card-content">
+          <h3>[2] Voir et entendre la communauté se mobiliser</h3>
+          <p>Aussitôt des croyants du monde entier accède à ma demande de prière via Bless Me. Ils pourront prier directement pour moi. Soit par écrit, soit en m'envoyant une prière vocale.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row card-row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-4">
+          <%= image_tag('recevoir.webp', class:"image-card") %>
+        </div>
+        <div class="col-md-8 card-content">
+          <h3>[3] Recevoir de l'amour et de la foi</h3>
+          <p>Je reçois sur mon ordinateur les prières des croyants qui ont été touché par ma demande, cela me donne de la force, de l'amour et me renforce dans ma foi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
