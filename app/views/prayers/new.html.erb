@@ -1,0 +1,25 @@
+
+      <%= simple_form_for(@prayers) do |f| %>
+        <%= f.text_field :title %>
+        <%= f.text_area :description %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offest-2">
+      <h1>Pray for <%= @user.username %></h1>
+      <%= simple_form_for [@restaurant, @review] do |f|  %>
+        <%= f.input :content %>
+        <%= f.input :rating, collection: Review::RATING%>
+        <%= f.submit 'add' %>
+      <% end %>
+      <% if @review.errors.any? %>
+        <%= @review.errors.full_messages %>
+      <% end %>
+    </div>
+  </div>
+</div>

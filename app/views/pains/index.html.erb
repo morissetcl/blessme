@@ -1,11 +1,17 @@
-<div class="pain-wrapper-index">
-  <div class="pain-container-index">
-    div.col
-  TEST
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+  <ul class="list-unstyled">
     <% @pains.each do |pain| %>
-      <%= pain.title %>
-      <%= pain.category %>
-      <%= pain.description %>
+      <li>Title :<%= pain.title %></li>
+      <li>Category :<%= pain.category %></li>
+      <li>Description :<%= pain.description %></li>
+      <br>
+      <%=link_to "Pray", new_pain_prayer_path(pain) %>
+      <br>
+      <hr>
     <% end %>
+    </ul>
   </div>
+</div>
 </div>

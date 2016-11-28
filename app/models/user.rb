@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :pains
-  # has_many :requests, through: :pains
+  has_many :prayers, through: :pains
 
 end
 
