@@ -1,0 +1,14 @@
+<div class="container pain-edit-container">
+  <div class="row">
+    <div class="col-md-8 col-md-offest-2">
+      <%= simple_form_for(@pain) do |f| %>
+        <%= f.text_field :title %>
+        <%= f.select :category, ['Actualité', 'Amour', 'Famille', 'Religion', 'Santé', 'Travail', 'Autre'] %>
+        <%= f.text_area :description %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
