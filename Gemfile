@@ -17,6 +17,9 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+#gem country_select simple form
+gem 'country_select', '~> 2.5.2'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
