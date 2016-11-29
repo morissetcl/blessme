@@ -1,0 +1,16 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offest-2">
+      <%= simple_form_for [@pain, @prayer] do |f|  %>
+        <%= f.input :title %>
+        <%= f.input :description, as: :text, :input_html => {:rows => 10}%>
+        <%= f.submit 'add' %>
+      <% end %>
+      <% if @prayer.errors.any? %>
+        <%= @prayer.errors.full_messages %>
+      <% end %>
+    </div>
+  </div>
+</div>
