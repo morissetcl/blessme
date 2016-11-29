@@ -1,10 +1,9 @@
 class PainsController < ApplicationController
-  before_action :set_pain, only: [:show, :edit, :update, :destroy]
+  before_action :set_pain, only: [:edit, :update, :destroy]
 
   def index
     @pains = Pain.all
     authorize @pains
-    pain_random
   end
 
   def show
