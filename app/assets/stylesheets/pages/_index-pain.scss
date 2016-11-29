@@ -1,0 +1,80 @@
+html, body {
+  background-color: #E6F1F5;
+}
+
+.pain-wrapper-index {
+
+}
+
+.pain-container-index {
+  margin: 0 auto;
+  width: 970px;
+  height: 175px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  border: 1px solid #F6C7AC;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.08);
+  border-radius: 5px;
+}
+
+.pain-category {
+  position: relative;
+  top: 87px;
+  right: 110px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.pain-title {
+  position: relative;
+  top: -10px;
+  left: 50px;
+}
+
+.pain-title h2 {
+  font-size: 15px;
+}
+
+.pain-container-index-description {
+  position: relative;
+  width: 800px;
+  height: 100px;
+  border: 1px solid lightgrey;
+  background-color: white;
+  left: 50px !important;
+  bottom: 10px;
+  border-radius: 5px;
+}
+
+.pain-description {
+  position: relative;
+  left: 20px;
+  top: 10px;
+}
+
+.pain-avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.pain-user {
+  position: relative;
+  left: 885px;
+  bottom: 130px;
+}
+
+.pain-username {
+  position: relative;
+  left: 890px;
+  bottom: 120px;
+  font-size: 10px;
+}
+
+.pain-country {
+  position: relative;
+  left: 890px;
+  bottom: 117px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
