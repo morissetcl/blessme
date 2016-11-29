@@ -1,15 +1,17 @@
 class PrayersController < ApplicationController
 
 	def new
-		@pain = Pain.find(params[:pain_id])
+		@pain = set_pain
 		@prayer = Prayer.new
+    authorize @prayer
 	end
 
 	def create
-		@pain = Pain.find(params[:pain_id])
+		@pain = set_pain
 		@prayer = Prayer.new(prayer_params)
 		@prayer.user = current_user
 		@prayer.pain = @pain
+    authorize @prayer
 		 if @prayer.save
       	redirect_to pain_path(@pain)
     	else
@@ -19,21 +21,24 @@ class PrayersController < ApplicationController
 	end
 
 	def edit
-		@pain = Pain.find(params[:pain_id])
-		@prayer = Prayer.find(params[:id])
+		@pain = set_pain
+		@prayer = set_prayer
+    authorize @prayer
 	end
 
 	def update
-		@pain = Pain.find(params[:pain_id])
-		@prayer = Prayer.find(params[:id])
+		@pain = set_pain
+		@prayer = set_prayer
 		@prayer.update(prayer_params)
+    authorize @prayer
 		redirect_to pain_path(@pain)
 	end
 
 	def destroy
-		@pain = Pain.find(params[:pain_id])
-		@prayer = Prayer.find(params[:id])
+		@pain = set_pain
+		@prayer = set_prayer
 		@prayer.destroy
+    authorize @prayer
 		redirect_to pain_path(@pain)
 	end
 
