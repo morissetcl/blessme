@@ -1,80 +1,143 @@
-html, body {
-  background-color: #E6F1F5;
+.title-category {
+	margin-top: 100px;
+	margin-bottom: 50px;
 }
 
-.pain-wrapper-index {
-
+.cards-wrapper-category {
+  background-color: rgb(250, 250, 250);
+  padding: 50px 0 50px 0;
 }
 
-.pain-container-index {
-  margin: 0 auto;
-  width: 970px;
-  height: 175px;
-  margin-top: 20px;
+.cards-container {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
   margin-bottom: 40px;
-  border: 1px solid #F6C7AC;
-  background-color: white;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.08);
-  border-radius: 5px;
 }
 
-.pain-category {
-  position: relative;
-  top: 87px;
-  right: 110px;
-  font-size: 10px;
-  text-transform: uppercase;
-}
-
-.pain-title {
-  position: relative;
-  top: -10px;
-  left: 50px;
-}
-
-.pain-title h2 {
-  font-size: 15px;
-}
-
-.pain-container-index-description {
-  position: relative;
-  width: 800px;
-  height: 100px;
-  border: 1px solid lightgrey;
-  background-color: white;
-  left: 50px !important;
-  bottom: 10px;
-  border-radius: 5px;
-}
-
-.pain-description {
-  position: relative;
-  left: 20px;
-  top: 10px;
-}
-
-.pain-avatar {
-  width: 40px;
+.card-content-category-religion {
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
+  background: url('royalfamily.jpg');
+  background-size: cover;
+  overflow: hidden;
+  margin: auto;
+  margin-bottom: 50px;
+  margin-left: 100px;
+
 }
 
-.pain-user {
-  position: relative;
-  left: 885px;
-  bottom: 130px;
+.card-content-category-family {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: url('royalfamily.jpg');
+  background-size: cover;
+  overflow: hidden;
+  margin: auto;
+    margin-bottom: 50px;
+
 }
 
-.pain-username {
-  position: relative;
-  left: 890px;
-  bottom: 120px;
-  font-size: 10px;
+.card-content-category-couple {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: url('royalfamily.jpg');
+  background-size: cover;
+  overflow: hidden;
+  margin: auto;
+    margin-bottom: 50px;
 }
 
-.pain-country {
-  position: relative;
-  left: 890px;
-  bottom: 117px;
-  font-size: 10px;
-  text-transform: uppercase;
+.card-content-category-health {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: url('royalfamily.jpg');
+  background-size: cover;
+  overflow: hidden;
+  margin: auto;
+    margin-bottom: 50px;
+
+
+}
+
+.card-content-category-news {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: url('royalfamily.jpg');
+  background-size: cover;
+  overflow: hidden;
+  margin: auto;
+    margin-bottom: 50px;
+
+
+}
+
+.card-content-category-work {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: url('royalfamily.jpg');
+  background-size: cover;
+  overflow: hidden;
+  margin: auto;
+    margin-bottom: 50px;
+
+
+}
+
+.box{
+  background: rgba(0,0,0,.75);
+  text-align: center;
+  padding: 62px 0 66px 0;
+  opacity: 0;
+   width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-content-category-religion:hover .box {
+  opacity: 1;
+}
+
+.card-content-category-family:hover .box {
+  opacity: 1;
+}
+
+.card-content-category-couple:hover .box {
+  opacity: 1;
+}
+
+.card-content-category-health:hover .box {
+  opacity: 1;
+}
+
+.card-content-category-family:hover .box {
+  opacity: 1;
+}
+
+.card-content-category-work:hover .box {
+  opacity: 1;
+}
+
+.card-content-category-news:hover .box {
+  opacity: 1;
+}
+
+.card-text {
+  color: white;
+  font-weight: lighter;
+
+}
+.container {
+  margin-top: 70px;
 }
