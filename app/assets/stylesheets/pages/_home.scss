@@ -1,4 +1,82 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+/* BANNER */
+
+.banner {
+  width: 100%;
+  text-align: center;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  background-image: url('banner.jpg');
+  height: 100vh;
+}
+.banner-content {
+  margin: auto;
+  margin-top: 25%;
+  color: rgb(250, 250, 250);
+}
+
+/* ICONS */
+
+.icons-container {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+.card-icon {
+  width: 75px;
+}
+.icons-container h3 {
+  font-size: 20px;
+  margin: 0;
+}
+.icons-container p {
+  font-size: 14px;
+  width: 80%;
+  margin: auto;
+}
+
+/* CARDS */
+.cards-wrapper {
+  margin-top: 70px;
+  background-color: rgb(250, 250, 250);
+  padding: 50px 0 50px 0;
+}
+.cards-wrapper h2 {
+  text-align: center;
+  font-size: 23px;
+  font-weight: lighter;
+}
+.cards-container {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+.card-content {
+  width: 300px;
+  height: 150px;
+  box-shadow:inset 1px 1px 40px 0 rgba(0,0,0,.45);
+  background: url('voir.webp');
+  background-size: cover;
+  overflow: hidden;
+  margin: auto;
+}
+
+.box {
+  background: rgba(0,0,0,.75);
+  text-align: center;
+  padding: 62px 0 66px 0;
+  opacity: 0;
+  transition: opacity .30s ease;
+}
+.card-content:hover .box {
+  opacity: 1;
+}
+.card-text {
+  color: white;
+  font-weight: lighter;
+}

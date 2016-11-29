@@ -1,5 +1,56 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" ">
+  <div class="banner-content">
+    <h1>Bless Me</h1>
+    <p>Votre foi est votre plus grande richesse, partagez-la</p>
+    <a class="btn btn-primary btn-lg">Pray for someone</a> <a class="btn btn-primary btn-lg">Ask for a prayer</a>
+  </div>
+</div>
 
+<div class="icons-container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag('sad.png', class:"card-icon") %>
+      <h3>Share</h3>
+      <p>Je partage les épreuves que je rencontre sur Bless me.</p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag('globe.png', class:"card-icon") %>
+      <h3>See</h3>
+      <p>Des croyants du monde entiers peuvent prier directement pour moi.</p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag('heart.png', class:"card-icon") %>
+      <h3>Love</h3>
+      <p>Je reçois ces prières, qui me donnent de la force et de l'amour.</p>
+    </div>
+  </div>
+</div>
 
-<%= link_to "See all the requests", pains_path %>
+<div class="cards-wrapper">
+  <h2>Les dernières demandes de prières</h2>
+  <div class="cards-container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="card-content">
+          <div class="box">
+            <span class="card-text">blablabla</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card-content">
+          <div class="box">
+            <span class="card-text">blablabla</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card-content">
+          <div class="box">
+            <span class="card-text">blablabla</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
