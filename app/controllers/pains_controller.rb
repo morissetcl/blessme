@@ -4,10 +4,11 @@ class PainsController < ApplicationController
   def index
     @pains = Pain.all
     authorize @pains
+    pain_random
   end
 
   def show
-    @pain
+    pain_random
     authorize @pain
   end
 
@@ -51,5 +52,11 @@ class PainsController < ApplicationController
 
   def pain_params
     params.require(:pain).permit(:title, :description, :category)
+  end
+
+  def pain_random
+    random = []
+    @pains= Pain.last(50)
+    @pain= @pains.sample
   end
 end
