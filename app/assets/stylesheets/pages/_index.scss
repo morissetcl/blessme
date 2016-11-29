@@ -1,11 +1,5 @@
 @import "home";
-
-.pain-wrapper-index {
-  background-color: black;
-}
-
-.pain-container-index {
-  margin: 0 auto;
-  width: 970px;
-  background-color: white;
-}
+@import "edit-pain";
+@import "new-pain";
+@import "edit-prayer";
+@import "new-prayer";
