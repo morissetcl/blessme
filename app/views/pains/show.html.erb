@@ -13,13 +13,18 @@
       <hr>
     </ul>
     <ul class="list-unstyled">
-       <% @pain.prayers.each do |prayer| %>
-      <li style="color:red"><strong><%= prayer.title %></strong></li>
-      <li>Your prayer :<%= prayer.description %></li>
-       <%= link_to "Edit your prayer", edit_pain_prayer_path(@pain, prayer) %>
-       <br> 
-       <%= link_to "Delete your prayer", pain_prayer_path(@pain, prayer), method: :delete %>
-       <hr>
+      <% @pain.prayers.each do |prayer| %>
+        <li style="color:red"><strong><%= prayer.title %></strong></li>
+        <li>Your prayer :<%= prayer.description %></li>
+
+        <% if policy(prayer).edit? %>
+          <%= link_to "Edit your prayer", edit_pain_prayer_path(@pain, prayer) %>
+        <% end %>
+        <br>
+        <% if policy(prayer).destroy? %>
+          <%= link_to "Delete your prayer", pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        <hr>
       <% end %>
 
     </ul>

@@ -3,19 +3,23 @@ class PainsController < ApplicationController
 
   def index
     @pains = Pain.all
+    authorize @pains
   end
 
   def show
     @pain
+    authorize @pain
   end
 
   def new
     @pain = Pain.new
+    authorize @pain
   end
 
   def create
     @pain = Pain.new(pain_params)
     @pain.user = current_user
+    authorize @pain
     if @pain.save
       redirect_to pains_path
     else
@@ -25,10 +29,12 @@ class PainsController < ApplicationController
 
   def edit
     @pain
+    authorize @pain
   end
 
   def update
     @pain.update(pain_params)
+    authorize @pain
     redirect_to pain_path(@pain)
   end
 

@@ -7,11 +7,14 @@
       <li><strong>Category :</strong><%= pain.category %></li>
       <li><strong>Description :</strong><%= pain.description %></li>
       <br>
-      <%=link_to "Pray", new_pain_prayer_path(pain) %>
+
+      <% if policy(pain).show? %>
+        <%=link_to "Show", pain_path(pain) %>
+      <% end %>
       <br>
-      <%=link_to "Show", pain_path(pain) %>
-      <br>
-      <%=link_to "Edit the request", edit_pain_path(pain) %>
+      <% if policy(pain).edit? %>
+        <%=link_to "Edit the request", edit_pain_path(pain) %>
+      <% end %>
 
       <br>
       <hr>
