@@ -1,7 +1,7 @@
 @import "home";
 
 html, body {
-  background-color: #f0f2fa;
+  background-color: #E6F1F5;
 }
 
 .pain-wrapper-index {
@@ -14,7 +14,7 @@ html, body {
   height: 175px;
   margin-top: 20px;
   margin-bottom: 40px;
-  border: 1px solid lightgrey;
+  border: 1px solid #F6C7AC;
   background-color: white;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.08);
   border-radius: 5px;
@@ -22,8 +22,8 @@ html, body {
 
 .pain-category {
   position: relative;
-  top: 20px;
-  right: 140px;
+  top: 87px;
+  right: 110px;
   font-size: 10px;
   text-transform: uppercase;
 }
@@ -31,7 +31,7 @@ html, body {
 .pain-title {
   position: relative;
   top: -10px;
-  text-align: center;
+  left: 50px;
 }
 
 .pain-title h2 {
@@ -42,8 +42,9 @@ html, body {
   position: relative;
   width: 800px;
   height: 100px;
-  background-color: lightgrey;
-  right: 130px !important;
+  border: 1px solid lightgrey;
+  background-color: white;
+  left: 50px !important;
   bottom: 10px;
   border-radius: 5px;
 }
@@ -56,11 +57,26 @@ html, body {
 
 .pain-avatar {
   width: 40px;
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 .pain-user {
   position: relative;
-  left: 710px;
+  left: 885px;
   bottom: 130px;
+}
+
+.pain-username {
+  position: relative;
+  left: 890px;
+  bottom: 120px;
+  font-size: 10px;
+}
+
+.pain-country {
+  position: relative;
+  left: 890px;
+  bottom: 117px;
+  font-size: 10px;
+  text-transform: uppercase;
 }

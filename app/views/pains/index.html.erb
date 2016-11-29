@@ -1,13 +1,23 @@
 <div class="pain-wrapper-index">
   <% @pains.each do |pain| %>
     <div class="pain-container-index">
-      <div class="col-md-8 col-md-offset-2">
-      <div class="pain-category"><%= pain.category %></div>
-      <div class="pain-title"><h2><%= pain.title %></h2></div>
-      <div class="pain-container-index-description">
-        <div class="pain-description"><p><%= pain.description %></p></div>
+      <div class="pain-category">
+        <%= pain.category %>
       </div>
-        <img class="pain-user pain-avatar" src="https://unsplash.it/300/300/?random">
+      <div class="pain-title">
+        <h2><%= pain.title %></h2>
+      </div>
+      <div class="pain-container-index-description">
+        <div class="pain-description">
+          <p><%= pain.description %></p>
+        </div>
+      </div>
+      <img class="pain-user pain-avatar" src="https://unsplash.it/300/300/?random">
+      <div class="pain-username">
+        <p><%= pain.user.username %>test</p>
+      </div>
+      <div class="pain-country">
+        <p><%= pain.user.country %>test</p>
       </div>
     </div>
   <% end %>
