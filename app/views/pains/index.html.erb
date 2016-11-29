@@ -1,23 +1,52 @@
-<div class="pain-wrapper-index">
-  <div class="pain-container-index">
-    <div class="pain-category">
-      <%= @pain.category %>
-    </div>
-    <div class="pain-title">
-      <h2><%= @pain.title %></h2>
-    </div>
-    <div class="pain-container-index-description">
-      <div class="pain-description">
-        <p><%= @pain.description %></p>
+<div class="cards-wrapper-category">
+   <h3 class="title-category text-center">Choisissez la categorie de prière qui vous inspire</h3> 
+  <div class="cards-container">
+        <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-content-category-religion">
+          <div class="box">
+            <span class="card-text"><strong>Religion</strong></span>
+          </div>
+        </div>
       </div>
-    </div>
-    <img class="pain-user pain-avatar" src="https://unsplash.it/300/300/?random">
-    <div class="pain-username">
-      <p><%= @pain.user.username %>test</p>
-    </div>
-    <div class="pain-country">
-      <p><%= @pain.user.country %>test</p>
-    </div>
-  </div>
-</div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-content-category-family">
+          <div class="box">
+            <span class="card-text"><strong>Family</strong></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-content-category-couple">
+          <div class="box">
+            <span class="card-text"><strong>Couple</strong></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-content-category-health">
+          <div class="box">
+            <span class="card-text"><strong>Health</strong></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-content-category-news">
+          <div class="box">
+            <span class="card-text"><strong>News</strong></span>
+          </div>
+        </div>
+      </div>
+       <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-content-category-work">
+          <div class="box">
+            <span class="card-text"><strong>Work</strong></span>
+          </div>
+        </div>
+      </div>
+
+        </div>
+      </div>
+    </div> 
+
 
