@@ -7,13 +7,19 @@
       <li>Category :<%= @pain.category %></li>
       <li>Request :<%= @pain.description %></li>
       <br>
+      <%=link_to "Pray", new_pain_prayer_path(@pain) %>
+      <br>
+      <%=link_to "Back to request feed", pains_path %>
       <hr>
     </ul>
     <ul class="list-unstyled">
        <% @pain.prayers.each do |prayer| %>
-      <li><strong><%= prayer.title %></strong></li>
+      <li style="color:red"><strong><%= prayer.title %></strong></li>
       <li>Your prayer :<%= prayer.description %></li>
-       <%= link_to "Edit your prayer", edit_pain_prayer_path(prayer) %>
+       <%= link_to "Edit your prayer", edit_pain_prayer_path(@pain, prayer) %>
+       <br> 
+       <%= link_to "Delete your prayer", pain_prayer_path(@pain, prayer), method: :delete %>
+       <hr>
       <% end %>
 
     </ul>

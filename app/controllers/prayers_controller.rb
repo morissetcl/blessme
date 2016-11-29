@@ -25,12 +25,16 @@ class PrayersController < ApplicationController
 
 	def update
 		@pain = Pain.find(params[:pain_id])
-		@prayer = Prayer.find(params[:prayer_id])
+		@prayer = Prayer.find(params[:id])
 		@prayer.update(prayer_params)
 		redirect_to pain_path(@pain)
 	end
 
 	def destroy
+		@pain = Pain.find(params[:pain_id])
+		@prayer = Prayer.find(params[:id])
+		@prayer.destroy
+		redirect_to pain_path(@pain)
 	end
 
 	private
