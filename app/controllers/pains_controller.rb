@@ -9,6 +9,8 @@ class PainsController < ApplicationController
   def show
     @pain
     authorize @pain
+    @prayer = Prayer.new
+    authorize @prayer
   end
 
   def new

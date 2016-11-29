@@ -13,7 +13,10 @@ class PrayersController < ApplicationController
 		@prayer.pain = @pain
     authorize @prayer
 		 if @prayer.save
-      	redirect_to pain_path(@pain)
+        respond_to do |format|
+          format.html { redirect_to pain_path(@pain) }
+          format.js
+        end
     	else
       	flash.now[:alert] = "You didn't fill the form correctly"
       	render :new
@@ -37,7 +40,12 @@ class PrayersController < ApplicationController
 	def destroy
 		@pain = set_pain
 		@prayer = set_prayer
-		@prayer.destroy
+		if @prayer.destroy
+      respond_to do |format|
+        format.html { redirect_to pain_path(@pain) }
+        format.js
+      end
+    end
     authorize @prayer
 		redirect_to pain_path(@pain)
 	end
