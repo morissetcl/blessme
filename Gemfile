@@ -38,4 +38,7 @@ end
 #Pundit
 gem 'pundit'
 
+#geocoder
+gem 'geocoder'
+
 

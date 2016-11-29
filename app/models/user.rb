@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :pains
   has_many :prayers, through: :pains
 
+  geocoded_by :city
+  after_validation :geocode, if: :city_changed?
 end
 
 
