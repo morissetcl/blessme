@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="pain-wrapper-index">
   <% @pains.each do |pain| %>
     <div class="pain-container-index">
@@ -23,3 +24,30 @@
   <% end %>
 </div>
 
+=======
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+  <ul class="list-unstyled">
+    <% @pains.each do |pain| %>
+      <li><strong>Title :</strong><%= pain.title %></li>
+      <li><strong>Category :</strong><%= pain.category %></li>
+      <li><strong>Description :</strong><%= pain.description %></li>
+      <br>
+
+      <% if policy(pain).show? %>
+        <%=link_to "Show", pain_path(pain) %>
+      <% end %>
+      <br>
+      <% if policy(pain).edit? %>
+        <%=link_to "Edit the request", edit_pain_path(pain) %>
+      <% end %>
+
+      <br>
+      <hr>
+    <% end %>
+    </ul>
+  </div>
+</div>
+</div>
+>>>>>>> master

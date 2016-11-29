@@ -1,0 +1,17 @@
+<div class="container-show">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= simple_form_for @pain do |f|  %>
+        <%= f.input :title %>
+        <%= f.input :category %>
+        <%= f.input :description, as: :text, :input_html => {:rows => 10}%>
+        <%= f.submit 'Update' %>
+      <% end %>
+      <% if @pain.errors.any? %>
+        <%= @pain.errors.full_messages %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
