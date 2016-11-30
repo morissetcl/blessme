@@ -11,12 +11,6 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $(".see-prayers").on("click", function(e){
-    $(".prayer-list").toggleClass("hidden");
-  });
-});
-
-$(document).ready(function() {
   $(".delete-link").on("click", function(e){
     $(".container-prayer").toggleClass("hidden");
   });
