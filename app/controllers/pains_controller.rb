@@ -2,12 +2,15 @@ class PainsController < ApplicationController
   before_action :set_pain, only: [:edit, :update, :destroy]
 
   def index
+    @prayers = Prayer.all
     @pains = Pain.all
     authorize @pains
   end
 
   def show
     pain_random
+
+    @prayer = Prayer.new
     authorize @pain
   end
 
@@ -21,7 +24,7 @@ class PainsController < ApplicationController
     @pain.user = current_user
     authorize @pain
     if @pain.save
-      redirect_to pains_path
+      redirect_to pain_path(@pain)
     else
       render :new
     end

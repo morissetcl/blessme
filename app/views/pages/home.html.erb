@@ -2,7 +2,10 @@
   <div class="banner-content">
     <h1>Bless Me</h1>
     <p>Votre foi est votre plus grande richesse, partagez-la</p>
-    <a class="btn btn-primary btn-lg">Pray for someone</a> <a class="btn btn-primary btn-lg">Ask for a prayer</a>
+    <%= link_to "Pray for someone", pains_path, class:"btn btn-primary btn-lg" %>
+    <%= link_to new_pain_path do %>
+    <%= link_to "Ask for a prayer", new_pain_path, class:"btn btn-primary btn-lg" %>
+    <% end %>
   </div>
 </div>
 
