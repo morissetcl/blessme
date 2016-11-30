@@ -34,7 +34,7 @@ div.portfoliocard{
 div.portfoliocard div.coverphoto{
 	width:100%;
 	height:120px;
-	background:url('http://farm8.staticflickr.com/7149/6484148411_baf8d2e934_z.jpg');
+	background:image-url('http://farm8.staticflickr.com/7149/6484148411_baf8d2e934_z.jpg');
 	background-position:center center;
 	border-top-right-radius:5px;
 	border-top-left-radius:5px;
@@ -68,7 +68,7 @@ div.portfoliocard div.profile_picture{
 	top:65px;
 	left:40px;
 	border-radius:100%;
-	background-image: url('voir.webp');
+	background-image: image-url('voir.webp');
 	background-size:100% 100%;
 	padding:7px;
 	border:4px solid rgba(255,255,255,1)
