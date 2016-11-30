@@ -35,7 +35,7 @@
   <p>record your prayer here</p>
 </div>
 
-<ul class="list-unstyled prayer-list hidden">
+<ul class="list-unstyled prayer-list text-center hidden">
   <% @pain.prayers.each do |prayer| %>
     <li style="color:red"><strong><%= prayer.title %></strong></li>
     <li>Your prayer :<%= prayer.description %></li>
