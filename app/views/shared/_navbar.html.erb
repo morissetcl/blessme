@@ -13,7 +13,7 @@
     <!-- Profile picture and dropdown -->
     <div class="navbar-blessme-item">
       <% if user_signed_in? %>
-        <%= link_to "Map", users_path, class:"map-link" %>
+        <%= link_to t(".map", default: "Map"), "", class: "map-link", data: { toggle: "modal", target: "#mapModal" } %>
         <div class="dropdown">
           <% if current_user.facebook_picture_url != nil %>
             <%= image_tag(current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-blessme-menu", data: {toggle: "dropdown"})%>
@@ -127,6 +127,39 @@
         <%= f.button :submit, "Sign up" %>
       </div>
     <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL MAP -->
+<div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="modal-body">
+          <div id="map" style="width: 100%; height: 600px;"></div>
+
+            <% content_for(:after_js) do %>
+              <%= javascript_tag do %>
+                $(document).ready(function() {
+                  var handler = Gmaps.build('Google');
+                  handler.buildMap({ internal: { id: 'map' } }, function() {
+                    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+                    handler.bounds.extendWith(markers);
+                    handler.fitMapToBounds();
+                    if (markers.length == 0) {
+                      handler.getMap().setZoom(2);
+                    } else if (markers.length == 1) {
+                      handler.getMap().setZoom(14);
+                    }
+                  });
+                });
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
