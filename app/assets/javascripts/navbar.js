@@ -6,3 +6,7 @@ $(window).scroll(function() {
         $('.opaque-navbar').removeClass('opaque');
     }
 });
+
+setTimeout(function() {
+      $('.alert').fadeOut(300);
+    }, 3000);

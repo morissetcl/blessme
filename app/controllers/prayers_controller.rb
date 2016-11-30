@@ -1,4 +1,6 @@
 class PrayersController < ApplicationController
+  before_action :set_prayer, only: [:edit, :update, :destroy]
+  before_action :set_pain
 
 	def index
 		set_pain
@@ -6,14 +8,12 @@ class PrayersController < ApplicationController
 		authorize @prayers
 	end
 
-	def new
-		@pain = set_pain
-		@prayer = Prayer.new
+  def new
+	@prayer = Prayer.new
     authorize @prayer
 	end
 
 	def create
-		@pain = set_pain
 		@prayer = Prayer.new(prayer_params)
 
 		Dir.mkdir(Rails.root.join('tmp')) if !Dir.exists?(Rails.root.join("tmp"))
@@ -40,25 +40,19 @@ class PrayersController < ApplicationController
   	end
 
 	def edit
-		@pain = set_pain
-		@prayer = set_prayer
     authorize @prayer
 	end
 
 	def update
-		@pain = set_pain
-		@prayer = set_prayer
 		@prayer.update(prayer_params)
     authorize @prayer
 		redirect_to pain_path(@pain)
 	end
 
 	def destroy
-		@pain = set_pain
-		@prayer = set_prayer
-		@prayer.destroy
+    @prayer.destroy
     authorize @prayer
-		redirect_to pain_path(@pain)
+		redirect_to pain_prayers_path(@pain)
 	end
 
 

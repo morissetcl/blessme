@@ -8,6 +8,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
+gem 'omniauth-facebook'
 
 gem 'sass-rails'
 gem 'jquery-rails'
@@ -38,4 +39,12 @@ end
 #Pundit
 gem 'pundit'
 
+#geocoder
+gem 'geocoder'
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 

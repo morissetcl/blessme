@@ -1,4 +1,8 @@
-<div class="navbar-blessme navbar-inverse navbar-fixed-top opaque-navbar">
+<% if current_page?(root_path) %>
+  <div class="navbar-blessme navbar-inverse navbar-fixed-top opaque-navbar">
+<% else %>
+  <div class="navbar-blessme navbar-inverse navbar-fixed-top regular-navbar">
+<% end %>
   <!-- Logo -->
   <a href="/" class="navbar-blessme-brand">
     <%= image_tag("logoblessme.png") %>
@@ -9,14 +13,25 @@
     <!-- Profile picture and dropdown -->
     <div class="navbar-blessme-item">
       <% if user_signed_in? %>
+        <%= link_to "Map", users_path, class:"map-link" %>
         <div class="dropdown">
-          <%= image_tag("logoblessme.webp", class: "avatar dropdown-toggle", id: "navbar-blessme-menu", "data-toggle" => "dropdown") %>
+          <% if current_user.facebook_picture_url != nil %>
+            <%= image_tag(current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-blessme-menu", data: {toggle: "dropdown"})%>
+          <% elsif current_user.photo.url != nil %>
+            <%= image_tag(current_user.photo, class: "avatar dropdown-toggle", id: "navbar-blessme-menu", data: {toggle: "dropdown"})%>
+          <% else %>
+            <%= image_tag("sample.jpg", class: "avatar dropdown-toggle", id: "navbar-blessme-menu", data: {toggle: "dropdown"}) %>
+          <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-blessme-dropdown-menu">
             <li>
+              <%= link_to user_path(current_user) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
             </li>
             <li>
+              <%= link_to new_pain_path do %>
                 <i class="fa fa-plus-circle"></i>  <%= t("#", default: "Ask for a prayer") %>
+              <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
@@ -32,8 +47,8 @@
         </div>
       <% else %>
         <!-- Login text link -->
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-blessme-item navbar-blessme-link" %>
-        <%= link_to t(".sign_in", default: "Sign up"), new_user_registration_path, class: "navbar-blessme-item navbar-blessme-link" %>
+        <%= link_to t(".sign_in", default: "Login"), "", class: "navbar-blessme-item navbar-blessme-link", data: { toggle: "modal", target: "#loginModal" } %>
+        <%= link_to t(".sign_in", default: "Sign up"), "", class: "navbar-blessme-item navbar-blessme-link",  data: { toggle: "modal", target: "#signupModal" } %>
       <% end %>
     <!-- Button (call-to-action) -->
     </div>
@@ -49,6 +64,69 @@
           <li><a href="#">Other one</a></li>
         </ul>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal login -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Log in</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true %>
+          <%= f.input :password, required: false %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <div class="form-actions">
+          <%= link_to ("<span class='fa fa-facebook'></span>Login with Facebook").html_safe , omniauth_authorize_path(:user, :facebook), class: "btn btn-block btn-social btn-facebook" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.button :submit, "Log in" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Modal sign up -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign up</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :username, required: true, autofocus: true %>
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true %>
+        </div>
+
+        <div class="form-actions">
+          <%= link_to ("<span class='fa fa-facebook'></span>Sign up with Facebook").html_safe , omniauth_authorize_path(:user, :facebook), class: "btn btn-block btn-social btn-facebook" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.button :submit, "Sign up" %>
+      </div>
+    <% end %>
     </div>
   </div>
 </div>

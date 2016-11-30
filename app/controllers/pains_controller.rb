@@ -12,6 +12,8 @@ class PainsController < ApplicationController
 
     @prayer = Prayer.new
     authorize @pain
+    @prayer = Prayer.new
+    authorize @prayer
   end
 
   def new
