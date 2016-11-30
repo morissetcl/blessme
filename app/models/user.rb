@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :pains
   has_many :prayers, through: :pains
 
+  geocoded_by :city
+  after_validation :geocode, if: :city_changed?
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)

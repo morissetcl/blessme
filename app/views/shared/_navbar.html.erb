@@ -1,7 +1,7 @@
 <% if current_page?(root_path) %>
-<div class="navbar-blessme navbar-inverse navbar-fixed-top opaque-navbar">
+  <div class="navbar-blessme navbar-inverse navbar-fixed-top opaque-navbar">
 <% else %>
-<div class="navbar-blessme navbar-inverse navbar-fixed-top regular-navbar">
+  <div class="navbar-blessme navbar-inverse navbar-fixed-top regular-navbar">
 <% end %>
   <!-- Logo -->
   <a href="/" class="navbar-blessme-brand">
@@ -13,6 +13,7 @@
     <!-- Profile picture and dropdown -->
     <div class="navbar-blessme-item">
       <% if user_signed_in? %>
+        <%= link_to "Map", users_path, class:"map-link" %>
         <div class="dropdown">
           <% if current_user.facebook_picture_url != nil %>
             <%= image_tag(current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-blessme-menu", data: {toggle: "dropdown"})%>

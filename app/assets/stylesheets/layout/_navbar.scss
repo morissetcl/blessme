@@ -39,7 +39,6 @@
   }
 }
 
-
 /* Optional class to fix the navbar on top */
 .navbar-blessme-fixed {
   position: fixed;
@@ -67,9 +66,38 @@
 
 /* Navbar item */
 .navbar-blessme-item {
+  display: flex;
   flex: 0 1 auto;
   cursor: pointer;
   padding: 0 20px;
+}
+
+.map-link {
+  margin-right: 40px;
+  margin-top: 10px;
+  color: white;
+  font-weight: lighter;
+}
+
+.map-link:hover {
+  text-decoration: none;
+  color: #da552f;
+}
+
+.opaque-navbar.opaque .map-link {
+  color: black;
+}
+
+.opaque-navbar.opaque .map-link:hover {
+  text-decoration: none;
+  color: #da552f;
+}
+.regular-navbar .map-link {
+  color: black;
+}
+.regular-navbar .map-link:hover {
+  text-decoration: none;
+  color: #da552f;
 }
 
 /* Navbar standard link */
