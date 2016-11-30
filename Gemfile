@@ -18,6 +18,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+gem 'coffee-rails'
+
 #cloudinary upload photo
 gem 'cloudinary', '1.1.0'
 gem 'carrierwave'

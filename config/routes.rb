@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :pains
   resources :users, only: [:show, :edit, :update]
   resources :pains do
-    resources :prayers, only: [:new, :create, :edit, :update, :destroy]
+    resources :prayers
   end
 
 end
