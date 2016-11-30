@@ -101,11 +101,8 @@ GEM
     geocoder (1.4.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-<<<<<<< HEAD
     gmaps4rails (2.1.2)
-=======
     hashie (3.4.6)
->>>>>>> 152d8a7c16dc2fa1585c7086b6dedb3712a01547
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.7.0)
