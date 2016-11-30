@@ -1,22 +1,24 @@
 class PrayersController < ApplicationController
+  before_action :set_prayer, only: [:edit, :update, :destroy]
+  before_action :set_pain
 
-	def new
-		@pain = set_pain
+	def index
+    @prayers = @pain.prayers
+    authorize @prayers
+  end
+
+  def new
 		@prayer = Prayer.new
     authorize @prayer
 	end
 
 	def create
-		@pain = set_pain
 		@prayer = Prayer.new(prayer_params)
 		@prayer.user = current_user
 		@prayer.pain = @pain
     authorize @prayer
 		 if @prayer.save
-        respond_to do |format|
-          format.html { redirect_to pain_path(@pain) }
-          format.js
-        end
+        redirect_to pain_prayers_path(@pain)
     	else
       	flash.now[:alert] = "You didn't fill the form correctly"
       	render :new
@@ -24,30 +26,19 @@ class PrayersController < ApplicationController
 	end
 
 	def edit
-		@pain = set_pain
-		@prayer = set_prayer
     authorize @prayer
 	end
 
 	def update
-		@pain = set_pain
-		@prayer = set_prayer
 		@prayer.update(prayer_params)
     authorize @prayer
 		redirect_to pain_path(@pain)
 	end
 
 	def destroy
-		@pain = set_pain
-		@prayer = set_prayer
-		if @prayer.destroy
-      respond_to do |format|
-        format.html { redirect_to pain_path(@pain) }
-        format.js
-      end
-    end
+    @prayer.destroy
     authorize @prayer
-		redirect_to pain_path(@pain)
+		redirect_to pain_prayers_path(@pain)
 	end
 
 	private

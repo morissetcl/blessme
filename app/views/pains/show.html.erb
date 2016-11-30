@@ -7,15 +7,22 @@
           <li>Category :<%= @pain.category %></li>
           <li>Request :<%= @pain.description %></li>
           <br>
-          <div class="pray-link">
-          <p>Pray</p>
+          <div class="pray-link-write">
+          <p>Write a prayer</p>
+          </div>
+          <div class="pray-link-record">
+          <p>Record a prayer</p>
+          </div>
+          <div class="pray-link-thought">
+          <p>Send a thought</p>
+          </div>
+          <div class="see-prayers">
+          <p>See all prayers</p>
           </div>
           <br>
           <%=link_to "Back to request feed", pains_path %>
           <hr>
         </ul>
-        <div id="prayers-list">
-        </div>
       </div>
   </div>
 </div>
@@ -23,6 +30,27 @@
 <div id="prayer-form">
   <%= render "prayer_form", pain: @pain, prayer: @prayer %>
 </div>
+
+<div class="record-prayer hidden text-center">
+  <p>record your prayer here</p>
+</div>
+
+<ul class="list-unstyled prayer-list hidden">
+  <% @pain.prayers.each do |prayer| %>
+    <li style="color:red"><strong><%= prayer.title %></strong></li>
+    <li>Your prayer :<%= prayer.description %></li>
+
+    <% if policy(prayer).edit? %>
+      <%= link_to "Edit your prayer", edit_pain_prayer_path(@pain, prayer) %>
+    <% end %>
+    <br>
+    <% if policy(prayer).destroy? %>
+      <%= link_to "Delete your prayer", pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' }, class:"delete-link" %>
+    <% end %>
+    <hr>
+  <% end %>
+</ul>
+
 
 
 
