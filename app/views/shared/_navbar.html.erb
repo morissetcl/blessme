@@ -1,4 +1,8 @@
+<% if current_page?(root_path) %>
 <div class="navbar-blessme navbar-inverse navbar-fixed-top opaque-navbar">
+<% else %>
+<div class="navbar-blessme navbar-inverse navbar-fixed-top regular-navbar">
+<% end %>
   <!-- Logo -->
   <a href="/" class="navbar-blessme-brand">
     <%= image_tag("logoblessme.webp") %>
@@ -10,13 +14,23 @@
     <div class="navbar-blessme-item">
       <% if user_signed_in? %>
         <div class="dropdown">
-          <%= image_tag("logoblessme.webp", class: "avatar dropdown-toggle", id: "navbar-blessme-menu", "data-toggle" => "dropdown") %>
+          <% if current_user.facebook_picture_url != nil %>
+            <%= image_tag(current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-blessme-menu", data: {toggle: "dropdown"})%>
+          <% elsif current_user.photo.url != nil %>
+            <%= image_tag(current_user.photo, class: "avatar dropdown-toggle", id: "navbar-blessme-menu", data: {toggle: "dropdown"})%>
+          <% else %>
+            <%= image_tag("sample.jpg", class: "avatar dropdown-toggle", id: "navbar-blessme-menu", data: {toggle: "dropdown"}) %>
+          <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-blessme-dropdown-menu">
             <li>
+              <%= link_to user_path(current_user) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
             </li>
             <li>
+              <%= link_to new_pain_path do %>
                 <i class="fa fa-plus-circle"></i>  <%= t("#", default: "Ask for a prayer") %>
+              <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>

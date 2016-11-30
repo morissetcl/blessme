@@ -1,5 +1,5 @@
 class PainsController < ApplicationController
-  before_action :set_pain, only: [:show, :edit, :update, :destroy]
+  before_action :set_pain, only: [:edit, :update, :destroy]
 
   def index
     @pains = Pain.all
@@ -7,8 +7,10 @@ class PainsController < ApplicationController
   end
 
   def show
-    @pain
+    pain_random
     authorize @pain
+    @prayer = Prayer.new
+    authorize @prayer
   end
 
   def new
@@ -51,5 +53,11 @@ class PainsController < ApplicationController
 
   def pain_params
     params.require(:pain).permit(:title, :description, :category)
+  end
+
+  def pain_random
+    random = []
+    @pains= Pain.last(50)
+    @pain= @pains.sample
   end
 end

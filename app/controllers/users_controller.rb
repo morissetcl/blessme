@@ -12,16 +12,18 @@ class UsersController < ApplicationController
 
   def show
 		@user = User.find(params[:id])
-    @flat_coordinates = { lat: @flat.latitude, lng: @flat.longitude }
+    authorize @user
 	end
 
 	def edit
 		@user = set_user
+    authorize @user
 	end
 
 	def update
 		@user = set_user
 		@user.update!(user_params)
+    authorize @user
 		redirect_to  user_path(@user)
 	end
 
@@ -39,5 +41,4 @@ class UsersController < ApplicationController
 	def set_user
 		User.find(params[:id])
 	end
-
 end

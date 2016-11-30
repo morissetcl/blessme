@@ -1,5 +1,5 @@
 $(window).scroll(function() {
-    if($(this).scrollTop() > 360)  /*height in pixels when the navbar becomes non opaque*/
+    if($(this).scrollTop() > 150)  /*height in pixels when the navbar becomes non opaque*/
     {
         $('.opaque-navbar').addClass('opaque');
     } else {
