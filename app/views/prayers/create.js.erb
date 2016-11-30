@@ -1,0 +1,7 @@
+var prayersList = $("<%= j render 'pains/prayers_list', pain: @pain %>").hide();
+
+$("#prayers-list").html(prayersList);
+
+prayersList.slideDown();
+
+$("#prayer-form").html("<%= j render 'pains/prayer_form', pain: @pain, prayer: Prayer.new %>");
