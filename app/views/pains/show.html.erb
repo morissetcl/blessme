@@ -1,55 +1,39 @@
-<div class="container-show">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <ul class="list-unstyled">
-        <% @pain %>
-          <li><strong><%= @pain.title %></strong></li>
-          <li>Category :<%= @pain.category %></li>
-          <li>Request :<%= @pain.description %></li>
-          <br>
-          <div class="pray-link-write">
-          <p>Write a prayer</p>
+<div class="portfoliocard">
+  <% @pain%>
+  <div class="coverphoto"></div>
+    <div class="profile_picture"></div>
+      <div class="left_col">
+
+        <div class="user-info">
+          <div class="username"><%= @pain.user.username.capitalize %></div>
+          <div class="religion"><%= @pain.user.religion.capitalize %></div>
+          <div class="country"><%= @pain.user.country.capitalize %></div>
+          <div class="fire ">
+            <p><i class="fa fa-fire" aria-hidden="true"></i>12</p>
           </div>
-          <div class="pray-link-record">
-          <p>Record a prayer</p>
-          </div>
-          <div class="pray-link-thought">
-          <p>Send a thought</p>
-          </div>
-          <br>
-          <%=link_to "Back to request feed", pains_path %>
-          <hr>
-        </ul>
+
+        </div>
       </div>
-  </div>
+      <div class="right_col">
+        <h2 class="name text-center"><%= @pain.title %></h2>
+      <div class="pain-description">
+        <p><%= @pain.description %></p>
+      </div>
+    </div>
 </div>
 
+<div class="pray-link-write">
+  <p>Write a prayer</p>
+</div>
+<div class="pray-link-record">
+  <p>Record a prayer</p>
+</div>
+<div class="pray-link-thought">
+  <p>Send a thought</p>
+</div>
+<%=link_to "Back to categories", pains_path %>
 <div id="prayer-form">
   <%= render "prayer_form", pain: @pain, prayer: @prayer %>
 </div>
-
-<div class="record-prayer hidden text-center">
-  <p>record your prayer here</p>
-</div>
-
-<ul class="list-unstyled prayer-list text-center hidden">
-  <% @pain.prayers.each do |prayer| %>
-    <li style="color:red"><strong><%= prayer.title %></strong></li>
-    <li>Your prayer :<%= prayer.description %></li>
-
-    <% if policy(prayer).edit? %>
-      <%= link_to "Edit your prayer", edit_pain_prayer_path(@pain, prayer) %>
-    <% end %>
-    <br>
-    <% if policy(prayer).destroy? %>
-      <%= link_to "Delete your prayer", pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' }, class:"delete-link" %>
-    <% end %>
-    <hr>
-  <% end %>
-</ul>
-
-
-
-
 
 
