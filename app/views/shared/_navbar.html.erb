@@ -1,4 +1,8 @@
+<% if current_page?(root_path) %>
 <div class="navbar-blessme navbar-inverse navbar-fixed-top opaque-navbar">
+<% else %>
+<div class="navbar-blessme navbar-inverse navbar-fixed-top regular-navbar">
+<% end %>
   <!-- Logo -->
   <a href="/" class="navbar-blessme-brand">
     <%= image_tag("logoblessme.webp") %>
