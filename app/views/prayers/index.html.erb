@@ -28,8 +28,7 @@
 		<li><%= prayer.description unless prayer.audio.blank? %></li>
 	</ul>
 	<hr>
-	<% end %>
-</div>
+
 
 <ul class="list-unstyled prayer-list">
     <% if policy(prayer).edit? %>
@@ -42,3 +41,5 @@
     <hr>
 </ul>
 
+  <% end %>
+</div>
