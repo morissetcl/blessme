@@ -1,10 +1,114 @@
-.user-header {
-  width: 70%;
+// Profile
+.profile-name {
+  color: black;
+}
+
+
+.tab-content {
+  width: 78.5%;
   margin: auto;
+  background-color: white;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.title {
+  border-bottom: 1.5px solid black;
+}
+.tab-content .row {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  margin: 0;
+}
+.tab-content .titles {
+  border-bottom: 1.5px dotted black;
+}
+.parameter {
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.my-profile {
+  width: 80%;
+  margin: auto;
+}
+
+//HEADER//
+
+.profile-wrapper {
+  width: 80%;
+  margin: auto;
+}
+.profile-container {
+  margin-top: 155px;
+
+  color: rgb(250, 250, 250);
+}
+.profile-header-infos {
+
+}
+.profile-container .avatar-img-user {
+  background-color: transparent;
+  border-radius: 50%;
+  margin-left: 0;
+  margin-top: 10px;
 }
 
 .avatar-user-show {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width:200px;
+  height: 200px;
+}
+
+//TABS
+
+.tabs {
+  background: transparent;
+  display: flex;
+  padding: 10px 10px 0 10px;
+}
+.tabs a {
+  color: white;
+  text-decoration: none;
+}
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+.tabs h3 {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 0;
+}
+.tabs p {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+.tab {
+  background: #004444;
+  flex: 0 0 33.3%;
+  text-align: center;
+  padding: 20px 0;
+}
+.tab:first-child {
+  border-radius: 10px 0 0 0;
+}
+.tab:last-child {
+  border-radius: 0 10px 0 0;
+}
+.tab.active {
+  background: white;
+  color: black;
+}
+
+//PROFILE EDIT
+
+.user-edit-container {
+  background-color: white;
+  width: 50%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
