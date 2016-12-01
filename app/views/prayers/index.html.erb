@@ -28,10 +28,7 @@
 		<li><%= prayer.description unless prayer.audio.blank? %></li>
 	</ul>
 	<hr>
-	<% end %>
-</div>
-
-<ul class="list-unstyled prayer-list">
+  <ul class="list-unstyled prayer-list">
     <% if policy(prayer).edit? %>
       <%= link_to "Edit your prayer", edit_pain_prayer_path(@pain, prayer) %>
     <% end %>
@@ -41,4 +38,8 @@
     <% end %>
     <hr>
 </ul>
+	<% end %>
+</div>
+
+
 

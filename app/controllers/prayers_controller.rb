@@ -15,7 +15,7 @@ class PrayersController < ApplicationController
 
 	def create
 		@prayer = Prayer.new(prayer_params)
-
+	
 		Dir.mkdir(Rails.root.join('tmp')) if !Dir.exists?(Rails.root.join("tmp"))
 		file_name = "#{SecureRandom::uuid}.wav"
 		full_path = Rails.root.join("tmp", file_name)
@@ -67,7 +67,7 @@ class PrayersController < ApplicationController
 	end
 
 	def prayer_params
-		params.require(:prayer).permit(:title, :description)
+		params.require(:prayer).permit(:title, :description, :audio)
 	end
 
 end
