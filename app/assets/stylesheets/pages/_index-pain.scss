@@ -17,78 +17,14 @@
   margin-bottom: 40px;
 }
 
-.card-content-category-religion {
+.card-content-category {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: image-url('royalfamily.jpg');
   background-size: cover;
   overflow: hidden;
   margin: auto;
   margin-bottom: 50px;
-  margin-left: 100px;
-
-}
-
-.card-content-category-family {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: image-url('royalfamily.jpg');
-  background-size: cover;
-  overflow: hidden;
-  margin: auto;
-    margin-bottom: 50px;
-
-}
-
-.card-content-category-couple {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: image-url('royalfamily.jpg');
-  background-size: cover;
-  overflow: hidden;
-  margin: auto;
-    margin-bottom: 50px;
-}
-
-.card-content-category-health {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: image-url('royalfamily.jpg');
-  background-size: cover;
-  overflow: hidden;
-  margin: auto;
-    margin-bottom: 50px;
-
-
-}
-
-.card-content-category-news {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: image-url('royalfamily.jpg');
-  background-size: cover;
-  overflow: hidden;
-  margin: auto;
-    margin-bottom: 50px;
-
-
-}
-
-.card-content-category-work {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: image-url('royalfamily.jpg');
-  background-size: cover;
-  overflow: hidden;
-  margin: auto;
-    margin-bottom: 50px;
-
 
 }
 
@@ -97,7 +33,7 @@
   text-align: center;
   padding: 62px 0 66px 0;
   opacity: 0;
-   width: 200px;
+  width: 200px;
   height: 200px;
   border-radius: 50%;
   display: flex;
@@ -105,34 +41,13 @@
   align-items: center;
 }
 
-.card-content-category-religion:hover .box {
+.card-content-category:hover .box {
   opacity: 1;
 }
-
-.card-content-category-family:hover .box {
-  opacity: 1;
+.card-text {
+  outline: none;
+  text-decoration-line: none;
 }
-
-.card-content-category-couple:hover .box {
-  opacity: 1;
-}
-
-.card-content-category-health:hover .box {
-  opacity: 1;
-}
-
-.card-content-category-family:hover .box {
-  opacity: 1;
-}
-
-.card-content-category-work:hover .box {
-  opacity: 1;
-}
-
-.card-content-category-news:hover .box {
-  opacity: 1;
-}
-
 .card-text {
   color: white;
   font-weight: lighter;

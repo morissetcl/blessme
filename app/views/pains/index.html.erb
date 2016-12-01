@@ -1,52 +1,19 @@
 <div class="cards-wrapper-category">
-   <h3 class="title-category text-center">Choisissez la categorie de prière qui vous inspire</h3> 
+  <h3 class="title-category text-center">Choisissez la catégorie de prière qui vous inspire</h3>
   <div class="cards-container">
-        <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card-content-category-religion">
-          <div class="box">
-            <span class="card-text"><strong>Religion</strong></span>
-          </div>
+    <div class="row">
+      <% Pain::CATEGORIES.each do |category| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <%= link_to pain_path(category) do %>
+              <div class="card-content-category" style="background-image: url('<%= image_url "#{category.downcase}.jpg" %>');">
+                <div class="box">
+                  <span class="card-text"><strong> <%= category %></strong></span>
+                </div>
+              </div>
+            <% end %>
         </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card-content-category-family">
-          <div class="box">
-            <span class="card-text"><strong>Family</strong></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card-content-category-couple">
-          <div class="box">
-            <span class="card-text"><strong>Couple</strong></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card-content-category-health">
-          <div class="box">
-            <span class="card-text"><strong>Health</strong></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card-content-category-news">
-          <div class="box">
-            <span class="card-text"><strong>News</strong></span>
-          </div>
-        </div>
-      </div>
-       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card-content-category-work">
-          <div class="box">
-            <span class="card-text"><strong>Work</strong></span>
-          </div>
-        </div>
-      </div>
-
-        </div>
-      </div>
-    </div> 
-
+      <% end %>
+    </div>
+  </div>
+</div>
 
