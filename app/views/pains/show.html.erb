@@ -19,21 +19,6 @@
     </div>
 </div>
 
-<div class="pray-link-write">
-  <p>Write a prayer</p>
-</div>
-<div class="pray-link-record">
-  <p>Record a prayer</p>
-</div>
-<div class="pray-link-thought">
-  <p>Send a thought</p>
-</div>
-<%=link_to "Back to categories", pains_path %>
-<div id="prayer-form">
-  <%= render "prayer_form", pain: @pain, prayer: @prayer %>
-</div>
-
-
 <div class="form-for-audio-pray text">
   <%= simple_form_for [@pain, @prayer] do |f| %>
     <%= f.input :title %>
