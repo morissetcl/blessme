@@ -25,7 +25,7 @@
 		<li><%= prayer.user.email  %></li>
 		<li><%= prayer.title  %></li>
 		<li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
-		<li><%= prayer.description unless prayer.audio.blank? %></li>
+		<li><%= prayer.description unless prayer.description.blank? %></li>
 	</ul>
 	<hr>
 

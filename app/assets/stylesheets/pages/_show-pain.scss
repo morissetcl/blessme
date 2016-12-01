@@ -30,6 +30,7 @@ div.portfoliocard{
 	margin:10% auto;
 	overflow:hidden;
 	z-index:100;
+	margin-bottom: 0px;
 }
 div.portfoliocard div.coverphoto{
 	width:100%;
@@ -143,5 +144,52 @@ div.portfoliocard div.username{
 .fire {
 	margin-top:30px;
 	margin-left: 15px;
+
+}
+
+// design way to pray !
+
+.form-summary {
+	display:flex;
+	justify-content:center;
+	margin-left: 150px;
+}
+
+.pray-link-write {
+	width: 200px;
+	margin-bottom:10px,
+}
+
+.pray-link-record {
+	width: 200px;
+	margin-bottom:10px,
+}
+
+.pray-link-thought {
+	width: 200px;
+	margin-bottom:10px,
+}
+
+p {
+	margin: 0px !important;
+}
+
+.form-group.string.required.prayer_title {
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form-for-audio-pray {
+width:500px;
+border: 1px solid black;
+padding: 20px;
+margin-bottom: 30px;
+border-radius: 10px;
+}
+
+.container-audio {
+	display: flex;
+	justify-content: center;
 
 }

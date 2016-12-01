@@ -19,35 +19,47 @@
     </div>
 </div>
 
-<div class="pray-link-write">
-  <p>Write a prayer</p>
+<div class="form-summary">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+                <div class="pray-link-write btn-medium text-center">
+                  <p>Write a prayer</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+                <div class="pray-link-record btn-medium">
+                  <p>Record a prayer</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+                <div class="pray-link-thought btn-medium">
+                  <p>Send a thought</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="pray-link-record">
-  <p>Record a prayer</p>
-</div>
-<div class="pray-link-thought">
-  <p>Send a thought</p>
-</div>
+
 <%=link_to "Back to categories", pains_path %>
 
 <div id="prayer-form">
   <%= render "prayer_form", pain: @pain, prayer: @prayer %>
 </div>
 
-
-<div class="form-for-audio-pray text">
-  <%= simple_form_for [@pain, @prayer], html: { id: "audio-prayer-form" } do |f| %>
-    <%= f.input :title %>
-    <%= f.input :audio, as: :hidden %>
-    <%= f.button :submit, id: "audio-submit-button" %>
-  <% end %>
+<div class="container-audio">
+    <div class="form-for-audio-pray hidden text-center">
+            <%= simple_form_for [@pain, @prayer], html: { id: "audio-prayer-form"} do |f| %>
+            <%= f.input :title %>
+            <%= f.input :audio, as: :hidden %>
+            <%= f.button :submit, id: "audio-submit-button" %>
+      <% end %>
+        <br>
+        <button id="startRecordingButton">Start recording</button>
+        <button id="stopRecordingButton">Stop recording</button>
+        <button id="playButton">Play</button>
+    </div>
 </div>
-
-<h1>Audio</h1>
-
-    <button id="startRecordingButton">Start recording</button>
-    <button id="stopRecordingButton">Stop recording</button>
-    <button id="playButton">Play</button>
 
     <script>
         var startRecordingButton = document.getElementById("startRecordingButton");
@@ -158,7 +170,7 @@
             var reader = new FileReader();
             reader.onload = function(event){
                   $("#audio-prayer-form input#prayer_audio")[0].value = event.target.result;
-                  debugger;
+            
                   $("#audio-prayer-form").submit();
             };
             reader.readAsDataURL(blob);
