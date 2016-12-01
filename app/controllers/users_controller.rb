@@ -42,6 +42,7 @@ class UsersController < ApplicationController
 		User.find(params[:id])
 	end
 
+<<<<<<< HEAD
 	def set_pain
 		Pain.find(params[:id])
 	end
@@ -50,4 +51,13 @@ class UsersController < ApplicationController
 		Prayer.find(params[:id])
 	end
 
+=======
+  # def set_coordinates
+  #   @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+  #     marker.lat user.latitude
+  #     marker.lng user.longitude
+  #     # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+  #   end
+  # end
+>>>>>>> master
 end

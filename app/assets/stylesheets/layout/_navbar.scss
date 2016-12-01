@@ -72,30 +72,37 @@
   padding: 0 20px;
 }
 
-.map-link {
+#map-link {
   margin-right: 40px;
   margin-top: 10px;
   color: white;
   font-weight: lighter;
+  text-decoration: none;
 }
 
-.map-link:hover {
+a#map-link {
+  text-decoration: none;
+}
+
+#map-link:hover {
   text-decoration: none;
   color: #da552f;
 }
 
-.opaque-navbar.opaque .map-link {
+.opaque-navbar.opaque #map-link {
   color: black;
+  text-decoration: none;
 }
 
-.opaque-navbar.opaque .map-link:hover {
+.opaque-navbar.opaque #map-link:hover {
   text-decoration: none;
   color: #da552f;
 }
-.regular-navbar .map-link {
+.regular-navbar #map-link {
   color: black;
+  text-decoration: none;
 }
-.regular-navbar .map-link:hover {
+.regular-navbar #map-link:hover {
   text-decoration: none;
   color: #da552f;
 }
@@ -166,7 +173,9 @@
   font-weight: lighter;
   margin-left: -70%;
 }
-
+a.company-name {
+  text-decoration: none;
+}
 .company-name:hover {
   text-decoration: none;
   color: #da552f;
