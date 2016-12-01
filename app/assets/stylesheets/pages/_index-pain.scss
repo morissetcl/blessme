@@ -44,7 +44,10 @@
 .card-content-category:hover .box {
   opacity: 1;
 }
-
+.card-text {
+  outline: none;
+  text-decoration-line: none;
+}
 .card-text {
   color: white;
   font-weight: lighter;

@@ -4,13 +4,13 @@
     <div class="row">
       <% Pain::CATEGORIES.each do |category| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= link_to pain_path(category) do %>
-            <div class="card-content-category" style="background-image: url('<%= image_url "#{category.downcase}.jpg" %>');">
-              <div class="box">
-                <span class="card-text"><strong><%= category %></strong></span>
+            <%= link_to pain_path(category) do %>
+              <div class="card-content-category" style="background-image: url('<%= image_url "#{category.downcase}.jpg" %>');">
+                <div class="box">
+                  <span class="card-text"><strong> <%= category %></strong></span>
+                </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
         </div>
       <% end %>
     </div>
