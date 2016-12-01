@@ -48,3 +48,6 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
+#Pusher
+gem 'pusher'
+
