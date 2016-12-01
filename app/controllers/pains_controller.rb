@@ -60,7 +60,10 @@ class PainsController < ApplicationController
 
   def pain_random
     random = []
-    @pains= Pain.last(50)
-    @pain= @pains.sample
+    @pains = Pain.all
+    @pains.each do |pain|
+      @random_pains= Pain.where(category: pain.category).last(50)
+      @pain= @random_pains.sample
+    end
   end
 end

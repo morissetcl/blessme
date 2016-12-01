@@ -1,4 +1,5 @@
 class Pain < ApplicationRecord
+  CATEGORIES = %w(Famille Actualités Religion Amour Santé Travail Autre)
   belongs_to :user
   has_many :prayers
   validates :title, presence: true
