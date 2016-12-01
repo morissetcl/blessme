@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :set_coordinates
 
   include Pundit
 
@@ -16,6 +17,14 @@ class ApplicationController < ActionController::Base
    redirect_to(root_path)
   end
 
+  def set_coordinates
+    @users = User.where.not(latitude: nil, longitude: nil)
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
+  end
 
   private
 

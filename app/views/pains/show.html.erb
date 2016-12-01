@@ -29,13 +29,14 @@
   <p>Send a thought</p>
 </div>
 <%=link_to "Back to categories", pains_path %>
+
 <div id="prayer-form">
   <%= render "prayer_form", pain: @pain, prayer: @prayer %>
 </div>
 
 
 <div class="form-for-audio-pray text">
-  <%= simple_form_for [@pain, @prayer] do |f| %>
+  <%= simple_form_for [@pain, @prayer], html: { id: "audio-prayer-form" } do |f| %>
     <%= f.input :title %>
     <%= f.input :audio, as: :hidden %>
     <%= f.button :submit, id: "audio-submit-button" %>
@@ -153,10 +154,12 @@
             if (blob == null) {
                 return;
             }
+
             var reader = new FileReader();
             reader.onload = function(event){
-                  $("#new_prayer input#prayer_audio")[0].value = event.target.result;
-                  $("#new_prayer").submit();
+                  $("#audio-prayer-form input#prayer_audio")[0].value = event.target.result;
+                  debugger;
+                  $("#audio-prayer-form").submit();
             };
             reader.readAsDataURL(blob);
 
