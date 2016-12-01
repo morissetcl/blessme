@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :pains do
     resources :prayers
   end
-
+  		post '/upload' => 'pains#upload', on: :member
+   end
 end
 
