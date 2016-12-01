@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
+  include PublicActivity::StoreController
+
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :get_current_user_notif
 
   include Pundit
 
@@ -18,6 +21,14 @@ class ApplicationController < ActionController::Base
    redirect_to(root_path)
   end
 
+  def get_current_user_notif
+    @activities = PublicActivity::Activity.order("created_at desc").where(recipient_id: current_user.id) if current_user
+    @notification_count = @activities.where(:read => false).count
+  end
+
+  def read_all_notification
+   PublicActivity::Activity.where(recipient_id: current_user.id).update_all(:read => true)
+  end
 
   private
 

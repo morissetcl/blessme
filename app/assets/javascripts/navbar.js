@@ -10,3 +10,10 @@ $(window).scroll(function() {
 setTimeout(function() {
       $('.alert').fadeOut(300);
     }, 3000);
+
+$(document).ready(function() {
+  $('.notification').on('click', function(){
+    this.html('<%= @notification.read = true %>');
+  });
+});
+

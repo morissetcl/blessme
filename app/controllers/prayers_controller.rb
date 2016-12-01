@@ -20,7 +20,8 @@ class PrayersController < ApplicationController
 		 if @prayer.save
         @channel = "user-#{@pain.user_id}"
         begin
-          Pusher.trigger(@channel, 'my_prayer', message: 'You have a prayer')
+          #Pusher.trigger(@channel, 'my_prayer', message: 'You have a prayer')
+          @prayer.create_activity action: 'poke', parameters: {reason: 'You have a new prayer')
         rescue Pusher::Error => e
           puts e.message
         end

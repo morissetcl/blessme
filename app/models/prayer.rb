@@ -1,4 +1,7 @@
 class Prayer < ApplicationRecord
+  include PublicActivity::Model
+  tracked owner: Proc.new{ |controller, model| controller.current_user }, recipient: :user_id
+
   belongs_to :user
   belongs_to :pain
 
