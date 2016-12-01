@@ -130,3 +130,18 @@
     </div>
   </div>
 </div>
+
+<% content_for :after_js do %>
+  <script>
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher("<%= ENV['pusher_key'] %>", {
+      cluster: 'eu',
+      encrypted: true
+    });
+    var channel = pusher.subscribe("user-" + <%= current_user.id %>);
+    channel.bind('my_prayer', function(data) {
+      alert(data.message);
+    });
+  </script>
+<% end %>
