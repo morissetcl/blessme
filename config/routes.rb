@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :pains do
     resources :prayers
-  end
   		post '/upload' => 'pains#upload', on: :member
-   end
+  end
 end
 
