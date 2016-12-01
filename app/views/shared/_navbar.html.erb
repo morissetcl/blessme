@@ -13,7 +13,7 @@
     <!-- Profile picture and dropdown -->
     <div class="navbar-blessme-item">
       <% if user_signed_in? %>
-        <%= link_to t(".user", default: "Map"), "", class: "map-link", data: { toggle: "modal", target: "#mapModal" } %>
+        <%= link_to t(".map", default: "Map"), "", id: "map-link", data: { toggle: "modal", target: "#mapModal" } %>
         <div class="dropdown">
           <% if current_user.facebook_picture_url != nil %>
             <%= image_tag(current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-blessme-menu", data: {toggle: "dropdown"})%>
@@ -141,21 +141,25 @@
           <div id="map" style="width: 100%; height: 600px;"></div>
 
             <% content_for(:after_js) do %>
-              <%= javascript_tag do %>
+              <script>
                 $(document).ready(function() {
-                  var handler = Gmaps.build('Google');
-                  handler.buildMap({ internal: { id: 'map' } }, function() {
-                    markers = handler.addMarkers(<%= raw @hash.to_json %>);
-                    handler.bounds.extendWith(markers);
-                    handler.fitMapToBounds();
-                    if (markers.length == 0) {
-                      handler.getMap().setZoom(2);
-                    } else if (markers.length == 1) {
-                      handler.getMap().setZoom(14);
-                    }
+                  $("#map-link").click(function() {
+                    setTimeout(function() {
+                      var handler = Gmaps.build('Google');
+                      handler.buildMap({ internal: { id: 'map' } }, function() {
+                        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+                        handler.bounds.extendWith(markers);
+                        handler.fitMapToBounds();
+                        if (markers.length == 0) {
+                          handler.getMap().setZoom(2);
+                        } else if (markers.length == 1) {
+                          handler.getMap().setZoom(14);
+                        }
+                      });
+                    }, 200);
                   });
                 });
-              <% end %>
+              </script>
             <% end %>
           </div>
         </div>

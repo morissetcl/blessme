@@ -28,8 +28,6 @@ function getAddressComponents(place) {
   // - place.geometry.location.lat()
   // - place.geometry.location.lng()
 
-  var street_number = null;
-  var route = null;
   var zip_code = null;
   var city = null;
   var country_code = null;

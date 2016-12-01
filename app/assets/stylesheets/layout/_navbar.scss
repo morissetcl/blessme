@@ -72,7 +72,7 @@
   padding: 0 20px;
 }
 
-.map-link {
+#map-link {
   margin-right: 40px;
   margin-top: 10px;
   color: white;
@@ -80,29 +80,29 @@
   text-decoration: none;
 }
 
-a.map-link {
+a#map-link {
   text-decoration: none;
 }
 
-.map-link:hover {
+#map-link:hover {
   text-decoration: none;
   color: #da552f;
 }
 
-.opaque-navbar.opaque .map-link {
+.opaque-navbar.opaque #map-link {
   color: black;
   text-decoration: none;
 }
 
-.opaque-navbar.opaque .map-link:hover {
+.opaque-navbar.opaque #map-link:hover {
   text-decoration: none;
   color: #da552f;
 }
-.regular-navbar .map-link {
+.regular-navbar #map-link {
   color: black;
   text-decoration: none;
 }
-.regular-navbar .map-link:hover {
+.regular-navbar #map-link:hover {
   text-decoration: none;
   color: #da552f;
 }

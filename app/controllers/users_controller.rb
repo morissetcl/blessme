@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
 
-	def index
-    @users = User.where.not(latitude: nil, longitude: nil)
-    authorize @users
-    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
-    end
-    redirect_to root_path
-  end
+	# def index
+ #    @users = User.where.not(latitude: nil, longitude: nil)
+ #    authorize @users
+ #    set_coordinates
+ #    redirect_to root_path
+ #  end
 
   def show
 		@user = User.find(params[:id])
@@ -42,4 +38,12 @@ class UsersController < ApplicationController
 	def set_user
 		User.find(params[:id])
 	end
+
+  # def set_coordinates
+  #   @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+  #     marker.lat user.latitude
+  #     marker.lng user.longitude
+  #     # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+  #   end
+  # end
 end
