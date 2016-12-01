@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $(".pray-link-record").on("click", function(e){
-    $(".record-prayer").toggleClass("hidden");
+    $(".form-for-audio-pray").toggleClass("hidden");
   });
 });
 
