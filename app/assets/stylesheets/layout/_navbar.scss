@@ -80,7 +80,7 @@
   text-decoration: none;
 }
 
-.map-link a {
+a.map-link {
   text-decoration: none;
 }
 
@@ -173,7 +173,9 @@
   font-weight: lighter;
   margin-left: -70%;
 }
-
+a.company-name {
+  text-decoration: none;
+}
 .company-name:hover {
   text-decoration: none;
   color: #da552f;
