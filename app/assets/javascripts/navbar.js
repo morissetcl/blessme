@@ -13,7 +13,11 @@ setTimeout(function() {
 
 $(document).ready(function() {
   $('.notification').on('click', function(){
-    this.html('<%= @notification.read = true %>');
+    $(this).addClass('hidden');
+    $.ajax({
+    type: 'GET',
+    url: "/notifications/read_all_notification",
+    });
   });
 });
 

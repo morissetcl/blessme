@@ -23,11 +23,7 @@ class ApplicationController < ActionController::Base
 
   def get_current_user_notif
     @activities = PublicActivity::Activity.order("created_at desc").where(recipient_id: current_user.id) if current_user
-    @notification_count = @activities.where(:read => false).count
-  end
-
-  def read_all_notification
-   PublicActivity::Activity.where(recipient_id: current_user.id).update_all(:read => true)
+    @notification_count = @activities.where(read: false).count if @activities
   end
 
   private

@@ -10,5 +10,9 @@ Rails.application.routes.draw do
     resources :prayers
   end
 
+  resources :notifications, only: [] do
+    get :read_all_notification, on: :collection
+  end
+
 end
 
