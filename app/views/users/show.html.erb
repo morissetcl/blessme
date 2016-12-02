@@ -7,7 +7,7 @@
         <% elsif current_user.photo.url != nil %>
           <%= image_tag(current_user.photo, class: "avatar-user-show")%>
         <% else %>
-          <%= image_tag("sample.jpg", class: "avatar-user-show") %>
+          <%= cl_image_tag("avatar_dymvhr.png", class: "avatar-user-show") %>
         <% end %>
         <h2 class="profile-name"><%= @user.username %></h2>
       </div>
@@ -39,19 +39,19 @@
           <p><strong>Username:</strong> <%= @user.username %></p>
           <p><strong>Age:</strong> <%= @user.age %></p>
         </div>
-        <hr>   
+        <hr>
         <div class="geo-contact">
           <p><strong>Email:</strong> <%= @user.email %></p>
           <p><strong>Country:</strong> <%= @user.country %></p>
           <p><strong>City:</strong> <%= @user.city %></p>
         </div>
-        <hr> 
+        <hr>
         <div class="geo-contact">
           <p><strong>Religion:</strong> <%= @user.religion %></p>
           <p><strong>Language:</strong> <%= @user.language %></p>
           <p><strong>Gender:</strong> <%= @user.gender %></p>
         </div>
-          <hr> 
+          <hr>
           <p><strong>Biography:</strong> <%= @user.biography %></p>
           <hr>
         </div>
