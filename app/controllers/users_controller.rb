@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-	 @user = set_user 
+	 @user = set_user
     authorize @user
 	end
 

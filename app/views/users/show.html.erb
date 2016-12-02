@@ -90,7 +90,7 @@
           <div class="garden">
             <div class="row text-center">
               <div class="col-md-2">
-                <p><%= pain.title %></p>
+                <p><%= link_to pain.title, pain_prayers_path(pain) %></p>
               </div>
               <div class="col-md-5 text-justify">
                 <p><%= pain.description unless pain.description.blank? %></p>
