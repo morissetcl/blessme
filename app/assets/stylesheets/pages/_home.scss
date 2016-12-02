@@ -15,17 +15,78 @@
   color: rgb(250, 250, 250);
 }
 
+.main-title {
+  position:relative;
+  bottom: 60px;
+  font-size:5em;
+}
+
+.tagline {
+  position:relative;
+  bottom: 30px;
+  margin-bottom:80px;
+  text-align:center;
+  font-weight:lighter;
+  font-size: 1.5em;
+}
+
+.calltoaction {
+  margin-top: 30px;
+}
+.homebutton {
+  margin: 20px;
+}
+
+
 /* ICONS */
 
 .icons-container {
   width: 80%;
   margin: auto;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 60px;
 }
+
+.row.howitworks {
+  width: 100%;
+}
+
+.titlestep {
+  text-align: center;
+  margin-right: 40px !important;
+  margin-bottom: 20px !important;
+}
+
+p {
+  text-align:justify;
+}
+
 .card-icon {
   width: 75px;
+  margin-right: 35px !important;
+  margin-bottom: 20px;
 }
+
+.card-icon-search {
+  width: 65px;
+  margin-right: 35px !important;
+  margin-bottom: 30px;
+  position: relative;
+  top:10px;
+}
+
+.card-icon-space {
+  width: 65px;
+  margin-right: 35px !important;
+  margin-bottom: 30px;
+  position: relative;
+  top:10px;
+}
+
+
+
+
+
 .icons-container h3 {
   font-size: 20px;
   margin: 0;
@@ -64,19 +125,21 @@
   overflow: hidden;
   margin: auto;
 }
-.box {
+.box1 {
   background: rgba(0,0,0,.75);
   text-align: center;
   padding: 62px 0 66px 0;
   opacity: 0;
   transition: opacity .30s ease;
 }
-.card-content:hover .box {
+
+.card-content:hover .box1 {
   opacity: 1;
 }
 .card-text {
   color: white;
   font-weight: lighter;
+  margin: 15px;
 }
 .container {
   margin-top: 70px;
