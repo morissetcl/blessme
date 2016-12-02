@@ -8,10 +8,19 @@ class PainsController < ApplicationController
   end
 
   def show
-    pain_random
-
-    @prayer = Prayer.new
-    authorize @pain
+    # if params[:id] est inclu dans le tableau de categories then pain random
+    # if params[:id] est un vrai id then set_pain
+    if (Pain::CATEGORIES).include?(params[:id])
+      pain_random
+    else
+      set_pain
+    end
+    if @pain.nil?
+      flash.now[:alert] = "Pas encore de demande de prière pour cette catégorie"
+      render "pains/index"
+    else
+      authorize @pain
+    end
     @prayer = Prayer.new
     authorize @prayer
   end
