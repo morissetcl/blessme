@@ -61,7 +61,7 @@ div.portfoliocard div.right_col{
 	margin-left:-1px;
 	border-bottom-right-radius:5px;
 }
-div.portfoliocard div.profile_picture{
+.profile_picture{
 	width:110px;
 	height:110px;
 	background:rgba(255,255,255,1);
@@ -69,7 +69,6 @@ div.portfoliocard div.profile_picture{
 	top:65px;
 	left:40px;
 	border-radius:100%;
-	background-image: image-url('voir.webp');
 	background-size:100% 100%;
 	padding:7px;
 	border:4px solid rgba(255,255,255,1)
@@ -197,3 +196,4 @@ border-radius: 10px;
 .audio-prayer {
 	margin-top: 50px;
 }
+

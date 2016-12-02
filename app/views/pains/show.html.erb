@@ -1,7 +1,13 @@
 <div class="portfoliocard">
   <% @pain%>
   <div class="coverphoto"></div>
-    <div class="profile_picture"></div>
+      <% if current_user.facebook_picture_url != nil %>
+        <%= image_tag(current_user.facebook_picture_url, class:"profile_picture") %>
+      <% elsif current_user.photo.url != nil %>
+        <%= image_tag(current_user.photo, class:"profile_picture")%>
+      <% else %>
+        <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
+      <% end %>
       <div class="left_col">
 
         <div class="user-info">
@@ -173,7 +179,7 @@
             var reader = new FileReader();
             reader.onload = function(event){
                   $("#audio-prayer-form input#prayer_audio")[0].value = event.target.result;
-            
+
                   $("#audio-prayer-form").submit();
             };
             reader.readAsDataURL(blob);
