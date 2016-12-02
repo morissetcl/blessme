@@ -1,10 +1,10 @@
 <div class="portfoliocard">
   <% @pain%>
   <div class="coverphoto"></div>
-      <% if current_user.facebook_picture_url != nil %>
-        <%= image_tag(current_user.facebook_picture_url, class:"profile_picture") %>
-      <% elsif current_user.photo.url != nil %>
-        <%= image_tag(current_user.photo, class:"profile_picture")%>
+      <% if @pain.user.facebook_picture_url != nil %>
+        <%= image_tag(@pain.user.facebook_picture_url, class:"profile_picture") %>
+      <% elsif @pain.user.photo.url != nil %>
+        <%= image_tag(@pain.user.photo, class:"profile_picture")%>
       <% else %>
         <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
       <% end %>
