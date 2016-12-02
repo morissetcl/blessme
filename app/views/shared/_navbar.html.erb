@@ -20,7 +20,7 @@
           <% elsif current_user.photo.url != nil %>
             <%= image_tag(current_user.photo, class: "avatar dropdown-toggle", id: "navbar-blessme-menu", data: {toggle: "dropdown"})%>
           <% else %>
-            <%= image_tag("sample.jpg", class: "avatar dropdown-toggle", id: "navbar-blessme-menu", data: {toggle: "dropdown"}) %>
+            <%= cl_image_tag("avatar_dymvhr.png", class: "avatar dropdown-toggle", id: "navbar-blessme-menu", data: {toggle: "dropdown"}) %>
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-blessme-dropdown-menu">
             <li>
