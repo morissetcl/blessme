@@ -12,7 +12,7 @@ setTimeout(function() {
     }, 3000);
 
 $(document).ready(function() {
-  $('.notification').on('click', function(){
+  $('#notification').on('click', function(){
     $(this).addClass('hidden');
     $.ajax({
     type: 'GET',

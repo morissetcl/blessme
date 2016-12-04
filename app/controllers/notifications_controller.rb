@@ -5,7 +5,7 @@ class NotificationsController < ApplicationController
 
   def get_notif
     @activities = PublicActivity::Activity.order("created_at desc").where(recipient_id: current_user.id) if current_user
-    @notification_count = @activities.where(read: false).count if @activities
+    @notification = @activities.where(read: false) if @activities
     return @notification_count
   end
 end

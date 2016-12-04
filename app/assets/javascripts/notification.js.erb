@@ -1,11 +1,10 @@
-// function update() {
-//     $.ajax({
-//     type: 'GET'
-//     url: '/',
-//     success: function(data) {
-//       $('.notification').html(data);
-//      });
-//   }
-// $(document).ready(function($){
-//   window.setInterval('update()', 2000);
-// });
+function update() {
+  var currentLocation = window.location;
+  $.ajax({
+    url: currentLocation,
+    success: function(data) {
+      $('.navbar-blessme').html(data);
+    }
+  });
+};
+setInterval(update(), 10000);

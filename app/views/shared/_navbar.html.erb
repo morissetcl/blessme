@@ -51,14 +51,32 @@
         <%= link_to t(".sign_in", default: "Sign up"), "", class: "navbar-blessme-item navbar-blessme-link",  data: { toggle: "modal", target: "#signupModal" } %>
       <% end %>
     <!-- Button (call-to-action) -->
+    <div class="navbar-blessme-right hidden-xs hidden-sm" >
+      <div class="navbar-blessme-item">
+        <div class="dropdown">
+        <i class="fa fa-bell" aria-hidden="true" data-toggle="dropdown"></i>
+         <% if @notification && @notification.count > 0 %>
+          <span id="notification"><%= @notification.count %></span>
+            <ul class="dropdown-menu dropdown-menu-right navbar-blessme-dropdown-menu" >
+              <% @notification.each do |notification| %>
+                <%= link_to user_path(current_user) do %>
+                  <li>
+                    <p><%= User.find(notification.owner_id).username %>
+                        <%= Prayer.find(notification.trackable_id).title %>
+                    </p>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          <% else %>
+            <ul class="dropdown-menu dropdown-menu-right navbar-blessme-dropdown-menu" id="notification">
+             <p>Pas de nouvelles prières</p>
+            </ul>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <div class="notification">
-    <% if @notification_count %>
-      <%= @notification_count %>
-    <% end %>
   </div>
-
-
 
   <!-- Dropdown appearing on mobile only -->
     <div class="navbar-blessme-item hidden-md hidden-lg">
@@ -136,8 +154,11 @@
     </div>
   </div>
 </div>
+</div>
 
-<% if current_user %>
+
+
+<!--<% if current_user %>
   <% content_for :after_js do %>
     <script>
       Pusher.logToConsole = true;
@@ -152,4 +173,4 @@
       });
     </script>
   <% end %>
-<% end %>
+<% end %>-->
