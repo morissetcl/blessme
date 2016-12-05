@@ -125,8 +125,10 @@
             <p><strong>Date de publication</strong></p>
           </div>
       </div>
+
       <% if @prayer_as_writer.empty? %>
         <p>Vous n'avez pas encore posté de demande !</p>
+
       <% else %>
         <% @prayer_as_writer.each do |prayer| %>
           <div class="garden">
