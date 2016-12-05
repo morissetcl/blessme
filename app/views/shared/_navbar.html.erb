@@ -52,28 +52,8 @@
       <% end %>
     <!-- Button (call-to-action) -->
     <div class="navbar-blessme-right hidden-xs hidden-sm" >
-      <div class="navbar-blessme-item">
-        <div class="dropdown">
-        <i class="fa fa-bell" aria-hidden="true" data-toggle="dropdown"></i>
-         <% if @notification && @notification.count > 0 %>
-          <span id="notification"><%= @notification.count %></span>
-            <ul class="dropdown-menu dropdown-menu-right navbar-blessme-dropdown-menu" >
-              <% @notification.each do |notification| %>
-                <%= link_to user_path(current_user) do %>
-                  <li>
-                    <p><%= User.find(notification.owner_id).username %>
-                        <%= Prayer.find(notification.trackable_id).title %>
-                    </p>
-                  </li>
-                <% end %>
-              <% end %>
-            </ul>
-          <% else %>
-            <ul class="dropdown-menu dropdown-menu-right navbar-blessme-dropdown-menu" id="notification">
-             <p>Pas de nouvelles prières</p>
-            </ul>
-          <% end %>
-        </div>
+      <div class="navbar-blessme-item" id="notifications-container">
+        <%= render "shared/notifications", notification: @notification %>
       </div>
     </div>
   </div>

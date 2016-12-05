@@ -11,13 +11,3 @@ setTimeout(function() {
       $('.alert').fadeOut(300);
     }, 3000);
 
-$(document).ready(function() {
-  $('#notification').on('click', function(){
-    $(this).addClass('hidden');
-    $.ajax({
-    type: 'GET',
-    url: "/notifications/read_all_notification",
-    });
-  });
-});
-
