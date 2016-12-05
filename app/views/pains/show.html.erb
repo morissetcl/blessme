@@ -1,3 +1,4 @@
+
 <div class="portfoliocard">
   <% @pain%>
   <div class="coverphoto"></div>
@@ -60,15 +61,32 @@
     <div class="form-for-audio-pray hidden text-center">
             <%= simple_form_for [@pain, @prayer], html: { id: "audio-prayer-form"} do |f| %>
             <%= f.input :title %>
-            <%= f.input :audio, as: :hidden %>
+            <%= f.input :audio, as: :hidden%>
             <%= f.button :submit, id: "audio-submit-button" %>
       <% end %>
-        <br>
-        <button id="startRecordingButton">Start recording</button>
-        <button id="stopRecordingButton">Stop recording</button>
-        <button id="playButton">Play</button>
+        <div class="control-audio">
+            <div class="row">
+                <br>
+                <div class="col-xs-12 col-md-4">
+                    <button id="startRecordingButton">Start</button>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <button id="stopRecordingButton">Stop</button>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                <button id="playButton">Play</button>
+                </div>
+                </br>    
+                </br> 
+                <div class="audio-notification">
+                    <p class="recordingstart hidden">Enregistrement en cours ....</p>
+                    <p class="recordingstop hidden">Enregistrement terminé</p>   
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
 
     <script>
         var startRecordingButton = document.getElementById("startRecordingButton");
