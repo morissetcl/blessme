@@ -51,8 +51,12 @@
         <%= link_to t(".sign_in", default: "Sign up"), "", class: "navbar-blessme-item navbar-blessme-link",  data: { toggle: "modal", target: "#signupModal" } %>
       <% end %>
     <!-- Button (call-to-action) -->
+    <div class="navbar-blessme-right hidden-xs hidden-sm" >
+      <div class="navbar-blessme-item" id="notifications-container">
+        <%= render "shared/notifications", notification: @notification %>
+      </div>
     </div>
-
+  </div>
 
   <!-- Dropdown appearing on mobile only -->
     <div class="navbar-blessme-item hidden-md hidden-lg">
@@ -167,3 +171,21 @@
     </div>
   </div>
 </div>
+
+<!--<% if current_user %>
+  <% content_for :after_js do %>
+    <script>
+      Pusher.logToConsole = true;
+
+      var pusher = new Pusher("<%= ENV['pusher_key'] %>", {
+        cluster: 'eu',
+        encrypted: true
+      });
+      var channel = pusher.subscribe("user-" + <%= current_user.id %>);
+      channel.bind('my_prayer', function(data) {
+        alert(data.message);
+      });
+    </script>
+  <% end %>
+<% end %>-->
+

@@ -10,3 +10,4 @@ $(window).scroll(function() {
 setTimeout(function() {
       $('.alert').fadeOut(300);
     }, 3000);
+
