@@ -125,10 +125,12 @@
             <p><strong>Date de publication</strong></p>
           </div>
       </div>
-      <% if @user.prayers.empty? %>
-        <p>Vous n'avez pas encore posté de prière!</p>
+
+      <% if @prayer_as_writer.empty? %>
+        <p>Vous n'avez pas encore posté de demande !</p>
+
       <% else %>
-        <% @user.prayers.each do |prayer| %>
+        <% @prayer_as_writer.each do |prayer| %>
           <div class="garden">
             <div class="row text-center">
               <div class="col-md-2">
