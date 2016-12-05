@@ -1,55 +1,42 @@
 <div class="banner" ">
   <div class="banner-content">
-    <h1>Bless Me</h1>
-    <p>Votre foi est votre plus grande richesse, partagez-la</p>
-    <%= link_to "Pray for someone", pains_path, class:"btn btn-primary" %> <%= link_to "Ask for a prayer", new_pain_path, class:"btn btn-primary" %>
+    <h1 class="main-title">Bless Me</h1>
+    <p class="tagline">Votre foi est votre plus grande richesse, partagez-la</p>
+    <div class="calltoaction">
+      <%= link_to "Je prie pour quelqu'un", pains_path, class:"btn btn-primary homebutton" %>
+      <%= link_to "Je dépose une demande", new_pain_path, class:"btn btn-primary homebutton  " %>
+    </div>
   </div>
 </div>
 
 <div class="icons-container">
-  <div class="row">
-    <div class="col-md-4">
-      <%= image_tag('sad.png', class:"card-icon") %>
-      <h3>Share</h3>
-      <p>Je partage les épreuves que je rencontre sur Bless me.</p>
-    </div>
-    <div class="col-md-4">
-      <%= image_tag('globe.png', class:"card-icon") %>
-      <h3>See</h3>
-      <p>Des croyants du monde entiers peuvent prier directement pour moi.</p>
-    </div>
-    <div class="col-md-4">
-      <%= image_tag('heart.png', class:"card-icon") %>
-      <h3>Love</h3>
-      <p>Je reçois ces prières, qui me donnent de la force et de l'amour.</p>
-    </div>
-  </div>
-</div>
-
-<div class="cards-wrapper">
-  <h2>Les dernières demandes de prières</h2>
-  <div class="cards-container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <div class="card-content">
-          <div class="box">
-            <span class="card-text">blablabla</span>
-          </div>
-        </div>
+  <div class="row ">
+    <div class="col-md-3">
+    <div class="step">
+      <%= image_tag('student.png', class:"card-icon") %>
+        <h3 class="titlestep">Partager</h3>
+        <p class="text-step">Je dépose une demande de prière sur <strong>Bless Me</strong>.</p>
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card-content">
-          <div class="box">
-            <span class="card-text">blablabla</span>
-          </div>
+    </div>
+    <div class="col-md-3">
+    <div class="step">
+      <%= image_tag('search.png', class:"card-icon-search") %>
+        <h3 class="titlestep">Trouver</h3>
+          <p class="text-step">Chaque croyant prie pour une demande de prière selectionnée de manière aléatoire.</p>
         </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card-content">
-          <div class="box">
-            <span class="card-text">blablabla</span>
-          </div>
+    </div>
+    <div class="col-md-3">
+    <div class="step">
+      <%= image_tag('space.png', class:"card-icon-space") %>
+        <h3 class="titlestep">Prier</h3>
+        <p class="text-step">Les croyants du monde entier m'envoient une prière écrite ou vocale. </p>
         </div>
+    </div>
+    <div class="col-md-3">
+      <div class="step">
+        <%= image_tag('laptop.png', class:"card-icon") %>
+        <h3 class="titlestep">Recevoir</h3>
+        <p class="text-step">Je reçois de nombreuses prières, je suis béni !</p>
       </div>
     </div>
   </div>

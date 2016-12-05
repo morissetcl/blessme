@@ -1,10 +1,20 @@
+
 <div class="portfoliocard">
   <% @pain%>
   <div class="coverphoto"></div>
-    <div class="profile_picture"></div>
+      <% if @pain.user.facebook_picture_url != nil %>
+        <%= image_tag(@pain.user.facebook_picture_url, class:"profile_picture") %>
+      <% elsif @pain.user.photo.url != nil %>
+        <%= image_tag(@pain.user.photo, class:"profile_picture")%>
+      <% else %>
+        <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
+      <% end %>
       <div class="left_col">
 
         <div class="user-info">
+        <p><%= @pain.user.username %></p>
+        <p><%= @pain.user.city %></p>
+        <p><%= @pain.user.religion %></p>
           <div class="fire ">
             <p><i class="fa fa-fire" aria-hidden="true"></i>12</p>
           </div>
@@ -19,34 +29,64 @@
     </div>
 </div>
 
-<div class="pray-link-write">
-  <p>Write a prayer</p>
+<div class="form-summary">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+                <div class="pray-link-write btn-medium text-center">
+                  <p>Write a prayer</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+                <div class="pray-link-record btn-medium">
+                  <p>Record a prayer</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+                <div class="pray-link-thought btn-medium">
+                  <p>Send a thought</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="pray-link-record">
-  <p>Record a prayer</p>
-</div>
-<div class="pray-link-thought">
-  <p>Send a thought</p>
-</div>
+
 <%=link_to "Back to categories", pains_path %>
+
 <div id="prayer-form">
   <%= render "prayer_form", pain: @pain, prayer: @prayer %>
 </div>
 
-
-<div class="form-for-audio-pray text">
-  <%= simple_form_for [@pain, @prayer] do |f| %>
-    <%= f.input :title %>
-    <%= f.input :audio, as: :hidden %>
-    <%= f.button :submit, id: "audio-submit-button" %>
-  <% end %>
+<div class="container-audio">
+    <div class="form-for-audio-pray hidden text-center">
+            <%= simple_form_for [@pain, @prayer], html: { id: "audio-prayer-form"} do |f| %>
+            <%= f.input :title %>
+            <%= f.input :audio, as: :hidden%>
+            <%= f.button :submit, id: "audio-submit-button" %>
+      <% end %>
+        <div class="control-audio">
+            <div class="row">
+                <br>
+                <div class="col-xs-12 col-md-4">
+                    <button id="startRecordingButton">Start</button>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <button id="stopRecordingButton">Stop</button>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                <button id="playButton">Play</button>
+                </div>
+                </br>    
+                </br> 
+                <div class="audio-notification">
+                    <p class="recordingstart hidden">Enregistrement en cours ....</p>
+                    <p class="recordingstop hidden">Enregistrement terminé</p>   
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<h1>Audio</h1>
-
-    <button id="startRecordingButton">Start recording</button>
-    <button id="stopRecordingButton">Stop recording</button>
-    <button id="playButton">Play</button>
 
     <script>
         var startRecordingButton = document.getElementById("startRecordingButton");
@@ -153,10 +193,12 @@
             if (blob == null) {
                 return;
             }
+
             var reader = new FileReader();
             reader.onload = function(event){
-                  $("#new_prayer input#prayer_audio")[0].value = event.target.result;
-                  $("#new_prayer").submit();
+                  $("#audio-prayer-form input#prayer_audio")[0].value = event.target.result;
+
+                  $("#audio-prayer-form").submit();
             };
             reader.readAsDataURL(blob);
 

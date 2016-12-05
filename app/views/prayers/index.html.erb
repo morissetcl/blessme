@@ -1,10 +1,20 @@
 <div class="portfoliocard">
   <% @pain%>
   <div class="coverphoto"></div>
-    <div class="profile_picture"></div>
+      <% if @pain.user.facebook_picture_url != nil %>
+        <%= image_tag(@pain.user.facebook_picture_url, class:"profile_picture") %>
+      <% elsif @pain.user.photo.url != nil %>
+        <%= image_tag(@pain.user.photo, class:"profile_picture")%>
+      <% else %>
+        <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
+      <% end %>
+
       <div class="left_col">
 
         <div class="user-info">
+        <p><%= @pain.user.username %></p>
+        <p><%= @pain.user.city %></p>
+        <p><%= @pain.user.religion %></p>
           <div class="fire ">
             <p><i class="fa fa-fire" aria-hidden="true"></i>12</p>
           </div>
@@ -20,25 +30,23 @@
 </div>
 
 <div class="audio-prayer text-center">
-	<% @prayers.each do |prayer| %>
+	<% @pain.prayers.each do |prayer| %>
 	<ul class="list-unstyled">
-		<li><%= prayer.user.email  %></li>
+		<li><strong><%= prayer.user.username  %></strong></li>
 		<li><%= prayer.title  %></li>
 		<li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
-		<li><%= prayer.description unless prayer.audio.blank? %></li>
+		<li><%= prayer.description unless prayer.description.blank? %></li>
 	</ul>
-	<hr>
-	<% end %>
+
+      <ul class="list-unstyled prayer-list">
+          <% if policy(prayer).edit? %>
+            <%= link_to "Edit your prayer", edit_pain_prayer_path(@pain, prayer) %>
+          <% end %>
+          <br>
+          <% if policy(prayer).destroy? %>
+            <%= link_to "Delete your prayer", pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' }, class:"delete-link" %>
+          <% end %>
+          <hr>
+      </ul>
+  <% end %>
 </div>
-
-<ul class="list-unstyled prayer-list">
-    <% if policy(prayer).edit? %>
-      <%= link_to "Edit your prayer", edit_pain_prayer_path(@pain, prayer) %>
-    <% end %>
-    <br>
-    <% if policy(prayer).destroy? %>
-      <%= link_to "Delete your prayer", pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' }, class:"delete-link" %>
-    <% end %>
-    <hr>
-</ul>
-
