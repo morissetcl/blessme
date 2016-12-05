@@ -1,6 +1,20 @@
-<div class="portfoliocard">
+<div class="div-pain">
   <% @pain%>
-  <div class="coverphoto"></div>
+  <div class="right_col">
+    <div class="title-pain">
+      <div></div>
+      <h2 class="name text-center"><%= @pain.title %></h2>
+      <div class="fire ">
+        <i class="fa fa-fire" aria-hidden="true"></i>12
+      </div>
+
+    </div>
+
+    <div class="pain-description">
+        <p><i class="fa fa-quote-left" aria-hidden="true"></i>   <%= @pain.description %>   <i class="fa fa-quote-right" aria-hidden="true"></i></p>
+      </div>
+    </div>
+    <div class="user-infos">
       <% if @pain.user.facebook_picture_url != nil %>
         <%= image_tag(@pain.user.facebook_picture_url, class:"profile_picture") %>
       <% elsif @pain.user.photo.url != nil %>
@@ -9,44 +23,58 @@
         <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
       <% end %>
 
-      <div class="left_col">
-
-        <div class="user-info">
-        <p><%= @pain.user.username %></p>
-        <p><%= @pain.user.city %></p>
-        <p><%= @pain.user.religion %></p>
-          <div class="fire ">
-            <p><i class="fa fa-fire" aria-hidden="true"></i>12</p>
-          </div>
-
+      <div class="user-description">
+        <div class="user-text">
+          <p><%= @pain.user.username %></p>
+          <p><%= @pain.user.city %></p>
+          <p><%= @pain.user.religion %></p>
         </div>
       </div>
-      <div class="right_col">
-        <h2 class="name text-center"><%= @pain.title %></h2>
-      <div class="pain-description">
-        <p><%= @pain.description %></p>
-      </div>
     </div>
+  </div>
 </div>
 
-<div class="audio-prayer text-center">
-	<% @pain.prayers.each do |prayer| %>
-	<ul class="list-unstyled">
-		<li><strong><%= prayer.user.username  %></strong></li>
-		<li><%= prayer.title  %></li>
-		<li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
-		<li><%= prayer.description unless prayer.description.blank? %></li>
-	</ul>
 
-      <ul class="list-unstyled prayer-list">
+<div class="prayers-index">
+  <h3>Prayers</h3>
+  <hr>
+  <div class="prayer-container">
+    <div class="audio-prayer text-center">
+      <% @pain.prayers.each do |prayer| %>
+        <div class="row">
+          <div class="col-md-9 col-md-offset-1 col-xs-12 prayer-col">
+            <ul class="list-unstyled prayer-list">
+              <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
+              <div class="prayer-description">
+                <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
+                <li><%= prayer.description unless prayer.description.blank? %></li>
+              </div>
+            </ul>
+          </div>
+          <div class="col-md-1 col-xs-12 user-col">
+            <ul class="list-unstyled user-list">
+              <li><center><% if prayer.user.facebook_picture_url != nil %>
+                <%= image_tag(prayer.user.facebook_picture_url, class:"prayer-profile_picture") %>
+              <% elsif prayer.user.photo.url != nil %>
+                <%= image_tag(prayer.user.photo, class:"prayer-profile_picture")%>
+              <% else %>
+                <%= cl_image_tag("avatar_dymvhr.png", class:"prayer-profile_picture") %>
+              <% end %></center></li>
+              <li><strong><%= prayer.user.username %></strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prayer-btn">
           <% if policy(prayer).edit? %>
-            <%= link_to "Edit your prayer", edit_pain_prayer_path(@pain, prayer) %>
+            <%= link_to "Edit your prayer", edit_pain_prayer_path(@pain, prayer), class: "btn" %>
           <% end %>
-          <br>
           <% if policy(prayer).destroy? %>
-            <%= link_to "Delete your prayer", pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' }, class:"delete-link" %>
+            <%= link_to "Delete your prayer", pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' }, class:"delete-link btn" %>
           <% end %>
-          <hr>
-      </ul>
-  <% end %>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+  </div>
 </div>

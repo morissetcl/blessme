@@ -1,231 +1,308 @@
-// .card-pain {
-// 	border: 1px solid black;
-// 	padding: 20px 50px 100px;
-// }
-
+/* CARD TEXT */
+.div-pain {
+  font-family: 'Lora', serif;
+  width: 90%;
+  margin: auto;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  margin-top: 20px;
+}
 .pain-description {
-	text-align: justify;
-	margin: 40px;
+	text-align: center;
+  font-size: 20px;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  border-top: 1px solid rgb(230, 230, 230);
 }
-
-.pain-category {
-
+.pain-description .fa {
+  font-size: 50px;
+  margin: 7px;
+  color: black;
 }
-
-a.nostyle{
-	color:inherit;
-	text-decoration:none;
-	padding:0;
-	margin:0;
+.pain-description p {
+  color: rgb(150, 150, 150)
 }
-div.portfoliocard{
-	position:relative;
-	height:450px;
-	width:800px;
-	background:rgba(255,255,255,1);
-	border:1px solid rgba(0,0,0,0.7);
-	box-shadow:0px -1px 3px rgba(0,0,0,0.1),
-				0px 2px 6px rgba(0,0,0,0.5);
-	border-radius:6px;
-	margin:10% auto;
-	overflow:hidden;
-	z-index:100;
-	margin-bottom: 0px;
-}
-div.portfoliocard div.coverphoto{
-	width:100%;
-	height:120px;
-	background:image-url('http://farm8.staticflickr.com/7149/6484148411_baf8d2e934_z.jpg');
-	background-position:center center;
-	border-top-right-radius:5px;
-	border-top-left-radius:5px;
-	border-bottom:1px solid rgba(0,0,0,0.1);
-	box-shadow:inset 0px 3px 20px rgba(255,255,255,0.3),
-				1px 0px 2px rgba(255,255,255,0.7);
-	z-index:99;
-}
-div.portfoliocard div.left_col, div.portfoliocard div.right_col{
-	float:left;
-	height:340px;
-}
-div.portfoliocard div.left_col{
-	width:20%;
-	padding-top:85px;
-	box-sizing:border-box;
-}
-div.portfoliocard div.right_col{
-	width:80%;
-	background:rgba(245,245,245,1);
-	border-left:1px solid rgba(230,230,230,1);
-	box-shadow:inset 0px 1px 1px rgba(255,255,255,0.7);
-	margin-left:-1px;
-	border-bottom-right-radius:5px;
+.pain-description .fa .fa-quote-right {
+  vertical-align: text-top;
 }
 .profile_picture{
-	width:110px;
-	height:110px;
-	background:rgba(255,255,255,1);
-	position:absolute;
-	top:65px;
-	left:40px;
-	border-radius:100%;
-	background-size:100% 100%;
-	padding:7px;
-	border:4px solid rgba(255,255,255,1)
+ width:90px;
+ height:90px;
+ background:rgba(255,255,255,1);
+ top:65px;
+ left:40px;
+ border-radius:100%;
+ background-size:100% 100%;
+ padding:7px;
+ padding-top: 0;
+ border:4px solid rgba(255,255,255,1)
 }
-div.portfoliocard div.right_col h2.name{
-	font-size:30px;
-	font-weight:300;
-	color: rgba(30,30,30,1);
-	padding:0;
-	margin:20px 10px 0px 30px;
+.title-pain {
+  margin-top: 80px;
+  padding: auto;
+  display: flex;
+  justify-content: space-around;
 }
-div.portfoliocard div.right_col h3.location{
-	font-size:15px;
-	font-weight:300;
-	color:rgba(170,170,170,1);
-	padding:0;
-	margin:-5px 10px 10px 30px;
+.div-pain .title-pain h2 {
+  font-family: 'Lora', serif;
+  font-size:45px;
+  font-style: italic;
+  color: rgba(30,30,30,1);
+  text-align: center;
+  position: relative;
 }
-div.portfoliocard ul.contact_information{
-	margin-top:20px;
-	padding-left:30px;
-	list-style-type:none;
-}
-div.portfoliocard ul.contact_information li{
-	height:25px;
-	width:180px;
-	line-height:25px;
-	font-weight:300;
-	font-size:15px;
-	color:rgba(140,140,140,1);
-	text-shadow:1px 1px 1px rgba(255,255,255,0.8);
-	padding:5px 0px;
-	background-repeat:no-repeat;
-	background-size:18px 18px;
-	border-bottom:1px solid rgba(0,0,0,0.1);
-	box-shadow:0px 1px 1px rgba(255,255,255,0.6);
-	cursor:default;
-}
-div.portfoliocard ul.contact_information li:before{
-	content:"";
-	width:25px;
-	height:25px;
-	display:block;
-	float:left;
-	background-position:center;
-	background-size:18px 18px;
-	background-repeat:no-repeat;
-	margin-right:5px;
-	opacity:0.7;
+.fire {
+  text-align: right;
+  margin-top: 0;
+  right: 0;
 }
 
-div.portfoliocard div.user-info{
-	margin:15px 0px 0px 35px;
-	font-weight:300;
-	font-size:16px;
-	color:rgba(30,30,30,1);
-	position:relative;
-	bottom: 30px;
+/* USER */
+
+.user-infos {
+  display: flex;
+  position: relative;
+  margin-top: 50px;
 }
-div.portfoliocard div.username{
-	font-weight:400;
-	font-size:25px;
-	color:rgba(140,140,140,1);
+.user-infos .user-description {
+  text-align: center;
+  padding-top: 10px;
+}
+.user-infos .user-description p {
+  margin: 0;
+  vertical-align: middle;
+  padding: auto;
+  font-size: 13px;
+  font-weight: lighter;
+  color: rgb(170, 170, 170);
 }
 
+/* BUTTONS */
+
+.buttons-container {
+  position: absolute;
+  right: 0;
+  padding-top: 10px;
+}
+.buttons-container p {
+  margin: 0;
+}
+.pray-link-write {
+  width: 200px;
+  margin-bottom:10px;
+  cursor: pointer;
+}
+.pray-link-record {
+  width: 200px;
+  margin-bottom:10px;
+  cursor: pointer;
+}
+.pray-link-thought {
+  width: 200px;
+  margin-bottom:10px;
+  cursor: pointer;
+}
+.pain-back-button {
+  text-align: center;
+}
+.pain-button {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+/* FIRE */
 
 .fa-fire {
-	margin-right: 9px;
-	font-size: 2em;
+  margin-right: 9px;
+  font-size: 2em;
 }
 
 .fire {
-	margin-top:30px;
-	margin-left: 15px;
-
+  margin-top:30px;
+  margin-left: 15px;
 }
 
-// design way to pray !
+/* FORMS */
 
 .form-summary {
-	display:flex;
-	justify-content:center;
-	margin-left: 150px;
+  display:flex;
+  justify-content:center;
+  margin-left: 150px;
 }
-
-.pray-link-write {
-	width: 200px;
-	margin-bottom:10px,
+.submit-prayer {
+  text-align: center;
+  margin-bottom: 15px;
 }
-
-.pray-link-record {
-	width: 200px;
-	margin-bottom:10px,
-}
-
-.pray-link-thought {
-	width: 200px;
-	margin-bottom:10px,
-}
-
-p {
-	margin: 0px !important;
-}
-
 .form-group.string.required.prayer_title {
-	width: 300px;
-	margin-left: auto;
-	margin-right: auto;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-for-audio-pray {
-	width:550px;
-	border: 1px solid black;
-	padding: 20px;
-	margin-bottom: 30px;
-	border-radius: 10px;
-	display: flex;
-	justify-content: center;
+  width:550px;
+  border: 1px solid black;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
 }
 
-.container-audio {
-	display: flex;
-	justify-content: center;
+#container-audio {
+  display: flex;
+  justify-content: center;
 
 }
 
 .audio-prayer {
-	margin-top: 50px;
+  margin-top: 50px;
 }
 
 #startRecordingButton {
-	background-color: white;
-	padding: 2px 10px 2px 10px;
-	width: 60px;
+  background-color: white;
+  padding: 2px 10px 2px 10px;
+  width: 60px;
 }
 
 #stopRecordingButton {
-	background-color: white;
-	padding: 2px 10px 2px 10px;
-	width: 60px;
+  background-color: white;
+  padding: 2px 10px 2px 10px;
+  width: 60px;
 }
 
 #playButton {
-	background-color: white;
-	padding: 2px 10px 2px 10px;
-	width: 60px;
+  background-color: white;
+  padding: 2px 10px 2px 10px;
+  width: 60px;
 }
 
 .control-audio {
-	width:300px;
-	max-height: 50px;
-	position: relative;
-	top: 7px;
+  width:300px;
+  max-height: 50px;
+  position: relative;
+  top: 7px;
    margin-left: 10px;
 }
 
 .audio-notification {
-	max-width: 220px;
-	text-align:center;
+  max-width: 220px;
+  text-align:center;
 }
+
+// a.nostyle{
+// 	color:inherit;
+// 	text-decoration:none;
+// 	padding:0;
+// 	margin:0;
+// }
+
+// div.portfoliocard div.coverphoto{
+// 	width:100%;
+// 	height:120px;
+// 	background:image-url('http://farm8.staticflickr.com/7149/6484148411_baf8d2e934_z.jpg');
+// 	background-position:center center;
+// 	border-top-right-radius:5px;
+// 	border-top-left-radius:5px;
+// 	border-bottom:1px solid rgba(0,0,0,0.1);
+// 	box-shadow:inset 0px 3px 20px rgba(255,255,255,0.3),
+// 				1px 0px 2px rgba(255,255,255,0.7);
+// 	z-index:99;
+// }
+// div.portfoliocard div.left_col, div.portfoliocard div.right_col{
+// 	float:left;
+// 	height:340px;
+// }
+// div.portfoliocard div.left_col{
+// 	width:20%;
+// 	padding-top:85px;
+// 	box-sizing:border-box;
+// }
+// div.portfoliocard div.right_col{
+// 	width:80%;
+// 	background:rgba(245,245,245,1);
+// 	border-left:1px solid rgba(230,230,230,1);
+// 	box-shadow:inset 0px 1px 1px rgba(255,255,255,0.7);
+// 	margin-left:-1px;
+// 	border-bottom-right-radius:5px;
+// }
+// .profile_picture{
+// 	width:110px;
+// 	height:110px;
+// 	background:rgba(255,255,255,1);
+// 	position:absolute;
+// 	top:65px;
+// 	left:40px;
+// 	border-radius:100%;
+// 	background-size:100% 100%;
+// 	padding:7px;
+// 	border:4px solid rgba(255,255,255,1)
+// }
+// div.portfoliocard div.right_col h2.name{
+
+// }
+// div.portfoliocard div.right_col h3.location{
+// 	font-size:15px;
+// 	font-weight:300;
+// 	color:rgba(170,170,170,1);
+// 	padding:0;
+// 	margin:-5px 10px 10px 30px;
+// }
+// div.portfoliocard ul.contact_information{
+// 	margin-top:20px;
+// 	padding-left:30px;
+// 	list-style-type:none;
+// }
+// div.portfoliocard ul.contact_information li{
+// 	height:25px;
+// 	width:180px;
+// 	line-height:25px;
+// 	font-weight:300;
+// 	font-size:15px;
+// 	color:rgba(140,140,140,1);
+// 	text-shadow:1px 1px 1px rgba(255,255,255,0.8);
+// 	padding:5px 0px;
+// 	background-repeat:no-repeat;
+// 	background-size:18px 18px;
+// 	border-bottom:1px solid rgba(0,0,0,0.1);
+// 	box-shadow:0px 1px 1px rgba(255,255,255,0.6);
+// 	cursor:default;
+// }
+// div.portfoliocard ul.contact_information li:before{
+// 	content:"";
+// 	width:25px;
+// 	height:25px;
+// 	display:block;
+// 	float:left;
+// 	background-position:center;
+// 	background-size:18px 18px;
+// 	background-repeat:no-repeat;
+// 	margin-right:5px;
+// 	opacity:0.7;
+// }
+
+// div.portfoliocard div.user-info{
+// 	margin:15px 0px 0px 35px;
+// 	font-weight:300;
+// 	font-size:16px;
+// 	color:rgba(30,30,30,1);
+// 	position:relative;
+// 	bottom: 30px;
+// }
+// div.portfoliocard div.username{
+// 	font-weight:400;
+// 	font-size:25px;
+// 	color:rgba(140,140,140,1);
+// }
+
+
+
+
+// design way to pray !
+
+
+
+
+// p {
+// 	margin: 0px !important;
+// }
+
