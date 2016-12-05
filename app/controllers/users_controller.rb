@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
 	def index
     @users = User.where.not(latitude: nil, longitude: nil)
@@ -11,24 +12,21 @@ class UsersController < ApplicationController
   end
 
   def show
-	 @user = set_user
+    @prayer_as_writer = Prayer.where(user: @user)
     authorize @user
 	end
 
 	def edit
-		@user = set_user
-    	authorize @user
+    authorize @user
 	end
 
 	def update
-		@user = set_user
 		@user.update!(user_params)
     	authorize @user
 		redirect_to  user_path(@user)
 	end
 
 	def destroy
-		@user = set_user
 		@user.delete
 	end
 
@@ -39,14 +37,6 @@ class UsersController < ApplicationController
 	end
 
 	def set_user
-		User.find(params[:id])
-	end
-
-	def set_pain
-		Pain.find(params[:id])
-	end
-
-	def set_prayer
-		Prayer.find(params[:id])
+		@user = User.find(params[:id])
 	end
 end
