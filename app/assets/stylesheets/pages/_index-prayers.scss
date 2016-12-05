@@ -40,9 +40,15 @@
   margin-bottom: 20px;
 }
 .prayer-btn {
-  text-align: center;
+  text-align: left;
   margin: 0;
   margin-bottom: 15px;
+}
+.fa-pencil, .fa-trash, .pain-button {
+  color: rgb(150, 150, 150);
+}
+.fa-pencil:hover, .fa-trash:hover, .pain-button:hover {
+  color: rgb(50, 50, 50);
 }
 .prayer-col {
   margin-bottom: 25px;

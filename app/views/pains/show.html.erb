@@ -5,13 +5,15 @@
       <div></div>
       <h2 class="name text-center"><%= @pain.title %></h2>
       <div class="fire ">
-        <i class="fa fa-fire" aria-hidden="true"></i>12
+        <i class="fa fa-fire flame" aria-hidden="true"></i>12
       </div>
 
     </div>
 
     <div class="pain-description">
-      <i class="fa fa-quote-left" aria-hidden="true"></i>   <p><%= @pain.description class:"pain-description-text" %></p>   <i class="fa fa-quote-right" aria-hidden="true"></i>
+      <p class= "left-quote"><i class="fa fa-quote-left" aria-hidden="true"></i></p>
+      <p class= "pain-text"><%= @pain.description %></p>
+      <p class = "right-quote"><i class="fa fa-quote-right" aria-hidden="true"></i></p>
       </div>
     </div>
     <div class="user-infos">
@@ -36,32 +38,34 @@
           <div class="col-xs-12 col-sm-6 col-md-4 text-center">
             <a href="#prayer-form">
               <div class="pray-link-write btn-medium text-center">
-                <p>Write a prayer</p>
+                <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i>   Write a prayer</p>
               </div>
             </a>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4 text-center">
             <a href="#container-audio">
               <div class="pray-link-record btn-medium">
-                <p>Record a prayer</p>
+                <p><i class="fa fa-microphone" aria-hidden="true"></i>   Record a prayer</p>
               </div>
             </a>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 text-center">
               <div class="pray-link-thought btn-medium">
-                <p>Send a thought</p>
+                <p><i class="fa fa-fire" aria-hidden="true"></i>   Send a thought</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  <div class="pain-back-button">
+    <%=link_to pains_path, class: "btn pain-button" do %>
+      <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+    <% end %>
+  </div>
 </div>
 
 
-<div class="pain-back-button">
-  <%=link_to "Back to categories", pains_path, class: "btn btn-primary pain-button" %>
-</div>
 
 <div id="prayer-form">
   <%= render "prayer_form", pain: @pain, prayer: @prayer %>
@@ -78,10 +82,10 @@
             <div class="row">
                 <br>
                 <div class="col-xs-12 col-md-4">
-                    <button id="startRecordingButton">Start</button>
+                  <button id="startRecordingButton">Start</button>
                 </div>
                 <div class="col-xs-12 col-md-4">
-                    <button id="stopRecordingButton">Stop</button>
+                  <button id="stopRecordingButton">Stop</button>
                 </div>
                 <div class="col-xs-12 col-md-4">
                 <button id="playButton">Play</button>

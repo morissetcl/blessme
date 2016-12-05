@@ -7,22 +7,28 @@
   margin-top: 20px;
 }
 .pain-description {
-	text-align: center;
   font-size: 20px;
   padding-top: 50px;
   padding-bottom: 25px;
   border-top: 1px solid rgb(230, 230, 230);
 }
 .pain-description .fa {
-  font-size: 50px;
-  margin: 7px;
-  color: black;
+  font-size: 60px;
+  margin-left: 7px;
+  color: #B4D8C0;
 }
-.pain-description p {
-  color: rgb(150, 150, 150)
+.pain-description .pain-text {
+  color: rgb(150, 150, 150);
+  text-align: center;
 }
-.pain-description .fa .fa-quote-right {
-  vertical-align: text-top;
+.pain-description .right-quote {
+  text-align: right;
+  margin-right: 20%;
+  opacity: 0.7;
+}
+.pain-description .left-quote {
+  margin-left: 20%;
+  opacity: 0.7;
 }
 .profile_picture{
  width:90px;
@@ -33,7 +39,6 @@
  border-radius:100%;
  background-size:100% 100%;
  padding:7px;
- padding-top: 0;
  border:4px solid rgba(255,255,255,1)
 }
 .title-pain {
@@ -50,7 +55,7 @@
   text-align: center;
   position: relative;
 }
-.fire {
+.flame {
   text-align: right;
   margin-top: 0;
   right: 0;
@@ -101,17 +106,15 @@
   margin-bottom:10px;
   cursor: pointer;
 }
-.pain-back-button {
-  text-align: center;
-}
 .pain-button {
   margin-top: 10px;
   margin-bottom: 15px;
+  margin-left: 10%;
 }
 
 /* FIRE */
 
-.fa-fire {
+.flame {
   margin-right: 9px;
   font-size: 2em;
 }

@@ -5,13 +5,15 @@
       <div></div>
       <h2 class="name text-center"><%= @pain.title %></h2>
       <div class="fire ">
-        <i class="fa fa-fire" aria-hidden="true"></i>12
+        <i class="fa fa-fire flame" aria-hidden="true"></i>12
       </div>
 
     </div>
 
     <div class="pain-description">
-        <p><i class="fa fa-quote-left" aria-hidden="true"></i>   <%= @pain.description %>   <i class="fa fa-quote-right" aria-hidden="true"></i></p>
+      <p class= "left-quote"><i class="fa fa-quote-left" aria-hidden="true"></i></p>
+      <p class= "pain-text"><%= @pain.description %></p>
+      <p class = "right-quote"><i class="fa fa-quote-right" aria-hidden="true"></i></p>
       </div>
     </div>
     <div class="user-infos">
@@ -41,6 +43,18 @@
   <div class="prayer-container">
     <div class="audio-prayer text-center">
       <% @pain.prayers.each do |prayer| %>
+        <div class="prayer-btn">
+          <% if policy(prayer).edit? %>
+            <%= link_to edit_pain_prayer_path(@pain, prayer) do %>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+          <% if policy(prayer).destroy? %>
+            <%= link_to pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+        </div>
         <div class="row">
           <div class="col-md-9 col-md-offset-1 col-xs-12 prayer-col">
             <ul class="list-unstyled prayer-list">
@@ -65,14 +79,6 @@
           </div>
         </div>
 
-        <div class="prayer-btn">
-          <% if policy(prayer).edit? %>
-            <%= link_to "Edit your prayer", edit_pain_prayer_path(@pain, prayer), class: "btn" %>
-          <% end %>
-          <% if policy(prayer).destroy? %>
-            <%= link_to "Delete your prayer", pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' }, class:"delete-link btn" %>
-          <% end %>
-        </div>
         <hr>
       <% end %>
     </div>
