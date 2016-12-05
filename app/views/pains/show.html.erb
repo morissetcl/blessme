@@ -1,13 +1,20 @@
+
 <div class="portfoliocard">
   <% @pain%>
   <div class="coverphoto"></div>
-    <div class="profile_picture"></div>
+      <% if @pain.user.facebook_picture_url != nil %>
+        <%= image_tag(@pain.user.facebook_picture_url, class:"profile_picture") %>
+      <% elsif @pain.user.photo.url != nil %>
+        <%= image_tag(@pain.user.photo, class:"profile_picture")%>
+      <% else %>
+        <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
+      <% end %>
       <div class="left_col">
 
         <div class="user-info">
-          <div class="username"><%= @pain.user.username.capitalize %></div>
-          <div class="religion"><%= @pain.user.religion.capitalize %></div>
-          <div class="country"><%= @pain.user.country.capitalize %></div>
+        <p><%= @pain.user.username %></p>
+        <p><%= @pain.user.city %></p>
+        <p><%= @pain.user.religion %></p>
           <div class="fire ">
             <p><i class="fa fa-fire" aria-hidden="true"></i>12</p>
           </div>
@@ -22,18 +29,206 @@
     </div>
 </div>
 
-<div class="pray-link-write">
-  <p>Write a prayer</p>
+<div class="form-summary">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+                <div class="pray-link-write btn-medium text-center">
+                  <p>Write a prayer</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+                <div class="pray-link-record btn-medium">
+                  <p>Record a prayer</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+                <div class="pray-link-thought btn-medium">
+                  <p>Send a thought</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="pray-link-record">
-  <p>Record a prayer</p>
-</div>
-<div class="pray-link-thought">
-  <p>Send a thought</p>
-</div>
+
 <%=link_to "Back to categories", pains_path %>
+
 <div id="prayer-form">
   <%= render "prayer_form", pain: @pain, prayer: @prayer %>
 </div>
 
+<div class="container-audio">
+    <div class="form-for-audio-pray hidden text-center">
+            <%= simple_form_for [@pain, @prayer], html: { id: "audio-prayer-form"} do |f| %>
+            <%= f.input :title %>
+            <%= f.input :audio, as: :hidden%>
+            <%= f.button :submit, id: "audio-submit-button" %>
+      <% end %>
+        <div class="control-audio">
+            <div class="row">
+                <br>
+                <div class="col-xs-12 col-md-4">
+                    <button id="startRecordingButton">Start</button>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <button id="stopRecordingButton">Stop</button>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                <button id="playButton">Play</button>
+                </div>
+                </br>    
+                </br> 
+                <div class="audio-notification">
+                    <p class="recordingstart hidden">Enregistrement en cours ....</p>
+                    <p class="recordingstop hidden">Enregistrement terminé</p>   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+
+    <script>
+        var startRecordingButton = document.getElementById("startRecordingButton");
+        var stopRecordingButton = document.getElementById("stopRecordingButton");
+        var playButton = document.getElementById("playButton");
+        var submitButton = document.getElementById("audio-submit-button");
+        var leftchannel = [];
+        var rightchannel = [];
+        var recorder = null;
+        var recordingLength = 0;
+        var volume = null;
+        var mediaStream = null;
+        var sampleRate = 44100;
+        var context = null;
+        var blob = null;
+        startRecordingButton.addEventListener("click", function () {
+            // Initialize recorder
+            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+            navigator.getUserMedia(
+            {
+                audio: true
+            },
+            function (e) {
+                console.log("user consent");
+                // creates the audio context
+                window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                context = new AudioContext();
+                // creates an audio node from the microphone incoming stream
+                mediaStream = context.createMediaStreamSource(e);
+                // https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/createScriptProcessor
+                // bufferSize: the onaudioprocess event is called when the buffer is full
+                var bufferSize = 2048;
+                var numberOfInputChannels = 2;
+                var numberOfOutputChannels = 2;
+                if (context.createScriptProcessor) {
+                    recorder = context.createScriptProcessor(bufferSize, numberOfInputChannels, numberOfOutputChannels);
+                } else {
+                    recorder = context.createJavaScriptNode(bufferSize, numberOfInputChannels, numberOfOutputChannels);
+                }
+                recorder.onaudioprocess = function (e) {
+                    leftchannel.push(new Float32Array(e.inputBuffer.getChannelData(0)));
+                    rightchannel.push(new Float32Array(e.inputBuffer.getChannelData(1)));
+                    recordingLength += bufferSize;
+                }
+                // we connect the recorder
+                mediaStream.connect(recorder);
+                recorder.connect(context.destination);
+            },
+                        function (e) {
+                            console.error(e);
+                        });
+        });
+        stopRecordingButton.addEventListener("click", function () {
+            // stop recording
+            recorder.disconnect(context.destination);
+            mediaStream.disconnect(recorder);
+            // we flat the left and right channels down
+            // Float32Array[] => Float32Array
+            var leftBuffer = flattenArray(leftchannel, recordingLength);
+            var rightBuffer = flattenArray(rightchannel, recordingLength);
+            // we interleave both channels together
+            // [left[0],right[0],left[1],right[1],...]
+            var interleaved = interleave(leftBuffer, rightBuffer);
+            // we create our wav file
+            var buffer = new ArrayBuffer(44 + interleaved.length * 2);
+            var view = new DataView(buffer);
+            // RIFF chunk descriptor
+            writeUTFBytes(view, 0, 'RIFF');
+            view.setUint32(4, 44 + interleaved.length * 2, true);
+            writeUTFBytes(view, 8, 'WAVE');
+            // FMT sub-chunk
+            writeUTFBytes(view, 12, 'fmt ');
+            view.setUint32(16, 16, true); // chunkSize
+            view.setUint16(20, 1, true); // wFormatTag
+            view.setUint16(22, 2, true); // wChannels: stereo (2 channels)
+            view.setUint32(24, sampleRate, true); // dwSamplesPerSec
+            view.setUint32(28, sampleRate * 4, true); // dwAvgBytesPerSec
+            view.setUint16(32, 4, true); // wBlockAlign
+            view.setUint16(34, 16, true); // wBitsPerSample
+            // data sub-chunk
+            writeUTFBytes(view, 36, 'data');
+            view.setUint32(40, interleaved.length * 2, true);
+            // write the PCM samples
+            var index = 44;
+            var volume = 1;
+            for (var i = 0; i < interleaved.length; i++) {
+                view.setInt16(index, interleaved[i] * (0x7FFF * volume), true);
+                index += 2;
+            }
+            // our final blob
+            blob = new Blob([view], { type: 'audio/wav' });
+        });
+        playButton.addEventListener("click", function () {
+            if (blob == null) {
+                return;
+            }
+            var url = window.URL.createObjectURL(blob);
+            var audio = new Audio(url);
+            audio.play();
+        });
+        submitButton.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            if (blob == null) {
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function(event){
+                  $("#audio-prayer-form input#prayer_audio")[0].value = event.target.result;
+
+                  $("#audio-prayer-form").submit();
+            };
+            reader.readAsDataURL(blob);
+
+            return true;
+
+        });
+        function flattenArray(channelBuffer, recordingLength) {
+            var result = new Float32Array(recordingLength);
+            var offset = 0;
+            for (var i = 0; i < channelBuffer.length; i++) {
+                var buffer = channelBuffer[i];
+                result.set(buffer, offset);
+                offset += buffer.length;
+            }
+            return result;
+        }
+        function interleave(leftChannel, rightChannel) {
+            var length = leftChannel.length + rightChannel.length;
+            var result = new Float32Array(length);
+            var inputIndex = 0;
+            for (var index = 0; index < length;) {
+                result[index++] = leftChannel[inputIndex];
+                result[index++] = rightChannel[inputIndex];
+                inputIndex++;
+            }
+            return result;
+        }
+        function writeUTFBytes(view, offset, string) {
+            for (var i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+    </script>

@@ -1,33 +1,154 @@
-<div class="container user-edit-container">
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
+<div class="profile-wrapper text-center">
+  <div class="profile-container">
+    <div class="profile-header-infos">
       <div class="user-header">
         <% if current_user.facebook_picture_url != nil %>
           <%= image_tag(current_user.facebook_picture_url, class: "avatar-user-show") %>
         <% elsif current_user.photo.url != nil %>
           <%= image_tag(current_user.photo, class: "avatar-user-show")%>
         <% else %>
-          <%= image_tag("sample.jpg", class: "avatar-user-show") %>
+          <%= cl_image_tag("avatar_dymvhr.png", class: "avatar-user-show") %>
         <% end %>
-  	    <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-      </div>
-      <div class="user-infos">
-			  <p><strong>First name:</strong> <%= @user.first_name %></p>
-        <p><strong>Last name:</strong> <%= @user.last_name %></p>
-        <p><strong>Username:</strong> <%= @user.username %></p>
-        <p><strong>Age:</strong> <%= @user.age %></p>
-        <p><strong>Email:</strong> <%= @user.email %></p>
-        <p><strong>Country:</strong> <%= @user.country %></p>
-        <p><strong>City:</strong> <%= @user.city %></p>
-        <p><strong>Religion:</strong> <%= @user.religion %></p>
-        <p><strong>Language:</strong> <%= @user.language %></p>
-        <p><strong>Gender:</strong> <%= @user.gender %></p>
-        <p><strong>Biography:</strong> <%= @user.biography %></p>
+        <h2 class="profile-name"><%= @user.username %></h2>
       </div>
 
-        <% if policy(@user).edit? %>
-          <%=link_to "Edit profile", edit_user_path(@user) %>
-        <% end %>
-       </div>
-   </div>
+       <div class="tabs">
+      <a class="tab active" data-target="#profile">
+        <h3>Mes informations</h3>
+      </a>
+      <a class="tab" data-target="#prayers">
+        <h3>Mes prières</h3>
+      </a>
+      <a class="tab" data-target="#pains">
+        <h3>Mes demandes</h3>
+      </a>
+    </div>
+  </div>
 </div>
+
+<!-- table profile-->
+
+<div class="tab-container">
+  <div class="tab-content" id="profile">
+    <div class="my-profile">
+    <h2 class="title">Mes informations</h2>
+      <div class="parameter">
+        <div class="name">
+          <p><strong>First name:</strong> <%= @user.first_name %></p>
+          <p><strong>Last name:</strong> <%= @user.last_name %></p>
+          <p><strong>Username:</strong> <%= @user.username %></p>
+          <p><strong>Age:</strong> <%= @user.age %></p>
+        </div>
+        <hr>
+        <div class="geo-contact">
+          <p><strong>Email:</strong> <%= @user.email %></p>
+          <p><strong>Country:</strong> <%= @user.country %></p>
+          <p><strong>City:</strong> <%= @user.city %></p>
+        </div>
+        <hr>
+        <div class="geo-contact">
+          <p><strong>Religion:</strong> <%= @user.religion %></p>
+          <p><strong>Language:</strong> <%= @user.language %></p>
+          <p><strong>Gender:</strong> <%= @user.gender %></p>
+        </div>
+          <hr>
+          <p><strong>Biography:</strong> <%= @user.biography %></p>
+          <hr>
+        </div>
+    </div>
+      <div class="button-profile">
+        <%= link_to "Edit your profile", edit_user_path, class:"btn btn-medium" %>
+        <%= link_to "Back to index", pains_path,class:"btn btn-medium" %>
+    </div>
+  </div>
+</div>
+
+<!-- end table profile-->
+
+<!-- table prayers-->
+<div class="tab-container">
+   <div class="tab-content hidden" id="pains">
+    <div class="title"><h2>Mes demandes</h2></div>
+      <div class="row text-center titles">
+        <div class="col-md-2">
+          <p><strong>Title</strong></p>
+        </div>
+          <div class="col-md-5">
+            <p><strong>Description</strong></p>
+          </div>
+          <div class="col-md-3">
+            <p><strong>Date de publication</strong></p>
+          </div>
+          <div class="col-md-2">
+            <p><strong>Catégorie</strong></p>
+          </div>
+      </div>
+      <% if @user.pains.empty? %>
+        <p>Vous n'avez pas encore posté de demande !</p>
+      <% else %>
+        <% @user.pains.each do |pain| %>
+          <div class="garden">
+            <div class="row text-center">
+              <div class="col-md-2">
+                <p><%= link_to pain.title, pain_prayers_path(pain) %></p>
+              </div>
+              <div class="col-md-5 text-justify">
+                <p><%= pain.description unless pain.description.blank? %></p>
+              </div>
+              <div class="col-md-3">
+                <p><%= pain.created_at %></p>
+              </div>
+              <div class="col-md-2">
+                <p><%= pain.category %></p>
+              </div>
+            </div>
+          </div>
+          <hr>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+<div class="tab-container">
+    <div class="tab-content hidden" id="prayers">
+    <div class="title"><h2>Mes prieres</h2></div>
+      <div class="row text-center titles">
+        <div class="col-md-2">
+          <p><strong>Title</strong></p>
+        </div>
+          <div class="col-md-2">
+            <p><strong>Description</strong></p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>Audio</strong></p>
+          </div>
+          <div class="col-md-2">
+            <p><strong>Date de publication</strong></p>
+          </div>
+      </div>
+
+      <% if @prayer_as_writer.empty? %>
+        <p>Vous n'avez pas encore posté de demande !</p>
+
+      <% else %>
+        <% @prayer_as_writer.each do |prayer| %>
+          <div class="garden">
+            <div class="row text-center">
+              <div class="col-md-2">
+                <p><%= prayer.title %></p>
+              </div>
+              <div class="col-md-2">
+                <p><%= prayer.description unless prayer.description.blank? %></p>
+              </div>
+              <div class="col-md-6">
+                <p><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %><p>
+              </div>
+              <div class="col-md-2">
+                <p><%= prayer.created_at %></p>
+              </div>
+            </div>
+          </div>
+          <hr>
+        <%end%>
+      <%end%>
+    </div>
+  </div>

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :get_current_user_notif
+  before_action :set_coordinates
 
   include Pundit
 
@@ -25,6 +26,15 @@ class ApplicationController < ActionController::Base
     @activities = PublicActivity::Activity.order("created_at desc").where(recipient_id: current_user.id) if current_user
     @notification = @activities.where(read: false) if @activities
     @notification_read = @activities.where(read: true) if @activities
+  end
+
+  def set_coordinates
+    @users = User.where.not(latitude: nil, longitude: nil)
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   private

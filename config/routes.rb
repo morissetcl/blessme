@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :pains
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:show, :edit, :update]
   resources :pains do
     resources :prayers
+  		post '/upload' => 'pains#upload', on: :member
   end
 
   get "/get-notif", to: "notifications#get_notif"
@@ -15,6 +16,5 @@ Rails.application.routes.draw do
   resources :notifications, only: [] do
     get :read_all_notification, on: :collection
   end
-
 end
 

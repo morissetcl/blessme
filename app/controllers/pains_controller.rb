@@ -2,13 +2,25 @@ class PainsController < ApplicationController
   before_action :set_pain, only: [:edit, :update, :destroy]
 
   def index
+    @prayers = Prayer.all
     @pains = Pain.all
     authorize @pains
   end
 
   def show
-    pain_random
-    authorize @pain
+    # if params[:id] est inclu dans le tableau de categories then pain random
+    # if params[:id] est un vrai id then set_pain
+    if (Pain::CATEGORIES).include?(params[:id])
+      pain_random
+    else
+      set_pain
+    end
+    if @pain.nil?
+      flash.now[:alert] = "Pas encore de demande de prière pour cette catégorie"
+      render "pains/index"
+    else
+      authorize @pain
+    end
     @prayer = Prayer.new
     authorize @prayer
   end
@@ -23,7 +35,7 @@ class PainsController < ApplicationController
     @pain.user = current_user
     authorize @pain
     if @pain.save
-      redirect_to pains_path
+      redirect_to pain_path(@pain)
     else
       render :new
     end
@@ -56,8 +68,6 @@ class PainsController < ApplicationController
   end
 
   def pain_random
-    random = []
-    @pains= Pain.last(50)
-    @pain= @pains.sample
+    @pain = Pain.where(category: params[:id]).sample
   end
 end

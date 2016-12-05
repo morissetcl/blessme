@@ -80,6 +80,7 @@ GEM
       countries (~> 1.2.0)
       sort_alphabetical (~> 1.0)
     currencies (0.4.2)
+    data_uri (0.1.0)
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -268,6 +269,7 @@ DEPENDENCIES
   cloudinary (= 1.1.0)
   coffee-rails
   country_select (~> 2.5.2)
+  data_uri
   devise
   figaro
   font-awesome-sass
