@@ -1,4 +1,3 @@
-
 <div class="portfoliocard">
   <% @pain%>
   <div class="coverphoto"></div>
@@ -16,7 +15,7 @@
         <p><%= @pain.user.city %></p>
         <p><%= @pain.user.religion %></p>
           <div class="fire ">
-            <p><i class="fa fa-fire" aria-hidden="true"></i>12</p>
+            <p><i class="fa fa-fire" aria-hidden="true" id="compteur"></i><%= thought_counter %></p>
           </div>
 
         </div>
@@ -57,6 +56,11 @@
   <%= render "prayer_form", pain: @pain, prayer: @prayer %>
 </div>
 
+<div id="prayer-candle">
+  <%= thought_counter += 1 %>
+  <%= render "pain_candle", pain: @pain %>
+</div>
+
 <div class="container-audio">
     <div class="form-for-audio-pray hidden text-center">
             <%= simple_form_for [@pain, @prayer], html: { id: "audio-prayer-form"} do |f| %>
@@ -76,17 +80,20 @@
                 <div class="col-xs-12 col-md-4">
                 <button id="playButton">Play</button>
                 </div>
-                </br>    
-                </br> 
+                </br>
+                </br>
                 <div class="audio-notification">
                     <p class="recordingstart hidden">Enregistrement en cours ....</p>
-                    <p class="recordingstop hidden">Enregistrement terminé</p>   
+                    <p class="recordingstop hidden">Enregistrement terminé</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+  <script type='text/javascript'>
+      var url = "<%= pain_prayers_path(@pain) %>"
+  </script>
 
     <script>
         var startRecordingButton = document.getElementById("startRecordingButton");

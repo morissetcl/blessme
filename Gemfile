@@ -52,3 +52,4 @@ end
 gem 'pusher'
 gem 'public_activity'
 
+
