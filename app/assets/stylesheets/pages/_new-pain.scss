@@ -9,3 +9,90 @@
   width: 970px;
   background-color: white;
 }
+
+.skill-category {
+  padding: 10px;
+}
+
+.red-border {
+  border: solid 10px red;
+}
+
+.category-image {
+  width: 110px !important;
+  height: 110px !important;
+  border-radius:50%;
+  background-size: cover;
+  font-size: 10px;
+  color: white;
+  position: relative;
+  margin-bottom: 20px;
+
+}
+
+.category-text {
+
+	font-size:1.5em;
+}
+
+.category-image {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-description {
+	margin-top: 50px;
+}
+
+.control-label.text.required {
+		position: relative; 
+		top: 100px;
+		right: 450px;
+}
+
+#pain_description {
+
+	margin-top: 30px;
+}
+
+#pain_title {
+	margin-bottom: 60px;
+}
+
+.form-group.string.required.pain_title {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form-group.radio_buttons.required.pain_category.has-error {
+  display: flex;
+  justify-content: center;
+}
+
+.choice-category {
+  margin-top: 20px;
+}
+
+.radio_buttons.required {
+display:none
+}
+
+
+.form-group.radio_buttons.required.pain_category {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-wrap: wrap
+}
+
+
+.pain_category_famille {
+  position:relative;
+  top:100px;
+}
+
+.clicked{
+   background-image: linear-gradient(-225deg, rgba(0,924,168,0.6) 0%, rgba(0,36,61,0.6) 50%) !important; 
+}
