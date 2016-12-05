@@ -1,28 +1,34 @@
-<div class="profile-wrapper text-center">
+<div class="profile-wrapper">
   <div class="profile-container">
-    <div class="profile-header-infos">
-      <div class="user-header">
-        <% if current_user.facebook_picture_url != nil %>
-          <%= image_tag(current_user.facebook_picture_url, class: "avatar-user-show") %>
-        <% elsif current_user.photo.url != nil %>
-          <%= image_tag(current_user.photo, class: "avatar-user-show")%>
-        <% else %>
-          <%= cl_image_tag("avatar_dymvhr.png", class: "avatar-user-show") %>
-        <% end %>
+    <div class="first-user-info">
+      <% if current_user.facebook_picture_url != nil %>
+        <%= image_tag(current_user.facebook_picture_url, class: "avatar-user-show") %>
+      <% elsif current_user.photo.url != nil %>
+        <%= image_tag(current_user.photo, class: "avatar-user-show")%>
+      <% else %>
+        <%= cl_image_tag("avatar_dymvhr.png", class: "avatar-user-show") %>
+      <% end %>
         <h2 class="profile-name"><%= @user.username %></h2>
+      <div class="count">
+        <p class="info-count"><%=  pluralize(@prayer_as_writer.count,"prière")%></p>
+        <p class="info-count"><%=  pluralize(@user.pains.count ,"demande")%></p>
       </div>
-
-       <div class="tabs">
-      <a class="tab active" data-target="#profile">
-        <h3>Mes informations</h3>
-      </a>
-      <a class="tab" data-target="#prayers">
-        <h3>Mes prières</h3>
-      </a>
-      <a class="tab" data-target="#pains">
-        <h3>Mes demandes</h3>
-      </a>
     </div>
+    <hr>
+    <div class="wrapper-tabs">
+       <div class="tabs">
+        <a class="tab active" data-target="#profile">
+          <h3>Mes informations</h3>
+        </a>
+        <a class="tab" data-target="#prayers">
+          <h3>Mes prières</h3>
+        </a>
+        <a class="tab" data-target="#pains">
+          <h3>Mes demandes</h3>
+        </a>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -31,9 +37,14 @@
 <div class="tab-container">
   <div class="tab-content" id="profile">
     <div class="my-profile">
-    <h2 class="title">Mes informations</h2>
+      <div class="btn-userinfo">
+        <p><%= link_to "Edit", edit_user_path, class:"btn btn-medium"%></p>
+        <p><%= link_to "Back to index", pains_path,class:"btn btn-medium" %></p>
+      </div>
+
       <div class="parameter">
         <div class="name">
+          <h4 class="titleparameter text-center">Identifiant</h4>
           <p><strong>First name:</strong> <%= @user.first_name %></p>
           <p><strong>Last name:</strong> <%= @user.last_name %></p>
           <p><strong>Username:</strong> <%= @user.username %></p>
@@ -41,12 +52,14 @@
         </div>
         <hr>
         <div class="geo-contact">
+          <h4 class="titleparameter text-center"> Contact</h4>
           <p><strong>Email:</strong> <%= @user.email %></p>
           <p><strong>Country:</strong> <%= @user.country %></p>
           <p><strong>City:</strong> <%= @user.city %></p>
         </div>
         <hr>
         <div class="geo-contact">
+        <h4 class="titleparameter text-center"> Pour aller plus loin</h4>
           <p><strong>Religion:</strong> <%= @user.religion %></p>
           <p><strong>Language:</strong> <%= @user.language %></p>
           <p><strong>Gender:</strong> <%= @user.gender %></p>
@@ -56,99 +69,60 @@
           <hr>
         </div>
     </div>
-      <div class="button-profile">
-        <%= link_to "Edit your profile", edit_user_path, class:"btn btn-medium" %>
-        <%= link_to "Back to index", pains_path,class:"btn btn-medium" %>
-    </div>
   </div>
 </div>
 
 <!-- end table profile-->
 
 <!-- table prayers-->
-<div class="tab-container">
-   <div class="tab-content hidden" id="pains">
-    <div class="title"><h2>Mes demandes</h2></div>
-      <div class="row text-center titles">
-        <div class="col-md-2">
-          <p><strong>Title</strong></p>
-        </div>
-          <div class="col-md-5">
-            <p><strong>Description</strong></p>
-          </div>
-          <div class="col-md-3">
-            <p><strong>Date de publication</strong></p>
-          </div>
-          <div class="col-md-2">
-            <p><strong>Catégorie</strong></p>
-          </div>
-      </div>
-      <% if @user.pains.empty? %>
-        <p>Vous n'avez pas encore posté de demande !</p>
-      <% else %>
-        <% @user.pains.each do |pain| %>
-          <div class="garden">
-            <div class="row text-center">
-              <div class="col-md-2">
-                <p><%= link_to pain.title, pain_prayers_path(pain) %></p>
-              </div>
-              <div class="col-md-5 text-justify">
-                <p><%= pain.description unless pain.description.blank? %></p>
-              </div>
-              <div class="col-md-3">
-                <p><%= pain.created_at %></p>
-              </div>
-              <div class="col-md-2">
-                <p><%= pain.category %></p>
-              </div>
-            </div>
-          </div>
-          <hr>
-        <%end%>
-      <%end%>
-    </div>
-  </div>
-<div class="tab-container">
-    <div class="tab-content hidden" id="prayers">
-    <div class="title"><h2>Mes prieres</h2></div>
-      <div class="row text-center titles">
-        <div class="col-md-2">
-          <p><strong>Title</strong></p>
-        </div>
-          <div class="col-md-2">
-            <p><strong>Description</strong></p>
-          </div>
-          <div class="col-md-6">
-            <p><strong>Audio</strong></p>
-          </div>
-          <div class="col-md-2">
-            <p><strong>Date de publication</strong></p>
-          </div>
-      </div>
 
+
+  <div class="tab-container">
+    <div class="col-xs-12 col-md-8 col-offset-2">
+      <div class="tab-content hidden" id="pains">
+        <% if @user.pains.empty? %>
+          <p>Vous n'avez pas encore posté de demande !</p>
+        <% else %>
+          <% @user.pains.each do |pain| %>
+            <div class="prayer-profile-wrapper ">
+              <div class="prayer-profile text-center">
+                  <div class="pain-header">
+                   <p><%= pain.category %></p>
+                   <p class="middle-title"><strong><%= pain.title %></strong></p>
+                   <p><%= pain.created_at.strftime("%m/%d/%Y") %></p>
+                </div>
+                <div class="prayer-content">
+                  <p><%= pain.description unless pain.description.blank? %></p>
+                </div>
+              </div>
+            </div>    
+        <%end%>
+        <%end%>
+      </div> 
+   </div>
+</div>
+
+<div class="tab-container">
+  <div class="col-xs-12 col-md-8 col-offset-2">
+    <div class="tab-content hidden" id="prayers">
       <% if @prayer_as_writer.empty? %>
         <p>Vous n'avez pas encore posté de demande !</p>
-
       <% else %>
         <% @prayer_as_writer.each do |prayer| %>
-          <div class="garden">
-            <div class="row text-center">
-              <div class="col-md-2">
-                <p><%= prayer.title %></p>
-              </div>
-              <div class="col-md-2">
-                <p><%= prayer.description unless prayer.description.blank? %></p>
-              </div>
-              <div class="col-md-6">
-                <p><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %><p>
-              </div>
-              <div class="col-md-2">
-                <p><%= prayer.created_at %></p>
-              </div>
+        <div class="prayer-profile-wrapper ">
+          <div class="prayer-profile text-center">
+            <div class="prayer-header">
+              <p class="middle-title"><strong><%= prayer.title %></strong></p>
+              <p><%= prayer.created_at.strftime("%m/%d/%Y")%></p>
+            </div>
+            <div class="prayer-content">
+              <p><%= prayer.description unless prayer.description.blank? %></p>
+              <p><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %><p>
             </div>
           </div>
-          <hr>
-        <%end%>
-      <%end%>
+        </div>
+       <%end%>
+       <%end%>
+      </div>
     </div>
   </div>
