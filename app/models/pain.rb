@@ -1,5 +1,3 @@
-
-
 class Pain < ApplicationRecord
 
     CATEGORIES = ["Famille", "Actualité", "Religion", "Amour", "Santé", "Travail", "Autre"]
