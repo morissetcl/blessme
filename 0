@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20161205171142_add_counter_to_pains.rb

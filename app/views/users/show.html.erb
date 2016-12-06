@@ -83,7 +83,7 @@
         <% if @user.pains.empty? %>
           <p>Vous n'avez pas encore posté de demande !</p>
         <% else %>
-          <% @user.pains.each do |pain| %>
+          <% @user.pains.order("created_at desc").each do |pain| %>
             <div class="prayer-profile-wrapper ">
               <div class="prayer-profile text-center">
                   <div class="pain-header">
@@ -92,7 +92,7 @@
                    <p><%= pain.created_at.strftime("%m/%d/%Y") %></p>
                 </div>
                 <div class="prayer-content">
-                  <p><%= pain.description unless pain.description.blank? %></p>
+                  <p>"<%= pain.description unless pain.description.blank? %></p>
                 </div>
               </div>
             </div>    
@@ -106,9 +106,9 @@
   <div class="col-xs-12 col-md-8 col-offset-2">
     <div class="tab-content hidden" id="prayers">
       <% if @prayer_as_writer.empty? %>
-        <p>Vous n'avez pas encore posté de demande !</p>
+        <p>Vous n'avez pas encore posté de prière !</p>
       <% else %>
-        <% @prayer_as_writer.each do |prayer| %>
+        <% @prayer_as_writer.order("created_at desc").each do |prayer| %>
         <div class="prayer-profile-wrapper ">
           <div class="prayer-profile text-center">
             <div class="prayer-header">
@@ -116,8 +116,11 @@
               <p><%= prayer.created_at.strftime("%m/%d/%Y")%></p>
             </div>
             <div class="prayer-content">
-              <p><%= prayer.description unless prayer.description.blank? %></p>
+            <% if  prayer.audio.url.nil? %>
+              <p>"<%= prayer.description unless prayer.description.blank? %>"</p>
+            <% else %>
               <p><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %><p>
+              <% end %>
             </div>
           </div>
         </div>

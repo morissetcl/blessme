@@ -28,6 +28,8 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user.delete
+		authorize @user
+		redirect_to  user_path(@user)
 	end
 
 	private
@@ -39,6 +41,5 @@ class UsersController < ApplicationController
 	def set_user
 		@user = User.find(params[:id])
 	end
-
 	
 end

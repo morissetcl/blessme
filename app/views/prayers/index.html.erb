@@ -6,7 +6,7 @@
         <div></div>
         <h2 class="name text-center"><%= @pain.title %></h2>
         <div class="fire ">
-          <i class="fa fa-fire flame" aria-hidden="true"></i>12
+          <p id="counter"><i class="fa fa-fire flame" aria-hidden="true"></i><%= @pain.get_upvotes.size %></p>
         </div>
       </div>
 
@@ -40,9 +40,8 @@
 <div class="prayers-container">
   <div class="prayers-index">
     <h3>Prayers</h3>
-
       <div class="audio-prayer text-center">
-        <% @pain.prayers.each do |prayer| %>
+        <% @pain.prayers.order("created_at desc").each do |prayer| %>
           <div class="prayer-list">
           <div class="prayer-btn">
             <% if policy(prayer).edit? %>

@@ -5,11 +5,9 @@
         <div></div>
         <h2 class="name text-center"><%= @pain.title %></h2>
         <div class="fire ">
-          <i class="fa fa-fire flame" aria-hidden="true"></i>12
+          <i class="fa fa-fire flame" aria-hidden="true"></i><%= @pain.get_upvotes.size %>
         </div>
-
       </div>
-
       <div class="pain-description">
         <p class= "left-quote"><i class="fa fa-quote-left" aria-hidden="true"></i></p>
         <p class= "pain-text"><%= @pain.description %></p>
@@ -25,6 +23,7 @@
           <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
         <% end %>
 
+
         <div class="user-description">
           <div class="user-text">
             <p><%= @pain.user.username %></p>
@@ -32,6 +31,7 @@
             <p><%= @pain.user.religion %></p>
           </div>
         </div>
+
 
         <div class="buttons-container">
           <div class="row">
@@ -50,8 +50,9 @@
               </a>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-                <div class="pray-link-thought btn-medium">
-                  <p><i class="fa fa-fire" aria-hidden="true"></i>   Send a thought</p>
+                <div class="pray-link-thought btn-medium" id="button_fire" data-id="<%= @pain.id %>">
+                  <p><i class="fa fa-fire" aria-hidden="true"></i>
+                  <% @pain.get_upvotes.size %>Send a thought</p>
                 </div>
               </div>
             </div>
@@ -70,7 +71,9 @@
   <div id="prayer-form">
     <%= render "prayer_form", pain: @pain, prayer: @prayer %>
   </div>
-
+  <div id="prayer-candle">
+   <%= render "pain_candle", pain: @pain %>
+  </div>
   <div id="container-audio">
       <div class="form-for-audio-pray hidden text-center">
               <%= simple_form_for [@pain, @prayer], html: { id: "audio-prayer-form"} do |f| %>
@@ -101,8 +104,10 @@
       </div>
   </div>
 </div>
-
-
+    <% content_for(:after_js) do %>
+     <script>
+       var url = "<%= pain_prayers_path(@pain) %>"
+     </script>
     <script>
         var startRecordingButton = document.getElementById("startRecordingButton");
         var stopRecordingButton = document.getElementById("stopRecordingButton");
@@ -204,21 +209,16 @@
         });
         submitButton.addEventListener("click", function (e) {
             e.preventDefault();
-
             if (blob == null) {
                 return;
             }
-
             var reader = new FileReader();
             reader.onload = function(event){
                   $("#audio-prayer-form input#prayer_audio")[0].value = event.target.result;
-
                   $("#audio-prayer-form").submit();
             };
             reader.readAsDataURL(blob);
-
             return true;
-
         });
         function flattenArray(channelBuffer, recordingLength) {
             var result = new Float32Array(recordingLength);
@@ -247,3 +247,4 @@
             }
         }
     </script>
+  <% end %>

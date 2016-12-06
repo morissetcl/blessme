@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include PublicActivity::StoreController
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :get_current_user_notif
@@ -23,9 +25,11 @@ class ApplicationController < ActionController::Base
   end
 
   def get_current_user_notif
-    @activities = PublicActivity::Activity.order("created_at desc").where(recipient_id: current_user.id) if current_user
-    @notification = @activities.where(read: false) if @activities
-    @notification_read = @activities.where(read: true) if @activities
+    if user_signed_in?
+      @activities = PublicActivity::Activity.order("created_at desc").where(recipient_id: current_user.id)
+      @notification = @activities.where(read: false)
+      @notification_read = @activities.where(read: true)
+    end
   end
 
   def set_coordinates
@@ -35,6 +39,12 @@ class ApplicationController < ActionController::Base
       marker.lng user.longitude
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :password, :password_confirmation])
   end
 
   private

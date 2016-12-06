@@ -153,7 +153,8 @@
 
 .prayer-profile {
   border: 1px solid #E3E3E3;
-  min-width: 400px;
+  min-width: 600px;
+  max-width: 600px;
   padding:10px;
   margin-bottom:10px;
 
@@ -173,6 +174,8 @@
   display:flex;
   justify-content:center;
   align-items:center;
+  z-index:1000;
+  align-items: flex-end;
 }
 
 .prayer-header {
@@ -245,4 +248,11 @@
 
 h5{
   margin-bottom: 50px;
+}
+
+.mic {
+  color:red;
+  z-index: -200;
+  opacity:0.2;
+  font-size: 5em;
 }

@@ -127,3 +127,9 @@
   width: 90%;
   margin: auto;
 }
+
+
+.radio input[type="radio"]:checked  + .category-image {
+  border: 3px solid #B4D8C0;
+}
+

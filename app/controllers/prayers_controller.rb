@@ -27,6 +27,7 @@ class PrayersController < ApplicationController
 		@prayer.user = current_user
 		@prayer.pain = @pain
     	authorize @prayer
+
 		 if @prayer.save
         #@channel = "user-#{@pain.user_id}"
         begin
