@@ -45,7 +45,7 @@
   <hr>
   <div class="prayer-container">
     <div class="audio-prayer text-center">
-      <% @pain.prayers.each do |prayer| %>
+      <% @pain.prayers.order("created_at desc").each do |prayer| %>
         <div class="prayer-btn">
           <% if policy(prayer).edit? %>
             <%= link_to edit_pain_prayer_path(@pain, prayer) do %>
