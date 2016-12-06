@@ -23,9 +23,11 @@ class ApplicationController < ActionController::Base
   end
 
   def get_current_user_notif
-    @activities = PublicActivity::Activity.order("created_at desc").where(recipient_id: current_user.id) if current_user
-    @notification = @activities.where(read: false) if @activities
-    @notification_read = @activities.where(read: true) if @activities
+    if user_signed_in?
+      @activities = PublicActivity::Activity.order("created_at desc").where(recipient_id: current_user.id)
+      @notification = @activities.where(read: false)
+      @notification_read = @activities.where(read: true)
+    end
   end
 
   def set_coordinates

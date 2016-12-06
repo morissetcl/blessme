@@ -34,6 +34,11 @@
               <% end %>
             </li>
             <li>
+              <%= link_to pains_path do %>
+                <i class="fa fa-desktop" aria-hidden="true"></i>  <%= t(".pains", default: "Categories") %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>

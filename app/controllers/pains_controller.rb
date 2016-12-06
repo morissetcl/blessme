@@ -34,6 +34,7 @@ class PainsController < ApplicationController
     @pain = Pain.new(pain_params)
     @pain.user = current_user
     authorize @pain
+    
     if @pain.save
       redirect_to pain_path(@pain)
     else
