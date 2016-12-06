@@ -56,11 +56,13 @@
         <%= link_to t(".sign_in", default: "Sign up"), "", class: "navbar-blessme-item navbar-blessme-link",  data: { toggle: "modal", target: "#signupModal" } %>
       <% end %>
     <!-- Button (call-to-action) -->
-    <div class="navbar-blessme-right hidden-xs hidden-sm" >
-      <div class="navbar-blessme-item" id="notifications-container">
-        <%= render "shared/notifications", notification: @notification %>
+    <% if user_signed_in? %>
+      <div class="navbar-blessme-right hidden-xs hidden-sm" >
+        <div class="navbar-blessme-item" id="notifications-container">
+          <%= render "shared/notifications", notification: @notification %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 
   <!-- Dropdown appearing on mobile only -->
