@@ -16,9 +16,8 @@
         <p><%= @pain.user.city %></p>
         <p><%= @pain.user.religion %></p>
           <div class="fire ">
-            <p><i class="fa fa-fire" aria-hidden="true"></i><%= thought_counter %></p>
+            <p id="counter"><i class="fa fa-fire" aria-hidden="true"></i><%= @pain.get_upvotes.size %></p>
           </div>
-
         </div>
       </div>
       <div class="right_col">

@@ -16,5 +16,11 @@ Rails.application.routes.draw do
   resources :notifications, only: [] do
     get :read_all_notification, on: :collection
   end
+
+  resources :pains, only: [] do
+    member do
+      post :upvote
+    end
+  end
 end
 

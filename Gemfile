@@ -52,4 +52,7 @@ end
 gem 'pusher'
 gem 'public_activity'
 
+#upvote
+gem 'acts_as_votable', '~> 0.10.0'
+
 
