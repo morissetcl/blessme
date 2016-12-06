@@ -45,7 +45,7 @@ class PrayersController < ApplicationController
 
 	def upload
     audio = params[:audio]
-  	end
+  end
 
 	def edit
     authorize @prayer

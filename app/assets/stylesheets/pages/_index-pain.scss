@@ -4,7 +4,6 @@
 }
 
 .cards-wrapper-category {
-  background-color: rgb(250, 250, 250);
   padding: 50px 0 50px 0;
 }
 
@@ -39,6 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.5s ease;
 }
 
 .card-content-category:hover .box {
@@ -63,4 +63,9 @@ a {
 a:hover {
   text-decoration: none;
   outline: none;
+}
+
+/* QUOTE */
+.pain-index-quote {
+  margin-top: 50px;
 }
