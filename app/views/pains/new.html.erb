@@ -1,19 +1,23 @@
 <div class="container pain-edit-container">
-    <h3 class="text-center">Déposer une demande de prière</h3>
-    <br>
-      <%= simple_form_for(@pain) do |f| %>
-      <h4 class="text-center">Titre</h4>
-        <%= f.input :title, inline_label: "Title", label: false, placeholder: 'Ajoutez une titre à votre demande !' %>
+  <h3 class="text-center">Déposer une demande de prière</h3>
+  <br>
+  <%= simple_form_for(@pain) do |f| %>
+    <h4 class="text-center">Titre</h4>
+    <%= f.input :title, inline_label: "Title", label: false, placeholder: 'Ajoutez un titre à votre demande !' %>
 
-        <h4 class="text-center">Choisissez votre catégorie</h4>
-        <br>  
-          <div class="choice-category">
-            <%= f.input :category, as: :radio_buttons, collection: Pain::CATEGORIES_PHOTOS, :label => false, :value_method => lambda { |category| category[:category] } , :label_method => lambda { |category|  render "pains/category_input", hash_photo: category } %>
-            </div>
-                <h4 class="text-center">Description</h4>
-        <%= f.input :description, as: :text, inline_label: "Description", label: false,  :input_html => {:rows => 10} , html: { class: "form-description"} , placeholder: 'Ici vous pouvez expliquer votre situation afin que les croyants du monde entier intercède pour vous !'%>
-        <%= f.submit 'Share', class:"btn btn-primary" %>
-      <% end %>
+    <h4 class="text-center">Choisissez votre catégorie</h4>
+    <br>
+    <div class="choice-category">
+      <%= f.input :category, as: :radio_buttons, collection: Pain::CATEGORIES_PHOTOS, :label => false, :value_method => lambda { |category| category[:category] } , :label_method => lambda { |category|  render "pains/category_input", hash_photo: category } %>
+    </div>
+    <h4 class="text-center">Description</h4>
+    <div class="description-text">
+      <%= f.input :description, as: :text, inline_label: "Description", label: false,  :input_html => {:rows => 10} , html: { class: "form-description"} , placeholder: 'Ici vous pouvez expliquer votre situation afin que les croyants du monde entier intercèdent pour vous !'%>
+    </div>
+    <div class="new-pain-btn">
+      <%= f.submit 'Share', class:"btn btn-medium" %>
+    </div>
+  <% end %>
 </div>
 
 <script>

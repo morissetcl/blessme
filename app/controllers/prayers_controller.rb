@@ -36,7 +36,6 @@ class PrayersController < ApplicationController
           puts e.message
         end
         redirect_to pain_prayers_path(@pain)
-      	redirect_to pain_prayers_path(@pain)
     	else
       	flash.now[:alert] = "You didn't fill the form correctly"
       	render :new

@@ -1,7 +1,8 @@
 .pain-edit-container {
-  background-color: white;
+  background-color: #E8EDF3;
   margin-top: 150px;
   margin-bottom: 20px;
+  box-shadow: 1px 1px 1px 1px rgb(200, 200, 200);
 }
 
 .pain-container-index {
@@ -46,9 +47,8 @@
 }
 
 .control-label.text.required {
-		position: relative; 
-		top: 100px;
-		right: 450px;
+	top: 100px;
+	right: 450px;
 }
 
 #pain_description {
@@ -76,7 +76,7 @@
 }
 
 .radio_buttons.required {
-display:none
+  display:none
 }
 
 
@@ -94,5 +94,16 @@ display:none
 }
 
 .clicked{
-   background-image: linear-gradient(-225deg, rgba(0,924,168,0.6) 0%, rgba(0,36,61,0.6) 50%) !important; 
+   background-image: linear-gradient(-225deg, rgba(0,924,168,0.6) 0%, rgba(0,36,61,0.6) 50%) !important;
+}
+.btn-medium {
+  background-color: white;
+  margin-bottom: 10px;
+}
+.new-pain-btn {
+  text-align: center;
+}
+.description-text {
+  width: 90%;
+  margin: auto;
 }
