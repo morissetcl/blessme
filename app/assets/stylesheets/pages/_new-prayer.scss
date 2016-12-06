@@ -1,26 +1,26 @@
 .container-prayer {
-
+  background-color: #B4D8C0;
+  padding: 10px;
 }
-
-// .candle-container {
-// 	width: 100%;
-//   margin: 0;
-//   font-family: 'Lora', serif;
-//   background-color: #E8EDF3;
-//   width: 40%;
-//   margin: auto;
-//   box-shadow: 1px 1px 1px 1px rgb(200, 200, 200);
-//   margin-bottom: 15px;
-// }
-// .container-prayer h3 {
-//   font-family: 'Lora', serif;
-//   font-style: italic;
-//   color: #22264B;
-// }
-// .container-prayer .btn-medium {
-//   background-color: white;
-//   text-align: center;
-// }
-// .container-prayer .submit-prayer-button {
-//   text-align: center;
-// }
+.container-prayer-form {
+	width: 100%;
+  margin: 0;
+  background-color: #B4D8C0;
+  width: 40%;
+  margin: auto;
+  margin-bottom: 15px;
+}
+.container-prayer-form h3 {
+  color: black;
+}
+.container-prayer-form .btn-medium {
+  background-color: white;
+  text-align: center;
+}
+.container-prayer-form .submit-prayer-button {
+  text-align: center;
+}
+.container-prayer-form .form-control.string.required, .container-prayer-form .form-control.text.required {
+  background-color: rgba(212, 251, 225, 1);
+  box-shadow: 0;
+}

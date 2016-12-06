@@ -11,6 +11,7 @@
   padding-top: 5px;
   padding-right: 5px;
   padding-left: 5px;
+  box-shadow: 1px 1px 1px 1px rgb(200, 200, 200);
 }
 
 .tab-container {
@@ -210,6 +211,9 @@
   max-width:150px;
 }
 
+.btn-userinfo {
+  margin-top:10px;
+}
 
 @media (min-width: 500px) {
   .btn-userinfo {
@@ -237,7 +241,8 @@
 @media (min-width: 1250px) {
   .btn-userinfo {
   display:flex;
-  margin-left:750px;
+  margin-left:650px;
+
   }
 }
 
