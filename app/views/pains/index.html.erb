@@ -4,15 +4,21 @@
     <div class="row">
       <% Pain::CATEGORIES.each do |category| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
-            <%= link_to pain_path(category) do %>
-              <div class="card-content-category" style="background-image: url('<%= image_url "#{category.downcase}.jpg" %>');">
-                <div class="box">
-                  <span class="card-text"><strong> <%= category %></strong></span>
-                </div>
+          <%= link_to pain_path(category) do %>
+            <div class="card-content-category" style="background-image: url('<%= image_url "#{category.downcase}.jpg" %>');">
+              <div class="box">
+                <span class="card-text"><strong> <%= category %></strong></span>
               </div>
-            <% end %>
+            </div>
+          <% end %>
         </div>
       <% end %>
+      <div class="col-xs-12 col-sm-12 col-md-8">
+        <div class="pain-index-quote">
+          <h4>“Si la prière ne change pas notre destin, elle change nos sentiments, utilité qui n'est pas moindre.”</h4>
+          <p>Joseph Joubert</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

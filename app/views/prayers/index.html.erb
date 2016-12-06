@@ -1,92 +1,84 @@
-<div class="div-pain">
-  <% @pain%>
-  <div class="right_col">
-    <div class="title-pain">
-      <div></div>
-      <h2 class="name text-center"><%= @pain.title %></h2>
-      <div class="fire ">
-        <i class="fa fa-fire flame" aria-hidden="true"></i>12
+<div class="pain-container">
+  <div class="div-pain">
+    <% @pain%>
+    <div class="right_col">
+      <div class="title-pain">
+        <div></div>
+        <h2 class="name text-center"><%= @pain.title %></h2>
+        <div class="fire ">
+          <p id="counter"><i class="fa fa-fire flame" aria-hidden="true"></i><%= @pain.get_upvotes.size %></p>
+        </div>
       </div>
 
-    </div>
-
-    <div class="pain-description">
-      <p class= "left-quote"><i class="fa fa-quote-left" aria-hidden="true"></i></p>
-      <p class= "pain-text"><%= @pain.description %></p>
-      <p class = "right-quote"><i class="fa fa-quote-right" aria-hidden="true"></i></p>
+      <div class="pain-description">
+        <p class= "left-quote"><i class="fa fa-quote-left" aria-hidden="true"></i></p>
+        <p class= "pain-text"><%= @pain.description %></p>
+        <p class = "right-quote"><i class="fa fa-quote-right" aria-hidden="true"></i></p>
+        </div>
       </div>
-    </div>
-    <div class="user-infos">
-      <% if @pain.user.facebook_picture_url != nil %>
-        <%= image_tag(@pain.user.facebook_picture_url, class:"profile_picture") %>
-      <% elsif @pain.user.photo.url != nil %>
-        <%= image_tag(@pain.user.photo, class:"profile_picture")%>
-      <% else %>
-        <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
-      <% end %>
-      <div class="left_col">
-        <div class="user-info">
-        <p><%= @pain.user.username %></p>
-        <p><%= @pain.user.city %></p>
-        <p><%= @pain.user.religion %></p>
-          <div class="fire ">
-            <p id="counter"><i class="fa fa-fire" aria-hidden="true"></i><%= @pain.get_upvotes.size %></p>
+      <div class="user-infos">
+        <% if @pain.user.facebook_picture_url != nil %>
+          <%= image_tag(@pain.user.facebook_picture_url, class:"profile_picture") %>
+        <% elsif @pain.user.photo.url != nil %>
+          <%= image_tag(@pain.user.photo, class:"profile_picture")%>
+        <% else %>
+          <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
+        <% end %>
+
+        <div class="user-description">
+          <div class="user-text">
+            <p><%= @pain.user.username %></p>
+            <p><%= @pain.user.city %></p>
+            <p><%= @pain.user.religion %></p>
           </div>
-      <div class="user-description">
-        <div class="user-text">
-          <p><%= @pain.user.username %></p>
-          <p><%= @pain.user.city %></p>
-          <p><%= @pain.user.religion %></p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
-<div class="prayers-index">
-  <h3>Prayers</h3>
-  <hr>
-  <div class="prayer-container">
-    <div class="audio-prayer text-center">
-      <% @pain.prayers.order("created_at desc").each do |prayer| %>
-        <div class="prayer-btn">
-          <% if policy(prayer).edit? %>
-            <%= link_to edit_pain_prayer_path(@pain, prayer) do %>
-              <i class="fa fa-pencil" aria-hidden="true"></i>
+<div class="prayers-container">
+  <div class="prayers-index">
+    <h3>Prayers</h3>
+      <div class="audio-prayer text-center">
+        <% @pain.prayers.order("created_at desc").each do |prayer| %>
+          <div class="prayer-list">
+          <div class="prayer-btn">
+            <% if policy(prayer).edit? %>
+              <%= link_to edit_pain_prayer_path(@pain, prayer) do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              <% end %>
             <% end %>
-          <% end %>
-          <% if policy(prayer).destroy? %>
-            <%= link_to pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% if policy(prayer).destroy? %>
+              <%= link_to pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-        <div class="row">
-          <div class="col-md-9 col-md-offset-1 col-xs-12 prayer-col">
-            <ul class="list-unstyled prayer-list">
-              <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
-              <div class="prayer-description">
-                <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
-                <li><%= prayer.description unless prayer.description.blank? %></li>
-              </div>
-            </ul>
           </div>
-          <div class="col-md-1 col-xs-12 user-col">
-            <ul class="list-unstyled user-list">
-              <li><center><% if prayer.user.facebook_picture_url != nil %>
-                <%= image_tag(prayer.user.facebook_picture_url, class:"prayer-profile_picture") %>
-              <% elsif prayer.user.photo.url != nil %>
-                <%= image_tag(prayer.user.photo, class:"prayer-profile_picture")%>
-              <% else %>
-                <%= cl_image_tag("avatar_dymvhr.png", class:"prayer-profile_picture") %>
-              <% end %></center></li>
-              <li><strong><%= prayer.user.username %></strong></li>
-            </ul>
+          <div class="row">
+            <div class="col-md-9 col-md-offset-1 col-xs-12 prayer-col">
+              <ul class="list-unstyled">
+                <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
+                <div class="prayer-description">
+                  <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
+                  <li><%= prayer.description unless prayer.description.blank? %></li>
+                </div>
+              </ul>
+            </div>
+            <div class="col-md-1 col-xs-12 user-col">
+              <ul class="list-unstyled user-list">
+                <li><center><% if prayer.user.facebook_picture_url != nil %>
+                  <%= image_tag(prayer.user.facebook_picture_url, class:"prayer-profile_picture") %>
+                <% elsif prayer.user.photo.url != nil %>
+                  <%= image_tag(prayer.user.photo, class:"prayer-profile_picture")%>
+                <% else %>
+                  <%= cl_image_tag("avatar_dymvhr.png", class:"prayer-profile_picture") %>
+                <% end %></center></li>
+                <li><strong><%= prayer.user.username %></strong></li>
+              </ul>
+            </div>
           </div>
         </div>
-
-        <hr>
       <% end %>
     </div>
   </div>

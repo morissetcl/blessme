@@ -21,12 +21,14 @@
   font-size:5em;
   font-family: "Raleway";
   font-weight: lighter;
+  color: white;
+  font-size: lighter;
+  margin-bottom: 0;
 }
-
 .tagline {
   position:relative;
   bottom: 30px;
-  margin-bottom:80px;
+  margin-bottom:30px;
   text-align:center;
   font-weight:lighter;
   font-size: 1.5em;
@@ -34,10 +36,11 @@
 }
 
 .calltoaction {
-  margin-top: 30px;
 }
 .homebutton {
   margin: 20px;
+  margin-top: 0;
+  width: 210px;
 }
 
 
