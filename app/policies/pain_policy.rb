@@ -21,6 +21,10 @@ class PainPolicy < ApplicationPolicy
     true
   end
 
+  def upvote?
+    user
+  end
+
   def edit?
     record.user == user || user.admin?
   end

@@ -24,7 +24,14 @@
       <% else %>
         <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
       <% end %>
-
+      <div class="left_col">
+        <div class="user-info">
+        <p><%= @pain.user.username %></p>
+        <p><%= @pain.user.city %></p>
+        <p><%= @pain.user.religion %></p>
+          <div class="fire ">
+            <p id="counter"><i class="fa fa-fire" aria-hidden="true"></i><%= @pain.get_upvotes.size %></p>
+          </div>
       <div class="user-description">
         <div class="user-text">
           <p><%= @pain.user.username %></p>

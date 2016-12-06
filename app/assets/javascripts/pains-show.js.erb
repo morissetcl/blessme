@@ -1,0 +1,51 @@
+$(document).ready(function() {
+  $(".pray-link-write").on("click", function(e){
+    $(".form-for-audio-pray").addClass("hidden");
+    $("#candle").addClass("hidden");
+    $(".container-prayer").toggleClass("hidden");
+    var n = $(document).height();
+    $('html, body').animate({ scrollTop: 1000 }, 'slow');
+  });
+});
+
+$(document).ready(function() {
+  $(".pray-link-record").on("click", function(e){
+    $(".container-prayer").addClass("hidden");
+    $("#candle").Class("hidden");
+    $(".form-for-audio-pray").toggleClass("hidden");
+    var n = $(document).height();
+    $('html, body').animate({ scrollTop: 1000 }, 'slow');
+  });
+});
+
+$(document).ready(function() {
+  $(".delete-link").on("click", function(e){
+    $(".container-prayer").toggleClass("hidden");
+  });
+});
+
+$(document).ready(function() {
+  $(".pray-link-thought").on("click", function(e){
+    $(".container-prayer").addClass("hidden");
+    $(".form-for-audio-pray").addClass("hidden");
+    $("#candle").toggleClass("hidden");
+    $(".navbar-blessme").addClass("hidden");
+
+
+    var id = $(this).data("id");
+    var n = $(document).height();
+    $('html, body').animate({ scrollTop: n }, 'slow');
+
+    $.ajax({
+      type: 'POST',
+      url: '/pains/' + id + '/upvote',
+    });
+
+    setTimeout(function() {
+      window.location.pathname = url;
+      $("#prayer-candle").fadeOut(300);
+    }, 2000);
+  });
+});
+
+
