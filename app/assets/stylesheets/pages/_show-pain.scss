@@ -212,11 +212,24 @@
 
 #candle h1 {
   color: #B56969;
-  font-family: "Pacifico", cursive;
+  font-family: "Playfair Display", cursive;
   font-size: 3em;
   display: inline-block;
   position: absolute;
-  margin-top: 100px;
+  margin-top: 60px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#candle h2 {
+  color: #B56969;
+  font-family: "Playfair Display", cursive;
+  font-size: 1.5em;
+  font-style: oblique;
+  display: inline-block;
+  position: absolute;
+  margin-top: 120px;
   left: 0;
   width: 100%;
   text-align: center;
@@ -225,8 +238,9 @@
 .candle-container {
   width: 160px;
   height: 163px;
-  margin-top: -100px;
+  margin-top: -180px;
   position: relative;
+  background: #B4D8C0;
 }
 
 .candle {

@@ -5,9 +5,8 @@
       <div></div>
       <h2 class="name text-center"><%= @pain.title %></h2>
       <div class="fire ">
-        <i class="fa fa-fire flame" aria-hidden="true"></i>12
+        <p id="counter"><i class="fa fa-fire flame" aria-hidden="true"></i><%= @pain.get_upvotes.size %></p>
       </div>
-
     </div>
 
     <div class="pain-description">
@@ -29,9 +28,6 @@
         <p><%= @pain.user.username %></p>
         <p><%= @pain.user.city %></p>
         <p><%= @pain.user.religion %></p>
-          <div class="fire ">
-            <p id="counter"><i class="fa fa-fire" aria-hidden="true"></i><%= @pain.get_upvotes.size %></p>
-          </div>
       <div class="user-description">
         <div class="user-text">
           <p><%= @pain.user.username %></p>
