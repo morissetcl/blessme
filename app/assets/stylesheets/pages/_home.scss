@@ -35,12 +35,29 @@
 
 .calltoaction {
 }
-.homebutton {
+
+.pray-btn {
+  color: white;
+  border: 1px solid white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin: 0;
+}
+.pray-btn:hover {
+  background-color: white;
+  color: black;
+  opacity: 1;
+}
+.banner-content .btn-medium {
+  margin: 0;
+}
+.banner-content .btn-medium, .banner-content .pray-btn {
   margin: 20px;
   margin-top: 0;
   width: 210px;
 }
-
 
 /* ICONS */
 
