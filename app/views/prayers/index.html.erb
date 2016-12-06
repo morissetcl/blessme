@@ -1,3 +1,4 @@
+
 <div class="pain-container">
   <div class="div-pain">
     <% @pain%>
@@ -6,7 +7,7 @@
         <div></div>
         <h2 class="name text-center"><%= @pain.title %></h2>
         <div class="fire ">
-          <p id="counter"><i class="fa fa-fire flame" aria-hidden="true"></i><%= @pain.get_upvotes.size %></p>
+           <p><i class="fa fa-fire" aria-hidden="true" id="counter"></i><%= @pain.get_upvotes.size %></p>
         </div>
       </div>
 
