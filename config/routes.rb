@@ -10,5 +10,11 @@ Rails.application.routes.draw do
     resources :prayers
   		post '/upload' => 'pains#upload', on: :member
   end
+
+  get "/get-notif", to: "notifications#get_notif"
+
+  resources :notifications, only: [] do
+    get :read_all_notification, on: :collection
+  end
 end
 

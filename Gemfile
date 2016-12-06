@@ -48,3 +48,7 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
+#Notification
+gem 'pusher'
+gem 'public_activity'
+
