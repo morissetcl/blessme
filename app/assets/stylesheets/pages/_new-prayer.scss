@@ -1,3 +1,22 @@
 .container-prayer {
-	
+	width: 100%;
+  margin: 0;
+  font-family: 'Lora', serif;
+  background-color: #E8EDF3;
+  width: 40%;
+  margin: auto;
+  box-shadow: 1px 1px 1px 1px rgb(200, 200, 200);
+  margin-bottom: 15px;
+}
+.container-prayer h3 {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  color: #22264B;
+}
+.container-prayer .btn-medium {
+  background-color: white;
+  text-align: center;
+}
+.container-prayer .submit-prayer-button {
+  text-align: center;
 }
