@@ -35,7 +35,6 @@ class PrayersController < ApplicationController
         rescue Pusher::Error => e
           puts e.message
         end
-        redirect_to pain_prayers_path(@pain)
       	redirect_to pain_prayers_path(@pain)
     	else
       	flash.now[:alert] = "You didn't fill the form correctly"
