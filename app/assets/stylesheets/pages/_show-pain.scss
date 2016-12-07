@@ -67,13 +67,9 @@
   right: 0;
 }
 
-.firetop{
-  font-size: 2em;
-}
-
-.firenumber {
-  font-size: 2em;
-}
+// .firetop{
+//   font-size: 2em;
+// }
 
  .pain-back-button{
   display:flex;
@@ -157,13 +153,18 @@
 .fire {
   margin-top:30px;
   margin-left: 15px;
-<<<<<<< HEAD
   color: #a94442;
+  display: flex;
+  padding: 10px;
 }
-
+.firenumber {
+  margin-top: 10px;
+}
 .fire span {
   color: rgb(150, 150, 150);
-  display:flex;
+  display: flex;
+  margin-right: 10px;
+  margin-top: 15px;
 }
 
 /* FORMS */
@@ -188,14 +189,29 @@
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
-  background-color: #b4d8c0;
-  box-shadow: 1px 1px 1px 1px #c8c8c8;
+  background-color: white;
+  margin-top: 20px;
+}
+
+.form-for-audio-pray .form-control.string.required {
+  background-color: rgba(238, 238, 238, 0.78);
+  border: none;
+  border-radius: 4px;
+  margin: 0;
+  outline: 0;
+  padding: 7px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 }
 
 #container-audio {
   display: flex;
   justify-content: center;
-
+  background-color: white;
 }
 
 .audio-prayer {
