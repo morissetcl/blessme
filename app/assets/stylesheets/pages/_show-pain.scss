@@ -146,12 +146,12 @@
 }
 
 .form-for-audio-pray {
-  width:550px;
+  width:60%;
   padding: 20px;
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
-  background-color: #E8EDF3;
+  background-color: #b4d8c0;
   box-shadow: 1px 1px 1px 1px #c8c8c8;
 }
 
@@ -187,18 +187,19 @@
   width:300px;
   max-height: 50px;
   position: relative;
-  top: 25px;
+  top: 9px;
    margin-left: 10px;
 }
 
 .audio-notification {
-  max-width: 220px;
-  text-align:center;
+  display:flex;
+  justify-content: center;
+  max-width: 275px;
 }
 
 #audio-submit-button {
-  color: #999999;
-  border: 1px solid #999999;
+     color: #B56969;
+     border: 1px solid #B56969;
   padding: 10px 15px;
   border-radius: 50px;
   font-weight: lighter;
