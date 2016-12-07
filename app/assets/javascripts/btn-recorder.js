@@ -31,6 +31,7 @@ $('#playButton').click(function() {
 $(document).ready(function() {
   $("#startRecordingButton").on("click", function(e){
     $(".recordingstart").toggleClass("hidden");
+    $(".recordingplay").addClass("hidden");
     $(".recordingstop").addClass("hidden");
   });
 });
@@ -38,7 +39,16 @@ $(document).ready(function() {
 $(document).ready(function() {
   $("#stopRecordingButton").on("click", function(e){
     $(".recordingstart").addClass("hidden");
+    $(".recordingplay").addClass("hidden");
     $(".recordingstop").toggleClass("hidden");
+  });
+});
+
+$(document).ready(function() {
+  $("#playButton").on("click", function(e){
+    $(".recordingstart").addClass("hidden");
+    $(".recordingstop").addClass("hidden");
+    $(".recordingplay").toggleClass("hidden");
   });
 });
 

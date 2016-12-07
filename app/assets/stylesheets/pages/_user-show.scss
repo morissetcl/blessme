@@ -5,13 +5,14 @@
 }
 
 .tab-content {
-  width: 78.5%;
+  width: 90%;
   margin: auto;
   background-color: white;
   padding-top: 5px;
   padding-right: 5px;
   padding-left: 5px;
   box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
+  padding:20px;
 }
 
 .tab-container {
@@ -50,6 +51,7 @@
 .info-count {
   color: rgb(150, 150, 150);
   margin-right: 30px !important;
+  font-family: "Raleway";
 }
 
 .count {
@@ -57,6 +59,16 @@
   display:flex;
   position:relative;
   top:8px;
+}
+
+.hr-profile {
+
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #B4D8C0;
+    margin: 1em 0;
+    padding: 0; 
 }
 
 //HEADER//
@@ -152,13 +164,14 @@
 //prayer profil
 
 .prayer-profile {
-  border: 1px solid #E3E3E3;
-  min-width: 600px;
-  max-width: 600px;
+  min-width: 700px;
+  max-width: 700px;
   padding:10px;
   margin-bottom:10px;
+  border-radius: 5px;
 
 }
+
 
 .info-prayer {
   width:700px;
@@ -168,7 +181,7 @@
 .prayer-content {
 
   text-align:center;
-  background-color:#F5F5F5;
+  background-color: #FAFAFA;
   margin-top: 20px;
   min-height: 60px;
   display:flex;
@@ -178,9 +191,14 @@
   align-items: flex-end;
 }
 
+.prayer-content p {
+  font-family: "Raleway";
+}
+
 .prayer-header {
   display:flex;
-  justify-content:space-around;
+  justify-content:space-between;
+  align-items: center;
 }
 
 
@@ -188,13 +206,14 @@
 
 .pain-header {
   display:flex;
-  justify-content:space-around;
+  justify-content:space-between;
+  align-items: center;
 }
 
 .pain-content {
   max-width:700px;
   text-align:center;
-  background-color:#F5F5F5;
+  background-color:#FAFAFA;
   margin-top: 20px;
   min-height: 60px;
   display:flex;
@@ -208,7 +227,15 @@
 }
 
 .middle-title {
-  max-width:150px;
+  max-width:300px;
+  font-family: "Raleway";
+  color: #B56969;
+  font-size: 1.2em;
+}
+
+.middle-title:hover {
+  color: #B56969;
+  font-weight:bold;
 }
 
 .btn-userinfo {
@@ -254,9 +281,7 @@ h5{
   margin-bottom: 50px;
 }
 
-.mic {
-  color:red;
-  z-index: -200;
-  opacity:0.2;
-  font-size: 5em;
+.datetime {
+  font-size: 0.8em;
+  color: #C2C2C2;
 }
