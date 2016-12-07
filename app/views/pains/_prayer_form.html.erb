@@ -4,11 +4,11 @@
       <div class="col-md-10 col-md-offset-1">
         <h3 class="text-center">Nouvelle prière</h3>
         <%= simple_form_for [pain, prayer] do |f|  %>
-          <%= f.input :title %>
+          <%= f.input :title, label: "Titre" %>
           <%= f.input :description, as: :text, :input_html => {:rows => 10} %>
           <% if policy(prayer).create? %>
             <div class="submit-prayer-button">
-              <%= f.submit 'add', class:"submit-prayer btn btn-medium" %>
+              <%= f.submit 'Envoyer', class:"submit-prayer btn btn-medium" %>
             </div>
           <% end %>
         <% end %>

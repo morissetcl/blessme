@@ -4,11 +4,11 @@
     <li>Your prayer :<%= prayer.description %></li>
 
     <% if policy(prayer).edit? %>
-      <%= link_to "Edit your prayer", edit_pain_prayer_path(pain, prayer) %>
+      <%= link_to "Modifier votre prière", edit_pain_prayer_path(pain, prayer) %>
     <% end %>
     <br>
     <% if policy(prayer).destroy? %>
-      <%= link_to "Delete your prayer", pain_prayer_path(pain, prayer), method: :delete, data: { confirm: 'Are you sure?' }, class:"delete-link" %>
+      <%= link_to "Supprimer une prière", pain_prayer_path(pain, prayer), method: :delete, data: { confirm: 'Etes-vous sûr(e)?' }, class:"delete-link" %>
     <% end %>
     <hr>
   <% end %>
