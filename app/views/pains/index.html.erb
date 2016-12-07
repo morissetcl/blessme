@@ -2,8 +2,14 @@
   <h3 class="title-category text-center">Choisissez la catégorie de prière qui vous inspire</h3>
   <div class="cards-container">
     <div class="row">
+      <div class="col-xs-12">
+        <div class="pain-index-quote">
+          <h4>“Si la prière ne change pas notre destin, elle change nos sentiments, utilité qui n'est pas moindre.”</h4>
+          <p>Joseph Joubert</p>
+        </div>
+      </div>
       <% Pain::CATEGORIES.each do |category| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="col-xs-12 col-sm-6 col-md-3">
           <%= link_to pain_path(category) do %>
             <div class="card-content-category" style="background-image: url('<%= image_url "#{category.downcase}.jpg" %>');">
               <div class="box">
@@ -13,12 +19,6 @@
           <% end %>
         </div>
       <% end %>
-      <div class="col-xs-12 col-sm-12 col-md-8">
-        <div class="pain-index-quote">
-          <h4>“Si la prière ne change pas notre destin, elle change nos sentiments, utilité qui n'est pas moindre.”</h4>
-          <p>Joseph Joubert</p>
-        </div>
-      </div>
     </div>
   </div>
 </div>
