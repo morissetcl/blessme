@@ -75,6 +75,24 @@
 .firenumber {
   font-size: 2em;
 }
+
+ .pain-back-button{
+  display:flex;
+  justify-content: space-between;
+ }
+ .img-dice {
+  margin-right:100px;
+  margin-top: 15px;
+  color:#969696;
+  display:flex;
+ }
+
+.random {
+  position: relative;
+  top:6px;
+  margin-left:5px;
+}
+
 /* USER */
 
 .user-infos {
