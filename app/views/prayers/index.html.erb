@@ -4,10 +4,9 @@
     <% @pain%>
     <div class="right_col">
       <div class="title-pain">
-        <div></div>
         <h2 class="name text-center"><%= @pain.title %></h2>
         <div class="fire ">
-           <p><i class="fa fa-fire" aria-hidden="true" id="counter"></i><%= @pain.get_upvotes.size %></p>
+           <p><span class="thoughts">Nombre de pensées: </span><i class="fa fa-fire" aria-hidden="true" id="counter"></i><%= @pain.get_upvotes.size %></p>
         </div>
       </div>
 
@@ -41,6 +40,7 @@
 <div class="prayers-container">
   <div class="prayers-index">
     <h3>Prayers</h3>
+    <hr>
       <div class="audio-prayer text-center">
         <% @pain.prayers.order("created_at desc").each do |prayer| %>
           <div class="prayer-list">
@@ -57,15 +57,6 @@
             <% end %>
           </div>
           <div class="row">
-            <div class="col-md-9 col-md-offset-1 col-xs-12 prayer-col">
-              <ul class="list-unstyled">
-                <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
-                <div class="prayer-description">
-                  <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
-                  <li><%= prayer.description unless prayer.description.blank? %></li>
-                </div>
-              </ul>
-            </div>
             <div class="col-md-1 col-xs-12 user-col">
               <ul class="list-unstyled user-list">
                 <li><center><% if prayer.user.facebook_picture_url != nil %>
@@ -78,8 +69,18 @@
                 <li><strong><%= prayer.user.username %></strong></li>
               </ul>
             </div>
+            <div class="col-md-9 col-md-offset-1 col-xs-12 prayer-col">
+              <ul class="list-unstyled">
+                <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
+                <div class="prayer-description">
+                  <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
+                  <li><%= prayer.description unless prayer.description.blank? %></li>
+                </div>
+              </ul>
+            </div>
           </div>
         </div>
+        <hr>
       <% end %>
     </div>
   </div>

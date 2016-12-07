@@ -1,12 +1,11 @@
 <% content_for :meta_title, "#{@pain.title}" %>
 <% content_for :meta_description, @pain.description %>
-<% content_for :meta_image, @pain.category.photo.url %>
+<% content_for :meta_image, "#{@pain.category.downcase}.jpg" %>
 
 <div class="pain-container">
   <div class="div-pain">
     <div class="right_col">
       <div class="title-pain">
-        <div></div>
         <h2 class="name text-center"><%= @pain.title %></h2>
         <div class="fire ">
           <span class="thoughts">Nombre de pensées: </span><i class="fa fa-fire" aria-hidden="true" id="counter"></i><%= @pain.get_upvotes.size %>
@@ -16,16 +15,16 @@
         <p class= "left-quote"><i class="fa fa-quote-left" aria-hidden="true"></i></p>
         <p class= "pain-text"><%= @pain.description %></p>
         <p class = "right-quote"><i class="fa fa-quote-right" aria-hidden="true"></i></p>
-        </div>
       </div>
-      <div class="user-infos">
-        <% if @pain.user.facebook_picture_url != nil %>
-          <%= image_tag(@pain.user.facebook_picture_url, class:"profile_picture") %>
-        <% elsif @pain.user.photo.url != nil %>
-          <%= image_tag(@pain.user.photo, class:"profile_picture")%>
-        <% else %>
-          <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
-        <% end %>
+    </div>
+    <div class="user-infos">
+      <% if @pain.user.facebook_picture_url != nil %>
+        <%= image_tag(@pain.user.facebook_picture_url, class:"profile_picture") %>
+      <% elsif @pain.user.photo.url != nil %>
+        <%= image_tag(@pain.user.photo, class:"profile_picture")%>
+      <% else %>
+        <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
+      <% end %>
 
 
         <div class="user-description">
@@ -36,7 +35,6 @@
           </div>
         </div>
 
-
         <div class="buttons-container">
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 text-center">
@@ -45,6 +43,7 @@
                   <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i>   Write a prayer</p>
                 </div>
               </a>
+
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 text-center">
               <a href="#container-audio">
