@@ -63,9 +63,12 @@
         </div>
       </div>
     <div class="pain-back-button">
-      <%=link_to pains_path, class: "btn pain-button" do %>
-        <i class="fa fa-arrow-left" aria-hidden="true"></i> Retour aux catégories
-      <% end %>
+        <%=link_to pains_path, class: "btn pain-button" do %>
+          <i class="fa fa-arrow-left" aria-hidden="true"></i> Retour aux catégories
+        <% end %>
+      <div class="img-dice">
+        <%= link_to(image_tag("dice.svg", :alt => "home image", :width => 40, :height => 40, :title => "Click here to return to Home"), pain_path(@pain.category)) %><p class="random"> Relancer</p>
+      </div>
     </div>
   </div>
 
@@ -103,19 +106,6 @@
                       <p class="recordingstop hidden">Enregistrement terminé</p>
                       <p class="recordingplay hidden">Lecture</p>
                   </div>
-                <div class="col-xs-12 col-md-4">
-                  <button id="startRecordingButton">Start</button>
-                </div>
-                <div class="col-xs-12 col-md-4">
-                  <button id="stopRecordingButton">Stop</button>
-                </div>
-                <div class="col-xs-12 col-md-4">
-                  <button id="playButton">Play</button>
-                </div>
-                <div class="audio-notification">
-                    <p class="recordingstart hidden">Enregistrement en cours ....</p>
-                    <p class="recordingstop hidden">Enregistrement terminé</p>
-                </div>
               </div>
           </div>
       </div>
