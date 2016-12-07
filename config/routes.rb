@@ -20,6 +20,13 @@ Rails.application.routes.draw do
   resources :pains, only: [] do
     member do
       post :upvote
+      post :report
+    end
+  end
+
+  resources :prayers, only: [] do
+    member do
+      post :report_prayer
     end
   end
 end

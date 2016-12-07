@@ -1,22 +1,22 @@
 <div class="container user-edit-container">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-      	<h2>Edit your profile</h2>
+		<div class="col-md-6 col-md-offset-3">
+      	<h2>Modifier votre profil</h2>
 
 				<%= simple_form_for @user do |f| %>
-				  <%= f.input :username, error: 'Username is mandatory, please specify one' %>
-				  <%= f.input :first_name %>
-				  <%= f.input :last_name %>
-				  <%= f.input :age, as: :integer %>
-				  <%= f.input :city %>
+				  <%= f.input :username, label: "Pseudonyme" ,error: "Le pseudonyme est obligatoire, merci d'en mettre un" %>
+				  <%= f.input :first_name, label: "Prénom"%>
+				  <%= f.input :last_name, label: "Nom de famille" %>
+				  <%= f.input :age, as: :integer%>
+				  <%= f.input :city, label: "Ville" %>
 				  <%= f.input :religion%>
-				  <%= f.input :language%>
-				  <%= f.input :gender%>
-				  <%= f.input :biography, as: :text, :input_html => {:rows => 7}%>
+				  <%= f.input :language, label: "Langue"%>
+				  <%= f.input :gender, label: "Sexe"%>
+				  <%= f.input :biography, as: :text, :input_html => {:rows => 7}, label: "Biographie"%>
 				  <%= f.input :photo %>
   				  <%= f.input :photo_cache, as: :hidden %>
           <div class="edit-user-submit">
-				    <%= f.button :submit, class:"btn btn-medium" %>
+				    <%= f.button :submit, label: "Envoyer", class:"btn btn-medium" %>
           </div>
 				<% end %>
 

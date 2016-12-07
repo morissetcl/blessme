@@ -1,8 +1,8 @@
  $(function(){
 
-  $(".tab").on("click", function(e){
+  $(".tab-title").on("click", function(e){
 
-    $(".tab").removeClass("active");
+    $(".tab-title").removeClass("active");
     $(this).addClass("active");
 
     $(".tab-content").addClass("hidden");

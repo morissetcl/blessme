@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206104324) do
+ActiveRecord::Schema.define(version: 20161207135424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,11 @@ ActiveRecord::Schema.define(version: 20161206104324) do
     t.string   "description"
     t.string   "category"
     t.integer  "user_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.date     "post_date"
     t.integer  "thought_counter", default: 0
+    t.boolean  "report",          default: false
     t.index ["user_id"], name: "index_pains_on_user_id", using: :btree
   end
 
@@ -49,9 +50,10 @@ ActiveRecord::Schema.define(version: 20161206104324) do
     t.string   "description"
     t.integer  "user_id"
     t.integer  "pain_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "audio"
+    t.boolean  "report_prayer", default: false
     t.index ["pain_id"], name: "index_prayers_on_pain_id", using: :btree
     t.index ["user_id"], name: "index_prayers_on_user_id", using: :btree
   end
@@ -79,8 +81,8 @@ ActiveRecord::Schema.define(version: 20161206104324) do
     t.text     "biography"
     t.string   "language"
     t.string   "gender"
-    t.boolean  "admin"
     t.string   "photo"
+    t.boolean  "admin"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "provider"

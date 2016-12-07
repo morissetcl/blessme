@@ -6,7 +6,7 @@
       <div class="title-pain">
         <h2 class="name text-center"><%= @pain.title %></h2>
         <div class="fire ">
-           <p><span class="thoughts">Nombre de pensées: </span><i class="fa fa-fire" aria-hidden="true" id="counter"></i><%= @pain.get_upvotes.size %></p>
+          <span class="thoughts">Nombre de pensées: </span><i class="fa fa-fire firetop" aria-hidden="true" id="counter"></i><div class="firenumber"><%= @pain.get_upvotes.size %></div>
         </div>
       </div>
 
@@ -30,6 +30,9 @@
             <p><%= @pain.user.username %></p>
             <p><%= @pain.user.city %></p>
             <p><%= @pain.user.religion %></p>
+            <p id="pain_report_<%= @pain.id %>"><%= link_to report_pain_path(@pain), method: :post, data: { confirm: 'Etes-vous sûr(e)' }, remote: true do %>
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Signaler
+            <% end %></p>
           </div>
         </div>
       </div>
@@ -39,8 +42,12 @@
 
 <div class="prayers-container">
   <div class="prayers-index">
+<<<<<<< HEAD
     <h3>Prayers</h3>
     <hr>
+=======
+    <h3>Prières</h3>
+>>>>>>> master
       <div class="audio-prayer text-center">
         <% @pain.prayers.order("created_at desc").each do |prayer| %>
           <div class="prayer-list">
@@ -51,10 +58,13 @@
               <% end %>
             <% end %>
             <% if policy(prayer).destroy? %>
-              <%= link_to pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <%= link_to pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Etes-vous sûr(e)?' } do %>
                 <i class="fa fa-trash" aria-hidden="true"></i>
               <% end %>
             <% end %>
+            <p id="prayer_report_<%= prayer.id %>"><%= link_to report_prayer_prayer_path(prayer), method: :post, data: { confirm: 'Etes-vous sûr(e)' }, remote: true do %>
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Signaler
+            <% end %></p>
           </div>
           <div class="row">
             <div class="col-md-1 col-xs-12 user-col">

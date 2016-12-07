@@ -10,21 +10,22 @@
       <% end %>
         <h2 class="profile-name"><%= @user.username %></h2>
       <div class="count">
-        <p class="info-count"><%=  pluralize(@prayer_as_writer.count,"prière")%></p>
-        <p class="info-count"><%=  pluralize(@user.pains.count ,"demande")%></p>
+        <p class="info-count">
+          <strong><%=  @prayer_as_writer.count %></strong>   <%=  pluralize(@prayer_as_writer.count,"prière").gsub(/\d+ /, '') %></p>
+         <p class="info-count"> <strong><%=  @user.pains.count %></strong>  <%=  pluralize(@user.pains.count ,"demande").gsub(/\d+ /, '') %></p>
       </div>
     </div>
-    <hr>
+    <hr class="hrprofile">
     <div class="wrapper-tabs">
        <div class="tabs">
-        <a class="tab active" data-target="#profile">
-          <h3>Mes informations</h3>
+        <a class="tab" data-target="#profile">
+          <h3 class="tab-title active" data-target="#profile">Mes informations</h3>
         </a>
         <a class="tab" data-target="#prayers">
-          <h3>Mes prières</h3>
+          <h3 class="tab-title" data-target="#prayers">Mes prières</h3>
         </a>
         <a class="tab" data-target="#pains">
-          <h3>Mes demandes</h3>
+          <h3 class="tab-title" data-target="#pains">Mes demandes</h3>
         </a>
       </div>
     </div>
@@ -38,34 +39,33 @@
   <div class="tab-content" id="profile">
     <div class="my-profile">
       <div class="btn-userinfo">
-        <p><%= link_to "Edit", edit_user_path, class:"btn btn-medium"%></p>
-        <p><%= link_to "Back to index", pains_path,class:"btn btn-medium" %></p>
+        <p><%= link_to "Modifier le profil", edit_user_path, class:"btn btn-medium"%></p>
       </div>
 
       <div class="parameter">
         <div class="name">
-          <h4 class="titleparameter text-center">Identifiant</h4>
-          <p><strong>First name:</strong> <%= @user.first_name %></p>
-          <p><strong>Last name:</strong> <%= @user.last_name %></p>
-          <p><strong>Username:</strong> <%= @user.username %></p>
+          <h4 class="titleparameter text-center">Identifiants</h4>
+          <p><strong>Prénom:</strong> <%= @user.first_name %></p>
+          <p><strong>Nom:</strong> <%= @user.last_name %></p>
+          <p><strong>Pseudonyme:</strong> <%= @user.username %></p>
           <p><strong>Age:</strong> <%= @user.age %></p>
         </div>
         <hr>
         <div class="geo-contact">
           <h4 class="titleparameter text-center"> Contact</h4>
           <p><strong>Email:</strong> <%= @user.email %></p>
-          <p><strong>Country:</strong> <%= @user.country %></p>
-          <p><strong>City:</strong> <%= @user.city %></p>
+          <p><strong>Pays:</strong> <%= @user.country %></p>
+          <p><strong>Ville:</strong> <%= @user.city %></p>
         </div>
         <hr>
         <div class="geo-contact">
         <h4 class="titleparameter text-center"> Pour aller plus loin</h4>
           <p><strong>Religion:</strong> <%= @user.religion %></p>
-          <p><strong>Language:</strong> <%= @user.language %></p>
-          <p><strong>Gender:</strong> <%= @user.gender %></p>
+          <p><strong>Langue:</strong> <%= @user.language %></p>
+          <p><strong>Sexe:</strong> <%= @user.gender %></p>
         </div>
           <hr>
-          <p><strong>Biography:</strong> <%= @user.biography %></p>
+          <p><strong>Biographie:</strong> <%= @user.biography %></p>
           <hr>
         </div>
     </div>
@@ -85,19 +85,24 @@
         <% else %>
           <% @user.pains.order("created_at desc").each do |pain| %>
             <div class="prayer-profile-wrapper ">
-              <div class="prayer-profile text-center">
+            <div class="quote">
+              <span class="test"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
+              </div>
+              <div class="pain-profile text-center">
                   <div class="pain-header">
-                   <p><%= pain.category %></p>
+                   <p class="catpain"><%= pain.category %></p>
                    <%=link_to pain_prayers_path(pain) do %>
-                   <p class="middle-title"><strong><%= pain.title %></strong></p>
+                   <p class="middle-title"><%= pain.title %></p>
                    <% end %>
-                   <p><%= pain.created_at.strftime("%m/%d/%Y") %></p>
+                   <p class="datetime"><%= pain.created_at.strftime("%m/%d/%Y") %></p>
                 </div>
                 <div class="prayer-content">
                   <p>"<%= pain.description unless pain.description.blank? %></p>
                 </div>
               </div>
-            </div>
+
+            </div>  
+            <hr>
         <%end%>
         <%end%>
       </div>
@@ -115,9 +120,9 @@
           <div class="prayer-profile text-center">
             <div class="prayer-header">
             <%=link_to pain_prayers_path(prayer.pain) do %>
-              <p class="middle-title"><strong><%= prayer.title %></strong></p>
+              <p class="middle-title"><%= prayer.title %></p>
               <% end %>
-              <p><%= prayer.created_at.strftime("%m/%d/%Y")%></p>
+              <p class="datetime"><%= prayer.created_at.strftime("%m/%d/%Y")%></p>
             </div>
             <div class="prayer-content">
             <% if  prayer.audio.url.nil? %>
@@ -128,6 +133,7 @@
             </div>
           </div>
         </div>
+        <hr>
        <%end%>
        <%end%>
       </div>
