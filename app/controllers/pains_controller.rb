@@ -1,5 +1,5 @@
 class PainsController < ApplicationController
-  before_action :set_pain, only: [:edit, :update, :destroy, :upvote]
+  before_action :set_pain, only: [:edit, :update, :destroy, :upvote, :report]
 
   def index
     @prayers = Prayer.all
@@ -34,7 +34,7 @@ class PainsController < ApplicationController
     @pain = Pain.new(pain_params)
     @pain.user = current_user
     authorize @pain
-    
+
     if @pain.save
       redirect_to pain_path(@pain)
     else
@@ -67,6 +67,17 @@ class PainsController < ApplicationController
     end
   end
 
+  def report
+    @pain = Pain.find(params[:id])
+    @pain.report = true
+    @pain.save
+    authorize @pain
+    respond_to do |format|
+      format.html { redirect_to pain_prayers_path(@pain) }
+      format.js
+    end
+  end
+
   private
 
   def set_pain
@@ -74,7 +85,7 @@ class PainsController < ApplicationController
   end
 
   def pain_params
-    params.require(:pain).permit(:title, :description, :category, :thought_counter)
+    params.require(:pain).permit(:title, :description, :category, :thought_counter, :report)
   end
 
   def pain_random

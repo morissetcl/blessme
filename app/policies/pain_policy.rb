@@ -25,6 +25,10 @@ class PainPolicy < ApplicationPolicy
     user
   end
 
+  def report?
+    user
+  end
+
   def edit?
     record.user == user || user.admin?
   end
