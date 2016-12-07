@@ -1,6 +1,6 @@
 class PrayersController < ApplicationController
   before_action :set_prayer, only: [:edit, :update, :destroy]
-  before_action :set_pain
+  before_action :set_pain, only: [:index, :create]
 
 	def index
 		set_pain
@@ -64,6 +64,12 @@ class PrayersController < ApplicationController
 		redirect_to pain_prayers_path(@pain)
 	end
 
+  def report_prayer
+    @prayer = Prayer.find(params[:id])
+    @prayer.report_prayer = true
+    @prayer.save
+    authorize @prayer
+  end
 
 	private
 
@@ -76,7 +82,7 @@ class PrayersController < ApplicationController
 	end
 
 	def prayer_params
-		params.require(:prayer).permit(:title, :description)
+		params.require(:prayer).permit(:title, :description, :report_prayer)
 	end
 
 end

@@ -21,6 +21,10 @@ class PrayerPolicy < ApplicationPolicy
     true
   end
 
+  def report_prayer?
+    user
+  end
+
   def edit?
     record.user == user || user.admin?
   end
