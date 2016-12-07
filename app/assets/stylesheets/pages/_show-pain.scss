@@ -81,10 +81,15 @@
   display: flex;
   position: relative;
   margin-top: 50px;
+  display:flex;
+  align-items:center;
+  flex-wrap: wrap;
 }
 .user-infos .user-description {
   text-align: center;
   padding-top: 10px;
+  display:flex;
+  align-items:center;
 }
 .user-infos .user-description p {
   margin: 0;
