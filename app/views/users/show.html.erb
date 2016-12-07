@@ -15,17 +15,17 @@
          <p class="info-count"> <strong><%=  @user.pains.count %></strong>  <%=  pluralize(@user.pains.count ,"demande").gsub(/\d+ /, '') %></p>
       </div>
     </div>
-    <hr>
+    <hr class="hrprofile">
     <div class="wrapper-tabs">
        <div class="tabs">
-        <a class="tab active" data-target="#profile">
-          <h3>Mes informations</h3>
+        <a class="tab" data-target="#profile">
+          <h3 class="tab-title active" data-target="#profile">Mes informations</h3>
         </a>
         <a class="tab" data-target="#prayers">
-          <h3>Mes prières</h3>
+          <h3 class="tab-title" data-target="#prayers">Mes prières</h3>
         </a>
         <a class="tab" data-target="#pains">
-          <h3>Mes demandes</h3>
+          <h3 class="tab-title" data-target="#pains">Mes demandes</h3>
         </a>
       </div>
     </div>
@@ -46,7 +46,7 @@
         <div class="name">
           <h4 class="titleparameter text-center">Identifiants</h4>
           <p><strong>Prénom:</strong> <%= @user.first_name %></p>
-          <p><strong>Nom de famille:</strong> <%= @user.last_name %></p>
+          <p><strong>Nom:</strong> <%= @user.last_name %></p>
           <p><strong>Pseudonyme:</strong> <%= @user.username %></p>
           <p><strong>Age:</strong> <%= @user.age %></p>
         </div>
@@ -85,9 +85,12 @@
         <% else %>
           <% @user.pains.order("created_at desc").each do |pain| %>
             <div class="prayer-profile-wrapper ">
-              <div class="prayer-profile text-center">
+            <div class="quote">
+              <span class="test"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
+              </div>
+              <div class="pain-profile text-center">
                   <div class="pain-header">
-                   <p><%= pain.category %></p>
+                   <p class="catpain"><%= pain.category %></p>
                    <%=link_to pain_prayers_path(pain) do %>
                    <p class="middle-title"><%= pain.title %></p>
                    <% end %>
@@ -97,6 +100,7 @@
                   <p>"<%= pain.description unless pain.description.blank? %></p>
                 </div>
               </div>
+
             </div>  
             <hr>
         <%end%>
@@ -132,7 +136,6 @@
         <hr>
        <%end%>
        <%end%>
-
       </div>
     </div>
   </div>
