@@ -55,6 +55,7 @@
   padding: auto;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 .div-pain .title-pain h2 {
   font-size:45px;
@@ -67,6 +68,13 @@
   right: 0;
 }
 
+.fa-fire {
+  font-size: 2em;
+}
+
+.firenumber {
+  font-size: 5em;
+}
 /* USER */
 
 .user-infos {

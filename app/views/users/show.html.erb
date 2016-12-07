@@ -10,8 +10,9 @@
       <% end %>
         <h2 class="profile-name"><%= @user.username %></h2>
       <div class="count">
-        <p class="info-count"><%=  pluralize(@prayer_as_writer.count,"prière")%></p>
-        <p class="info-count"><%=  pluralize(@user.pains.count ,"demande")%></p>
+        <p class="info-count">
+          <strong><%=  @prayer_as_writer.count %></strong>   <%=  pluralize(@prayer_as_writer.count,"prière").gsub(/\d+ /, '') %></p>
+         <p class="info-count"> <strong><%=  @user.pains.count %></strong>  <%=  pluralize(@user.pains.count ,"demande").gsub(/\d+ /, '') %></p>
       </div>
     </div>
     <hr>
@@ -89,15 +90,16 @@
                   <div class="pain-header">
                    <p><%= pain.category %></p>
                    <%=link_to pain_prayers_path(pain) do %>
-                   <p class="middle-title"><strong><%= pain.title %></strong></p>
+                   <p class="middle-title"><%= pain.title %></p>
                    <% end %>
-                   <p><%= pain.created_at.strftime("%m/%d/%Y") %></p>
+                   <p class="datetime"><%= pain.created_at.strftime("%m/%d/%Y") %></p>
                 </div>
                 <div class="prayer-content">
                   <p>"<%= pain.description unless pain.description.blank? %></p>
                 </div>
               </div>
-            </div>
+            </div>  
+            <hr>
         <%end%>
         <%end%>
       </div>
@@ -115,9 +117,9 @@
           <div class="prayer-profile text-center">
             <div class="prayer-header">
             <%=link_to pain_prayers_path(prayer.pain) do %>
-              <p class="middle-title"><strong><%= prayer.title %></strong></p>
+              <p class="middle-title"><%= prayer.title %></p>
               <% end %>
-              <p><%= prayer.created_at.strftime("%m/%d/%Y")%></p>
+              <p class="datetime"><%= prayer.created_at.strftime("%m/%d/%Y")%></p>
             </div>
             <div class="prayer-content">
             <% if  prayer.audio.url.nil? %>
@@ -128,8 +130,10 @@
             </div>
           </div>
         </div>
+        <hr>
        <%end%>
        <%end%>
+
       </div>
     </div>
   </div>
