@@ -1,0 +1,5 @@
+# config/meta.yml
+meta_title: "Bless Me"
+meta_description: "Votre foi est votre plus grande richesse, partagez-là!"
+meta_image: "homecapture.jpg" # Une image dans votre dossier app/assets/images/
+twitter_account: "@blessme_app" # indispensable pour les Twitter Cards

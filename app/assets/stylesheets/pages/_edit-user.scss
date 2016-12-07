@@ -1,0 +1,26 @@
+.user-edit-container {
+  margin-top: 100px;
+  padding-bottom: 15px;
+  box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
+}
+.user-edit-container h2 {
+  text-align: center;
+}
+.user-edit-container .form-control {
+  background-color: rgba(212, 251, 225, 0.2);
+  border: none;
+  border-radius: 4px;
+  margin: 0;
+  outline: 0;
+  padding: 7px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+}
+
+.user-edit-container input.btn .btn-default .btn-medium {
+  margin: auto;
+}
