@@ -38,21 +38,21 @@
             <div class="col-xs-12 col-sm-6 col-md-4 text-center">
               <a href="#prayer-form">
                 <div class="pray-link-write btn-medium text-center">
-                  <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i>   Write a prayer</p>
+                  <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i>   Ecrire une prière</p>
                 </div>
               </a>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 text-center">
               <a href="#container-audio">
                 <div class="pray-link-record btn-medium">
-                  <p><i class="fa fa-microphone" aria-hidden="true"></i>   Record a prayer</p>
+                  <p><i class="fa fa-microphone" aria-hidden="true"></i>   Prière vocale</p>
                 </div>
               </a>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-4 text-center">
                 <div class="pray-link-thought btn-medium" id="button_fire" data-id="<%= @pain.id %>">
                   <p><i class="fa fa-fire" aria-hidden="true"></i>
-                  <% @pain.get_upvotes.size %>Send a thought</p>
+                  <% @pain.get_upvotes.size %>Envoyer une pensée</p>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@
       </div>
     <div class="pain-back-button">
       <%=link_to pains_path, class: "btn pain-button" do %>
-        <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Retour aux catégories
       <% end %>
     </div>
   </div>
@@ -77,12 +77,17 @@
   <div id="container-audio">
       <div class="form-for-audio-pray hidden text-center">
               <%= simple_form_for [@pain, @prayer], html: { id: "audio-prayer-form"} do |f| %>
+<<<<<<< HEAD
               <%= f.input :title, :input_html => { :maxlength => 40 }%>
+=======
+              <%= f.input :title, label: "Titre" %>
+>>>>>>> master
               <%= f.input :audio, as: :hidden%>
-              <%= f.button :submit, id: "audio-submit-button" %>
+              <%= f.button :submit, value: "Envoyer", id: "audio-submit-button" %>
         <% end %>
           <div class="control-audio">
               <div class="row">
+<<<<<<< HEAD
                   <br>
                   <div class="col-xs-12 col-md-3 col-md-offset-2">
                     <button id="startRecordingButton">Start</button>
@@ -100,6 +105,21 @@
                       <p class="recordingstop hidden">Enregistrement terminé</p>
                       <p class="recordingplay hidden">Lecture</p>
                   </div>
+=======
+                <div class="col-xs-12 col-md-4">
+                  <button id="startRecordingButton">Start</button>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <button id="stopRecordingButton">Stop</button>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <button id="playButton">Play</button>
+                </div>
+                <div class="audio-notification">
+                    <p class="recordingstart hidden">Enregistrement en cours ....</p>
+                    <p class="recordingstop hidden">Enregistrement terminé</p>
+                </div>
+>>>>>>> master
               </div>
           </div>
       </div>

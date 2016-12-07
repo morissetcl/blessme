@@ -39,34 +39,33 @@
   <div class="tab-content" id="profile">
     <div class="my-profile">
       <div class="btn-userinfo">
-        <p><%= link_to "Edit", edit_user_path, class:"btn btn-medium"%></p>
-        <p><%= link_to "Back to index", pains_path,class:"btn btn-medium" %></p>
+        <p><%= link_to "Modifier le profil", edit_user_path, class:"btn btn-medium"%></p>
       </div>
 
       <div class="parameter">
         <div class="name">
-          <h4 class="titleparameter text-center">Identifiant</h4>
-          <p><strong>First name:</strong> <%= @user.first_name %></p>
-          <p><strong>Last name:</strong> <%= @user.last_name %></p>
-          <p><strong>Username:</strong> <%= @user.username %></p>
+          <h4 class="titleparameter text-center">Identifiants</h4>
+          <p><strong>Prénom:</strong> <%= @user.first_name %></p>
+          <p><strong>Nom de famille:</strong> <%= @user.last_name %></p>
+          <p><strong>Pseudonyme:</strong> <%= @user.username %></p>
           <p><strong>Age:</strong> <%= @user.age %></p>
         </div>
         <hr>
         <div class="geo-contact">
           <h4 class="titleparameter text-center"> Contact</h4>
           <p><strong>Email:</strong> <%= @user.email %></p>
-          <p><strong>Country:</strong> <%= @user.country %></p>
-          <p><strong>City:</strong> <%= @user.city %></p>
+          <p><strong>Pays:</strong> <%= @user.country %></p>
+          <p><strong>Ville:</strong> <%= @user.city %></p>
         </div>
         <hr>
         <div class="geo-contact">
         <h4 class="titleparameter text-center"> Pour aller plus loin</h4>
           <p><strong>Religion:</strong> <%= @user.religion %></p>
-          <p><strong>Language:</strong> <%= @user.language %></p>
-          <p><strong>Gender:</strong> <%= @user.gender %></p>
+          <p><strong>Langue:</strong> <%= @user.language %></p>
+          <p><strong>Sexe:</strong> <%= @user.gender %></p>
         </div>
           <hr>
-          <p><strong>Biography:</strong> <%= @user.biography %></p>
+          <p><strong>Biographie:</strong> <%= @user.biography %></p>
           <hr>
         </div>
     </div>

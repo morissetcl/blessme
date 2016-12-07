@@ -40,7 +40,7 @@
 
 <div class="prayers-container">
   <div class="prayers-index">
-    <h3>Prayers</h3>
+    <h3>Prières</h3>
       <div class="audio-prayer text-center">
         <% @pain.prayers.order("created_at desc").each do |prayer| %>
           <div class="prayer-list">
@@ -51,7 +51,7 @@
               <% end %>
             <% end %>
             <% if policy(prayer).destroy? %>
-              <%= link_to pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <%= link_to pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Etes-vous sûr(e)?' } do %>
                 <i class="fa fa-trash" aria-hidden="true"></i>
               <% end %>
             <% end %>
