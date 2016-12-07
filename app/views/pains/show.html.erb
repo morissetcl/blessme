@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@pain.title}" %>
+<% content_for :meta_description, @pain.description %>
+<% content_for :meta_image, @pain.category.photo.url %>
+
 <div class="pain-container">
   <div class="div-pain">
     <div class="right_col">
@@ -5,7 +9,7 @@
         <div></div>
         <h2 class="name text-center"><%= @pain.title %></h2>
         <div class="fire ">
-          <i class="fa fa-fire" aria-hidden="true" id="counter"></i><%= @pain.get_upvotes.size %>
+          <span class="thoughts">Nombre de pensées: </span><i class="fa fa-fire" aria-hidden="true" id="counter"></i><%= @pain.get_upvotes.size %>
         </div>
       </div>
       <div class="pain-description">
