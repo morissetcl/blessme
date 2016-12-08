@@ -41,7 +41,7 @@
   <div class="pain-footer">
     <a href="#prayer-form" data-toggle="modal" data-target="#prayer-text-modal">
       <div class="pray-link-write btn-medium text-center">
-        <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i>   Ecrire une prière</p>
+        <p><i class="fa fa-pencil-square-o" aria-hidden="true" id="prayer-id"></i>   Ecrire une prière</p>
       </div>
     </a>
     <a href="#container-audio" data-toggle="modal" data-target="#prayer-audio-modal">
@@ -55,8 +55,10 @@
       <% @pain.get_upvotes.size %>Envoyer une pensée</p>
     </div>
 
-    <div class="img-dice">
-      <%= link_to(image_tag("dice.svg", :alt => "home image", :width => 40, :height => 40, :title => "Click here to return to Home"), pain_path(@pain.category)) %><p class="random"> Relancer</p>
+    <div class="prayer-shuffle btn btn-medium">
+      <%= link_to pain_path(@pain.category) do %>
+        <p><i class="fa fa-repeat" aria-hidden="true"></i>   Relancer</p>
+      <% end %>
     </div>
   </div>
 
@@ -91,9 +93,77 @@
 </div>
 
 
+  <!-- Prayers -->
+
+<div class="prayers-container" >
+  <div class="prayers-index" >
+    <h3>Prières</h3>
+    <hr>
+      <div class="audio-prayer text-center">
+        <% @pain.prayers.order("created_at desc").each do |prayer| %>
+          <div class="prayer-list">
+          <div class="prayer-btn">
+            <% if policy(prayer).edit? %>
+              <%= link_to edit_pain_prayer_path(@pain, prayer) do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+            <% if policy(prayer).destroy? %>
+              <%= link_to pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Etes-vous sûr(e)?' } do %>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+            <p id="prayer_report_<%= prayer.id %>"><%= link_to report_prayer_prayer_path(prayer), method: :post, data: { confirm: 'Etes-vous sûr(e)' }, remote: true do %>
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Signaler
+            <% end %></p>
+          </div>
+          <div class="row">
+            <div class="col-md-1 col-xs-12 user-col">
+              <ul class="list-unstyled user-list">
+                <li><center><% if prayer.user.facebook_picture_url != nil %>
+                  <%= image_tag(prayer.user.facebook_picture_url, class:"prayer-profile_picture") %>
+                <% elsif prayer.user.photo.url != nil %>
+                  <%= image_tag(prayer.user.photo, class:"prayer-profile_picture")%>
+                <% else %>
+                  <%= cl_image_tag("avatar_dymvhr.png", class:"prayer-profile_picture") %>
+                <% end %></center></li>
+                <li><strong><%= prayer.user.username %></strong></li>
+              </ul>
+            </div>
+            <div class="col-md-9 col-md-offset-1 col-xs-12 prayer-col">
+              <ul class="list-unstyled">
+                <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
+                <div class="prayer-description">
+                  <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
+                  <li><%= prayer.description unless prayer.description.blank? %></li>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+ <!-- prayers -->
+
+
+
+
+
+
+
+
+
+
+
+
     <% content_for(:after_js) do %>
      <script>
-       var url = "<%= pain_prayers_path(@pain) %>"
+       var url = "<%= pain_path(@pain, anchor: 'prayer-id') %>"
      </script>
     <script>
         var startRecordingButton = document.getElementById("startRecordingButton");
