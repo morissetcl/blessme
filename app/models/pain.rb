@@ -2,7 +2,7 @@ class Pain < ApplicationRecord
   CATEGORIES = %w(Famille Actualité Religion Amour Santé Travail Autre)
   acts_as_votable
 
-    CATEGORIES = ["Famille", "Actualité", "Religion", "Amour", "Santé", "Travail", "Célébration" ,"Autre"]
+    CATEGORIES = ["Famille", "Actualité", "Religion", "Amour", "Santé", "Travail", "Célébration" ,"Autres"]
     CATEGORIES_PHOTOS = [
     {category: "Famille" ,
       photo_filepath: "famille.jpg"

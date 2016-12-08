@@ -6,14 +6,15 @@
         <% @notification.each do |notification| %>
           <%= link_to user_path(current_user) do %>
             <li>
-              <p><center><%= User.find(notification.owner_id).username %>
-                  <%= Prayer.find(notification.trackable_id).title %></center>
+              <p class="no-prayers"><%= User.find(notification.owner_id).username %>
+                  <%= Prayer.find(notification.trackable_id).title %>
               </p>
-            </li>
+            </li><hr>
           <% end %>
         <% end %>
-      <% else %>
-        <p><center>Pas de nouvelles prières</center></p>
-      <% end %>
-    </ul>
+    <% else %>
+      <p class="no-prayers">Pas de nouvelles prières</p>
+    <% end %>
+  </ul>
 </div>
+

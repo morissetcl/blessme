@@ -24,8 +24,12 @@
         <a class="tab" data-target="#prayers">
           <h3 class="tab-title" data-target="#prayers">Mes prières</h3>
         </a>
-        <a class="tab" data-target="#pains">
-          <h3 class="tab-title" data-target="#pains">Mes demandes</h3>
+        <a class="tab" data-target="#pains" id="tab-pains">
+        <% if (@notification && @notification.count > 0) %>
+          <h3 class="tab-title" data-target="#pains">Mes demandes <span id="tab-notification">(<%= @notification.count %>)</span></h3>
+        <% else %>
+          <h3 class="tab-title" data-target="#pains">Mes demandes </h3>
+        <% end %>
         </a>
       </div>
     </div>

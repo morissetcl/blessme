@@ -30,11 +30,12 @@ $(document).ready(function() {
     $(".form-for-audio-pray").addClass("hidden");
     $("#candle").toggleClass("hidden");
     $(".navbar-blessme").addClass("hidden");
+    $(".prayers-container").addClass("hidden");
 
 
     var id = $(this).data("id");
     var n = $(document).height();
-    $('html, body').animate({ scrollTop: 585 }, 'slow');
+    $('html, body').animate({ scrollTop: n }, 'slow');
 
     $.ajax({
       type: 'POST',
