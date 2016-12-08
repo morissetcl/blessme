@@ -1,4 +1,4 @@
-<div class="profile-wrapper">
+  <div class="profile-wrapper">
   <div class="profile-container">
     <div class="first-user-info">
       <% if current_user.facebook_picture_url != nil %>
@@ -97,7 +97,7 @@
                    <p class="datetime"><%= pain.created_at.strftime("%m/%d/%Y") %></p>
                 </div>
                 <div class="prayer-content">
-                  <p>"<%= pain.description unless pain.description.blank? %></p>
+                  <p>"<%= pain.description unless pain.description.blank? %>"</p>
                 </div>
               </div>
 
