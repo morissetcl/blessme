@@ -19,7 +19,13 @@ $(document).ready(function(){
       var currentStep = $(this).parent().parent();
       currentStep.toggleClass("active");
       currentStep.next().addClass("active");
+      $('html, body').animate({ scrollTop: 200 }, 'slow');
     }
+  });
+
+  var n = $(document).height();
+  $("#down-step").on("click", function(){
+    $('html, body').animate({ scrollTop: n }, 'slow');
   });
 
 
