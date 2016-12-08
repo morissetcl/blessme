@@ -5,7 +5,7 @@
 }
 
 .tab-content {
-  width: 60%;
+  width: 80%;
   margin: auto;
   background-color: white;
   padding-top: 5px;
@@ -174,6 +174,7 @@
   margin-bottom:10px;
   border-radius: 5px;
   z-index: 20;
+  width: 100%;
 }
 
 p {
@@ -212,10 +213,13 @@ opacity: 0.2;
   align-items:center;
   z-index:1000;
   align-items: flex-end;
+
 }
 
 .prayer-content p {
   font-family: "Raleway";
+  max-width: 895px;
+  margin-bottom: 35px;
 }
 
 .prayer-header {
@@ -277,14 +281,14 @@ opacity: 0.2;
 @media (min-width: 500px) {
   .btn-userinfo {
   display:flex;
-  margin-left:20px;
+  margin-left:300px;
   }
 }
 
 @media (min-width: 700px) {
   .btn-userinfo {
   display:flex;
-  margin-left:100px;
+  margin-left:400px;
   }
 }
 
@@ -292,7 +296,7 @@ opacity: 0.2;
 @media (min-width: 950px) {
   .btn-userinfo {
   display:flex;
-  margin-left:300px;
+  margin-left:600px;
   }
 }
 
@@ -300,7 +304,7 @@ opacity: 0.2;
 @media (min-width: 1250px) {
   .btn-userinfo {
   display:flex;
-  margin-left:490px;
+  margin-left:700px;
 
   }
 }
@@ -317,6 +321,20 @@ h5{
 .hrprofile {
 
     border-top: 1px solid #CFCCCC;
+}
+.prayer-user-description {
+  text-align: justify;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+.catpain {
+  color: rgb(100, 100, 100);
+}
 
-
+.prayer-pain-text-user {
+  text-align: justify;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  max-width: 500px;
 }
