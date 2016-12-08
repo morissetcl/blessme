@@ -1,17 +1,19 @@
-<div class="prayer-modal-header text-center">
-  <%= image_tag "pencil-write-form.svg", width: "50px" %>
-  <h2>Ecris ta prière</h2>
-</div>
+<div class="container-prayer-form">
+  <div class="prayer-modal-header text-center">
+    <%= image_tag "pencil-write-form.svg", width: "50px" %>
+    <h2>Ecris ta prière</h2>
+  </div>
 
-<%= simple_form_for [pain, prayer] do |f|  %>
-  <%= f.input :title, label: "Titre" %>
-  <%= f.input :description, as: :text, :input_html => {:rows => 10 } %>
-  <% if policy(prayer).create? %>
-    <div class="submit-prayer-button text-center">
-      <%= f.submit 'Envoyer', class:"submit-prayer btn btn-medium", style: "width: 200px; margin: auto" %>
-    </div>
+  <%= simple_form_for [pain, prayer] do |f|  %>
+    <%= f.input :title, label: "Titre" %>
+    <%= f.input :description, as: :text, :input_html => {:rows => 10 } %>
+    <% if policy(prayer).create? %>
+      <div class="submit-prayer-button text-center">
+        <%= f.submit 'Envoyer', class:"submit-prayer btn btn-medium", style: "width: 200px; margin: auto" %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
-<% if prayer.errors.any? %>
-  <%= prayer.errors.full_messages %>
-<% end %>
+  <% if prayer.errors.any? %>
+    <%= prayer.errors.full_messages %>
+  <% end %>
+</div>
