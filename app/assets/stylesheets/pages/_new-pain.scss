@@ -180,6 +180,17 @@
   }
 }
 
+.next-step {
+  background-color: $blessme-red;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: white;
+  cursor: pointer;
+}
+
 
 
 
