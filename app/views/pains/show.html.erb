@@ -55,8 +55,10 @@
       <% @pain.get_upvotes.size %>Envoyer une pensée</p>
     </div>
 
-    <div class="img-dice">
-      <%= link_to(image_tag("dice.svg", :alt => "home image", :width => 40, :height => 40, :title => "Click here to return to Home"), pain_path(@pain.category)) %><p class="random"> Relancer</p>
+    <div class="prayer-shuffle btn btn-medium">
+      <%= link_to pain_path(@pain.category) do %>
+        <p><i class="fa fa-repeat" aria-hidden="true"></i>   Relancer</p>
+      <% end %>
     </div>
   </div>
 
