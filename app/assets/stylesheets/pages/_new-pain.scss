@@ -139,6 +139,7 @@
 .new-pain-btn {
   text-align: center;
 }
+
 .description-text {
   width: 90%;
   margin: auto;
@@ -178,17 +179,21 @@
     width: 250px;
     padding: 20px;
   }
+  outline: 0 !important;
+  color: inherit;
+  text-decoration: none;
 }
 
 .next-step {
-  background-color: $blessme-red;
-  width: 30%;
+  // background-color: $blessme-red;
+  width: 100px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  color: white;
-  cursor: pointer;
+  // margin: 0 auto;
+  // color: white;
+  // cursor: pointer;
+  margin: 0px auto;
+  margin-bottom: 20px;
 }
 
 

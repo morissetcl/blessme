@@ -5,11 +5,11 @@
     <% if @notification && @notification.count > 0 %>
         <% @notification.each do |notification| %>
           <%= link_to user_path(current_user) do %>
-            <li>
+            <hr><li>
               <p><center><%= User.find(notification.owner_id).username %>
                   <%= Prayer.find(notification.trackable_id).title %></center>
               </p>
-            </li>
+            </li></hr>
           <% end %>
         <% end %>
       <% else %>
