@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="513px" viewBox="0 0 512 513" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>pencil-write-form</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="draw" transform="translate(0.000000, 1.000000)">
+            <polygon id="Shape" fill="#F4DA49" points="343.328 464.945 343.42 464.851 22.895 144.326 144.415 22.806 464.94 343.333 464.94 343.333 511.997 512"></polygon>
+            <polygon id="Shape" fill="#E69824" points="343.328 464.945 343.42 464.851 22.895 144.326 83.608 83.613 511.997 512"></polygon>
+            <polygon id="Shape" fill="#F1F1F2" points="464.94 343.333 511.997 512 343.328 464.945"></polygon>
+            <polygon id="Shape" fill="#DCDBDE" points="404.135 404.136 511.997 512 343.328 464.945"></polygon>
+            <polygon id="Shape" fill="#575759" points="511.997 512 437.156 491.12 491.113 437.148"></polygon>
+            <polygon id="Shape" fill="#2C2C2C" points="464.103 464.167 511.913 511.977 437.156 491.12"></polygon>
+            <path d="M25.159,146.759 C-8.38,113.187 -8.381,58.794 25.155,25.219 C58.742,-8.405 113.235,-8.407 146.824,25.216 L161.656,40.064 L40.097,161.712 L25.159,146.759 Z" id="Shape" fill="#B56969"></path>
+            <path d="M25.159,146.759 C-8.38,113.187 -8.381,58.794 25.155,25.219 L100.827,100.891 L40.096,161.712 L25.159,146.759 Z" id="Shape" fill="#B56969"></path>
+        </g>
+    </g>
+</svg>

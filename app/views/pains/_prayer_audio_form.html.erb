@@ -1,0 +1,28 @@
+
+<div class="prayer-modal-header text-center">
+  <%= image_tag "mic-vocal-form.svg", width: "50px" %>
+  <h2>Enregistre   ta prière</h2>
+</div>
+
+<div id="container-audio">
+  <div class="form-for-audio-pray hidden text-center">
+
+    <div class="control-audio">
+      <button id="startRecordingButton">Start <i class="fa fa-circle"></i></button>
+      <button id="stopRecordingButton">Stop <i class="fa fa-stop"></i></button>
+      <button id="playButton">Play <i class="fa fa-play"></i></button>
+
+      <div class="audio-notification">
+        <p class="recordingstart hidden">Enregistrement en cours ....</p>
+        <p class="recordingstop hidden">Enregistrement terminé</p>
+        <p class="recordingplay hidden">Lecture</p>
+      </div>
+    </div>
+
+    <%= simple_form_for [pain, prayer], html: { id: "audio-prayer-form"} do |f| %>
+      <%= f.input :title, label: "Choisissez un titre", :input_html => { :maxlength => 40, style: "width: 200px; margin: auto" }%>
+      <%= f.input :audio, as: :hidden%>
+      <%= f.button :submit, value: "Envoyer", id: "audio-submit-button", style: "width: 200px; margin: auto"  %>
+    <% end %>
+  </div>
+</div>

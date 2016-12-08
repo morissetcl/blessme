@@ -3,20 +3,7 @@
 <% content_for :meta_image, "#{@pain.category.downcase}.jpg" %>
 
 <div class="pain-container">
-  <div class="div-pain">
-    <div class="right_col">
-      <div class="title-pain">
-        <h2 class="name text-center"><%= @pain.title %></h2>
-        <div class="fire ">
-          <span class="thoughts">Nombre de pensées: </span><i class="fa fa-fire fa-2x firetop" aria-hidden="true" id="counter"></i><div class="firenumber"><%= @pain.get_upvotes.size %></div>
-        </div>
-      </div>
-      <div class="pain-description">
-        <p class= "left-quote"><i class="fa fa-quote-left" aria-hidden="true"></i></p>
-        <p class= "pain-text"><%= @pain.description %></p>
-        <p class = "right-quote"><i class="fa fa-quote-right" aria-hidden="true"></i></p>
-      </div>
-    </div>
+  <div class="pain-header">
     <div class="user-infos">
       <% if @pain.user.facebook_picture_url != nil %>
         <%= image_tag(@pain.user.facebook_picture_url, class:"profile_picture") %>
@@ -25,92 +12,85 @@
       <% else %>
         <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
       <% end %>
-
-
-        <div class="user-description">
-          <div class="user-text">
-            <p><%= @pain.user.username %></p>
-            <p><%= @pain.user.city %></p>
-            <p><%= @pain.user.religion %></p>
-          </div>
-        </div>
-
-        <div class="buttons-container">
-          <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-              <a href="#prayer-form">
-                <div class="pray-link-write btn-medium text-center">
-                  <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i>   Ecrire une prière</p>
-                </div>
-              </a>
-
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-              <a href="#container-audio">
-                <div class="pray-link-record btn-medium">
-                  <p><i class="fa fa-microphone" aria-hidden="true"></i>   Prière vocale</p>
-                </div>
-              </a>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-                <div class="pray-link-thought btn-medium" id="button_fire" data-id="<%= @pain.id %>">
-                  <p><i class="fa fa-fire" aria-hidden="true"></i>
-                  <% @pain.get_upvotes.size %>Envoyer une pensée</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="user-description">
+        <div class="user-text">
+          <p><%= @pain.user.username %></p>
+          <p><%= @pain.user.city %></p>
+          <p><%= @pain.user.religion %></p>
         </div>
       </div>
-    <div class="pain-back-button">
-        <%=link_to pains_path, class: "btn pain-button" do %>
-          <i class="fa fa-arrow-left" aria-hidden="true"></i> Retour aux catégories
-        <% end %>
-      <div class="img-dice">
-        <%= link_to(image_tag("dice.svg", :alt => "home image", :width => 40, :height => 40, :title => "Click here to return to Home"), pain_path(@pain.category)) %><p class="random"> Relancer</p>
+    </div>
+    <div class="pain-title">
+      <h1><%= @pain.title %></h1>
+    </div>
+    <div class="pain-thoughts">
+      <div class="fire ">
+        <span class="thoughts"></span><i class="fa fa-fire fa-2x firetop" aria-hidden="true" id="counter"></i><div class="firenumber"><%=pluralize @pain.get_upvotes.size, "pensée" %></div>
       </div>
+    </div>
+  </div>
+
+  <div class="pain-body">
+    <div class="pain-description">
+      <p class= "left-quote"><i class="fa fa-quote-left" aria-hidden="true"></i></p>
+      <p class= "pain-text"><%= @pain.description %></p>
+      <p class = "right-quote"><i class="fa fa-quote-right" aria-hidden="true"></i></p>
+    </div>
+  </div>
+
+  <div class="pain-footer">
+    <a href="#prayer-form" data-toggle="modal" data-target="#prayer-text-modal">
+      <div class="pray-link-write btn-medium text-center">
+        <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i>   Ecrire une prière</p>
+      </div>
+    </a>
+    <a href="#container-audio" data-toggle="modal" data-target="#prayer-audio-modal">
+      <div class="pray-link-record btn-medium">
+        <p><i class="fa fa-microphone" aria-hidden="true"></i>   Prière vocale</p>
+      </div>
+    </a>
+
+    <div class="pray-link-thought btn-medium" id="button_fire" data-id="<%= @pain.id %>">
+      <p><i class="fa fa-fire" aria-hidden="true"></i>
+      <% @pain.get_upvotes.size %>Envoyer une pensée</p>
+    </div>
+
+    <div class="img-dice">
+      <%= link_to(image_tag("dice.svg", :alt => "home image", :width => 40, :height => 40, :title => "Click here to return to Home"), pain_path(@pain.category)) %><p class="random"> Relancer</p>
     </div>
   </div>
 
 
 
-  <div id="prayer-form">
-    <%= render "prayer_form", pain: @pain, prayer: @prayer %>
-  </div>
-  <div id="prayer-candle">
-   <%= render "pain_candle", pain: @pain %>
-  </div>
-  <div id="container-audio">
-    <div class="form-for-audio-pray hidden text-center">
-      <%= simple_form_for [@pain, @prayer], html: { id: "audio-prayer-form"} do |f| %>
-        <%= f.input :title, :input_html => { :maxlength => 40 }%>
-        <%= f.input :audio, as: :hidden%>
-        <%= f.button :submit, value: "Envoyer", id: "audio-submit-button" %>
-      <% end %>
-        <div class="control-audio">
-            <div class="row">
-                <br>
-                <div class="col-xs-12 col-md-3 col-md-offset-2">
-                  <button id="startRecordingButton">Start</button>
-                </div>
-                <div class="col-xs-12 col-md-3">
-                  <button id="stopRecordingButton">Stop</button>
-                </div>
-                <div class="col-xs-12 col-md-3">
-                <button id="playButton">Play</button>
-                </div>
-                </br>
-                </br>
-                <div class="audio-notification">
-                    <p class="recordingstart hidden">Enregistrement en cours ....</p>
-                    <p class="recordingstop hidden">Enregistrement terminé</p>
-                    <p class="recordingplay hidden">Lecture</p>
-                </div>
-            </div>
+  <!-- Modal -->
+  <div class="modal fade" id="prayer-text-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= render "prayer_form", pain: @pain, prayer: @prayer %>
         </div>
       </div>
+    </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="prayer-audio-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= render "prayer_audio_form", pain: @pain, prayer: @prayer %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<div id="prayer-candle">
+ <%= render "pain_candle", pain: @pain %>
+</div>
+
+
     <% content_for(:after_js) do %>
      <script>
        var url = "<%= pain_prayers_path(@pain) %>"
