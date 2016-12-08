@@ -6,7 +6,7 @@
       <div class="title-pain">
         <h2 class="name text-center"><%= @pain.title %></h2>
         <div class="fire ">
-          <span class="thoughts">Nombre de pensées: </span><i class="fa fa-fire firetop" aria-hidden="true" id="counter"></i><div class="firenumber"><%= @pain.get_upvotes.size %></div>
+          <span class="thoughts">Nombre de pensées: </span><i class="fa fa-fire fa-2x firetop" aria-hidden="true" id="counter"></i><div class="firenumber"><%= @pain.get_upvotes.size %></div>
         </div>
       </div>
 
@@ -43,7 +43,7 @@
 <div class="prayers-container">
   <div class="prayers-index">
     <h3>Prières</h3>
-      <hr>
+    <hr>
       <div class="audio-prayer text-center">
         <% @pain.prayers.order("created_at desc").each do |prayer| %>
           <div class="prayer-list">
