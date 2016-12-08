@@ -91,7 +91,7 @@
               <div class="pain-profile text-center">
                   <div class="pain-header">
                    <p class="catpain"><%= pain.category %></p>
-                   <%=link_to pain_prayers_path(pain) do %>
+                   <%=link_to pain_path(pain) do %>
                    <p class="middle-title"><%= pain.title %></p>
                    <% end %>
                    <p class="datetime"><%= pain.created_at.strftime("%m/%d/%Y") %></p>
@@ -119,7 +119,7 @@
         <div class="prayer-profile-wrapper ">
           <div class="prayer-profile text-center">
             <div class="prayer-header">
-            <%=link_to pain_prayers_path(prayer.pain) do %>
+            <%=link_to pain_path(prayer.pain) do %>
               <p class="middle-title"><%= prayer.title %></p>
               <% end %>
               <p class="datetime"><%= prayer.created_at.strftime("%m/%d/%Y")%></p>
