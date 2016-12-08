@@ -73,8 +73,6 @@
 }
 
 #map-link {
-  margin-right: 40px;
-  margin-top: 10px;
   color: white;
   font-weight: lighter;
   text-decoration: none;
@@ -86,7 +84,7 @@ a#map-link {
 
 #map-link:hover {
   text-decoration: none;
-  color: #da552f;
+  color: $blessme-red;
 }
 
 .opaque-navbar.opaque #map-link {
@@ -96,11 +94,12 @@ a#map-link {
 
 .opaque-navbar.opaque #map-link:hover {
   text-decoration: none;
-  color: #da552f;
+  color: $blessme-red;
 }
 .regular-navbar #map-link {
   color: black;
   text-decoration: none;
+  font-weight: normal;
 }
 .regular-navbar #map-link:hover {
   text-decoration: none;
@@ -198,4 +197,26 @@ a.company-name {
 .regular-navbar .company-name:hover {
   text-decoration: none;
   color: #da552f;
+}
+
+#notification-dropdown {
+  padding: 3px 6px;
+  border-radius: 30px;
+  font-size: 12px;
+  background-color: $blessme-red;
+  color: white;
+  span {
+    opacity: 0.7;
+  }
+}
+#navbar-blessme-menu {
+  margin-left: 20px;
+}
+
+.regular-navbar .navbar-blessme-link {
+  color: black;
+  font-weight: normal;
+  &:hover {
+    color: $blessme-red;
+  }
 }

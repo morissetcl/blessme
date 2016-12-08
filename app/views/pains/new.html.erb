@@ -1,28 +1,30 @@
-<div class="container pain-edit-container">
-  <h3 class="text-center">Déposer une demande de prière</h3>
-  <br>
-  <%= simple_form_for(@pain) do |f| %>
-    <h4 class="text-center">Titre</h4>
-    <%= f.input :title, inline_label: "Title", label: false, placeholder: 'Ajoutez un titre à votre demande !' %>
 
-    <h4 class="text-center">Choisissez votre catégorie</h4>
-    <br>
+<%= simple_form_for(@pain) do |f| %>
+
+  <div class="container pain-edit-container first active">
+    <h3 class="text-center step"><div><span>1</span></div>Donnez un titre à votre demande</h3>
+    <%= f.input :title, inline_label: "Title", input_html: {class: "step-input"}, label: false, placeholder: 'Prière pour mes skills en ruby' %>
+  </div>
+
+  <div class="container pain-edit-container">
+    <h3 class="text-center step"><div><span>2</span></div> Choisissez votre catégorie</h3>
     <div class="choice-category">
-      <%= f.input :category, as: :radio_buttons, collection: Pain::CATEGORIES_PHOTOS, :label => false, :value_method => lambda { |category| category[:category] } , :label_method => lambda { |category|  render "pains/category_input", hash_photo: category } %>
+      <%= f.input :category, as: :radio_buttons, collection: Pain::CATEGORIES_PHOTOS, input_html: {class: "step-input"}, :label => false, :value_method => lambda { |category| category[:category] } , :label_method => lambda { |category|  render "pains/category_input", hash_photo: category } %>
     </div>
-    <h4 class="text-center">Description</h4>
-    <div class="description-text">
-      <%= f.input :description, as: :text, inline_label: "Description", label: false,  :input_html => {:rows => 10} , html: { class: "form-description"} , placeholder: 'Ici vous pouvez expliquer votre situation afin que les croyants du monde entier intercèdent pour vous !'%>
-    </div>
-    <div class="new-pain-btn">
-      <%= f.submit 'Partager', class:"btn btn-medium" %>
-    </div>
-  <% end %>
-</div>
+    <div class="text-center next-step">Next step</div>
+  </div>
 
-<script>
-$('.category-image').click(function(){
-  $(this).toggleClass('.clicked');
-});
-</script>
+  <div class="container pain-edit-container">
+    <h3 class="text-center step"><div><span>3</span></div> Pourquoi voulez-vous qu'on prie pour vous ?</h3>
+    <div class="description-text">
+      <%= f.input :description, as: :text, inline_label: "Description", input_html: {class: "step-input"}, label: false,  :input_html => {:rows => 10} , html: { class: "form-description"} , placeholder: 'Ici vous pouvez expliquer votre situation afin que les croyants du monde entier intercèdent pour vous !'%>
+    </div>
+  </div>
+
+  <div class="new-pain-btn">
+    <%= f.submit 'Partager votre prière', class:"btn btn-medium" %>
+  </div>
+
+<% end %>
+
 
