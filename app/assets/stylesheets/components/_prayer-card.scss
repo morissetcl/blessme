@@ -1,0 +1,76 @@
+.prayers-container {
+  background-color: white;
+  margin-top: 70px;
+}
+.prayers-index {
+  margin: auto;
+  width: 75%;
+  margin: auto;
+}
+.prayer-index hr {
+  width: 80%;
+}
+.prayers-index h3 {
+  text-align: center;
+  font-size: 35px;
+  margin: 0;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+}
+.prayers-index hr {
+  margin: 0;
+}
+.audio-prayer {
+  margin: 0;
+}
+.prayer-container {
+  margin-top: 20px;
+}
+.prayer-profile_picture {
+  height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+.user-list {
+  text-align: center;
+}
+.prayer-title h4 {
+  text-align: left;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  margin-top: 0;
+}
+.prayer-description {
+  text-align: justify;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.prayer-btn {
+  text-align: right;
+  margin: 0;
+  margin-bottom: 15px;
+  margin-right: 7px;
+  margin-top: 5px;
+}
+.fa-pencil, .fa-trash, .pain-button {
+  color: rgb(150, 150, 150);
+}
+.fa-pencil:hover, .fa-trash:hover, .pain-button:hover {
+  color: rgb(50, 50, 50);
+}
+.prayer-col {
+  margin-bottom: 25px;
+}
+.user-col {
+  padding: 0;
+  text-align: center;
+}
+.prayer-list {
+  margin-top: 10px;
+  background-color: white;
+
+  padding-top: 5px;
+}
