@@ -69,3 +69,24 @@ a:hover {
 .pain-index-quote {
   margin-bottom: 50px;
 }
+.pain-index-quote p {
+  color: rgb(110, 110, 110);
+  margin-bottom: 0;
+}
+.pain-index-quote h4 {
+  color: rgb(150, 150, 150);
+}
+.pain-index-quote .right-quote {
+  text-align: right;
+  margin-right: 20%;
+  opacity: 0.7;
+  color: #B4D8C0;
+  font-size: 3em;
+}
+.pain-index-quote .left-quote {
+  text-align: left;
+  margin-left: 20%;
+  opacity: 0.5;
+  color: #B4D8C0;
+  font-size: 3em;
+}
