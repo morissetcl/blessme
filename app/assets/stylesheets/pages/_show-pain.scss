@@ -19,7 +19,7 @@
 }
 .pain-description {
   font-size: 20px;
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 25px;
   // border-top: 1px solid rgb(230, 230, 230);
 }
@@ -36,6 +36,10 @@
   font-size: 18px;
   margin: 0 25%;
 }
+.pain-description .pain-text {
+  overflow: scroll;
+  max-height: 150px;
+}
 .pain-description .right-quote {
   text-align: right;
   margin-right: 20%;
@@ -44,6 +48,7 @@
 .pain-description .left-quote {
   margin-left: 20%;
   opacity: 0.7;
+  margin-bottom: 20px;
 }
 .profile_picture{
   width: 80px;

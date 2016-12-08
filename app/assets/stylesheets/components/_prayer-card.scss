@@ -2,15 +2,15 @@
   background-color: white;
   margin-top: 70px;
 }
-.prayers-index {
+.prayers-card {
   margin: auto;
   width: 75%;
   margin: auto;
 }
-.prayer-index hr {
+.prayer-card hr {
   width: 80%;
 }
-.prayers-index h3 {
+.prayers-card h3 {
   text-align: center;
   font-size: 35px;
   margin: 0;
@@ -19,7 +19,7 @@
   padding-bottom: 10px;
   background-color: white;
 }
-.prayers-index hr {
+.prayers-card hr {
   margin: 0;
 }
 .audio-prayer {
@@ -49,7 +49,7 @@
   margin-bottom: 20px;
 }
 .prayer-btn {
-  text-align: right;
+  display: flex;
   margin: 0;
   margin-bottom: 15px;
   margin-right: 7px;
