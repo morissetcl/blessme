@@ -113,7 +113,7 @@
                        </div>
                        <div class="pain-prayers-list">
                          <div class="prayers-card">
-                           <% @prayer_from_pain.order("created_at desc").each do |prayer| %>
+                           <% pain.prayers.order("created_at desc").each do |prayer| %>
                               <hr>
                               <div class="prayer-list">
                                 <div class="prayer-btn">

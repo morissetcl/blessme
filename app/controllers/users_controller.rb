@@ -13,7 +13,6 @@ class UsersController < ApplicationController
 
   def show
     @prayer_as_writer = Prayer.where(user: @user)
-    @prayer_from_pain = Prayer.where(pain: @user.pains)
     authorize @user
 	end
 

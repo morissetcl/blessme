@@ -64,7 +64,7 @@ class PrayersController < ApplicationController
 	def destroy
     @prayer.destroy
     authorize @prayer
-		redirect_to pain_prayers_path(@pain)
+		redirect_to pain_path(@pain)
 	end
 
   def report_prayer
