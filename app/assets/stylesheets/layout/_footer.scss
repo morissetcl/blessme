@@ -1,1 +1,25 @@
-// Your footer style
+.footer {
+	background-color: #DEDCDC;
+	height: 60px;
+	margin-top: 50px;
+
+}
+
+.footer-content {
+	display: flex;
+	justify-content:space-around;
+	align-items: center;
+	height: 60px;
+	font-family: "Raleway";	
+	flex: 0 0 20%;
+}
+
+.fa-heart {
+	color:#FF5757;
+}
+
+.social {
+	display: flex;
+	justify-content: center;
+	align-items:center;
+}
