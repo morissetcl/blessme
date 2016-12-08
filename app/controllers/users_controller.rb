@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def show
     @prayer_as_writer = Prayer.where(user: @user)
+    @prayer_from_pain = Prayer.where(pain: @user.pains)
     authorize @user
 	end
 
@@ -41,5 +42,5 @@ class UsersController < ApplicationController
 	def set_user
 		@user = User.find(params[:id])
 	end
-	
+
 end

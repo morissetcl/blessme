@@ -1,0 +1,106 @@
+.prayers-container {
+  background-color: white;
+  margin-top: 70px;
+}
+.prayers-card {
+  margin: auto;
+  width: 75%;
+  margin: auto;
+}
+.prayer-card hr {
+  width: 80%;
+}
+.prayers-card h3 {
+  text-align: center;
+  font-size: 35px;
+  margin: 0;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+}
+.prayers-card hr {
+  margin: 0;
+}
+.audio-prayer {
+  margin: 0;
+}
+.prayer-container {
+  margin-top: 20px;
+}
+.prayer-profile_picture {
+  height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+.user-list {
+  text-align: center;
+}
+.prayer-title h4 {
+  text-align: left;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  margin-top: 0;
+}
+.prayer-description {
+  text-align: justify;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  max-width: 550px;
+}
+.prayer-btn {
+  margin: 0;
+  margin-bottom: 15px;
+  margin-right: 7px;
+  margin-top: 5px;
+  display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row;
+   flex-direction: row;
+   -webkit-justify-content: flex-end;
+   justify-content: flex-end;
+
+}
+.prayer-btn .fa {
+  padding-right: 10px;
+}
+.fa-pencil, .fa-trash, .fa-exclamation-triangle, .pain-button {
+  color: rgb(150, 150, 150);
+}
+.fa-pencil:hover, .fa-trash:hover, .pain-button:hover, .fa-exclamation-triangle:hover {
+  color: rgb(50, 50, 50);
+}
+.prayer-col {
+  margin-bottom: 25px;
+}
+.user-col {
+  padding: 0;
+  text-align: center;
+}
+.prayer-list {
+  margin-top: 10px;
+  background-color: white;
+
+  padding-top: 5px;
+}
+.text-prayer {
+  display: flex;
+  justify-content: space-between;
+
+  .flex-body {
+    flex: 1 0 auto;
+  }
+}
+
+.text-prayer .prayer-text {
+  -webkit-flex: 5 0 0;
+   flex: 5 0 0;
+  margin-left: 10px;
+}
+
+.text-prayer .user-list {
+  -webkit-flex: 1 0 0;
+   flex: 1 0 0;
+}
+

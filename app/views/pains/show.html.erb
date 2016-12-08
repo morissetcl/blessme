@@ -33,7 +33,7 @@
   <div class="pain-body">
     <div class="pain-description">
       <p class= "left-quote"><i class="fa fa-quote-left" aria-hidden="true"></i></p>
-      <p class= "pain-text"><%= @pain.description %></p>
+       <div class= "pain-text"><p><%= @pain.description %></p></div>
       <p class = "right-quote"><i class="fa fa-quote-right" aria-hidden="true"></i></p>
     </div>
   </div>
@@ -96,29 +96,28 @@
   <!-- Prayers -->
 
 <div class="prayers-container" >
-  <div class="prayers-index" >
+  <div class="prayers-card" >
     <h3>Prières</h3>
     <hr>
       <div class="audio-prayer text-center">
         <% @pain.prayers.order("created_at desc").each do |prayer| %>
           <div class="prayer-list">
-          <div class="prayer-btn">
-            <% if policy(prayer).edit? %>
-              <%= link_to edit_pain_prayer_path(@pain, prayer) do %>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
+            <div class="prayer-btn">
+              <% if policy(prayer).edit? %>
+                <%= link_to edit_pain_prayer_path(@pain, prayer) do %>
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                <% end %>
               <% end %>
-            <% end %>
-            <% if policy(prayer).destroy? %>
-              <%= link_to pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Etes-vous sûr(e)?' } do %>
-                <i class="fa fa-trash" aria-hidden="true"></i>
+              <% if policy(prayer).destroy? %>
+                <%= link_to pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Etes-vous sûr(e)?' } do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <% end %>
               <% end %>
-            <% end %>
-            <p id="prayer_report_<%= prayer.id %>"><%= link_to report_prayer_prayer_path(prayer), method: :post, data: { confirm: 'Etes-vous sûr(e)' }, remote: true do %>
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Signaler
-            <% end %></p>
-          </div>
-          <div class="row">
-            <div class="col-md-1 col-xs-12 user-col">
+              <p id="prayer_report_<%= prayer.id %>"><%= link_to report_prayer_prayer_path(prayer), method: :post, data: { confirm: 'Etes-vous sûr(e)' }, remote: true do %>
+                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+              <% end %></p>
+            </div>
+            <div class="text-prayer">
               <ul class="list-unstyled user-list">
                 <li><center><% if prayer.user.facebook_picture_url != nil %>
                   <%= image_tag(prayer.user.facebook_picture_url, class:"prayer-profile_picture") %>
@@ -129,9 +128,8 @@
                 <% end %></center></li>
                 <li><strong><%= prayer.user.username %></strong></li>
               </ul>
-            </div>
-            <div class="col-md-9 col-md-offset-1 col-xs-12 prayer-col">
-              <ul class="list-unstyled">
+
+              <ul class="list-unstyled prayer-text">
                 <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
                 <div class="prayer-description">
                   <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
@@ -140,7 +138,6 @@
               </ul>
             </div>
           </div>
-        </div>
         <hr>
       <% end %>
     </div>
