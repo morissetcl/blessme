@@ -56,6 +56,7 @@ class PainsController < ApplicationController
   def destroy
     @pain.delete
     redirect_to pains_path
+    authorize @pain
   end
 
   def upvote

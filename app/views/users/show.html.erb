@@ -99,7 +99,7 @@
 
                           <p class="middle-title"><%= pain.title %></p>
 
-                          <p class="datetime"><%= pain.created_at.strftime("%m/%d/%Y") %></p>
+                          <p class="datetime">Il y a <%= (Date.today.strftime("%d/%m/%Y").to_date - pain.created_at.strftime("%d/%m/%Y").to_date).to_i %> j</p>
                         </div>
                       </a>
                     </div>
@@ -146,6 +146,7 @@
                            <% end %>
                          </div>
                        </div>
+                       <span class="btn btn-medium button-voir"><%= link_to "voir" ,pain_path(pain)%></span>
                       </div>
                     </div>
                   <!-- </div> -->
@@ -180,7 +181,8 @@
 
                   <div class="text-prayer">
                     <ul class="list-unstyled user-list">
-                      <p class="datetime"><%= prayer.created_at.strftime("%m/%d/%Y")%></p>
+                      <p class="datetime">Il y a <%= (Date.today.strftime("%d/%m/%Y").to_date - prayer.created_at.strftime("%d/%m/%Y").to_date).to_i %> j</p>
+
                     </ul>
 
                     <ul class="list-unstyled prayer-text">

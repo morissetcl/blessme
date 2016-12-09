@@ -1,34 +1,34 @@
 class PrayersController < ApplicationController
   before_action :set_prayer, only: [:edit, :update, :destroy]
-  before_action :set_pain, only: [:index, :create]
+  before_action :set_pain, only: [:index, :create, :destroy, :edit]
 
-	def index
-		set_pain
-		@prayers = Prayer.all
-		authorize @prayers
-	end
+  def index
+    set_pain
+    @prayers = Prayer.all
+    authorize @prayers
+  end
 
   def new
-	@prayer = Prayer.new
+  @prayer = Prayer.new
     authorize @prayer
-	end
+  end
 
-	def create
-		@prayer = Prayer.new(prayer_params)
+  def create
+    @prayer = Prayer.new(prayer_params)
 
-		if !params[:prayer][:audio].nil?
-			Dir.mkdir(Rails.root.join('tmp')) if !Dir.exists?(Rails.root.join("tmp"))
-			file_name = "#{SecureRandom::uuid}.wav"
-			full_path = Rails.root.join("tmp", file_name)
-			File.open(full_path, 'wb') { |file| file.write(URI::Data.new(params[:prayer][:audio]).data) }
-			@prayer.audio = File.open(full_path, 'rb')
-		end
+    if !params[:prayer][:audio].nil?
+      Dir.mkdir(Rails.root.join('tmp')) if !Dir.exists?(Rails.root.join("tmp"))
+      file_name = "#{SecureRandom::uuid}.wav"
+      full_path = Rails.root.join("tmp", file_name)
+      File.open(full_path, 'wb') { |file| file.write(URI::Data.new(params[:prayer][:audio]).data) }
+      @prayer.audio = File.open(full_path, 'rb')
+    end
 
-		@prayer.user = current_user
-		@prayer.pain = @pain
-    	authorize @prayer
+    @prayer.user = current_user
+    @prayer.pain = @pain
+      authorize @prayer
 
-		 if @prayer.save
+     if @prayer.save
         #@channel = "user-#{@pain.user_id}"
         begin
           #Pusher.trigger(@channel, 'my_prayer', message: 'You have a prayer')
@@ -40,32 +40,32 @@ class PrayersController < ApplicationController
         redirect_to pain_path(@pain, anchor: 'prayer-id')
 
 
-    	else
-      	flash.now[:alert] = "You didn't fill the form correctly"
-      	render :new
-    	end
-	end
+      else
+        flash.now[:alert] = "You didn't fill the form correctly"
+        render :new
+      end
+  end
 
 
-	def upload
+  def upload
     audio = params[:audio]
   end
 
-	def edit
+  def edit
     authorize @prayer
-	end
+  end
 
-	def update
-		@prayer.update(prayer_params)
+  def update
+    @prayer.update(prayer_params)
     authorize @prayer
-		redirect_to pain_path(@pain)
-	end
+    redirect_to pain_path(@pain)
+  end
 
-	def destroy
+  def destroy
     @prayer.destroy
     authorize @prayer
-		redirect_to pain_path(@pain)
-	end
+    redirect_to pain_path(@pain)
+  end
 
   def report_prayer
     @prayer = Prayer.find(params[:id])
@@ -74,18 +74,18 @@ class PrayersController < ApplicationController
     authorize @prayer
   end
 
-	private
+  private
 
-	def set_prayer
-		@prayer = Prayer.find(params[:id])
-	end
+  def set_prayer
+    @prayer = Prayer.find(params[:id])
+  end
 
-	def set_pain
-		@pain = Pain.find(params[:pain_id])
-	end
+  def set_pain
+    @pain = Pain.find(params[:pain_id])
+  end
 
-	def prayer_params
-		params.require(:prayer).permit(:title, :description, :report_prayer)
-	end
+  def prayer_params
+    params.require(:prayer).permit(:title, :description, :report_prayer)
+  end
 
 end

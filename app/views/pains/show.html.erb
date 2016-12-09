@@ -109,7 +109,7 @@
                 <% end %>
               <% end %>
               <% if policy(prayer).destroy? %>
-                <%= link_to pain_path(@pain, prayer), method: :delete, data: { confirm: 'Etes-vous sûr(e)?' } do %>
+                <%= link_to pain_prayer_path(@pain, prayer), method: :delete, data: { confirm: 'Etes-vous sûr(e)?' } do %>
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 <% end %>
               <% end %>
