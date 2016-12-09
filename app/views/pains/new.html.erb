@@ -11,7 +11,7 @@
     <div class="choice-category">
       <%= f.input :category, as: :radio_buttons, collection: Pain::CATEGORIES_PHOTOS, input_html: {class: "step-input"}, :label => false, :value_method => lambda { |category| category[:category] } , :label_method => lambda { |category|  render "pains/category_input", hash_photo: category } %>
     </div>
-    <div class="text-center next-step btn-medium btn" id="down-step">Next step</div>
+    <div class="text-center next-step btn-medium btn" id="down-step">Suite</div>
   </div>
 
   <div class="container pain-edit-container">
@@ -22,7 +22,7 @@
   </div>
 
   <div class="new-pain-btn">
-    <%= f.submit 'Partager votre prière', class:"btn btn-medium" %>
+    <%= f.submit 'Partager votre demande', class:"btn btn-medium" %>
   </div>
 
 <% end %>

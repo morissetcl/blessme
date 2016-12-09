@@ -25,6 +25,10 @@ class PainPolicy < ApplicationPolicy
     user
   end
 
+  def destroy?
+    user
+  end
+
   def report?
     user
   end

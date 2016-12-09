@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :pains do
     resources :prayers
-  		post '/upload' => 'pains#upload', on: :member
+  	post '/upload' => 'pains#upload', on: :member
   end
 
   get "/get-notif", to: "notifications#get_notif"

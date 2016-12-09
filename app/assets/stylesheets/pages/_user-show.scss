@@ -338,3 +338,17 @@ h5{
   margin-bottom: 20px;
   max-width: 500px;
 }
+
+.button-voir {
+  padding: 5px;
+  width: 95px;
+  color: #B56969;
+  text-decoration: none;
+  margin-left: 900px;
+}
+
+.button-voir a {
+  text-decoration: none;
+  outline: none;
+  color: $blessme-red;
+}
