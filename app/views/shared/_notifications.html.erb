@@ -4,14 +4,16 @@
   <ul class="dropdown-menu dropdown-menu-right navbar-blessme-dropdown-menu">
     <% if @notification && @notification.count > 0 %>
         <% @notification.each do |notification| %>
-          <%= link_to user_path(current_user) do %>
-            <li>
-              <p class="no-prayers"><%= User.find(notification.owner_id).username %>
-                  <%= Prayer.find(notification.trackable_id).title %>
-              </p>
-            </li><hr>
+          <% if notification.trackable %>
+            <%= link_to user_path(current_user) do %>
+              <li>
+                <p class="no-prayers"><%= notification.owner.username %>
+                    <%= notification.trackable.title %>
+                </p>
+              </li><hr>
+            <% end %>
           <% end %>
-        <% end %>
+      <% end %>
     <% else %>
       <p class="no-prayers">Pas de nouvelles prières</p>
     <% end %>
