@@ -1,0 +1,1 @@
+Cloudinary.config.secure = true
