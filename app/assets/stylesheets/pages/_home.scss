@@ -35,8 +35,7 @@
   font-family: "Raleway";
 }
 
-.calltoaction {
-}
+
 
 .pray-btn {
   color: white;
@@ -69,7 +68,15 @@
   text-align: center;
   margin-top: 60px;
   margin-bottom: 70px;
+  display: flex;
+  align-items: center;
+
 }
+
+.titlestephome {
+  margin: 6px !important;
+  margin-bottom: 15px !important;
+  }
 
 .row.howitworks {
   width: 100%;
@@ -83,33 +90,30 @@
 
 .text-step{
   text-align:justify;
+  margin-top: 5px;
+  margin-bottom: 15px;
 
 }
 
 .card-icon {
   width: 75px;
-  margin-right: 35px !important;
   margin-bottom: 20px;
 }
 
 .card-icon-search {
   width: 65px;
-  margin-right: 35px !important;
   margin-bottom: 30px;
   position: relative;
   top:10px;
+
 }
 
 .card-icon-space {
   width: 65px;
-  margin-right: 35px !important;
   margin-bottom: 30px;
   position: relative;
   top:10px;
 }
-
-
-
 
 
 .icons-container h3 {
@@ -169,6 +173,25 @@
 .container {
   margin-top: 70px;
 }
+
+.stepping {
+  margin-bottom: 30px;
+  min-height: 233px;
+  padding-top: 10px;
+  padding-bottom:10px;
+  border-radius:15px;
+  border: 1px solid  #E6E6E6;
+  background-color:white;
+  transition: all .4s ease-in-out; 
+  margin-top:35px;
+}
+
+.stepping:hover {
+  transform: scale(1.1); 
+}
+
+
+
 
 
 /* NAVBAR */
