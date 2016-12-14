@@ -1,23 +1,24 @@
 class PainsController < ApplicationController
-  before_action :set_pain, only: [:edit, :update, :destroy, :upvote, :report]
+  before_action :set_pain, only: [:edit, :update, :destroy, :upvote, :report, :pain_count]
 
   def index
     @prayers = Prayer.all
     @pains = Pain.all
+    @pains_group = Pain.group(:category).count 
     authorize @pains
   end
 
   def show
     # if params[:id] est inclu dans le tableau de categories then pain random
     # if params[:id] est un vrai id then set_pain
+
     if (Pain::CATEGORIES).include?(params[:id])
       pain_random
     else
       set_pain
     end
     if @pain.nil?
-      flash.now[:alert] = "Pas encore de demande de prière pour cette catégorie"
-      render "pains/index"
+      redirect_to pains_path, :notice => "Pas encore de demande de prière pour cette catégorie"
     else
       authorize @pain
     end
