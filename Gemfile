@@ -55,4 +55,8 @@ gem 'public_activity'
 #upvote
 gem 'acts_as_votable', '~> 0.10.0'
 
+#admin
+gem 'remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
+
 
