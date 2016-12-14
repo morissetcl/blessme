@@ -9,9 +9,9 @@
               <div class="box">
                   <span class="card-text"><strong> <%= category %> <% Array(@pains_group).each do |key, value| %>
                     <% if category == key %>
-                      <%= "#{value}" %>
+                    <p><%=pluralize "#{value}", "demande" %></p>
                     <% else %>
-                     <p> 0</p>
+                     <p> 0 demande</p>
                     <% end %>
                   <% end %>
                 </strong></span>
