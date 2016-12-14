@@ -1,8 +1,8 @@
 class Pain < ApplicationRecord
-  CATEGORIES = %w(Famille Actualité Religion Amour Santé Travail Autre)
+  CATEGORIES = %w(Famille Actualité Religion Amour Santé Travail Célébration Autre)
   acts_as_votable
 
-    CATEGORIES = ["Famille", "Actualité", "Religion", "Amour", "Santé", "Travail", "Célébration" ,"Autres"]
+     CATEGORIES = ["Famille", "Actualité", "Religion", "Amour", "Santé", "Travail", "Célébration" ,"Autres"]
     CATEGORIES_PHOTOS = [
     {category: "Famille" ,
       photo_filepath: "famille.jpg"
@@ -30,6 +30,7 @@ class Pain < ApplicationRecord
   }
 
   ]
+
 
   belongs_to :user
   has_many :prayers, dependent: :destroy
