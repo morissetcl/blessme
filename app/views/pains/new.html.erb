@@ -1,20 +1,22 @@
-
 <%= simple_form_for(@pain) do |f| %>
 
-  <div class="container pain-edit-container first active">
+  <div class="container pain-edit-container first active" id="first-area">
     <h3 class="text-center step"><div><span>1</span></div>Donnez un titre à votre demande</h3>
-    <%= f.input :title, inline_label: "Title", input_html: {class: "step-input"}, label: false, placeholder: 'Prière pour mes skills en ruby' %>
+    <%= f.input :title, inline_label: "Title", input_html: {class: "step-input"}, label: false, placeholder: 'Prière pour mes skills en ruby',maxlength:"30" %>
+    <p id="title_counter" >30</p>
   </div>
 
-  <div class="container pain-edit-container">
+  <div class="container pain-edit-container" id="second-area">
+    <span class="hidden", id="arrow"><i class="fa fa-angle-up fa-2x" aria-hidden="true"></i></span>
     <h3 class="text-center step"><div><span>2</span></div> Choisissez votre catégorie</h3>
     <div class="choice-category">
       <%= f.input :category, as: :radio_buttons, collection: Pain::CATEGORIES_PHOTOS, input_html: {class: "step-input"}, :label => false, :value_method => lambda { |category| category[:category] } , :label_method => lambda { |category|  render "pains/category_input", hash_photo: category } %>
     </div>
-    <div class="text-center next-step btn-medium btn" id="down-step">Suite</div>
+    <div class="text-center next-step btn-medium btn hidden" id="down-step">Suite</div>
   </div>
 
-  <div class="container pain-edit-container">
+  <div class="container pain-edit-container" id="third-area">
+    <span class="hidden", id="description-arrow"><i class="fa fa-angle-up fa-2x" aria-hidden="true"></i></span>
     <h3 class="text-center step"><div><span>3</span></div> Pourquoi voulez-vous qu'on prie pour vous ?</h3>
     <div class="description-text">
       <%= f.input :description, as: :text, inline_label: "Description", input_html: {class: "step-input"}, label: false,  :input_html => {:rows => 10} , html: { class: "form-description"} , placeholder: 'Ici vous pouvez expliquer votre situation afin que les croyants du monde entier intercèdent pour vous !'%>
@@ -24,7 +26,6 @@
   <div class="new-pain-btn">
     <%= f.submit 'Partager votre demande', class:"btn btn-medium" %>
   </div>
-
 <% end %>
 
 
