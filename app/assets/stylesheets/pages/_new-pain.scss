@@ -197,7 +197,26 @@
   padding-left: 30px;
 }
 
+#title_counter {
+  margin-left: 79%;
+  position: relative;
+  bottom: 91px;
+  color: #999999;
+}
 
+#arrow {
+  color: $blessme-red;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+#description-arrow {
+  color: $blessme-red;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
 
 
 
