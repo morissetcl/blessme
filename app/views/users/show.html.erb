@@ -1,10 +1,10 @@
   <div class="profile-wrapper">
   <div class="profile-container">
     <div class="first-user-info">
-      <% if current_user.facebook_picture_url != nil %>
-        <%= image_tag(current_user.facebook_picture_url, class: "avatar-user-show") %>
-      <% elsif current_user.photo.url != nil %>
-        <%= image_tag(current_user.photo, class: "avatar-user-show")%>
+      <% if @user.facebook_picture_url != nil %>
+        <%= image_tag(@user.facebook_picture_url, class: "avatar-user-show") %>
+      <% elsif @user.photo.url != nil %>
+        <%= image_tag(@user.photo, class: "avatar-user-show")%>
       <% else %>
         <%= cl_image_tag("avatar_dymvhr.png", class: "avatar-user-show") %>
       <% end %>
