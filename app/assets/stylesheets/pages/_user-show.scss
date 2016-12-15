@@ -351,3 +351,13 @@ h5{
   outline: none;
   color: $blessme-red;
 }
+
+.prayer-text a {
+  color: #B56969;
+  transition: 0.5s ease;
+}
+.prayer-text a:hover {
+  font-weight: bolder;
+  color: #A7B3A5;
+}
+
