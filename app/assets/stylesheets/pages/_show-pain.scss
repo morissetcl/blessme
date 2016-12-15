@@ -706,13 +706,44 @@
   margin-top: 5%;
 }
 
+.signaler {
+  right: 19.85%;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  position: relative;
+  height: 100%;
+  width: 3%;
+  background-color: $blessme-red;
+  opacity: 0.6;
+  cursor: pointer;
+}
 
+#report-prayer {
+  position: absolute;
+  left: 30%;
+}
 
+.flyer {
+  right: 17.85%;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  position: relative;
+  height: 100%;
+  width: 7%;
+  background-color: $blessme-red;
+  color: white;
+  opacity: 0.6;
+  font-weight: lighter;
+  overflow: hidden;
+  cursor: pointer;
+}
 
-
-
-
-
+.flyer p {
+  position: absolute;
+  left: 20%;
+}
 
 
 
