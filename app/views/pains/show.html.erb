@@ -5,12 +5,14 @@
 <div class="pain-container">
   <div class="pain-header">
     <div class="user-infos">
-      <% if @pain.user.facebook_picture_url != nil %>
-        <%= image_tag(@pain.user.facebook_picture_url, class:"profile_picture") %>
-      <% elsif @pain.user.photo.url != nil %>
-        <%= image_tag(@pain.user.photo, class:"profile_picture")%>
-      <% else %>
-        <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
+      <%= link_to user_path(@pain.user) do %>
+        <% if @pain.user.facebook_picture_url != nil %>
+          <%= image_tag(@pain.user.facebook_picture_url, class:"profile_picture") %>
+        <% elsif @pain.user.photo.url != nil %>
+          <%= image_tag(@pain.user.photo, class:"profile_picture")%>
+        <% else %>
+          <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
+        <% end %>
       <% end %>
       <div class="user-description">
         <div class="user-text">
