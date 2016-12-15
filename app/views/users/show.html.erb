@@ -146,7 +146,7 @@
                            <% end %>
                          </div>
                        </div>
-                       <span class="btn btn-medium button-voir"><%= link_to "voir" ,pain_path(pain)%></span>
+                       <span class="btn btn-medium button-voir"><%= link_to "voir", pain_path(pain)%></span>
                       </div>
                     </div>
                   <!-- </div> -->
@@ -178,15 +178,13 @@
             <div class="cards-prayer">
               <% @prayer_as_writer.order("created_at desc").each do |prayer| %>
                 <div class="prayer-list">
-
                   <div class="text-prayer">
                     <ul class="list-unstyled user-list">
                       <p class="datetime">Il y a <%= (Date.today.strftime("%d/%m/%Y").to_date - prayer.created_at.strftime("%d/%m/%Y").to_date).to_i %> j</p>
-
                     </ul>
 
                     <ul class="list-unstyled prayer-text">
-                      <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
+                      <li class= "prayer-title middle-title"><h4><%= link_to prayer.title, pain_path(prayer.pain) %></h4></li>
                       <div class="prayer-user-description">
                         <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
                         <li><%= prayer.description unless prayer.description.blank? %></li>
