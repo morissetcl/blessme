@@ -7,14 +7,14 @@
           <%= link_to pain_path(category) do %>
             <div class="card-content-category" style="background-image: url('<%= image_url "#{category.downcase}.jpg" %>');">
               <div class="box">
-                  <span class="card-text"><strong> <%= category %> <% Array(@pains_group).each do |key, value| %>
+                  <span class="card-text"><strong> <%= category %> <% Array(@pains_group).each do |key, value| %></strong>
                     <% if category == key %>
                     <p><%=pluralize "#{value}", "demande" %></p>
                     <% else %>
                      <p> 0 demande</p>
                     <% end %>
                   <% end %>
-                </strong></span>
+                </span>
               </div>
             </div> 
           <% end %>
