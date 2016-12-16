@@ -1,15 +1,18 @@
 .footer {
 	background-color: #DEDCDC;
-	height: 60px;
+	height: auto;
 	margin-top: 50px;
+	padding-right:150px;
+	padding-left: 150px;
 
 }
 
 .footer-content {
 	display: flex;
-	justify-content:space-around;
+	justify-content:space-between;
 	align-items: center;
-	height: 60px;
+	flex-wrap: wrap-reverse;
+	height: 120px;
 	font-family: "Raleway";	
 	flex: 0 0 20%;
 }
@@ -22,4 +25,85 @@
 	display: flex;
 	justify-content: center;
 	align-items:center;
+}
+
+.footer-content > ul {
+	margin-top: 0px;
+}
+
+.link-footer {
+	font-size: 0.8em;
+	margin-bottom: 4px !important;
+}
+
+
+h5{
+  margin-bottom: 10px;
+}
+
+ol {
+	margin-top:0px !important;
+	margin-bottom:0px !important;
+}
+
+@media screen and (min-width: 200px) and (max-width: 750px) {
+  .footer {
+    padding-right:50px;
+	padding-left: 50px;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 470px) {
+  .footer {
+    padding-right:20px;
+	padding-left: 20px;
+  }
+}
+
+.hr-footer {
+	margin-top: 0px !important;
+	margin-bottom: 9px !important;
+}
+
+.social-media {
+	display:flex;
+	justify-content:space-around;
+}
+.media-footer {
+	margin-bottom: 20px !important;
+}
+
+.fa-twitter:hover {
+	color:#B56969;
+	font-size: 1.5em;
+
+}
+
+.fa-facebook:hover {
+	color:#B56969;
+}
+
+.fa-instagram:hover {
+	color:#B56969;
+}
+
+.fa-twitter {
+	font-size: 1.5em;
+
+}
+
+.fa-facebook {
+	font-size: 1.5em;
+}
+
+.fa-instagram {
+	font-size: 1.5em;
+}
+
+.info-footer {
+	margin-bottom:5px !important;
+}
+
+li:hover {
+	color:#B56969;
 }
