@@ -38,9 +38,9 @@
        <div class= "pain-text"><p><%= @pain.description %></p></div>
       <p class = "right-quote"><i class="fa fa-quote-right" aria-hidden="true"></i></p>
     </div>
-  </div>
-
-  <div class="pain-footer">
+  
+<!-- pain-footer large-->
+  <div class="pain-footer hidden-xs">
     <div class="content signaler">
       <p id="report_<%= @pain.id %>"><%= link_to report_pain_path(@pain), method: :post, data: { confirm: 'Etes-vous sûr(e)' }, remote: true do %>
         <i class="fa fa-exclamation-triangle" aria-hidden="true" id="report-prayer"></i></p>
@@ -67,6 +67,39 @@
         <p><i class="fa fa-repeat" aria-hidden="true"></i>   Relancer</p>
       <% end %>
     </div>
+  </div>
+
+  <!-- pain-footer small--> 
+    <div class="pain-footer hidden-sm hidden-md hidden-lg  ">
+    <div class="content signaler">
+      <p id="report_<%= @pain.id %>"><%= link_to report_pain_path(@pain), method: :post, data: { confirm: 'Etes-vous sûr(e)' }, remote: true do %>
+        <i class="fa fa-exclamation-triangle" aria-hidden="true" id="report-prayer"></i></p>
+        <% end %>
+    </div>
+    <a href="#prayer-form" data-toggle="modal" data-target="#prayer-text-modal">
+      <div class="pray-link-write btn-medium text-center">
+        <p><i class="fa fa-pencil-square-o" aria-hidden="true" id="prayer-id"></i></p>
+      </div>
+    </a>
+    <a href="#container-audio" data-toggle="modal" data-target="#prayer-audio-modal">
+      <div class="pray-link-record btn-medium">
+        <p><i class="fa fa-microphone" aria-hidden="true"></i></p>
+      </div>
+    </a>
+
+    <div class="pray-link-thought btn-medium" id="button_fire" data-id="<%= @pain.id %>">
+      <p><i class="fa fa-fire" aria-hidden="true"></i>
+      <% @pain.get_upvotes.size %></p>
+    </div>
+
+    <div class="prayer-shuffle btn btn-medium">
+      <%= link_to pain_path(@pain.category) do %>
+        <p><i class="fa fa-repeat" aria-hidden="true"></i></p>
+      <% end %>
+    </div>
+  </div>
+
+
   </div>
 
 

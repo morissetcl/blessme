@@ -2,12 +2,11 @@
 .pain-container {
   width: 80%;
   margin: auto;
-  min-height: calc(100vh - 150px);
+  margin-top:100px;
   background-color: white;
   padding-bottom: 15px;
   box-shadow: 1px 1px 1px 1px #e6e6e6;
   /* margin-bottom: 15px; */
-  margin-top: 100px;
   position: relative;
 }
 .div-pain {
@@ -21,6 +20,7 @@
   font-size: 20px;
   padding-top: 30px;
   padding-bottom: 25px;
+  margin-bottom:30px;
   // border-top: 1px solid rgb(230, 230, 230);
 }
 .pain-description .fa {
@@ -145,7 +145,9 @@
   margin: 0;
   line-height: 30px;
   text-align: center;
-  margin: 0 10px;
+  margin-top: 15px;
+  margin-right: 15px;
+
   p {
     margin: 0;
   }
@@ -156,25 +158,79 @@
   margin: 0;
   line-height: 30px;
   text-align: center;
-  margin: 0 10px;
+  margin-top: 15px;
+  margin-right: 15px;
   p {
     margin: 0;
   }
 }
+
 .pray-link-thought {
   width: 200px;
   cursor: pointer;
   margin: 0;
   line-height: 30px;
   text-align: center;
-  margin: 0 10px;
+  margin-top: 15px;
+  margin-right: 15px;
   p {
     margin: 0;
   }
 }
+
+.prayer-shuffle {
+  width: 200px;
+  cursor: pointer;
+  margin: 0;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 15px;
+  background-color: #B56969;
+  p {
+    margin: 0;
+    color: white;
+  }
+}
+
 .pain-button {
   margin-left: 10%;
 }
+
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .pray-link-record {
+  width: 180px;
+  }
+  .pray-link-write {
+  width: 180px;
+  }
+  .prayer-shuffle {
+  width: 180px !important;
+  }
+}
+
+
+@media screen and (min-width: 400px) and (max-width: 768px) {
+  .pray-link-thought {
+  width: 50px;
+}
+  .pray-link-record {
+  width: 50px;
+  }
+  .pray-link-write {
+  width: 50px;
+  }
+  .prayer-shuffle {
+  width: 50px !important;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 449px) {
+    .pray-link-write {
+  margin-left: 40px;
+  }
+}
+
 
 /* FIRE */
 
@@ -673,29 +729,13 @@
 
 .pain-footer {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  bottom: 0;
   width: 100%;
   background-color: white;
-  height: 100px;
+  height:auto;
   border-top: 1px solid #F3F3F3;
-}
-
-
-.prayer-shuffle {
-  width: 200px;
-  cursor: pointer;
-  margin: 0;
-  line-height: 30px;
-  text-align: center;
-  margin: 0 10px;
-  background-color: #B56969;
-  p {
-    margin: 0;
-    color: white;
-  }
 }
 
 .prayers-container {
@@ -704,16 +744,14 @@
 
 .pain-body {
   margin-top: 5%;
+  height:80%;
 }
 
 .signaler {
   left: 0%;
-  display: flex;
-  align-items: center;
-  vertical-align: middle;
   position: absolute;
-  height: 30%;
-  width: 3%;
+  height: 30px;
+  width: 30px;
   background-color: $blessme-red;
   opacity: 0.6;
   cursor: pointer;
