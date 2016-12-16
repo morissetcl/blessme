@@ -706,12 +706,27 @@
   margin-top: 5%;
 }
 
+.signaler {
+  left: 0%;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  position: absolute;
+  height: 30%;
+  width: 3%;
+  background-color: $blessme-red;
+  opacity: 0.6;
+  cursor: pointer;
+  border-top-right-radius: 15%;
+  border-bottom-right-radius: 15%;
+}
 
-
-
-
-
-
+#report-prayer {
+  position: absolute;
+  left: 30%;
+  color: white;
+  top: 24%;
+}
 
 
 

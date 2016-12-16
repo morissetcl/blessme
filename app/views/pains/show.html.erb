@@ -41,6 +41,11 @@
   </div>
 
   <div class="pain-footer">
+    <div class="content signaler">
+      <p id="report_<%= @pain.id %>"><%= link_to report_pain_path(@pain), method: :post, data: { confirm: 'Etes-vous sûr(e)' }, remote: true do %>
+        <i class="fa fa-exclamation-triangle" aria-hidden="true" id="report-prayer"></i></p>
+        <% end %>
+    </div>
     <a href="#prayer-form" data-toggle="modal" data-target="#prayer-text-modal">
       <div class="pray-link-write btn-medium text-center">
         <p><i class="fa fa-pencil-square-o" aria-hidden="true" id="prayer-id"></i>   Ecrire une prière</p>
