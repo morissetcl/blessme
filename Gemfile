@@ -59,4 +59,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 
+#sweetalert
+gem 'rails-assets-sweetalert2', source: 'https://rails-assets.org'
+
 
