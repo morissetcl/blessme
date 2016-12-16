@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+  
   $('#second-area :input').prop('disabled', true);
   $('#third-area :input').prop('disabled', true );
 
