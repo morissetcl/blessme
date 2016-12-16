@@ -707,43 +707,27 @@
 }
 
 .signaler {
-  right: 19.85%;
+  left: 0%;
   display: flex;
   align-items: center;
   vertical-align: middle;
-  position: relative;
-  height: 100%;
+  position: absolute;
+  height: 30%;
   width: 3%;
   background-color: $blessme-red;
   opacity: 0.6;
   cursor: pointer;
+  border-top-right-radius: 15%;
+  border-bottom-right-radius: 15%;
 }
 
 #report-prayer {
   position: absolute;
   left: 30%;
-}
-
-.flyer {
-  right: 17.85%;
-  display: flex;
-  align-items: center;
-  vertical-align: middle;
-  position: relative;
-  height: 100%;
-  width: 7%;
-  background-color: $blessme-red;
   color: white;
-  opacity: 0.6;
-  font-weight: lighter;
-  overflow: hidden;
-  cursor: pointer;
+  top: 24%;
 }
 
-.flyer p {
-  position: absolute;
-  left: 20%;
-}
 
 
 
