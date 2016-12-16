@@ -72,6 +72,10 @@
   padding: 0 20px;
 }
 
+.navbar-blessme-link-mobile {
+
+}
+
 #map-link {
   color: white;
   text-decoration: none;
@@ -225,4 +229,8 @@ a.company-name {
   color: black !important;
   text-align: center;
   font-size: 14px;
+}
+
+.modal-backdrop {
+  z-index: 200 !important;
 }

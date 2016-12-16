@@ -64,10 +64,43 @@
       <div class="dropdown">
         <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-blessme-dropdown-menu">
-          <li><a href="#">Some mobile link</a></li>
-          <li><a href="#">Other one</a></li>
-          <li><a href="#">Other one</a></li>
+         <% if user_signed_in? %>
+          <li>
+            <%= link_to new_pain_path, class: "navbar-blessme-link-mobile navbar-blessme-item" do %>
+                <i class="fa fa-rss" aria-hidden="true"></i>
+                <%= t(".pains", default: "Demander une prière") %>
+            <% end %>
+          </li> 
+          <li>
+            <%= link_to pains_path, class: "navbar-blessme-link-mobile navbar-blessme-item" do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <%= t(".pains", default: "Prier pour quelqu'un") %>
+            <% end %>
+          </li>
+           <li>
+             <%= link_to user_path(current_user) do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profil") %>
+              <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Déconnexion") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path do %>
+              <i class="fa fa-home"></i>  <%= t(".profile", default: "Accueil") %>
+            <% end %>
+          </li>
         </ul>
+
+
+      <% else %>
+        <!-- Login text link -->
+        <%= link_to t(".sign_in-mobile", default: "Se connecter"), "", class: "navbar-blessme-item navbar-blessme-link", data: { toggle: "modal", target: "#loginModal" } %>
+        <%= link_to t(".sign_in-mobile", default: "S'inscrire"), "", class: "navbar-blessme-item navbar-blessme-link",  data: { toggle: "modal", target: "#signupModal" } %>
+      <% end %>
+       
       </div>
     </div>
 
