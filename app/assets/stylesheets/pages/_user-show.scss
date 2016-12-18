@@ -311,17 +311,11 @@ opacity: 0.2;
   margin:5px;
 }
 
-@media (min-width: 500px) {
-  .btn-userinfo {
-  display:flex;
-  margin-left:300px;
-  }
-}
 
 @media (min-width: 700px) {
   .btn-userinfo {
   display:flex;
-  margin-left:400px;
+  margin-left:250px;
   }
 }
 
@@ -329,7 +323,7 @@ opacity: 0.2;
 @media (min-width: 950px) {
   .btn-userinfo {
   display:flex;
-  margin-left:600px;
+  margin-left:500px;
   }
 }
 
