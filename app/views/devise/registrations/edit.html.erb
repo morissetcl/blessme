@@ -22,6 +22,15 @@
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: 'Supprimer', swal: {
+        title: 'Supprimer',
+        text: "Voulez-vous vraiment supprimer votre compte ?",
+        type: 'question',
+        show_cancel_button: true,
+        confirm_button_color: '#B56969',
+        cancel_button_color: '#B4D8C0',
+        confirm_button_text: 'Oui',
+        cancel_button_text: 'Non'
+      } }, method: :delete %></p>
 
 <%= link_to "Back", :back %>

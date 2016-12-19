@@ -61,3 +61,8 @@ gem 'rails_admin', '>= 1.0.0.rc'
 
 #Mailing
 gem "letter_opener", group: :development
+
+#sweetalert
+gem 'rails-sweetalert2-confirm'
+gem 'rails-assets-sweetalert2', source: 'https://rails-assets.org'
+
