@@ -117,7 +117,16 @@
                               <hr>
                               <div class="prayer-list">
                                 <div class="prayer-btn">
-                                  <p id="prayer_report_<%= prayer.id %>"><%= link_to report_prayer_prayer_path(prayer), method: :post, data: { confirm: 'Etes-vous sûr(e)' }, remote: true do %>
+                                  <p id="prayer_report_<%= prayer.id %>"><%= link_to report_prayer_prayer_path(prayer), method: :post, data: { confirm: 'Signalement', swal: {
+                                      title: 'Signalement',
+                                      text: "Voulez-vous signaler cette demande ?",
+                                      type: 'question',
+                                      show_cancel_button: true,
+                                      confirm_button_color: '#B56969',
+                                      cancel_button_color: '#B4D8C0',
+                                      confirm_button_text: 'Oui',
+                                      cancel_button_text: 'Non'
+                                    } }, remote: true do %>
                                       <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                                   <% end %></p>
                                 </div>

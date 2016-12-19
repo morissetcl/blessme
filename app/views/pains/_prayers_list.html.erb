@@ -8,7 +8,16 @@
     <% end %>
     <br>
     <% if policy(prayer).destroy? %>
-      <%= link_to "Supprimer une prière", pain_prayer_path(pain, prayer), method: :delete, data: { confirm: 'Etes-vous sûr(e)?' }, class:"delete-link" %>
+      <%= link_to "Supprimer une prière", pain_prayer_path(pain, prayer), method: :delete, data: { confirm: 'Effacer', swal: {
+        title: 'Effacer',
+        text: "Voulez-vous supprimer cette prière ?",
+        type: 'question',
+        show_cancel_button: true,
+        confirm_button_color: '#B56969',
+        cancel_button_color: '#B4D8C0',
+        confirm_button_text: 'Oui',
+        cancel_button_text: 'Non'
+      } }, class:"delete-link" %>
     <% end %>
     <hr>
   <% end %>
