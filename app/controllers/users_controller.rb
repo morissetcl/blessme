@@ -16,6 +16,16 @@ class UsersController < ApplicationController
     authorize @user
 	end
 
+  def create
+    @user = User.new(params[:id])
+    authorize @user
+    if @user.save
+      UserMailer.welcome(@user).deliver_now
+    else
+      render :new
+    end
+  end
+
 	def edit
     authorize @user
 	end
