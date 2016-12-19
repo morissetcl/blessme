@@ -82,11 +82,13 @@ $(document).ready(function(){
     $('#third-area :input').prop( "disabled", true );
   });
 
-$('.new-pain-btn').click(function() {
-  $('#first-area :input').prop( "disabled", false);
-  $('#second-area :input').prop( "disabled", false );
-  $('#third-area :input').prop( "disabled", false );
-})
+  // Undisabled all input when submit
+
+  $('.new-pain-btn').click(function() {
+    $('#first-area :input').prop( "disabled", false );
+    $('#second-area :input').prop( "disabled", false );
+    $('#third-area :input').prop( "disabled", false );
+  })
 
   // $('.step-input').click(function(e){
   //   e.preventDefault();

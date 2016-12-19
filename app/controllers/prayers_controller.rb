@@ -1,6 +1,6 @@
 class PrayersController < ApplicationController
   before_action :set_prayer, only: [:edit, :update, :destroy]
-  before_action :set_pain, only: [:index, :create, :destroy, :edit]
+  before_action :set_pain, only: [:index, :create, :destroy, :edit, :update]
 
   def index
     set_pain

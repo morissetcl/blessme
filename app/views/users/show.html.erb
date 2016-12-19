@@ -9,7 +9,12 @@
         <%= cl_image_tag("avatar_dymvhr.png", class: "avatar-user-show") %>
       <% end %>
         <h2 class="profile-name"><%= @user.username %></h2>
-      <div class="count">
+      <div class="count hidden-xs">
+        <p class="info-count">
+          <strong><%=  @prayer_as_writer.count %></strong>   <%=  pluralize(@prayer_as_writer.count,"prière").gsub(/\d+ /, '') %></p>
+         <p class="info-count"> <strong><%=  @user.pains.count %></strong>  <%=  pluralize(@user.pains.count ,"demande").gsub(/\d+ /, '') %></p>
+      </div>
+      <div class="count-mobile hidden-lg hidden-md hidden-sm">
         <p class="info-count">
           <strong><%=  @prayer_as_writer.count %></strong>   <%=  pluralize(@prayer_as_writer.count,"prière").gsub(/\d+ /, '') %></p>
          <p class="info-count"> <strong><%=  @user.pains.count %></strong>  <%=  pluralize(@user.pains.count ,"demande").gsub(/\d+ /, '') %></p>
@@ -82,7 +87,7 @@
 
 
   <div class="tab-container">
-    <div class="col-md-12">
+    <div class="col-sm-12 col-md-12 col-lg-12">
       <div class="tab-content hidden" id="pains">
         <% if @user.pains.empty? %>
           <p>Vous n'avez pas encore posté de demande !</p>
@@ -179,7 +184,7 @@
 
 
     <div class="tab-container">
-      <div class="col-md-12">
+      <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="tab-content hidden" id="prayers">
           <% if @prayer_as_writer.empty? %>
             <p>Vous n'avez pas encore posté de prière !</p>
