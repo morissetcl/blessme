@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  
+
   $('#second-area :input').prop('disabled', true);
   $('#third-area :input').prop('disabled', true );
 
@@ -66,9 +66,8 @@ $(document).ready(function(){
     $('#third-area :input').prop( "disabled", false );
   });
 
-  var n = $(document).height();
   $('#down-step').on("click", function(){
-    $('html, body').animate({ scrollTop: n }, 'slow');
+    $('html, body').animate({ scrollTop: 650 }, 'slow');
   });
 
   // Deuxième remontée
@@ -83,6 +82,11 @@ $(document).ready(function(){
     $('#third-area :input').prop( "disabled", true );
   });
 
+$('.new-pain-btn').click(function() {
+  $('#first-area :input').prop( "disabled", false);
+  $('#second-area :input').prop( "disabled", false );
+  $('#third-area :input').prop( "disabled", false );
+})
 
   // $('.step-input').click(function(e){
   //   e.preventDefault();
