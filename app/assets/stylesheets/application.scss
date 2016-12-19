@@ -15,8 +15,4 @@
 @import "pages/index";
 @import "vendor/index";
 
-/*
- *= require_self
- *= require sweetalert2
- *= require_tree .
- */
+@import "sweetalert2";

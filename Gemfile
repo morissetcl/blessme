@@ -60,6 +60,7 @@ gem 'remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 
 #sweetalert
+gem 'rails-sweetalert2-confirm'
 gem 'rails-assets-sweetalert2', source: 'https://rails-assets.org'
 
 
