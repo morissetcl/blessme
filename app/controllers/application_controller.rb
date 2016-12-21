@@ -17,12 +17,6 @@ class ApplicationController < ActionController::Base
   # Uncomment when you *really understand* Pundit!
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  helper_method :current_user
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user])
-  end
-
   def user_not_authorized
    flash[:alert] = "You are not authorized to perform this action."
    redirect_to(root_path)

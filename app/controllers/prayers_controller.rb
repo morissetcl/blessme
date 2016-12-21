@@ -3,6 +3,8 @@ class PrayersController < ApplicationController
   before_action :set_pain, only: [:index, :create, :destroy, :edit, :update]
   before_action :authenticate_user!
 
+  helper_method :current_user
+
   def index
     set_pain
     @prayers = Prayer.all
@@ -68,6 +70,10 @@ class PrayersController < ApplicationController
   end
 
   private
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user])
+  end
 
   def set_prayer
     @prayer = Prayer.find(params[:id])
