@@ -1,5 +1,9 @@
-<h1>Bonjour <%= @user.username.capitalize %>,</h1>
+<% if @user.username.nil? %>
+<h1>Bonjour</h1>
 
+<% else %>
+<h1>Bonjour <%= @user.username.capitalize %>,</h1>
+<% end %>
 <p>
 
 Votre inscription a bien été prise en compte, vous pouvez dès à présent vous connecter sur Bless Me et commencer à prier pour les autres !
