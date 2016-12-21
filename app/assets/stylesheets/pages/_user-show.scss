@@ -66,13 +66,13 @@
   margin-left: 500px;
   display:flex;
   position:relative;
-  top:8px;
+  top:20px;
 }
 
 .count-mobile {
   position:relative;
   top:70px;
-  right:145px;
+  right:55px;
 }
 
 
@@ -131,7 +131,7 @@
 
 .avatar-user-show {
   border-radius: 50%;
-  width:100px;
+  min-width:100px;
   height: 100px;
 }
 
