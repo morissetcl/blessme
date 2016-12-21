@@ -1,6 +1,7 @@
 class PrayersController < ApplicationController
   before_action :set_prayer, only: [:edit, :update, :destroy]
   before_action :set_pain, only: [:index, :create, :destroy, :edit, :update]
+  before_action :authenticate_user!
 
   def index
     set_pain
@@ -15,6 +16,7 @@ class PrayersController < ApplicationController
 
   def create
     @prayer = Prayer.new(prayer_params)
+    @prayer.current_user = current_user
 
     if !params[:prayer][:audio].nil?
       Dir.mkdir(Rails.root.join('tmp')) if !Dir.exists?(Rails.root.join("tmp"))
@@ -28,13 +30,13 @@ class PrayersController < ApplicationController
     @prayer.pain = @pain
       authorize @prayer
 
-     if @prayer.save
-        @prayer.create_activity action: 'poke', recipient: @pain.user, parameters: {reason: 'You have a new prayer'}, :read => false
-        redirect_to pain_path(@pain, anchor: 'prayer-id')
-      else
-        flash.now[:alert] = "You didn't fill the form correctly"
-        render :new
-      end
+   if @prayer.save
+      @prayer.create_activity action: 'poke', recipient: @pain.user, parameters: {reason: 'You have a new prayer'}, :read => false
+      redirect_to pain_path(@pain, anchor: 'prayer-id')
+    else
+      flash.now[:alert] = "You didn't fill the form correctly"
+      render :new
+    end
   end
 
 
