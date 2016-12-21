@@ -29,17 +29,8 @@ class PrayersController < ApplicationController
       authorize @prayer
 
      if @prayer.save
-        #@channel = "user-#{@pain.user_id}"
-        begin
-          #Pusher.trigger(@channel, 'my_prayer', message: 'You have a prayer')
-          @prayer.create_activity action: 'poke', recipient: @pain.user, parameters: {reason: 'You have a new prayer'}, :read => false
-        rescue Pusher::Error => e
-          puts e.message
-        end
-        # redirect_to pain_prayers_path(@pain)
+        @prayer.create_activity action: 'poke', recipient: @pain.user, parameters: {reason: 'You have a new prayer'}, :read => false
         redirect_to pain_path(@pain, anchor: 'prayer-id')
-
-
       else
         flash.now[:alert] = "You didn't fill the form correctly"
         render :new
