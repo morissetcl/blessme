@@ -4,7 +4,7 @@ class PainsController < ApplicationController
   def index
     @prayers = Prayer.all
     @pains = Pain.all
-    @pains_group = Pain.group(:category).count 
+    @pains_group = Pain.group(:category).count
     authorize @pains
   end
 
