@@ -89,15 +89,27 @@ ol {
 
 .fa-twitter {
 	font-size: 1.5em;
+	color: black;
+	&:visited {
+		color:black;
+	}
 
 }
 
 .fa-facebook {
 	font-size: 1.5em;
+	color: black;
+	&:visited {
+		color: black;
+	}
 }
 
 .fa-instagram {
 	font-size: 1.5em;
+	color: black;
+	&:visited {
+	color: black;
+	}
 }
 
 .info-footer {
