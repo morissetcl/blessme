@@ -19,11 +19,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:id])
     authorize @user
-    if @user.save
-      UserMailer.welcome(@user).deliver_now
-    else
+    # if 
+      @user.save
+    # else
       render :new
-    end
+    # end
   end
 
 	def edit
