@@ -1,6 +1,9 @@
 class PrayersController < ApplicationController
   before_action :set_prayer, only: [:edit, :update, :destroy]
   before_action :set_pain, only: [:index, :create, :destroy, :edit, :update]
+  before_action :authenticate_user!
+
+  helper_method :current_user
 
   def index
     set_pain
@@ -15,6 +18,7 @@ class PrayersController < ApplicationController
 
   def create
     @prayer = Prayer.new(prayer_params)
+    @prayer.current_user = current_user
 
     if !params[:prayer][:audio].nil?
       Dir.mkdir(Rails.root.join('tmp')) if !Dir.exists?(Rails.root.join("tmp"))
@@ -28,22 +32,13 @@ class PrayersController < ApplicationController
     @prayer.pain = @pain
       authorize @prayer
 
-     if @prayer.save
-        #@channel = "user-#{@pain.user_id}"
-        begin
-          #Pusher.trigger(@channel, 'my_prayer', message: 'You have a prayer')
-          @prayer.create_activity action: 'poke', recipient: @pain.user, parameters: {reason: 'You have a new prayer'}, :read => false
-        rescue Pusher::Error => e
-          puts e.message
-        end
-        # redirect_to pain_prayers_path(@pain)
-        redirect_to pain_path(@pain, anchor: 'prayer-id')
-
-
-      else
-        flash.now[:alert] = "You didn't fill the form correctly"
-        render :new
-      end
+   if @prayer.save
+      @prayer.create_activity action: 'poke', recipient: @pain.user, parameters: {reason: 'You have a new prayer'}, :read => false
+      redirect_to pain_path(@pain, anchor: 'prayer-id')
+    else
+      flash.now[:alert] = "You didn't fill the form correctly"
+      render :new
+    end
   end
 
 
@@ -75,6 +70,10 @@ class PrayersController < ApplicationController
   end
 
   private
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user])
+  end
 
   def set_prayer
     @prayer = Prayer.find(params[:id])

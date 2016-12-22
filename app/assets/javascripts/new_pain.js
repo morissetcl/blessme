@@ -51,7 +51,9 @@ $(document).ready(function(){
 
   $('.category-image').click(function(){
     $(this).toggleClass('.clicked');
-    $('#down-step').removeClass('hidden')
+    if ($('#second-area :input').is(":not(:disabled)")) {
+      $('#down-step').removeClass('hidden');
+    };
   });
 
   //Deuxième vers troisième champ

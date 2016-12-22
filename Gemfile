@@ -49,7 +49,6 @@ source 'https://rails-assets.org' do
 end
 
 #Notification
-gem 'pusher'
 gem 'public_activity'
 
 #upvote

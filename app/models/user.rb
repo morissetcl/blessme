@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include PublicActivity::Common
+
 	mount_uploader :photo, PhotoUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

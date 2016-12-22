@@ -70,7 +70,7 @@
                 <i class="fa fa-rss" aria-hidden="true"></i>
                 <%= t(".pains", default: "Demander une prière") %>
             <% end %>
-          </li> 
+          </li>
           <li>
             <%= link_to pains_path, class: "navbar-blessme-link-mobile navbar-blessme-item" do %>
                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -101,11 +101,10 @@
         <%= link_to t(".sign_in-mobile", default: "S'inscrire"), "", class: "navbar-blessme-item navbar-blessme-link-mobile",  data: { toggle: "modal", target: "#signupModal" } %>
       <% end %>
       </ul>
-       
       </div>
     </div>
 
- 
+
 
 
 <!-- Modal login -->
@@ -207,21 +206,4 @@
     </div>
   </div>
 </div>
-
-<!--<% if current_user %>
-  <% content_for :after_js do %>
-    <script>
-      Pusher.logToConsole = true;
-
-      var pusher = new Pusher("<%= ENV['pusher_key'] %>", {
-        cluster: 'eu',
-        encrypted: true
-      });
-      var channel = pusher.subscribe("user-" + <%= current_user.id %>);
-      channel.bind('my_prayer', function(data) {
-        alert(data.message);
-      });
-    </script>
-  <% end %>
-<% end %>-->
 
