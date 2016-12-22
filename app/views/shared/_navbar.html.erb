@@ -92,15 +92,15 @@
               <i class="fa fa-home"></i>  <%= t(".profile", default: "Accueil") %>
             <% end %>
           </li>
-        </ul>
+        
 
 
       <% else %>
         <!-- Login text link -->
-        <%= link_to t(".sign_in-mobile", default: "Se connecter"), "", class: "navbar-blessme-item navbar-blessme-link", data: { toggle: "modal", target: "#loginModal" } %>
-        <%= link_to t(".sign_in-mobile", default: "S'inscrire"), "", class: "navbar-blessme-item navbar-blessme-link",  data: { toggle: "modal", target: "#signupModal" } %>
+        <%= link_to t(".sign_in-mobile", default: "Se connecter"), "", class: "navbar-blessme-item navbar-blessme-link-mobile", data: { toggle: "modal", target: "#loginModal" } %>
+        <%= link_to t(".sign_in-mobile", default: "S'inscrire"), "", class: "navbar-blessme-item navbar-blessme-link-mobile",  data: { toggle: "modal", target: "#signupModal" } %>
       <% end %>
-
+      </ul>
       </div>
     </div>
 
