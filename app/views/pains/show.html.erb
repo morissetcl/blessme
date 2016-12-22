@@ -134,7 +134,6 @@
       </div>
     </div>
   </div>
-
 </div>
 
 <div id="prayer-candle">
@@ -220,15 +219,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
     <% content_for(:after_js) do %>
      <script>
        var url = "<%= pain_path(@pain, anchor: 'prayer-id') %>"
@@ -247,6 +237,8 @@
         var sampleRate = 44100;
         var context = null;
         var blob = null;
+
+
         startRecordingButton.addEventListener("click", function () {
             // Initialize recorder
             navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
@@ -254,6 +246,7 @@
             {
                 audio: true
             },
+
             function (e) {
                 console.log("user consent");
                 // creates the audio context
@@ -266,6 +259,7 @@
                 var bufferSize = 2048;
                 var numberOfInputChannels = 2;
                 var numberOfOutputChannels = 2;
+
                 if (context.createScriptProcessor) {
                     recorder = context.createScriptProcessor(bufferSize, numberOfInputChannels, numberOfOutputChannels);
                 } else {
@@ -283,6 +277,7 @@
                         function (e) {
                             console.error(e);
                         });
+
         });
         stopRecordingButton.addEventListener("click", function () {
             // stop recording

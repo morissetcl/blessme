@@ -60,7 +60,7 @@ gem 'rails_admin', '>= 1.0.0.rc'
 
 #Mailing
 gem "letter_opener", group: :development
-gem 'postmark-rails', '>= 0.10.0'
+
 
 
 #sweetalert

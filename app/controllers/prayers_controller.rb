@@ -18,7 +18,6 @@ class PrayersController < ApplicationController
 
   def create
     @prayer = Prayer.new(prayer_params)
-    @prayer.current_user = current_user
 
     if !params[:prayer][:audio].nil?
       Dir.mkdir(Rails.root.join('tmp')) if !Dir.exists?(Rails.root.join("tmp"))
@@ -70,10 +69,6 @@ class PrayersController < ApplicationController
   end
 
   private
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user])
-  end
 
   def set_prayer
     @prayer = Prayer.find(params[:id])
