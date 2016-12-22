@@ -4,7 +4,7 @@
       	<h2>Modifier votre profil</h2>
 
 				<%= simple_form_for @user do |f| %>
-				  <%= f.input :username, label: "Pseudonyme" ,error: "Le pseudonyme est obligatoire, merci d'en mettre un" %>
+				  <%= f.input :username, label: "Pseudonyme", error: "Ce pseudonyme existe déjà, merci d'en choisir un autre." %>
 				  <%= f.input :first_name, label: "Prénom"%>
 				  <%= f.input :last_name, label: "Nom de famille" %>
 				  <%= f.input :age, as: :integer%>
