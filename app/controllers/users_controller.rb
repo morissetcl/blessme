@@ -31,9 +31,13 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		@user.update!(user_params)
-    	authorize @user
-		redirect_to  user_path(@user)
+    authorize @user
+		if !@user.update(user_params)
+      render :edit
+
+    else
+      redirect_to user_path(@user)
+    end
 	end
 
 	def destroy
