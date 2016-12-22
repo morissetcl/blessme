@@ -1,6 +1,6 @@
 .banner-team {
 	background-image: image-url('team-min.jpg');
-	height:50vh;
+	min-height:50vh;
 	width: 100%;
 	margin-top: 70px;
 	background-size: cover !important;
@@ -52,6 +52,10 @@
 	margin-right: 100px;
 	margin-left: 100px;
 	}
+
+	.banner-team {
+	background-position: 0px 0px;
+	}
 }
 
 @media screen and (max-width:500px) {
@@ -85,6 +89,10 @@
 	.story-title {
 		margin-left: 0px;
 	}
+
+	.story-hr {
+	width:100%;
+}
 }
 
 .test-team {
@@ -149,14 +157,17 @@
 
 .image1:hover .name-image {
   opacity: 1;
+  border:5px solid #B4D8C0;
 }
 
 .image2:hover .name-image {
   opacity: 1;
+  border:5px solid #B4D8C0;
 }
 
 .image3:hover .name-image {
   opacity: 1;
+  border:5px solid #B4D8C0;
 }
 
 .hastag {
