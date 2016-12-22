@@ -73,7 +73,7 @@
 }
 
 .navbar-blessme-link-mobile {
-
+color:#999999 !important;
 }
 
 #map-link {
@@ -111,13 +111,15 @@ a#map-link {
 
 /* Navbar standard link */
 .navbar-blessme-link {
-  color: black;
+  color: white;
   font-size: 14px;
 }
+
 .navbar-blessme-link:hover {
   color: #D23333;
   text-decoration: none;
 }
+
 
 /* Navbar right button */
 .navbar-blessme-button {
@@ -167,6 +169,11 @@ a#map-link {
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+
+// .dropdown-menu {
+//   background-color: ;
+// }
 
 /* COMPANY NAME */
 .company-name {
