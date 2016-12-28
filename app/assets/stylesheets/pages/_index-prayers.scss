@@ -28,6 +28,13 @@
 .audio-prayer {
   margin: 0;
 }
+audio:hover {
+box-shadow: 1px 1px 1px 1px black ;
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #B56969;
+  }
+}
+
 .prayer-container {
   margin-top: 20px;
 }
@@ -51,6 +58,14 @@
   margin-left: 10px;
   margin-bottom: 20px;
 }
+
+.audio-description {
+display: flex;
+justify-content:center;
+align-items: center;  
+}
+
+
 .prayer-btn {
   text-align: right;
   margin: 0;

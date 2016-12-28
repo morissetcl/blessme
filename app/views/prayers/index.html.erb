@@ -107,7 +107,7 @@
               <ul class="list-unstyled">
                 <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
                 <div class="prayer-description">
-                  <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
+                  <li><%= audio_tag prayer.audio.url,  controls: true, ontimeupdate:"updateTime()" unless prayer.audio.blank? %></li>
                   <li><%= prayer.description unless prayer.description.blank? %></li>
                 </div>
               </ul>

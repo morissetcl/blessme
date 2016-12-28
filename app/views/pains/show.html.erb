@@ -14,11 +14,14 @@
           <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
         <% end %>
       <% end %>
-      <div class="user-description">
-        <div class="user-text">
+       <div class="user-description">
+        <div class="user-text hidden-xs">
           <p><%= @pain.user.username %></p>
           <p><%= @pain.user.city %></p>
           <p><%= @pain.user.religion %></p>
+        </div>
+         <div class="user-text hidden-sm hidden-md hidden-lg">
+          <p><%= @pain.user.username %></p>
         </div>
       </div>
     </div>
@@ -26,8 +29,11 @@
       <h1><%= @pain.title %></h1>
     </div>
     <div class="pain-thoughts">
-      <div class="fire ">
+      <div class="fire hidden-xs ">
         <span class="thoughts"></span><i class="fa fa-fire fa-2x firetop" aria-hidden="true" id="counter"></i><div class="firenumber"><%=pluralize @pain.get_upvotes.size, "pensée" %></div>
+      </div>
+      <div class="fire hidden-sm hidden-md hidden-lg">
+        <span class="thoughts"></span><i class="fa fa-fire fa-2x firetop" aria-hidden="true" id="counter"></i><div class="firenumber"><%=@pain.get_upvotes.size%></div>
       </div>
     </div>
   </div>
@@ -202,7 +208,7 @@
               <ul class="list-unstyled prayer-text">
                 <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
                 <div class="prayer-description">
-                  <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
+                  <li class="audio-description"><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
                   <li><%= prayer.description unless prayer.description.blank? %></li>
                 </div>
               </ul>
