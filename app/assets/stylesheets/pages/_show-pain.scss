@@ -9,6 +9,8 @@
   /* margin-bottom: 15px; */
   position: relative;
 }
+
+
 .div-pain {
   font-family: 'Lora', serif;
   width: 90%;
@@ -207,6 +209,9 @@
   .prayer-shuffle {
   width: 180px !important;
   }
+    .user-description {
+    margin-left: 15px;
+  }
 }
 
 
@@ -223,11 +228,37 @@
   .prayer-shuffle {
   width: 50px !important;
   }
+    .firenumber {
+  width: 0px !important;
+  }
+  .user-description {
+    margin-left: 15px;
+  }
 }
 
 @media screen and (min-width: 200px) and (max-width: 449px) {
     .pray-link-write {
   margin-left: 40px;
+  }
+  .pain-container {
+  width: 100%;
+  }
+  .firenumber {
+  width: 0px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .pain-container {
+  width: 100%;
+  }
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .user-description {
+    margin-left: 25px;
   }
 }
 
@@ -240,12 +271,16 @@
 
 .fire {
   color: #a94442;
-  display: flex;
   padding: 10px;
+  display:flex;
 }
+
 .firenumber {
   margin-top: 10px;
+  width: 85px;
+  display: flex;
 }
+
 .fire span {
   color: rgb(150, 150, 150);
   display: flex;
