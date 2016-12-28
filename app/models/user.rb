@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   acts_as_voter
 
-  # after_create :send_welcome_email
+  after_create :send_welcome_email
 
   geocoded_by :city
   after_validation :geocode, if: :city_changed?
@@ -42,9 +42,9 @@ class User < ApplicationRecord
 
   private
 
-  # def send_welcome_email
-  #   UserMailer.welcome(self).deliver_now
-  # end
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
 end
 
 
