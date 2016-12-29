@@ -23,10 +23,10 @@ class Pain < ApplicationRecord
       photo_filepath: "travail.jpg"
   },
     {category: "Célébration",
-      photo_filepath: "celebration.jpg"
+      photo_filepath: "célébration.jpg"
   },
     {category: "Autres" ,
-      photo_filepath: "autre.jpg"
+      photo_filepath: "autres.jpg"
   }
 
   ]

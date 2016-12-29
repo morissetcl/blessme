@@ -48,7 +48,12 @@
   <div class="tab-content" id="profile">
     <div class="my-profile">
       <div class="btn-userinfo">
+      <% if @user == current_user %>
         <p><%= link_to "Modifier le profil", edit_user_path, class:"btn btn-medium"%></p>
+        <% else %>
+        <p></p>
+      <% end %>
+        
       </div>
 
       <div class="parameter">
