@@ -1,8 +1,14 @@
+<!-- <div style="background:red">
+</div>
+
+
 <% if @user.username.nil? %>
-<h1>Bonjour</h1>
+<h1 style="color:yellow;background:black">Bonjour</h1>
+
 
 <% else %>
-<h1>Bonjour <%= @user.username.capitalize %>,</h1>
+<h1 style="color:red;background:black;">Bonjour <%= @user.username.capitalize %>,</h1>
+
 <% end %>
 <p>
 
@@ -13,3 +19,75 @@ Votre inscription a bien été prise en compte, vous pouvez dès à présent vou
 A bientôt sur Bless Me
 
 </p>
+ -->
+<link href="https://fonts.googleapis.com/css?family=Italianno|Reenie+Beanie|Lobster" rel="stylesheet">
+
+
+<table style="background:#EEE;padding:40px;border:1px solid #DDD;margin:0 auto;font-family:arial;">
+  <tr>
+    <td>
+      <table style="background:#FFF;width:100%;border:1px solid #CCC;padding:0;margin:0;border-collapse:collapse;max-width:100%;width:550px;border-radius:10px;">
+        <!-- Logo -->
+        <tr>
+          <td style="padding:10px 30px;text-align:center;margin:0">
+            <p>
+              <a href="#"><img src="https://www.blessme.io/assets/blessme-aa97e13df1f02d86491da32d7c38a374820efcf55c6a0325ea7fb1194cb80d6a.png" width="200"></a>
+            </p>
+          </td>
+        </tr>
+
+        <!-- Welcome Salutation -->
+        <tr>
+        	  <% if @user.username.nil? %>
+          	<td style="padding:10px 30px;margin:0;font-size:1.5em;color:#B56969;text-align:center;">Bienvenue sur BlessMe</td>
+          <% else %>
+          	<td style="padding:10px 30px;margin:0;font-size:1.5em;color:#B56969;text-align:center;">Bienvenue <%= @user.username.capitalize %> !</td>
+          <% end %>
+        </tr>
+        <!-- User Msg -->
+        <tr>
+          <td style="padding:10px 30px;margin:0;text-align:left; font-family:arial ">
+            <p style="color:#A2A3A3">Bonjour,</p>
+            <p style="color:#A2A3A3">Nous sommes trés heureux de vous compter parmis la communauté <strong>BlessMe</strong>.<img src="https://qph.ec.quoracdn.net/main-thumb-t-1800-200-lOn8kKfhqfcTcKdt2GwaLfGnC0jEjHmV.jpeg" width="15"></p>
+             <p style="color:#A2A3A3">Vous pouvez dès à présent commencer a prier pour ceux qui en ont le plus besoin.</p>
+          </td>
+        </tr>
+        <!-- Link Button -->
+        <tr>
+          <td style="padding:10px 30px;margin:0;text-align:center;">
+            <p><%= link_to "Je veux prier", pains_url,  { :style=>"background:white; color:#B56969;border:1px solid #B56969;padding:10px 20px;text-decoration:none;border-radius: 20px;"}%></p>
+          </td>
+        </tr>
+         <!-- User Msg bis -->
+          <tr>
+          <td style="padding:10px 30px;margin:0;text-align:left;">
+             <p style="color:#A2A3A3">Ou vous pouvez déposer une demande de prière pour recevoir des bénédictions du monde entier.</p>
+          </td>
+        </tr>
+        <!-- Link Button -->
+        <tr>
+   <td style="padding:10px 30px;margin:0;text-align:center;">
+             <p><%= link_to "Je dépose ma demande", new_pain_url,  { :style=>"background:white; color:#B56969;border:1px solid #B56969;padding:10px 20px;text-decoration:none;border-radius: 20px;"}%></p>
+          </td>
+        </tr>
+        <!-- Any Banner Image -->
+        <tr>
+          <td style="padding:10px 30px;margin:0"> 
+            <p style="color:#A2A3A3">	<em>Soyez bénis.</em></p>
+            <p style="color:#A2A3A3; font-family: 'Reenie Beanie'; text-align: right; font-size:2em">	<em>L'équipe BlessMe</em></p>
+          </td>
+        </tr>
+        <!-- Footer Content -->
+        <table  border="0" cellspacing="0" cellpadding="20" id="footer_container">
+        <tr>
+          <td align="center" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="20" id="footer">
+              <tr>
+                <td align="center" valign="top" class="social_container">
+                  <div class="social" style="width:475px">
+                    <a style="background-color:#C7B39A; -webkit-border-radius:50%; border-radius:50%; display:inline-block; height:35px; margin:0 0.215em; width:35px;" onmouseover="this.style.backgroundColor='#CEBCA7'" onmouseout="this.style.backgroundColor='#C7B39A'" href="https://www.facebook.com/blessmeapp"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF" style="border: 0; display: block; margin: 8px auto; vertical-align: middle;"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.378 14.192 5 15.115 5H18V0h-3.808C10.596 0 9 1.583 9 4.615V8z"/></svg></a>
+                    <a style="background-color:#C7B39A; -webkit-border-radius:50%; border-radius:50%; display:inline-block; height:35px; margin:0 0.215em; width:35px;" onmouseover="this.style.backgroundColor='#CEBCA7'" onmouseout="this.style.backgroundColor='#C7B39A'" href="https://twitter.com/Blessme_app"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF" style="border: 0; display: block; margin: 8px auto; vertical-align: middle;"><path d="M24 4.557a9.83 9.83 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724 9.864 9.864 0 0 1-3.127 1.195 4.916 4.916 0 0 0-3.594-1.555c-3.18 0-5.515 2.966-4.797 6.045A13.978 13.978 0 0 1 1.67 3.15a4.93 4.93 0 0 0 1.524 6.573 4.903 4.903 0 0 1-2.23-.616c-.053 2.28 1.582 4.415 3.95 4.89a4.935 4.935 0 0 1-2.224.084 4.928 4.928 0 0 0 4.6 3.42A9.9 9.9 0 0 1 0 19.54a13.94 13.94 0 0 0 7.548 2.212c9.142 0 14.307-7.72 13.995-14.646A10.025 10.025 0 0 0 24 4.556z"/></svg></a>
+      </table>
+    </td>
+  </tr>
+</table>
