@@ -16,7 +16,11 @@
       <% end %>
        <div class="user-description">
         <div class="user-text hidden-xs">
-          <p><%= @pain.user.username %></p>
+          <% if @pain.user.username.blank?  %>
+            <p><%= @pain.user.first_name %></p>
+          <% else %>
+            <p><%= @pain.user.username %></p>
+          <% end %> 
           <p><%= @pain.user.city %></p>
           <p><%= @pain.user.religion %></p>
         </div>
