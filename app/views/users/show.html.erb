@@ -8,7 +8,11 @@
       <% else %>
         <%= cl_image_tag("avatar_dymvhr.png", class: "avatar-user-show") %>
       <% end %>
+      <% if @user.username.blank?  %>
+        <h2 class="profile-name"><%= @user.first_name %></h2>
+      <% else %>
         <h2 class="profile-name"><%= @user.username %></h2>
+      <% end %>
       <div class="count hidden-xs">
         <p class="info-count">
           <strong><%=  @prayer_as_writer.count %></strong>   <%=  pluralize(@prayer_as_writer.count,"prière").gsub(/\d+ /, '') %></p>
@@ -74,7 +78,7 @@
         <hr>
         <div class="geo-contact">
         <h4 class="titleparameter text-center"> Pour aller plus loin</h4>
-          <p><strong>Religion:</strong> <%= @user.religion %></p>
+          <p><strong>Religion:</strong> <%= @user.religion %> </p>
           <p><strong>Langue:</strong> <%= @user.language %></p>
           <p><strong>Sexe:</strong> <%= @user.gender %></p>
         </div>
