@@ -49,4 +49,42 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  $(".signaler").on("click", function(e){
+   var id = $(this).data("id");
+   swal({
+        title: 'Signalement',
+        text: "Voulez-vous signaler cette demande ?",
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#B56969',
+        cancelButtonColor: '#B4D8C0',
+        confirmButtonText: 'Oui',
+        cancelButtonText: 'Non'
+      }, function() {
+        $.ajax({
+          type: 'POST',
+          url: '/pains/' + id + '/report',
+        });
+    });
+  });
 
+  $(".fa-trash").on("click", function(e){
+   var id_prayer = $(this).data("id");
+   swal ({
+        title: 'Effacer',
+        text: "Voulez-vous supprimer cette prière ?",
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#B56969',
+        cancelButtonColor: '#B4D8C0',
+        confirmButtonText: 'Oui',
+        cancelButtonText: 'Non'
+      }, function() {
+        $.ajax({
+          type: 'DELETE',
+          url: '/pains/' + id + '/prayers/' + id_prayer,
+        });
+    });
+  });
+});
