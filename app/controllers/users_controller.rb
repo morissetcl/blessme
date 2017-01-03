@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:id])
     authorize @user
-    # if 
+    # if
       @user.save
     # else
       render :new
