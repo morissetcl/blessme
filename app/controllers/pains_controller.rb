@@ -62,7 +62,9 @@ class PainsController < ApplicationController
 
   def upvote
     authorize @pain
-     if current_user.voted_for? @pain
+    if current_user.voted_for? @pain
+      raise
+
       current_user.unvote_for @pain
     else
       current_user.up_votes @pain

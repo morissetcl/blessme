@@ -20,7 +20,7 @@
             <p><%= @pain.user.first_name %></p>
           <% else %>
             <p><%= @pain.user.username %></p>
-          <% end %> 
+          <% end %>
           <p><%= @pain.user.city %></p>
           <p><%= @pain.user.religion %></p>
         </div>
@@ -48,7 +48,7 @@
        <div class= "pain-text"><p><%= @pain.description %></p></div>
       <p class = "right-quote"><i class="fa fa-quote-right" aria-hidden="true"></i></p>
     </div>
-  
+
 <!-- pain-footer large-->
   <div class="pain-footer hidden-xs">
     <div class="content signaler">
@@ -79,11 +79,11 @@
        </div>
       </a>
     <% end %>
-   
+
 
     <div class="pray-link-thought btn-medium" id="button_fire" data-id="<%= @pain.id %>">
       <p><i class="fa fa-fire" aria-hidden="true"></i>
-      <% @pain.get_upvotes.size %>Envoyer une pensée</p>
+      Envoyer une pensée</p>
     </div>
 
     <div class="prayer-shuffle btn btn-medium">
@@ -93,7 +93,7 @@
     </div>
   </div>
 
-  <!-- pain-footer small--> 
+  <!-- pain-footer small-->
     <div class="pain-footer hidden-sm hidden-md hidden-lg  ">
       <div class="content signaler">
         <p id="report_<%= @pain.id %>"><%= link_to report_pain_path(@pain), method: :post, data: { confirm: 'Etes-vous sûr(e)' }, remote: true do %>
@@ -129,9 +129,6 @@
 
 
   </div>
-
-
-
   <!-- Modal -->
   <div class="modal fade" id="prayer-text-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -170,6 +167,13 @@
         <% @pain.prayers.order("created_at desc").each do |prayer| %>
           <div class="prayer-list">
             <div class="prayer-btn">
+
+              <!-- <div class='votee' data-id="<%= prayer.id %>" data-pain-id="<%= @pain.id %>">
+                <i class="fa fa-thumbs-up btn"></i>
+                <span class="vcount-<%= prayer.id %>"><%= prayer.get_upvotes.size %></span>
+              </div> -->
+
+
               <% if policy(prayer).edit? %>
                 <%= link_to edit_pain_prayer_path(@pain, prayer) do %>
                   <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -202,6 +206,11 @@
                 } }, remote: true do %>
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
               <% end %></p>
+              <p class="votee" data-id="<%= prayer.id %>" data-pain-id "<%= @pain.id %>">
+                <%= link_to upvote_pain_prayer_path(@pain, prayer), method: :post do %></p>
+                <i class="fa fa-heart" aria-hidden="true"></i>
+                <span><%= prayer.get_upvotes.size %></span>
+              <%end%>
             </div>
             <div class="text-prayer">
               <ul class="list-unstyled user-list">
