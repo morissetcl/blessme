@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   	post '/upload' => 'pains#upload', on: :member
   end
 
+
   get "/get-notif", to: "notifications#get_notif"
 
   resources :notifications, only: [] do
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
   resources :prayers, only: [] do
     member do
       post :report_prayer
+      post :upvote
     end
   end
 end
-

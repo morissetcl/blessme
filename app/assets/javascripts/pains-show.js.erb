@@ -24,6 +24,7 @@ $(document).ready(function() {
   });
 });
 
+
 $(document).ready(function() {
   $(".pray-link-thought").on("click", function(e){
     $(".container-prayer").addClass("hidden");
@@ -49,5 +50,14 @@ $(document).ready(function() {
   });
 });
 
+//
+// $(document).ready(function() {
+//   $("#prayer_upvote").on("click", function(e){
+//     $.ajax({
+//       type: 'POST',
+//       url: '/prayers/' + id + '/upvote',
+//     });
+//   });
+// });
 
-
+$("prayer-<%=@prayer.id%>").html('<%=escape_javascript @prayer.votes.count %>');

@@ -1,5 +1,5 @@
 class PrayersController < ApplicationController
-  before_action :set_prayer, only: [:edit, :update, :destroy]
+  before_action :set_prayer, only: [:edit, :update, :destroy, :vote_for]
   before_action :set_pain, only: [:index, :create, :destroy, :edit, :update]
   before_action :authenticate_user!
 
@@ -66,6 +66,12 @@ class PrayersController < ApplicationController
     @prayer.report_prayer = true
     @prayer.save
     authorize @prayer
+  end
+
+  def upvote
+    authorize @prayer
+    @vote_for = @prayer.votes.create(:user_id => current_user.id, :polarity => 1)
+    raise
   end
 
   private
