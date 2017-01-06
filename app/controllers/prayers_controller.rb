@@ -1,11 +1,10 @@
 class PrayersController < ApplicationController
   before_action :set_prayer, only: [:edit, :update, :destroy, :upvote]
   before_action :set_pain, only: [:index, :create, :destroy, :edit, :update, :upvote]
+
   before_action :authenticate_user!
   include Pundit
  after_action :verify_authorized, except: [:upvote]
-
-  helper_method :current_user
 
   def index
     set_pain
@@ -77,7 +76,6 @@ class PrayersController < ApplicationController
   end
 
   def report_prayer
-    @prayer = Prayer.find(params[:id])
     @prayer.report_prayer = true
     @prayer.save
     authorize @prayer
