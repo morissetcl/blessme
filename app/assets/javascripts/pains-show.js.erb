@@ -24,6 +24,8 @@ $(document).ready(function() {
   });
 });
 
+// Envoi de la pensée
+
 $(document).ready(function() {
   $(".pray-link-thought").on("click", function(e){
     $(".container-prayer").addClass("hidden");
@@ -49,28 +51,41 @@ $(document).ready(function() {
   });
 });
 
+//Report pain
+
 $(document).ready(function() {
   $(".signaler").on("click", function(e){
-   var id = $(this).data("id");
-   swal({
-        title: 'Signalement',
+    var id = $(this).data("id");
+    swal({
+        title: "Signalement",
         text: "Voulez-vous signaler cette demande ?",
-        type: 'question',
+        type: "question",
         showCancelButton: true,
         confirmButtonColor: '#B56969',
         cancelButtonColor: '#B4D8C0',
         confirmButtonText: 'Oui',
-        cancelButtonText: 'Non'
-      }, function() {
+        cancelButtonText: 'Non',
+      }).then(function() {
         $.ajax({
           type: 'POST',
           url: '/pains/' + id + '/report',
+        })
+        .done(function() {
+          swal("Signalé!", "Cette demande a été signalé", "success");
+        })
+        .error(function() {
+          swal("Oops", "Une erreur s'est produite", "error");
         });
-    });
+      });
   });
+});
 
+// delete prayer
+
+$(document).ready(function() {
   $(".fa-trash").on("click", function(e){
-   var id_prayer = $(this).data("id");
+   var id = $(".fa-trash").data("id");
+   var pain_id = $(".fa-trash").data("id-pain");
    swal ({
         title: 'Effacer',
         text: "Voulez-vous supprimer cette prière ?",
@@ -80,11 +95,12 @@ $(document).ready(function() {
         cancelButtonColor: '#B4D8C0',
         confirmButtonText: 'Oui',
         cancelButtonText: 'Non'
-      }, function() {
+      }).then(function() {
         $.ajax({
           type: 'DELETE',
-          url: '/pains/' + id + '/prayers/' + id_prayer,
+          url: '/pains/' + pain_id + '/prayers/' + id,
+          success: location.reload(),
         });
-    });
+     });
   });
 });

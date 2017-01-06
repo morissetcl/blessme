@@ -89,7 +89,6 @@
       </a>
     <% end %>
 
-
     <div class="pray-link-thought btn-medium" id="button_fire" data-id="<%= @pain.id %>">
       <p><i class="fa fa-fire" aria-hidden="true"></i>
       <% @pain.get_upvotes.size %>Envoyer une pensée</p>
@@ -169,7 +168,7 @@
                   <% end %>
                 <% end %>
                 <% if policy(prayer).destroy? %>
-                  <i class="fa fa-trash" aria-hidden="true" data-id="<% prayer.id %>"></i>
+                  <i class="fa fa-trash" aria-hidden="true" data-id="<%= prayer.id %>" data-id-pain="<%= prayer.pain_id %>"></i>
                 <% end %>
                 <p id="prayer_report_<%= prayer.id %>"><%= link_to report_prayer_prayer_path(prayer), method: :post, data: {
                   confirm: 'Signalement', swal: {
