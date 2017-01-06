@@ -70,14 +70,9 @@ class PainsController < ApplicationController
   end
 
   def report
-    @pain = Pain.find(params[:id])
     @pain.report = true
     @pain.save
     authorize @pain
-    respond_to do |format|
-      format.html { redirect_to pain_prayers_path(@pain) }
-      format.js
-    end
   end
 
   private

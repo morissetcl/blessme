@@ -1,9 +1,7 @@
 class PrayersController < ApplicationController
-  before_action :set_prayer, only: [:edit, :update, :destroy]
+  before_action :set_prayer, only: [:edit, :update, :destroy, :report_prayer]
   before_action :set_pain, only: [:index, :create, :destroy, :edit, :update]
   before_action :authenticate_user!
-
-  helper_method :current_user
 
   def index
     set_pain
@@ -62,7 +60,6 @@ class PrayersController < ApplicationController
   end
 
   def report_prayer
-    @prayer = Prayer.find(params[:id])
     @prayer.report_prayer = true
     @prayer.save
     authorize @prayer
