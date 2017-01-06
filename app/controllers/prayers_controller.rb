@@ -1,7 +1,10 @@
 class PrayersController < ApplicationController
-  before_action :set_prayer, only: [:edit, :update, :destroy, :report_prayer]
-  before_action :set_pain, only: [:index, :create, :destroy, :edit, :update]
+  before_action :set_prayer, only: [:edit, :update, :destroy, :upvote]
+  before_action :set_pain, only: [:index, :create, :destroy, :edit, :update, :upvote]
+
   before_action :authenticate_user!
+  include Pundit
+ after_action :verify_authorized, except: [:upvote]
 
   def index
     set_pain
@@ -37,6 +40,19 @@ class PrayersController < ApplicationController
       render :new
     end
   end
+
+
+  def upvote
+    @pain= Pain.find(params[:pain_id])
+    @prayer = @pain.prayers.find(params[:id])
+
+    if current_user.voted_for? @prayer
+      current_user.unvote_for @prayer
+    else
+      current_user.up_votes @prayer
+    end
+    redirect_to pain_path(@pain)
+   end
 
 
   def upload

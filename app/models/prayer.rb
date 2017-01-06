@@ -1,5 +1,6 @@
 class Prayer < ApplicationRecord
   include PublicActivity::Model
+  acts_as_votable
 
   #Notifications
   has_many :activities, as: :trackable, class_name: 'PublicActivity::Activity', dependent: :destroy

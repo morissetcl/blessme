@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :pains
   resources :users, only: [:show, :edit, :update]
   resources :pains do
-    resources :prayers
+    resources :prayers do
+      member do
+      post '/upvote' => 'prayers#upvote'
+      end
+    end
   	post '/upload' => 'pains#upload', on: :member
   end
 
@@ -29,7 +33,7 @@ Rails.application.routes.draw do
   resources :prayers, only: [] do
     member do
       post :report_prayer
-    end
   end
 end
 
+end
