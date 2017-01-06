@@ -67,3 +67,7 @@ gem "letter_opener", group: :development
 gem 'rails-sweetalert2-confirm'
 gem 'rails-assets-sweetalert2', source: 'https://rails-assets.org'
 
+
+#identify browser
+gem 'browser', require: "browser/browser"
+
