@@ -1,0 +1,175 @@
+.banner-team {
+	background-image: image-url('team-min.jpg');
+	min-height:50vh;
+	width: 100%;
+	margin-top: 70px;
+	background-size: cover !important;
+	background-position: 0px -230px;
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.banner-title {
+	color: white;
+	font-family: "Raleway";
+	font-size:5em;
+	font-weight:lighter;
+}
+.story-title {
+	color: #B56969;
+	font-family: "Raleway";
+	font-size:2em;
+	font-weight:normal;
+	margin-left: 20px;
+}
+
+.story {
+	margin-top:60px;
+}
+
+.story-hr {
+	border: 2px solid #B56969;
+	width:400px;
+	text-align: left;
+	margin-left: 0px;
+}
+
+.story-text {
+	padding-right: 200px;
+	padding-left: 200px;
+	text-align:justify;
+	margin-right: 200px;
+   margin-left: 200px;
+   padding: 30px;
+	background-color: white;
+	margin-top: 60px;
+}
+
+@media screen and (max-width:900px) {
+	.story-text {
+	margin-right: 100px;
+	margin-left: 100px;
+	}
+
+	.banner-team {
+	background-position: 0px 0px;
+	}
+}
+
+@media screen and (max-width:500px) {
+	.story-text {
+	margin-right: 100px;
+	margin-left: 100px;
+
+	}
+
+	.story-content {
+		text-align: center;
+	}
+
+	.story-title {
+		margin-left: 0px;
+	}
+}
+
+
+@media screen and (max-width:400px) {
+	.story-text {
+	margin-right: 50px;
+	margin-left: 50px;
+	    margin-top: 20px;
+	}
+
+	.story-content {
+		text-align: center;
+	}
+
+	.story-title {
+		margin-left: 0px;
+	}
+
+	.story-hr {
+	width:100%;
+}
+}
+
+.test-team {
+	width:200px;
+	height:200px !important;
+	border-radius: 50%;
+	height:auto;
+	margin-left: 10px;
+}
+
+.image-team {
+	display:flex;
+	flex-wrap: wrap;
+	justify-content:space-around;
+	align-items: center;
+	margin-top: 70px;
+}
+
+.image1 {
+	width:200px;
+	height:200px !important;
+	border-radius: 50%;
+	margin-left: 10px;
+	background-image: image-url('lawagon.jpg');
+	background-size: cover !important;
+	background-position: 10px 0px;
+}
+
+.image2 {
+	width:200px;
+	height:200px !important;
+	border-radius: 50%;
+	margin-left: 10px;
+	background-image: image-url('cyrielle.jpeg');
+	background-size: cover !important;
+}
+
+.image3{
+	width:200px;
+	height:200px !important;
+	border-radius: 50%;
+	margin-left: 10px;
+	background-image: image-url('jerome.jpeg');
+	background-size: cover !important;
+}
+
+.name-image{
+  background: rgba(0,0,0,.75);
+  text-align: center;
+  padding: 62px 0 66px 0;
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease;
+  color: white;
+  font-weight:normal;
+}
+
+.image1:hover .name-image {
+  opacity: 1;
+  border:5px solid #B4D8C0;
+}
+
+.image2:hover .name-image {
+  opacity: 1;
+  border:5px solid #B4D8C0;
+}
+
+.image3:hover .name-image {
+  opacity: 1;
+  border:5px solid #B4D8C0;
+}
+
+.hastag {
+	font-weight:lighter;
+}

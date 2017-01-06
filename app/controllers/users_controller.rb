@@ -19,11 +19,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:id])
     authorize @user
-    if @user.save
-      UserMailer.welcome(@user).deliver_now
-    else
+    # if 
+      @user.save
+    # else
       render :new
-    end
+    # end
   end
 
 	def edit
@@ -31,9 +31,13 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		@user.update!(user_params)
-    	authorize @user
-		redirect_to  user_path(@user)
+    authorize @user
+		if !@user.update(user_params)
+      render :edit
+
+    else
+      redirect_to user_path(@user)
+    end
 	end
 
 	def destroy
@@ -41,6 +45,8 @@ class UsersController < ApplicationController
 		authorize @user
 		redirect_to  user_path(@user)
 	end
+
+
 
 	private
 

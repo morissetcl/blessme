@@ -56,6 +56,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    browser (2.3.0)
     builder (3.2.2)
     byebug (9.0.6)
     carrierwave (0.11.2)
@@ -171,12 +172,6 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.19.0)
-    postmark (1.10.0)
-      json
-      rake
-    postmark-rails (0.15.0)
-      actionmailer (>= 3.0.0)
-      postmark (~> 1.10.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -305,6 +300,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  browser
   carrierwave
   cloudinary (= 1.1.0)
   coffee-rails
@@ -321,7 +317,6 @@ DEPENDENCIES
   listen (~> 3.0.5)
   omniauth-facebook
   pg
-  postmark-rails (>= 0.10.0)
   pry-byebug
   pry-rails
   public_activity
