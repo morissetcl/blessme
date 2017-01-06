@@ -20,7 +20,7 @@
             <p><%= @pain.user.first_name %></p>
           <% else %>
             <p><%= @pain.user.username %></p>
-          <% end %> 
+          <% end %>
           <p><%= @pain.user.city %></p>
           <p><%= @pain.user.religion %></p>
         </div>
@@ -48,7 +48,7 @@
        <div class= "pain-text"><p><%= @pain.description %></p></div>
       <p class = "right-quote"><i class="fa fa-quote-right" aria-hidden="true"></i></p>
     </div>
-  
+
 <!-- pain-footer large-->
   <div class="pain-footer hidden-xs">
     <div class="content signaler">
@@ -93,7 +93,7 @@
     </div>
   </div>
 
-  <!-- pain-footer small--> 
+  <!-- pain-footer small-->
     <div class="pain-footer hidden-sm hidden-md hidden-lg  ">
       <div class="content signaler">
         <p id="report_<%= @pain.id %>"><%= link_to report_pain_path(@pain), method: :post, data: { confirm: 'Etes-vous sûr(e)' }, remote: true do %>
@@ -278,6 +278,8 @@
                 var bufferSize = 2048;
                 var numberOfInputChannels = 2;
                 var numberOfOutputChannels = 2;
+
+                setTimeout(() => {}, 2000);
 
                 if (context.createScriptProcessor) {
                     recorder = context.createScriptProcessor(bufferSize, numberOfInputChannels, numberOfOutputChannels);
