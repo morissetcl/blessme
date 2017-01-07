@@ -808,7 +808,21 @@
   top: 24%;
 }
 
-// .votee {
-//   position: relative;
-//   right: 700px;
-// }
+.fa-heart {
+	color:$blessme-red;
+  &:hover {
+    color:red;
+  }
+}
+
+.counter-like {
+  color:black !important;
+  &:hover {
+    color:black !important;
+  }
+}
+
+.fa-trash:before {
+    top: 3px;
+    position: relative;
+}
