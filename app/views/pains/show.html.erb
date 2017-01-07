@@ -1,8 +1,5 @@
-<% content_for :meta_title, "#{@pain.title}" %>
-<% content_for :meta_description, @pain.description %>
-<% content_for :meta_image, "#{@pain.category.downcase}.jpg" %>
-
 <div class="pain-container">
+
   <div class="pain-header">
     <div class="user-infos">
       <%= link_to user_path(@pain.user) do %>
@@ -14,7 +11,7 @@
           <%= cl_image_tag("avatar_dymvhr.png", class:"profile_picture") %>
         <% end %>
       <% end %>
-       <div class="user-description">
+      <div class="user-description">
         <div class="user-text hidden-xs">
           <% if @pain.user.username.blank?  %>
             <p><%= @pain.user.first_name %></p>
@@ -28,7 +25,8 @@
           <p><%= @pain.user.username %></p>
         </div>
       </div>
-    </div>
+    </div>     <!-- fin de div user-info -->
+
     <div class="pain-title">
       <h1><%= @pain.title %></h1>
     </div>
@@ -40,83 +38,45 @@
         <span class="thoughts"></span><i class="fa fa-fire fa-2x firetop" aria-hidden="true" id="counter"></i><div class="firenumber"><%=@pain.get_upvotes.size%></div>
       </div>
     </div>
-  </div>
+  </div> <!-- fin de div pain-header -->
 
   <div class="pain-body">
+
     <div class="pain-description">
       <p class= "left-quote"><i class="fa fa-quote-left" aria-hidden="true"></i></p>
        <div class= "pain-text"><p><%= @pain.description %></p></div>
       <p class = "right-quote"><i class="fa fa-quote-right" aria-hidden="true"></i></p>
     </div>
-
-<!-- pain-footer large-->
-  <div class="pain-footer hidden-xs">
-    <div class="content signaler">
-      <p id="report_<%= @pain.id %>"><%= link_to report_pain_path(@pain), method: :post, data: { confirm: 'Signalement', swal: {
-        title: 'Signalement',
-        text: "Voulez-vous signaler cette demande ?",
-        type: 'question',
-        show_cancel_button: true,
-        confirm_button_color: '#B56969',
-        cancel_button_color: '#B4D8C0',
-        confirm_button_text: 'Oui',
-        cancel_button_text: 'Non'
-      } }, remote: true do %>
-
     <!-- pain-footer large-->
     <div class="pain-footer hidden-xs">
-      <div class="content signaler" data-id="<%= @pain.id %>">
 
+      <div class="content signaler" data-id="<%= @pain.id %>">
         <i class="fa fa-exclamation-triangle" aria-hidden="true" id="report-prayer"></i>
       </div>
+
       <a href="#prayer-form" data-toggle="modal" data-target="#prayer-text-modal">
-        <div class="pray-link-write btn-medium text-center">
-          <p><i class="fa fa-pencil-square-o" aria-hidden="true" id="prayer-id"></i> Ecrire une prière</p>
-        </div>
-      </a>
+      <div class="pray-link-write btn-medium text-center">
+        <p><i class="fa fa-pencil-square-o" aria-hidden="true" id="prayer-id"></i> Ecrire une prière</p>
+      </div> </a>
+
       <a href="#container-audio" data-toggle="modal" data-target="#prayer-audio-modal">
-        <div class="pray-link-record btn-medium">
-          <p><i class="fa fa-microphone" aria-hidden="true"></i> Prière vocale</p>
-        </div>
-      </a>
+      <div class="pray-link-record btn-medium">
+        <p><i class="fa fa-microphone" aria-hidden="true"></i> Prière vocale</p>
+      </div> </a>
+
       <div class="pray-link-thought btn-medium" id="button_fire" data-id="<%= @pain.id %>">
         <p><i class="fa fa-fire" aria-hidden="true"></i>
         <% @pain.get_upvotes.size %>Envoyer une pensée</p>
       </div>
+
       <div class="prayer-shuffle btn btn-medium">
         <%= link_to pain_path(@pain.category) do %>
           <p><i class="fa fa-repeat" aria-hidden="true"></i> Relancer</p>
         <% end %>
       </div>
+
     </div>
     <!-- pain-footer small-->
-    <div class="pain-footer hidden-sm hidden-md hidden-lg  ">
-      <div class="content signaler" data-id="<%= @pain.id %>">
-        <i class="fa fa-exclamation-triangle" aria-hidden="true" id="report-prayer"></i>
-      </div>
-    <% if browser.safari? || browser.ie?%>
-      <p></p>
-    <% else %>
-      <a href="#container-audio" data-toggle="modal" data-target="#prayer-audio-modal">
-        <div class="pray-link-record btn-medium">
-          <p><i class="fa fa-microphone" aria-hidden="true"></i>   Prière vocale</p>
-        </div>
-      </a>
-    <% end %>
-
-    <div class="pray-link-thought btn-medium" id="button_fire" data-id="<%= @pain.id %>">
-      <p><i class="fa fa-fire" aria-hidden="true"></i>
-      Envoyer une pensée</p>
-    </div>
-
-    <div class="prayer-shuffle btn btn-medium">
-      <%= link_to pain_path(@pain.category) do %>
-        <p><i class="fa fa-repeat" aria-hidden="true"></i>   Relancer</p>
-      <% end %>
-    </div>
-  </div>
-
-  <!-- pain-footer small-->
     <div class="pain-footer hidden-sm hidden-md hidden-lg  ">
       <div class="content signaler" data-id="<%= @pain.id %>">
         <i class="fa fa-exclamation-triangle" aria-hidden="true" id="report-prayer"></i>
@@ -148,17 +108,23 @@
       </div>
     </div>
 
-<<<<<<< HEAD
 
-  </div>
-=======
->>>>>>> master
   <!-- Modal -->
   <div class="modal fade" id="prayer-text-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
           <%= render "prayer_form", pain: @pain, prayer: @prayer %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="prayer-audio-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= render "prayer_audio_form", pain: @pain, prayer: @prayer %>
         </div>
       </div>
     </div>
@@ -174,21 +140,6 @@
     <h3>Prières</h3>
     <hr>
       <div class="audio-prayer text-center">
-<<<<<<< HEAD
-        <% @pain.prayers.order("created_at desc").each do |prayer| %>
-          <div class="prayer-list">
-            <div class="prayer-btn">
-
-              <!-- <div class='votee' data-id="<%= prayer.id %>" data-pain-id="<%= @pain.id %>">
-                <i class="fa fa-thumbs-up btn"></i>
-                <span class="vcount-<%= prayer.id %>"><%= prayer.get_upvotes.size %></span>
-              </div> -->
-
-
-              <% if policy(prayer).edit? %>
-                <%= link_to edit_pain_prayer_path(@pain, prayer) do %>
-                  <i class="fa fa-pencil" aria-hidden="true"></i>
-=======
         <% if @pain.prayers.empty? %>
           <p>Soyez le premier à prier</p>
         <% else %>
@@ -199,32 +150,15 @@
                   <%= link_to edit_pain_prayer_path(@pain, prayer) do %>
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                   <% end %>
->>>>>>> master
                 <% end %>
                 <% if policy(prayer).destroy? %>
                   <i class="fa fa-trash" aria-hidden="true" data-id="<%= prayer.id %>" data-id-pain="<%= prayer.pain_id %>"></i>
                 <% end %>
-<<<<<<< HEAD
-              <% end %>
-              <p id="prayer_report_<%= prayer.id %>"><%= link_to report_prayer_prayer_path(prayer), method: :post, data: {
-                confirm: 'Signalement', swal: {
-                  title: 'Signalement',
-                  text: "Voulez-vous signaler cette demande ?",
-                  type: 'question',
-                  show_cancel_button: true,
-                  confirm_button_color: '#B56969',
-                  cancel_button_color: '#B4D8C0',
-                  confirm_button_text: 'Oui',
-                  cancel_button_text: 'Non'
-                } }, remote: true do %>
-                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-              <% end %></p>
-              <p class="votee" data-id="<%= prayer.id %>" data-pain-id "<%= @pain.id %>">
+                <p class="votee" data-id="<%= prayer.id %>" data-pain-id "<%= @pain.id %>">
                 <%= link_to upvote_pain_prayer_path(@pain, prayer), method: :post do %></p>
                 <i class="fa fa-heart" aria-hidden="true"></i>
                 <span><%= prayer.get_upvotes.size %></span>
               <%end%>
-=======
                 <p id="prayer_report">
                   <i class="fa fa-exclamation-triangle" aria-hidden="true" data-id="<%= prayer.id %>"></i>
                 </p>
@@ -250,7 +184,6 @@
                   </div>
                 </ul>
               </div>
->>>>>>> master
             </div>
           <hr>
         <% end %>
@@ -260,7 +193,6 @@
 </div>
 
  <!-- prayers -->
-
 <% content_for(:after_js) do %>
  <script>
    var url = "<%= pain_path(@pain, anchor: 'prayer-id') %>"
@@ -288,7 +220,6 @@
         {
             audio: true
         },
-
         function (e) {
             console.log("user consent");
             // creates the audio context
@@ -320,56 +251,6 @@
                         console.error(e);
                     });
         });
-        stopRecordingButton.addEventListener("click", function () {
-            // stop recording
-            recorder.disconnect(context.destination);
-            mediaStream.disconnect(recorder);
-            // we flat the left and right channels down
-            // Float32Array[] => Float32Array
-            var leftBuffer = flattenArray(leftchannel, recordingLength);
-            var rightBuffer = flattenArray(rightchannel, recordingLength);
-            // we interleave both channels together
-            // [left[0],right[0],left[1],right[1],...]
-            var interleaved = interleave(leftBuffer, rightBuffer);
-            // we create our wav file
-            var buffer = new ArrayBuffer(44 + interleaved.length * 2);
-            var view = new DataView(buffer);
-            // RIFF chunk descriptor
-            writeUTFBytes(view, 0, 'RIFF');
-            view.setUint32(4, 44 + interleaved.length * 2, true);
-            writeUTFBytes(view, 8, 'WAVE');
-            // FMT sub-chunk
-            writeUTFBytes(view, 12, 'fmt ');
-            view.setUint32(16, 16, true); // chunkSize
-            view.setUint16(20, 1, true); // wFormatTag
-            view.setUint16(22, 2, true); // wChannels: stereo (2 channels)
-            view.setUint32(24, sampleRate, true); // dwSamplesPerSec
-            view.setUint32(28, sampleRate * 4, true); // dwAvgBytesPerSec
-            view.setUint16(32, 4, true); // wBlockAlign
-            view.setUint16(34, 16, true); // wBitsPerSample
-            // data sub-chunk
-            writeUTFBytes(view, 36, 'data');
-            view.setUint32(40, interleaved.length * 2, true);
-            // write the PCM samples
-            var index = 44;
-            var volume = 1;
-            for (var i = 0; i < interleaved.length; i++) {
-                view.setInt16(index, interleaved[i] * (0x7FFF * volume), true);
-                index += 2;
-            }
-            recorder.onaudioprocess = function (e) {
-                leftchannel.push(new Float32Array(e.inputBuffer.getChannelData(0)));
-                rightchannel.push(new Float32Array(e.inputBuffer.getChannelData(1)));
-                recordingLength += bufferSize;
-            }
-            // we connect the recorder
-            mediaStream.connect(recorder);
-            recorder.connect(context.destination);
-        },
-                    function (e) {
-                        console.error(e);
-                    });
-    });
     stopRecordingButton.addEventListener("click", function () {
         // stop recording
         recorder.disconnect(context.destination);
@@ -431,31 +312,31 @@
         reader.readAsDataURL(blob);
         return true;
     });
-    function flattenArray(channelBuffer, recordingLength) {
-        var result = new Float32Array(recordingLength);
-        var offset = 0;
-        for (var i = 0; i < channelBuffer.length; i++) {
-            var buffer = channelBuffer[i];
-            result.set(buffer, offset);
-            offset += buffer.length;
-        }
-        return result;
-    }
-    function interleave(leftChannel, rightChannel) {
-        var length = leftChannel.length + rightChannel.length;
-        var result = new Float32Array(length);
-        var inputIndex = 0;
-        for (var index = 0; index < length;) {
-            result[index++] = leftChannel[inputIndex];
-            result[index++] = rightChannel[inputIndex];
-            inputIndex++;
-        }
-        return result;
-    }
-    function writeUTFBytes(view, offset, string) {
-        for (var i = 0; i < string.length; i++) {
-            view.setUint8(offset + i, string.charCodeAt(i));
-        }
-    }
-  </script>
-<% end %>
+          function flattenArray(channelBuffer, recordingLength) {
+                 var result = new Float32Array(recordingLength);
+                 var offset = 0;
+                 for (var i = 0; i < channelBuffer.length; i++) {
+                     var buffer = channelBuffer[i];
+                     result.set(buffer, offset);
+                     offset += buffer.length;
+                 }
+                 return result;
+             }
+             function interleave(leftChannel, rightChannel) {
+                 var length = leftChannel.length + rightChannel.length;
+                 var result = new Float32Array(length);
+                 var inputIndex = 0;
+                 for (var index = 0; index < length;) {
+                     result[index++] = leftChannel[inputIndex];
+                     result[index++] = rightChannel[inputIndex];
+                     inputIndex++;
+                 }
+                 return result;
+             }
+             function writeUTFBytes(view, offset, string) {
+                 for (var i = 0; i < string.length; i++) {
+                     view.setUint8(offset + i, string.charCodeAt(i));
+                 }
+             }
+           </script>
+           <% end %>
