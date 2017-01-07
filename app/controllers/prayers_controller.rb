@@ -42,17 +42,40 @@ class PrayersController < ApplicationController
   end
 
 
+  # def upvote
+  #   @pain= Pain.find(params[:pain_id])
+  #   @prayer = @pain.prayers.find(params[:id])
+  #
+  #   if current_user.voted_for? @prayer
+  #     current_user.unvote_for @prayer
+  #   else
+  #     current_user.up_votes @prayer
+  #   end
+  #   redirect_to pain_path(@pain)
+  # end
+
   def upvote
     @pain= Pain.find(params[:pain_id])
     @prayer = @pain.prayers.find(params[:id])
+    @prayer.liked_by current_user
 
-    if current_user.voted_for? @prayer
-      current_user.unvote_for @prayer
-    else
-      current_user.up_votes @prayer
+    respond_to do |format|
+      format.html {redirect_to :back }
+      format.json { render json: { count: @prayer.liked_count } }
     end
-    redirect_to pain_path(@pain)
-   end
+  end
+
+
+
+
+
+ #
+ #  def upvote
+ #  @pin = Pin.friendly.find(params[:id])
+ #  @pin.votes.create(user_id: current_user.id)
+ #  respond_to do |format|
+ #    format.js # no need to pass a variable here
+ # end
 
 
   def upload
