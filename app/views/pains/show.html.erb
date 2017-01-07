@@ -155,11 +155,6 @@
                 <% if policy(prayer).destroy? %>
                   <i class="fa fa-trash" aria-hidden="true" data-id="<%= prayer.id %>" data-id-pain="<%= prayer.pain_id %>"></i>
                 <% end %>
-                <p class="votee" data-id="<%= prayer.id %>" data-pain-id "<%= @pain.id %>">
-                <%= link_to upvote_pain_prayer_path(@pain, prayer), method: :post do %></p>
-                <i class="fa fa-heart" aria-hidden="true"></i>
-                <span><%= prayer.get_upvotes.size %></span>
-              <%end%>
                 <p id="prayer_report">
                   <i class="fa fa-exclamation-triangle" aria-hidden="true" data-id="<%= prayer.id %>"></i>
                 </p>
@@ -176,6 +171,11 @@
                     <% end %></center></li>
                   <% end %>
                   <li><strong><%= prayer.user.username %></strong></li>
+                  <li><p class="votee" data-id="<%= prayer.id %>" data-pain-id "<%= @pain.id %>">
+                    <%= link_to upvote_pain_prayer_path(@pain, prayer), method: :post do %></p>
+                    <i class="fa fa-heart" aria-hidden="true"></i> <%end%> 
+                    <span class="counter-like"><strong><%= prayer.get_upvotes.size %></strong></span>
+                    </li>
                 </ul>
                 <ul class="list-unstyled prayer-text">
                   <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
