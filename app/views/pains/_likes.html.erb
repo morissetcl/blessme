@@ -1,0 +1,6 @@
+<li><p class="votee" data-id="<%= prayer.id %>" data-pain-id "<%= @pain.id %>">
+  <%= link_to pain_prayer_like_path(@pain, prayer), method: :post, remote: true, class: 'like_prayer' do %></p>
+
+  <i class="fa fa-heart" aria-hidden="true"></i> <%end%>
+  <span class="counter-like"><strong><%= prayer.likes.count %></strong></span>
+  </li>

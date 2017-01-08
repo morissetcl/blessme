@@ -171,11 +171,12 @@
                     <% end %></center></li>
                   <% end %>
                   <li><strong><%= prayer.user.username %></strong></li>
-                  <li><p class="votee" data-id="<%= prayer.id %>" data-pain-id "<%= @pain.id %>">
-                    <%= link_to upvote_pain_prayer_path(@pain, prayer), method: :post do %></p>
-                    <i class="fa fa-heart" aria-hidden="true"></i> <%end%>
-                    <span class="counter-like"><strong><%= prayer.get_upvotes.size %></strong></span>
-                    </li>
+
+                  <div id="prayer_<%= prayer.id %>_likes">
+                    <%= render partial: "likes", locals: {prayer: prayer} %>
+                  </div>
+
+
                 </ul>
                 <ul class="list-unstyled prayer-text">
                   <li class= "prayer-title"><h4><%= prayer.title %></h4></li>

@@ -55,6 +55,23 @@ class PrayersController < ApplicationController
    end
 
 
+def upvote
+  @pain= Pain.find(params[:pain_id])
+  @prayer = @pain.prayers.find(params[:id])
+  respond_to do |format|
+   if @prayer.save
+     format.html { redirect_to @prayer, notice: 'User was successfully created.' }
+     format.js   {}
+     format.json { render json: @prayer, status: :created, location: @prayer }
+   else
+     format.html { render action: "upvote" }
+     format.json { render json: @prayer.errors, status: :unprocessable_entity }
+   end
+ end
+
+ end
+
+
   def upload
     audio = params[:audio]
   end

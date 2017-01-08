@@ -11,7 +11,12 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :pains
+  has_many :likes
   has_many :prayers, through: :pains
+
+
+
+
 
   acts_as_voter
 
@@ -40,11 +45,13 @@ class User < ApplicationRecord
     return user
   end
 
+  def likes?(prayer)
+  prayer.likes.where(user_id: id).any?
+  end
+
   private
 
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
   end
 end
-
-
