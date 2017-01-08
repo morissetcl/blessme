@@ -11,6 +11,7 @@ class Prayer < ApplicationRecord
 
   belongs_to :user
   belongs_to :pain
+  has_many :likes
 
   validates :title, presence: true, allows_blank: false
   validates :description, presence: true, allows_blank: false, if: :audio_blank?

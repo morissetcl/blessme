@@ -10,9 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :pains do
     resources :prayers do
-      member do
-      post '/upvote' => 'prayers#upvote'
-      end
+      resource :like, module: :prayers
     end
   	post '/upload' => 'pains#upload', on: :member
   end
