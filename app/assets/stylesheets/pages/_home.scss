@@ -1,5 +1,14 @@
 /* BANNER */
+.signup-link {
+  cursor: pointer;
+  margin-left: 40px;
+  color: $blessme-red;
 
+}
+.form-actions {
+  display: flex;
+  align-items: center;
+}
 .banner {
   width: 100%;
   text-align: center;

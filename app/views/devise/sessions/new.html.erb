@@ -13,6 +13,7 @@
 
         <p><div class="form-actions">
           <%= f.button :submit, "Se connecter", class:"btn btn-primary"%>
+          <%= link_to t(".sign_in", default: "Pas encore inscrit ?"), "", class: "signup-link",  data: { toggle: "modal", target: "#signupModal" } %>
         </div></p>
       <% end %>
 
