@@ -149,7 +149,7 @@
   text-align: center;
   margin-top: 15px;
   margin-right: 15px;
-
+  transition: 0.5s ease;
   p {
     margin: 0;
   }
@@ -162,6 +162,7 @@
   text-align: center;
   margin-top: 15px;
   margin-right: 15px;
+  transition: 0.5s ease;
   p {
     margin: 0;
   }
@@ -175,6 +176,7 @@
   text-align: center;
   margin-top: 15px;
   margin-right: 15px;
+  transition: 0.5s ease;
   p {
     margin: 0;
   }
@@ -188,6 +190,7 @@
   text-align: center;
   margin-top: 15px;
   background-color: #B56969;
+  transition: 0.5s ease;
   p {
     margin: 0;
     color: white;
@@ -215,7 +218,7 @@
 }
 
 
-@media screen and (min-width: 400px) and (max-width: 768px) {
+@media screen and (min-width: 200px) and (max-width: 768px) {
   .pray-link-thought {
   width: 50px;
 }
@@ -236,7 +239,7 @@
   }
 }
 
-@media screen and (min-width: 200px) and (max-width: 449px) {
+@media screen and (min-width: 200px) and (max-width: 400px) {
     .pray-link-write {
   margin-left: 40px;
   }
@@ -792,6 +795,10 @@
   cursor: pointer;
   border-top-right-radius: 15%;
   border-bottom-right-radius: 15%;
+  transition: 0.5s ease;
+}
+.signaler:hover {
+  opacity: 1;
 }
 
 #report-prayer {
@@ -801,6 +808,21 @@
   top: 24%;
 }
 
+.fa-heart {
+	color:$blessme-red;
+  &:hover {
+    color:red;
+  }
+}
 
+.counter-like {
+  color:black !important;
+  &:hover {
+    color:black !important;
+  }
+}
 
-
+.fa-trash:before {
+    top: 3px;
+    position: relative;
+}

@@ -1,9 +1,10 @@
 class PrayersController < ApplicationController
-  before_action :set_prayer, only: [:edit, :update, :destroy]
-  before_action :set_pain, only: [:index, :create, :destroy, :edit, :update]
-  before_action :authenticate_user!
+  before_action :set_prayer, only: [:edit, :update, :destroy, :upvote]
+  before_action :set_pain, only: [:index, :create, :destroy, :edit, :update, :upvote]
 
-  helper_method :current_user
+  before_action :authenticate_user!
+  include Pundit
+ after_action :verify_authorized, except: [:upvote]
 
   def index
     set_pain
@@ -41,6 +42,19 @@ class PrayersController < ApplicationController
   end
 
 
+  def upvote
+    @pain= Pain.find(params[:pain_id])
+    @prayer = @pain.prayers.find(params[:id])
+
+    if current_user.voted_for? @prayer
+      current_user.unvote_for @prayer
+    else
+      current_user.up_votes @prayer
+    end
+    redirect_to pain_path(@pain)
+   end
+
+
   def upload
     audio = params[:audio]
   end
@@ -62,7 +76,6 @@ class PrayersController < ApplicationController
   end
 
   def report_prayer
-    @prayer = Prayer.find(params[:id])
     @prayer.report_prayer = true
     @prayer.save
     authorize @prayer
