@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207135424) do
+ActiveRecord::Schema.define(version: 20170103154453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20161207135424) do
     t.date     "post_date"
     t.integer  "thought_counter", default: 0
     t.boolean  "report",          default: false
+    t.string   "slug"
     t.index ["user_id"], name: "index_pains_on_user_id", using: :btree
   end
 
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 20161207135424) do
     t.datetime "updated_at",                    null: false
     t.string   "audio"
     t.boolean  "report_prayer", default: false
+    t.string   "slug"
     t.index ["pain_id"], name: "index_prayers_on_pain_id", using: :btree
     t.index ["user_id"], name: "index_prayers_on_user_id", using: :btree
   end
@@ -81,8 +83,8 @@ ActiveRecord::Schema.define(version: 20161207135424) do
     t.text     "biography"
     t.string   "language"
     t.string   "gender"
-    t.string   "photo"
     t.boolean  "admin"
+    t.string   "photo"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "provider"
@@ -90,6 +92,7 @@ ActiveRecord::Schema.define(version: 20161207135424) do
     t.string   "facebook_picture_url"
     t.string   "token"
     t.datetime "token_expiry"
+    t.string   "slug"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

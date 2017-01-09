@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:id])
     authorize @user
-    # if 
+    # if
       @user.save
     # else
       render :new
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
 	end
 
 	def set_user
-		@user = User.find(params[:id])
+		@user = User.friendly.find(params[:id])
 	end
 
 end
