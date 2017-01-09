@@ -1,0 +1,6 @@
+<p class="votee" id="likes_<%= prayer.id %>" data-pain-id "<%= @pain.id %>">
+  <%= link_to upvote_pain_prayer_path(@pain, prayer), method: :post do %></p>
+  <i class="fa fa-heart" aria-hidden="true"></i> <%end%>
+<div class='likes' id='likes_<%= prayer.id %>'>
+  <%= display_likes prayer %>
+</div>
