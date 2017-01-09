@@ -1,0 +1,9 @@
+
+
+
+<li><p class="votee" data-id="<%= prayer.id %>" data-pain-id= "<%= @pain.id %>">
+  <%= link_to upvote_pain_prayer_path(@pain, prayer), method: :post, remote: true, id:'prayer.id' do %></p>
+  <i class="fa fa-heart" aria-hidden="true"></i>
+   <%end%>
+  <div id="counter-like"><strong><%= prayer.get_upvotes.size %></strong></div>
+  </li>

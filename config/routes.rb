@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :pains do
     resources :prayers do
       member do
-      post '/upvote' => 'prayers#upvote'
+        match :upvote, via: [:post]
       end
     end
   	post '/upload' => 'pains#upload', on: :member
