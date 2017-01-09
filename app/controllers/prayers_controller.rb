@@ -46,13 +46,16 @@ class PrayersController < ApplicationController
     @pain= Pain.find(params[:pain_id])
     @prayer = @pain.prayers.find(params[:id])
 
-    if current_user.voted_for? @prayer
-      current_user.unvote_for @prayer
-    else
-      current_user.up_votes @prayer
-    end
-    redirect_to pain_path(@pain)
+    if request.post?
+       @prayer.upvote_from current_user
    end
+   respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+   end
+   end
+
+
 
 
   def upload

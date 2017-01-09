@@ -2,7 +2,11 @@
 //
 // $('.likecount-<%= @prayer.id %>').html('<%= j pluralize(@prayer.get_upvotes.size, 'like', 'like\'s' ) %>');
 
+//
+// $('#counter-like').load('/pains/' + pain_id +'/prayers/' + prayer_id +'/upvote #counter-like')
 
-$('.vpos').bind('ajax:success', function() {
- $('.vcount-<%= @prayer.id %>').html('<%=escape_javascript @prayer.get_upvotes.size.to_s %>');
-});
+
+
+
+
+$("<%=j @prayer.id %>").html("<%=j render partial: 'pains/upvote', locals: { prayer: @prayer } %>");
