@@ -45,14 +45,8 @@ class PrayersController < ApplicationController
   def upvote
     @pain= Pain.find(params[:pain_id])
     @prayer = @pain.prayers.find(params[:id])
-
-    if current_user.voted_for? @prayer
-      current_user.unvote_for @prayer
-    else
-      current_user.up_votes @prayer
-    end
-    redirect_to pain_path(@pain)
-   end
+    @prayer.liked_by current_user
+  end
 
 
   def upload
