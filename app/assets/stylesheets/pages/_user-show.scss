@@ -91,7 +91,7 @@
 @media screen and (min-width: 400px) and (max-width: 699px) {
     .count {
       margin-left: 100px;
-    
+
     }
 }
 
@@ -382,5 +382,35 @@ opacity: 0.2;
 .prayer-text a:hover {
   font-weight: bolder;
   color: #A7B3A5;
+}
+
+#user-dropdown {
+  height: 30%;
+  right: 4%;
+  cursor: pointer;
+}
+
+.user-dropdown-menu-right {
+  left: auto;
+  right: -11px;
+}
+
+.dropdown-style {
+  transition: color 0.3s ease;
+  font-weight: lighter !important;
+  color: #999999 !important;
+  font-size: 15px !important;
+  line-height: 22px !important;
+  padding: 10px 20px;
+}
+
+#user-dropdown span {
+  margin-left: 10%;
+}
+
+#user-dropdown li:hover {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
 }
 

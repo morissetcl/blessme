@@ -57,7 +57,7 @@
         <% else %>
         <p></p>
       <% end %>
-        
+
       </div>
 
       <div class="parameter">
@@ -92,87 +92,83 @@
 
 <!-- end table profile-->
 
-<!-- table prayers-->
+<!-- table pain-->
 
+<div class="tab-container">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="tab-content hidden" id="pains">
+      <% if @user.pains.empty? %>
+        <p>Vous n'avez pas encore posté de demande !</p>
+      <% else %>
+        <% @user.pains.order("created_at desc").each do |pain| %>
+          <div class="prayer-profile-wrapper ">
+            <div class="pain-profile text-center">
+              <div id="accordion" role="tablist" aria-multiselectable="true">
+                <!-- <div class="panel panel-default"> -->
+                  <div role="tab" id="headingOne">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#prayer-<%=pain.id %>" aria-expanded="true" aria-controls="prayer-<%=pain.id %>">
+                      <div class="pain-header">
+                        <p class="catpain"><%= pain.category %></p>
 
-  <div class="tab-container">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="tab-content hidden" id="pains">
-        <% if @user.pains.empty? %>
-          <p>Vous n'avez pas encore posté de demande !</p>
-        <% else %>
-          <% @user.pains.order("created_at desc").each do |pain| %>
-            <div class="prayer-profile-wrapper ">
-              <div class="pain-profile text-center">
-                <div id="accordion" role="tablist" aria-multiselectable="true">
-                  <!-- <div class="panel panel-default"> -->
-                    <div role="tab" id="headingOne">
-                      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#prayer-<%=pain.id %>" aria-expanded="true" aria-controls="prayer-<%=pain.id %>">
-                        <div class="pain-header">
-                          <p class="catpain"><%= pain.category %></p>
+                        <p class="middle-title"><%= pain.title %></p>
 
-                          <p class="middle-title"><%= pain.title %></p>
-
-                          <p class="datetime">Il y a <%= (Date.today.strftime("%d/%m/%Y").to_date - pain.created_at.strftime("%d/%m/%Y").to_date).to_i %> j</p>
-                        </div>
-                      </a>
-                    </div>
-                    <div id="prayer-<%=pain.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                      <div class="panel-body">
-                       <div class="prayer-content">
-                         <p>"<%= pain.description unless pain.description.blank? %>"</p>
-                         <div class="quote">
-                           <span class="test"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
-                           </div>
-                       </div>
-                       <div class="pain-prayers-list">
-                         <div class="prayers-card">
-                           <% pain.prayers.order("created_at desc").each do |prayer| %>
-                              <hr>
-                              <div class="prayer-list">
-                                <div class="prayer-btn">
-                                  <p id="prayer_report_<%= prayer.id %>"><%= link_to report_prayer_prayer_path(prayer), method: :post, data: { confirm: 'Signalement', swal: {
-                                      title: 'Signalement',
-                                      text: "Voulez-vous signaler cette demande ?",
-                                      type: 'question',
-                                      show_cancel_button: true,
-                                      confirm_button_color: '#B56969',
-                                      cancel_button_color: '#B4D8C0',
-                                      confirm_button_text: 'Oui',
-                                      cancel_button_text: 'Non'
-                                    } }, remote: true do %>
-                                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                                  <% end %></p>
-                                </div>
-                                <div class="text-prayer">
-                                  <ul class="list-unstyled user-list">
-                                    <li><center><% if prayer.user.facebook_picture_url != nil %>
-                                      <%= image_tag(prayer.user.facebook_picture_url, class:"prayer-profile_picture") %>
-                                    <% elsif prayer.user.photo.url != nil %>
-                                      <%= image_tag(prayer.user.photo, class:"prayer-profile_picture")%>
-                                    <% else %>
-                                      <%= cl_image_tag("avatar_dymvhr.png", class:"prayer-profile_picture") %>
-                                    <% end %></center></li>
-                                    <li><strong><%= prayer.user.username %></strong></li>
-                                  </ul>
-
-                                  <ul class="list-unstyled prayer-text">
-                                    <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
-                                    <div class="prayer-pain-text-user">
-                                      <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
-                                      <li><%= prayer.description unless prayer.description.blank? %></li>
-                                    </div>
-                                  </ul>
-                                </div>
-                              </div>
-
-                           <% end %>
-                         </div>
-                       </div>
-                       <span class="btn btn-medium button-voir"><%= link_to "voir", pain_path(pain)%></span>
+                        <p class="datetime">Il y a <%= (Date.today.strftime("%d/%m/%Y").to_date - pain.created_at.strftime("%d/%m/%Y").to_date).to_i %> j</p>
                       </div>
+                    </a>
+                  </div>
+                  <div id="prayer-<%=pain.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                     <div class="prayer-content">
+                       <p>"<%= pain.description unless pain.description.blank? %>"</p>
+                       <div class="quote">
+                         <span class="test"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
+                         </div>
+                     </div>
+                     <div class="pain-prayers-list">
+                       <div class="prayers-card">
+                         <% pain.prayers.order("created_at desc").each do |prayer| %>
+                            <hr>
+                            <div class="prayer-list">
+                              <div class="prayer-btn">
+                                <p id="prayer_report_<%= prayer.id %>"><%= link_to report_prayer_prayer_path(prayer), method: :post, data: { confirm: 'Signalement', swal: {
+                                    title: 'Signalement',
+                                    text: "Voulez-vous signaler cette demande ?",
+                                    type: 'question',
+                                    show_cancel_button: true,
+                                    confirm_button_color: '#B56969',
+                                    cancel_button_color: '#B4D8C0',
+                                    confirm_button_text: 'Oui',
+                                    cancel_button_text: 'Non'
+                                  } }, remote: true do %>
+                                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                <% end %></p>
+                              </div>
+                              <div class="text-prayer">
+                                <ul class="list-unstyled user-list">
+                                  <li><center><% if prayer.user.facebook_picture_url != nil %>
+                                    <%= image_tag(prayer.user.facebook_picture_url, class:"prayer-profile_picture") %>
+                                  <% elsif prayer.user.photo.url != nil %>
+                                    <%= image_tag(prayer.user.photo, class:"prayer-profile_picture")%>
+                                  <% else %>
+                                    <%= cl_image_tag("avatar_dymvhr.png", class:"prayer-profile_picture") %>
+                                  <% end %></center></li>
+                                  <li><strong><%= prayer.user.username %></strong></li>
+                                </ul>
+                                <ul class="list-unstyled prayer-text">
+                                  <li class= "prayer-title"><h4><%= prayer.title %></h4></li>
+                                  <div class="prayer-pain-text-user">
+                                    <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
+                                    <li><%= prayer.description unless prayer.description.blank? %></li>
+                                  </div>
+                                </ul>
+                              </div>
+                            </div>
+                         <% end %>
+                       </div>
+                     </div>
+                     <span class="btn btn-medium button-voir"><%= link_to "voir", pain_path(pain)%></span>
                     </div>
-                  <!-- </div> -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -183,44 +179,59 @@
    </div>
 </div>
 
+<!-- Tab prayer -->
 
-
-
-
-
-
-
-
-
-    <div class="tab-container">
-      <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="tab-content hidden" id="prayers">
-          <% if @prayer_as_writer.empty? %>
-            <p>Vous n'avez pas encore posté de prière !</p>
-          <% else %>
-            <div class="cards-prayer">
-              <% @prayer_as_writer.order("created_at desc").each do |prayer| %>
-                <div class="prayer-list">
-                  <div class="text-prayer">
-                    <ul class="list-unstyled user-list">
-                      <p class="datetime">Il y a <%= (Date.today.strftime("%d/%m/%Y").to_date - prayer.created_at.strftime("%d/%m/%Y").to_date).to_i %> j</p>
-                    </ul>
-
-                    <ul class="list-unstyled prayer-text">
-                      <li class= "prayer-title middle-title"><h4><%= link_to prayer.title, pain_path(prayer.pain) %></h4></li>
-                      <div class="prayer-user-description">
-                        <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
-                        <li><%= prayer.description unless prayer.description.blank? %></li>
-                      </div>
-                    </ul>
+<div class="tab-container" id="second-tab">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="tab-content hidden" id="prayers">
+      <% if @prayer_as_writer.empty? %>
+        <p>Vous n'avez pas encore posté de prière !</p>
+      <% else %>
+        <div class="cards-prayer">
+          <% @prayer_as_writer.order("created_at desc").each do |prayer| %>
+            <div class="prayer-list">
+              <div class="text-prayer">
+                <div class="list-unstyled user-list">
+                  <p class="datetime">Il y a <%= (Date.today.strftime("%d/%m/%Y").to_date - prayer.created_at.strftime("%d/%m/%Y").to_date).to_i %> j</p>
+                </div>
+                <div class="list-unstyled prayer-text">
+                  <li class= "prayer-title middle-title"><h4><%= link_to prayer.title, pain_path(prayer.pain) %></h4></li>
+                  <div class="prayer-user-description">
+                    <li><%= audio_tag prayer.audio.url, controls: true  unless prayer.audio.blank? %></li>
+                    <li><%= prayer.description unless prayer.description.blank? %></li>
                   </div>
                 </div>
-                <hr>
-              <%end%>
+                <div class="dropdown" id="user-dropdown">
+                  <i class="fa fa-angle-down" aria-hidden="true" data-toggle="dropdown"></i>
+                  <ul class="dropdown-menu user-dropdown-menu-right navbar-blessme-dropdown-menu">
+                    <li>
+                    <% if policy(prayer).edit? %>
+                      <%= link_to edit_pain_prayer_path(prayer.pain_id, prayer) do %>
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <span> Modifier </span>
+                      <% end %>
+                    <% end %>
+                    </li>
+                    <li class="dropdown-style user-show-delete" data-id="<%= prayer.id %>" data-id-pain="<%= prayer.pain_id %>">
+                      <% if policy(prayer).destroy? %>
+                        <i class="fa fa-trash" aria-hidden="true" data-id="<%= prayer.id %>" data-id-pain="<%= prayer.pain_id %>"></i>
+                        <span> Supprimer </span>
+                      <% end %>
+                    </li>
+                    <li class="dropdown-style user-show-report" data-id="<%= prayer.id %>">
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true" ></i>
+                      <span> Signaler </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
+            <hr>
           <%end%>
         </div>
-      </div>
+      <%end%>
     </div>
+  </div>
+</div>
 
 

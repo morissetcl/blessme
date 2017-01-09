@@ -1,5 +1,5 @@
 class PrayersController < ApplicationController
-  before_action :set_prayer, only: [:edit, :update, :destroy, :upvote]
+  before_action :set_prayer, only: [:edit, :update, :destroy, :upvote, :report_prayer]
   before_action :set_pain, only: [:index, :create, :destroy, :edit, :update, :upvote]
 
   before_action :authenticate_user!
