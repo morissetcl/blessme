@@ -1,10 +1,6 @@
 class Prayer < ApplicationRecord
   include PublicActivity::Model
 
-  extend FriendlyId
-
-  friendly_id :title, use: [:slugged, :finders]
-
   #Notifications
   has_many :activities, as: :trackable, class_name: 'PublicActivity::Activity', dependent: :destroy
   tracked owner: Proc.new { |controller, model| controller && controller.current_user }

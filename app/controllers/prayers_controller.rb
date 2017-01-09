@@ -75,7 +75,7 @@ class PrayersController < ApplicationController
   end
 
   def set_pain
-    @pain = Pain.friendly.find(params[:pain_id])
+    @pain = Pain.find(params[:pain_id])
   end
 
   def prayer_params

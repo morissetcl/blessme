@@ -32,10 +32,6 @@ class Pain < ApplicationRecord
 
   ]
 
-  extend FriendlyId
-
-  friendly_id :category, use: [:slugged, :finders]
-
   belongs_to :user
   has_many :prayers, dependent: :destroy
   validates :title, presence: true
