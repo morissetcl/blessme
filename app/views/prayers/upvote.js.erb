@@ -1,0 +1,6 @@
+<%= if current_user.liked? @prayer%>
+  $('.like-btn').addClass('liked');
+  <%else%>
+  $('.like-btn').addClass('like_btn');
+  <%end%>
+  $('.likes-count').html("<%=@prayer.votes_for.count%>");
