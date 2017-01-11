@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   include PublicActivity::Common
-  extend FriendlyId
+  # extend FriendlyId
 
-  friendly_id :username, use: [:slugged, :finders]
+    # friendly_id :username, use: [:slugged, :finders]
 
   validates_uniqueness_of :username
 
@@ -49,5 +49,3 @@ class User < ApplicationRecord
     UserMailer.welcome(self).deliver_now
   end
 end
-
-
