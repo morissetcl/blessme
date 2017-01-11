@@ -105,8 +105,6 @@ GEM
       railties (>= 3.2, < 5.1)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
-    friendly_id (5.2.0)
-      activerecord (>= 4.0.0)
     geocoder (1.4.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -311,7 +309,6 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-sass
-  friendly_id
   geocoder
   gmaps4rails
   jbuilder (~> 2.0)
