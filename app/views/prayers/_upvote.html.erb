@@ -1,0 +1,6 @@
+
+<div id="upvote-prayer_<%= prayer.id%>_<%= prayer.pain.id%>">
+  <%= link_to upvote_pain_prayer_path(@pain, prayer), method: :post, remote: true do %>
+  <i class="fa fa-heart" aria-hidden="true"></i> <%end%>
+<span class="vote_count" ><%= prayer.get_upvotes.size %></span>
+</div>
