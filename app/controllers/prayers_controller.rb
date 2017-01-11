@@ -43,17 +43,23 @@ class PrayersController < ApplicationController
 
 
   def upvote
-    @pain= Pain.find(params[:pain_id])
-    @prayer = @pain.prayers.find(params[:id])
+  @pain= Pain.find(params[:pain_id])
+  @prayer = @pain.prayers.find(params[:id])
 
     if current_user.voted_for? @prayer
       current_user.unvote_for @prayer
+      respond_to do |format|
+        format.html { redirect_to pain_path(@pain) }
+        format.js { }
+      end
     else
       current_user.up_votes @prayer
+      respond_to do |format|
+        format.html { redirect_to pain_path(@pain) }
+        format.js { }
+      end
     end
-    redirect_to pain_path(@pain)
-   end
-
+  end
 
   def upload
     audio = params[:audio]

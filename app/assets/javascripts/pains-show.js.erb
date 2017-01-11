@@ -80,18 +80,19 @@ $(document).ready(function() {
   });
 });
 
-$(document).ready(function() {
-  $(".votee").on("click", function(e){
-    var prayer_id = $(this).data("id");
-    var pain_id = $(this).data("pain-id");
-    var n = $(document).height();
+// $(document).ready(function() {
+//   $(".votee").on("click", function(e){
+//     var prayer_id = $(this).data("id");
+//     var pain_id = $(this).data("pain-id");
+//     var n = $(document).height();
+//
+//     $.ajax({
+//       type: 'POST',
+//       url: '/pains/' + pain_id +'/prayers/' + prayer_id +'/upvote',
+//     });
+//   });
+// });
 
-    $.ajax({
-      type: 'POST',
-      url: '/pains/' + pain_id +'/prayers/' + prayer_id +'/upvote',
-    });
-  });
-});
 // Report prayer
 
 $(document).ready(function() {
