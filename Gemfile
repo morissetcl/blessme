@@ -22,6 +22,7 @@ gem 'autoprefixer-rails'
 gem 'cloudinary', '1.1.0'
 gem 'carrierwave'
 gem 'data_uri'
+
 #gem country_select simple form
 gem 'country_select', '~> 2.5.2'
 
