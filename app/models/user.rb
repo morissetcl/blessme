@@ -1,8 +1,5 @@
 class User < ApplicationRecord
   include PublicActivity::Common
-  # extend FriendlyId
-
-    # friendly_id :username, use: [:slugged, :finders]
 
   validates_uniqueness_of :username
 
