@@ -1,3 +1,6 @@
+
+
+
   <div class="profile-wrapper">
   <div class="profile-container">
     <div class="first-user-info">
@@ -83,7 +86,7 @@
           <p><strong>Sexe:</strong> <%= @user.gender %></p>
         </div>
           <hr>
-          <p><strong>Biographie:</strong> <%= @user.biography %></p>
+          <p><strong>Votre petit mot en plus:</strong> <%= @user.biography %></p>
           <hr>
         </div>
     </div>
@@ -204,11 +207,16 @@
               </div>
             </ul>
           </div>
-          </div>
-          <hr>
-          <%end%>
         </div>
+        <hr>
+        <%end%>
+      </div>
       <%end%>
     </div>
   </div>
+  </div>
 </div>
+
+  <% if @user.city.nil? || @user.city.blank? %>
+    <%= render 'users/reminder' %>
+  <%end%>
