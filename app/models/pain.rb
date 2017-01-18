@@ -1,4 +1,5 @@
 class Pain < ApplicationRecord
+
   CATEGORIES = %w(Famille Actualité Religion Amour Santé Travail Célébration Autre)
   acts_as_votable
 
@@ -31,11 +32,11 @@ class Pain < ApplicationRecord
 
   ]
 
-
   belongs_to :user
   has_many :prayers, dependent: :destroy
   validates :title, presence: true
   # validates_length_of :title, :maximum => 30, :too_long => "pick a shorter title"
   validates :description, presence: true
   validates :category, presence: true, inclusion: { in: CATEGORIES }
+
 end
