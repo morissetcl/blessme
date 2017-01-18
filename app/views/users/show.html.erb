@@ -1,3 +1,6 @@
+
+
+
   <div class="profile-wrapper">
   <div class="profile-container">
     <div class="first-user-info">
@@ -57,7 +60,7 @@
         <% else %>
         <p></p>
       <% end %>
-        
+
       </div>
 
       <div class="parameter">
@@ -83,7 +86,7 @@
           <p><strong>Sexe:</strong> <%= @user.gender %></p>
         </div>
           <hr>
-          <p><strong>Biographie:</strong> <%= @user.biography %></p>
+          <p><strong>Votre petit mot en plus:</strong> <%= @user.biography %></p>
           <hr>
         </div>
     </div>
@@ -185,13 +188,6 @@
 
 
 
-
-
-
-
-
-
-
     <div class="tab-container">
       <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="tab-content hidden" id="prayers">
@@ -223,4 +219,6 @@
       </div>
     </div>
 
-
+  <% if @user.city.nil? || @user.city.blank? %>
+    <%= render 'users/reminder' %>
+  <%end%>
