@@ -158,9 +158,12 @@
             <div class="prayer-list">
               <div class="prayer-btn">
                 <% if policy(prayer).edit? %>
-                  <%= link_to edit_pain_prayer_path(@pain, prayer) do %>
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                  <% end %>
+                  <% if prayer.audio.blank? %>
+                    <%= link_to edit_pain_prayer_path(@pain, prayer) do %>
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    <% end %>
+                  <%else%>
+                  <%end%>
                 <% end %>
                 <% if policy(prayer).destroy? %>
                   <i class="fa fa-trash" aria-hidden="true" data-id="<%= prayer.id %>" data-id-pain="<%= prayer.pain_id %>"></i>
