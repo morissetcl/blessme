@@ -237,6 +237,8 @@
   </div>
 </div>
 
+<% if current_user.email == @user.email %>
   <% if @user.city.nil? || @user.city.blank? %>
     <%= render 'users/reminder' %>
   <%end%>
+<%end%>
