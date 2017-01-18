@@ -209,10 +209,13 @@
                   <ul class="dropdown-menu user-dropdown-menu-right navbar-blessme-dropdown-menu">
                     <li>
                     <% if policy(prayer).edit? %>
+                      <% if prayer.audio.blank? %>
                       <%= link_to edit_pain_prayer_path(prayer.pain_id, prayer) do %>
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                         <span> Modifier </span>
                       <% end %>
+                      <%else%>
+                      <%end%>
                     <% end %>
                     </li>
                     <li class="dropdown-style user-show-delete" data-id="<%= prayer.id %>" data-id-pain="<%= prayer.pain_id %>">
