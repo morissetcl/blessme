@@ -31,6 +31,7 @@ $(document).ready(function() {
    var pain_id = $(this).data("id-pain");
    console.log(id)
    console.log(pain_id)
+   var current_index = $("#tabs").tabs("option","active");
    swal ({
         title: 'Effacer',
         text: 'Voulez-vous supprimer cette prière ?',
