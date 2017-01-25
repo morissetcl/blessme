@@ -19,6 +19,10 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+#blog
+gem 'blogit', '~> 1.0.0.rc1'
+gem "acts-as-taggable-on"
+
 #cloudinary upload photo
 gem 'cloudinary', '1.1.0'
 gem 'carrierwave'

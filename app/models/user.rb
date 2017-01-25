@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include PublicActivity::Common
+  blogs
 
   validates_uniqueness_of :username
 
