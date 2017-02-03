@@ -80,13 +80,17 @@ ol {
 	margin-bottom: 20px !important;
 }
 
+.fb-footer {
+	color:red !important;
+}
+
 .fa-twitter:hover {
 	color:#B56969;
 	font-size: 1.5em;
 
 }
 
-.fa-facebook:hover {
+.fa-facebook-square:hover {
 	color:#B56969;
 }
 
@@ -103,7 +107,7 @@ ol {
 
 }
 
-.fa-facebook {
+.fa-facebook-square {
 	font-size: 1.5em;
 	color: black;
 	&:visited {
