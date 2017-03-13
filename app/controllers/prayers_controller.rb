@@ -34,7 +34,10 @@ class PrayersController < ApplicationController
 
    if @prayer.save
       @prayer.create_activity action: 'poke', recipient: @pain.user, parameters: {reason: 'You have a new prayer'}, :read => false
-      redirect_to pain_path(@pain, anchor: 'prayer-id')
+      respond_to do |format|
+        format.html { redirect_to pain_path(@pain, anchor: 'prayer-id') }
+        format.js { }
+      end
     else
       flash.now[:alert] = "You didn't fill the form correctly"
       render :new
