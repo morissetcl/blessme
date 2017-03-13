@@ -261,7 +261,7 @@
                 leftchannel.push(new Float32Array(e.inputBuffer.getChannelData(0)));
                 rightchannel.push(new Float32Array(e.inputBuffer.getChannelData(1)));
                 recordingLength += bufferSize;
-            }
+          }
             // we connect the recorder
             mediaStream.connect(recorder);
             recorder.connect(context.destination);
@@ -269,6 +269,7 @@
                     function (e) {
                         console.error(e);
                     });
+
         });
     stopRecordingButton.addEventListener("click", function () {
         // stop recording
@@ -357,5 +358,6 @@
                      view.setUint8(offset + i, string.charCodeAt(i));
                  }
              }
+
            </script>
            <% end %>
