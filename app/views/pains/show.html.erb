@@ -309,6 +309,9 @@
         }
         // our final blob
         blob = new Blob([view], { type: 'audio/wav' });
+        Fr.voice.exportMP3(function(blob){
+        console.log(blob);
+      });
     });
     playButton.addEventListener("click", function () {
         if (blob == null) {
