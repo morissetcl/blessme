@@ -22,11 +22,16 @@ class PrayersController < ApplicationController
 
     if !params[:prayer][:audio].nil?
       Dir.mkdir(Rails.root.join('tmp')) if !Dir.exists?(Rails.root.join("tmp"))
-      file_name = "#{SecureRandom::uuid}.wav"
+      file_name = "#{SecureRandom::uuid}.mp3"
+      ConversionWorker.perform_async(file_name)
+      raise
       full_path = Rails.root.join("tmp", file_name)
       File.open(full_path, 'wb') { |file| file.write(URI::Data.new(params[:prayer][:audio]).data) }
       @prayer.audio = File.open(full_path, 'rb')
     end
+
+
+
 
     @prayer.user = current_user
     @prayer.pain = @pain
