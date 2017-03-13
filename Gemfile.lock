@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
   specs:
+    RedCloth (4.3.2)
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)
       nio4r (~> 1.2)
@@ -39,9 +40,13 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (4.0.0)
+      activerecord (>= 4.0)
     acts_as_votable (0.10.0)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
+    albino (1.3.3)
+      posix-spawn (>= 0.3.6)
     arel (7.1.4)
     autoprefixer-rails (6.5.3)
       execjs
@@ -53,6 +58,15 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    blogit (1.0.0.rc1)
+      RedCloth (>= 4.2.9)
+      acts-as-taggable-on
+      albino (>= 1.3.3)
+      jquery-rails
+      kaminari (>= 0.13.0)
+      nokogiri (>= 1.5.0)
+      pingr (>= 0.0.3)
+      redcarpet (>= 2.0.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -172,6 +186,8 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.19.0)
+    pingr (0.0.3)
+    posix-spawn (0.3.13)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -241,6 +257,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    redcarpet (3.4.0)
     redis (3.3.2)
     remotipart (1.3.1)
     responders (2.3.0)
@@ -295,10 +312,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   acts_as_votable (~> 0.10.0)
   autoprefixer-rails
   better_errors
   binding_of_caller
+  blogit (~> 1.0.0.rc1)
   bootstrap-sass
   browser
   carrierwave
